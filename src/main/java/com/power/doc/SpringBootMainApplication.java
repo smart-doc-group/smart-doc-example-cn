@@ -1,6 +1,5 @@
 package com.power.doc;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
@@ -12,7 +11,6 @@ import org.springframework.http.HttpStatus;
  * @author yu on 2018/06/27.
  */
 @SpringBootApplication
-@MapperScan("com.power.doc.dao")
 public class SpringBootMainApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootMainApplication.class, args);

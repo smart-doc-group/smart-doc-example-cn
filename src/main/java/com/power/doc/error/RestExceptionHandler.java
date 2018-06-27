@@ -29,20 +29,20 @@ public class RestExceptionHandler {
     @ExceptionHandler(value = {MethodArgumentNotValidException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public CommonResult illegalParamsExceptionHandler(MethodArgumentNotValidException ex) {
-        return new CommonResult(400, "request params invalid");
+        return new CommonResult("400", "request params invalid");
     }
 
     @ExceptionHandler(value = {MethodArgumentTypeMismatchException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public CommonResult methodArgumentTypeMismatchException(MethodArgumentTypeMismatchException ex){
         String error = String.format("The parameter '%s' should be of type '%s'", ex.getName(), ex.getRequiredType().getSimpleName());
-        return new CommonResult(400, error);
+        return new CommonResult("400", error);
     }
 
     @ExceptionHandler(value = { NoHandlerFoundException.class })
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public CommonResult noHandlerFoundException(Exception ex) {
-        return new CommonResult(404, "Resource Not Found");
+        return new CommonResult("404", "Resource Not Found");
     }
 
     @ExceptionHandler(value ={HttpMediaTypeNotSupportedException.class})
@@ -55,13 +55,13 @@ public class RestExceptionHandler {
         for(MediaType type:typeList){
             builder.append(type + ", ");
         }
-        return new CommonResult(415, builder.toString());
+        return new CommonResult("400", builder.toString());
     }
 
     @ExceptionHandler(value = { Exception.class })
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CommonResult unknownException(Exception ex) {
         LOGGER.error("500错误",ex);
-        return new CommonResult(500, ex.getMessage());
+        return new CommonResult("500", ex.getMessage());
     }
 }

@@ -78,13 +78,18 @@
             <artifactId>disruptor</artifactId>
             <version>3.3.6</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>common-util</artifactId>
+            <version>0.3</version>
+        </dependency>
         <!--https://gitee.com/sunyurepository/ApplicationPower-->
         <dependency>
-           <groupId>com.github.shalousun</groupId>
-           <artifactId>common-util</artifactId>
-           <version>0.2</version>
-         </dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>api-doc</artifactId>
+            <version>0.2</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <build>
