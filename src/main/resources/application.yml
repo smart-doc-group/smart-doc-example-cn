@@ -1,0 +1,7 @@
+#Spring boot application.yml
+server:
+  port: 8080
+  undertow:
+     accesslog:
+      enabled: true
+      dir: ../logs
