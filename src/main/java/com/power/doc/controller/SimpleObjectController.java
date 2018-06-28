@@ -62,7 +62,7 @@ public class SimpleObjectController {
      * Teacher<List<User>, User, Student>
      * @return
      */
-    @PostMapping("/teacher")
+    @PostMapping("/teacher2")
     public Teacher<List<User>, User, Student> testTeacher1(){
         return null;
     }

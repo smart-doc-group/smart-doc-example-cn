@@ -6,32 +6,28 @@ package com.power.doc.enums;
  */
 public enum ErrorCodeEnum {
 
-    NULL_OBJ("0001","对象为空"),
-    ERROR_ADD_USER("0002","添加用户失败"),
+    SUCCESS("0000","success"),
+
+    PARAM_EMPTY("1001","必选参数为空"),
+
     UNKNOWN_ERROR("0999","系统繁忙，请稍后再试....");
 
     private String value;
+
     private String desc;
 
-    private ErrorCodeEnum(String value, String desc) {
-        this.setValue(value);
-        this.setDesc(desc);
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
+    ErrorCodeEnum(String value, String desc) {
         this.value = value;
+        this.desc = desc;
     }
+
+    public String value() {
+        return this.value;
+    }
+
 
     public String getDesc() {
         return desc;
-    }
-
-    public void setDesc(String desc) {
-        this.desc = desc;
     }
 
     @Override

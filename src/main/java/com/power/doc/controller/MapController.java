@@ -58,7 +58,7 @@ public class MapController {
      *
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test1")
     public Map<String, Student> testMapStudent() {
         return null;
     }
@@ -68,7 +68,7 @@ public class MapController {
      *
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test2")
     public Map<String, Teacher<List<User>, User, Student>> testMap3() {
         return null;
     }
@@ -78,7 +78,7 @@ public class MapController {
      *
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test3")
     public TreeMap<String, Teacher<List<User>, User, Student>> testTreeMap() {
         return null;
     }
@@ -88,7 +88,7 @@ public class MapController {
      *
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test4")
     public Map<String, Teacher<Map<String, User>, Map<String, User>, Map<String, User>>> testMap4() {
         return null;
     }

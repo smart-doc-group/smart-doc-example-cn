@@ -45,6 +45,64 @@ public class Student {
      * 用户对象2
      */
     private User user1;
+
+
+    //getters and setters
+    public String getStuName() {
+        return stuName;
+    }
+
+    public void setStuName(String stuName) {
+        this.stuName = stuName;
+    }
+
+    public Boolean getStuAge() {
+        return stuAge;
+    }
+
+    public void setStuAge(Boolean stuAge) {
+        this.stuAge = stuAge;
+    }
+
+    public String getStuAddress() {
+        return stuAddress;
+    }
+
+    public void setStuAddress(String stuAddress) {
+        this.stuAddress = stuAddress;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Map<String, User> getUserMap() {
+        return userMap;
+    }
+
+    public void setUserMap(Map<String, User> userMap) {
+        this.userMap = userMap;
+    }
+
+    public TreeSet<User> getUserTreeSet() {
+        return userTreeSet;
+    }
+
+    public void setUserTreeSet(TreeSet<User> userTreeSet) {
+        this.userTreeSet = userTreeSet;
+    }
+
+    public User getUser1() {
+        return user1;
+    }
+
+    public void setUser1(User user1) {
+        this.user1 = user1;
+    }
 }
 
 

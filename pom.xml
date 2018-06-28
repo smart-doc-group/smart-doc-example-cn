@@ -83,6 +83,11 @@
             <artifactId>common-util</artifactId>
             <version>0.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.47</version>
+        </dependency>
         <!--https://gitee.com/sunyurepository/ApplicationPower-->
         <dependency>
             <groupId>com.github.shalousun</groupId>

@@ -64,7 +64,7 @@ public class ListController {
      * List<Map<M,N<P,k>>>超复杂结构
      * @return
      */
-    @GetMapping(value = "/listMap2")
+    @GetMapping(value = "/listMap3")
     public List<Map<String,Teacher<User,User,User>>> testMap2() {
         return null;
     }
@@ -83,7 +83,7 @@ public class ListController {
      *
      * @return
      */
-    @GetMapping(value = "listString")
+    @GetMapping(value = "listString1")
     public List<Teacher<Teacher<User,User,User>,User,User>> testListString() {
         return null;
     }
@@ -93,7 +93,7 @@ public class ListController {
      * List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>>
      * @return
      */
-    @GetMapping(value = "listString")
+    @GetMapping(value = "listString2")
     public List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>> testList2() {
         return null;
     }
