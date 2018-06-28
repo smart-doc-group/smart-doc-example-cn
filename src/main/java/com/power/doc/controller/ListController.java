@@ -87,4 +87,14 @@ public class ListController {
     public List<Teacher<Teacher<User,User,User>,User,User>> testListString() {
         return null;
     }
+
+
+    /**
+     * List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>>
+     * @return
+     */
+    @GetMapping(value = "listString")
+    public List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>> testList2() {
+        return null;
+    }
 }

@@ -7,10 +7,21 @@ package com.power.doc.model;
  * @author yu 2018/06/12.
  */
 public class Teacher<T,M,K> {
+
+    /**
+     * 
+     * 泛型data
+     */
     private T data;
 
+    /**
+     * 泛型data1
+     */
     private K data1;
 
+    /**
+     * data2
+     */
     private M data2;
 
     /**
