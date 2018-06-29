@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -16,7 +17,7 @@ import org.springframework.web.servlet.NoHandlerFoundException;
 import java.util.List;
 
 /**
- * @see http://www.baeldung.com/global-error-handler-in-a-spring-rest-api
+ *
  */
 @RestControllerAdvice
 public class RestExceptionHandler {
@@ -56,6 +57,13 @@ public class RestExceptionHandler {
             builder.append(type + ", ");
         }
         return new CommonResult("400", builder.toString());
+    }
+
+    @ExceptionHandler(value = {HttpRequestMethodNotSupportedException.class})
+    @ResponseStatus(HttpStatus.METHOD_NOT_ALLOWED)
+    public CommonResult httpRequestMethodNotSupportedException(HttpRequestMethodNotSupportedException ex){
+        LOGGER.error("405错误",ex);
+        return new CommonResult("405", ex.getMessage());
     }
 
     @ExceptionHandler(value = { Exception.class })

@@ -10,19 +10,21 @@ public enum ErrorCodeEnum {
 
     PARAM_EMPTY("1001","必选参数为空"),
 
+    PARAM_ERROR("90001","参数格式错误"),
+
     UNKNOWN_ERROR("0999","系统繁忙，请稍后再试....");
 
-    private String value;
+    private String code;
 
     private String desc;
 
-    ErrorCodeEnum(String value, String desc) {
-        this.value = value;
+    ErrorCodeEnum(String code, String desc) {
+        this.code = code;
         this.desc = desc;
     }
 
-    public String value() {
-        return this.value;
+    public String getCode() {
+        return this.code;
     }
 
 
@@ -32,6 +34,6 @@ public enum ErrorCodeEnum {
 
     @Override
     public String toString() {
-        return "[" + this.value + "]" + this.desc;
+        return "[" + this.code + "]" + this.desc;
     }
 }
