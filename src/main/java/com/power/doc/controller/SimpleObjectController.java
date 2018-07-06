@@ -1,5 +1,6 @@
 package com.power.doc.controller;
 
+import com.power.doc.model.Staff;
 import com.power.doc.model.Student;
 import com.power.doc.model.Teacher;
 import com.power.doc.model.User;
@@ -50,7 +51,7 @@ public class SimpleObjectController {
     }
 
     /**
-     * 超复杂Teacher结构
+     * Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>结构
      * @return
      */
     @PostMapping("/teacher")
@@ -66,4 +67,6 @@ public class SimpleObjectController {
     public Teacher<List<User>, User, Student> testTeacher1(){
         return null;
     }
+
+
 }
