@@ -26,6 +26,4 @@ public class Staff<T> {
     private List<T> data;
 
 
-
-
 }

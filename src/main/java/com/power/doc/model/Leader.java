@@ -4,6 +4,7 @@ import com.power.doc.annotation.ErrorCode;
 import com.power.doc.enums.ErrorCodeEnum;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Pattern;
 
@@ -26,7 +27,7 @@ public class Leader {
      * 生日
      */
     @ErrorCode(ErrorCodeEnum.PARAM_ERROR)
-    @Pattern(regexp="^[0-9]{4}-[0-9]{2}-[0-9]{2}$",message="出生日期格式不正确")
+    @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
     private String birthday;
 
     /**
@@ -34,6 +35,12 @@ public class Leader {
      */
     @Min(value = 0)
     private Integer age;
+
+    /**
+     * 科目
+     */
+    @Valid
+    private Subject subject;
 
     public String getName() {
         return name;
@@ -57,5 +64,17 @@ public class Leader {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Subject getSubject() {
+        return subject;
+    }
+
+    public void setSubject(Subject subject) {
+        this.subject = subject;
     }
 }

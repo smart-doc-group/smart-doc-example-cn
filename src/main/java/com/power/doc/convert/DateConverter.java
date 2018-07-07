@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 
 /**
  * spring 时间自动转换器
- * @author yu on 2018/06/27.
  *
+ * @author yu on 2018/06/27.
  */
 public class DateConverter implements Converter<String, Timestamp> {
 
@@ -33,6 +33,7 @@ public class DateConverter implements Converter<String, Timestamp> {
 
     /**
      * 时间自动转换
+     *
      * @param source
      * @return
      */
@@ -50,7 +51,7 @@ public class DateConverter implements Converter<String, Timestamp> {
         } else if (source.matches("^\\d{4}-\\d{1,2}-\\d{1,2} {1}\\d{1,2}:\\d{1,2}:\\d{1,2}$")) {
             return parseTimestamp(source, FORMARTS.get(3));
         } else {
-            logger.error("输入的日期格式错误，接收的值为：{}",source);
+            logger.error("输入的日期格式错误，接收的值为：{}", source);
             throw new IllegalArgumentException("Invalid boolean value '" + source + "'");
         }
     }
@@ -58,10 +59,8 @@ public class DateConverter implements Converter<String, Timestamp> {
     /**
      * 功能描述：格式化成时间戳
      *
-     * @param date
-     *          String 字符型日期
-     * @param format
-     *          String 时间格式
+     * @param date   String 字符型日期
+     * @param format String 时间格式
      * @return
      */
     public Timestamp parseTimestamp(String date, String format) {

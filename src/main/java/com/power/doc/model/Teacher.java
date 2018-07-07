@@ -6,10 +6,9 @@ package com.power.doc.model;
  *
  * @author yu 2018/06/12.
  */
-public class Teacher<T,M,K> {
+public class Teacher<T, M, K> {
 
     /**
-     * 
      * 泛型data
      */
     private T data;

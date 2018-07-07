@@ -23,21 +23,22 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("validator")
-public class ValidatorTestController extends BaseController{
+public class ValidatorTestController extends BaseController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorTestController.class);
 
     /**
      * validate验证测试
+     *
      * @param leader
      * @param bindingResult
      * @return
      */
     @PostMapping("/test")
-    public CommonResult testSimpleValidate(@Valid @RequestBody Leader leader, BindingResult bindingResult){
-        LOGGER.debug("ReqParams:{}",JSON.toJSONString(leader));
+    public CommonResult testSimpleValidate(@Valid @RequestBody Leader leader, BindingResult bindingResult) {
+        LOGGER.debug("ReqParams:{}", JSON.toJSONString(leader));
         CommonResult result = validParams(bindingResult);
-        if(!result.isSuccess()){
+        if (!result.isSuccess()) {
             return result;
         }
         return ResultUtil.returnSuccess("");

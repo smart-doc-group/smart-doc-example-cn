@@ -17,28 +17,31 @@ public class SimpleObjectController2 {
 
     /**
      * 泛型基础对象
+     *
      * @return
      */
     @PostMapping(value = "/stringCommonResult")
-    public CommonResult<String> stringCommonResult(){
+    public CommonResult<String> stringCommonResult() {
         return null;
     }
 
     /**
      * Staff<Staff<Staff>>
+     *
      * @return
      */
     @PostMapping("/staff")
-    public Staff<Staff<Staff>> testStaff(){
+    public Staff<Staff<Staff>> testStaff() {
         return null;
     }
 
     /**
      * Staff String
+     *
      * @return
      */
     @PostMapping(value = "/staffStr")
-    public Staff<String> testStaffString(){
+    public Staff<String> testStaffString() {
         return null;
     }
 }

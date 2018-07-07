@@ -23,48 +23,53 @@ public class SimpleObjectController {
 
     /**
      * 返回普通String测试
+     *
      * @return
      */
     @PostMapping("/str")
-    public String testString(){
+    public String testString() {
 
         return null;
     }
 
     /**
      * 返回普通javabean
+     *
      * @param user
      * @return
      */
     @PostMapping("/user")
-    public User testUser(@RequestBody User user){
+    public User testUser(@RequestBody User user) {
         return null;
     }
 
     /**
      * 返回Student
+     *
      * @return
      */
     @PostMapping("/stu")
-    public Student testStu(){
+    public Student testStu() {
         return null;
     }
 
     /**
      * Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>结构
+     *
      * @return
      */
     @PostMapping("/teacher")
-    public Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>> testTeacher(){
+    public Teacher<Teacher<User, User, User>, Teacher<User, User, User>, Teacher<User, User, User>> testTeacher() {
         return null;
     }
 
     /**
      * Teacher<List<User>, User, Student>
+     *
      * @return
      */
     @PostMapping("/teacher2")
-    public Teacher<List<User>, User, Student> testTeacher1(){
+    public Teacher<List<User>, User, Student> testTeacher1() {
         return null;
     }
 

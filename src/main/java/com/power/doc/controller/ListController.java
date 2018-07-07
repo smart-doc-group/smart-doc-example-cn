@@ -34,47 +34,52 @@ public class ListController {
 
     /**
      * List<Map<String,String>>结构
+     *
      * @return
      */
     @GetMapping(value = "/listMap")
-    public List<Map<String,String>> testMap() {
+    public List<Map<String, String>> testMap() {
         return null;
     }
 
     /**
      * List<自动义对象>
+     *
      * @return
      */
     @PostMapping(value = "listObject")
-    public List<User> testObject(){
+    public List<User> testObject() {
         return null;
     }
 
     /**
      * List<Map<String,T>>结构
+     *
      * @return
      */
     @GetMapping(value = "/listMap2")
-    public List<Map<String,Student>> testMap1() {
+    public List<Map<String, Student>> testMap1() {
         return null;
     }
 
 
     /**
      * List<Map<M,N<P,k>>>超复杂结构
+     *
      * @return
      */
     @GetMapping(value = "/listMap3")
-    public List<Map<String,Teacher<User,User,User>>> testMap2() {
+    public List<Map<String, Teacher<User, User, User>>> testMap2() {
         return null;
     }
 
     /**
      * List<T<List<M>,List<M>,List<M>>>超复杂结构
+     *
      * @return
      */
     @GetMapping(value = "/listTeacher")
-    public List<Teacher<List<User>,List<User>,List<User>>> testListTeacher(){
+    public List<Teacher<List<User>, List<User>, List<User>>> testListTeacher() {
         return null;
     }
 
@@ -84,17 +89,18 @@ public class ListController {
      * @return
      */
     @GetMapping(value = "listString1")
-    public List<Teacher<Teacher<User,User,User>,User,User>> testListString() {
+    public List<Teacher<Teacher<User, User, User>, User, User>> testListString() {
         return null;
     }
 
 
     /**
      * List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>>
+     *
      * @return
      */
     @GetMapping(value = "listString2")
-    public List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>> testList2() {
+    public List<Teacher<Teacher<User, User, User>, Teacher<User, User, User>, Teacher<User, User, User>>> testList2() {
         return null;
     }
 }
