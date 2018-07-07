@@ -9,10 +9,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 
 /**
- * Description:
- * 基础Controller
+ * BaseController
  *
- * @author yu 2018/06/28.
+ * @author yu on 2018/07/07.
  */
 public abstract class BaseController {
 
@@ -24,7 +23,7 @@ public abstract class BaseController {
      * @param bindingResult
      * @return
      */
-    protected CommonResult validParams(BindingResult bindingResult){
+    protected CommonResult validParams(BindingResult bindingResult) {
         if (bindingResult.hasErrors()){
             FieldError fieldError = bindingResult.getFieldError();
             return processBindingError(fieldError);
@@ -38,7 +37,7 @@ public abstract class BaseController {
      * @param fieldError
      * @return
      */
-    private CommonResult processBindingError(FieldError fieldError){
+    private CommonResult processBindingError(FieldError fieldError) {
         String code = fieldError.getCode();
         LOGGER.debug("validator error code:{}", code);
         switch (code) {
