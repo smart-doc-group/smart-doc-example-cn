@@ -1,7 +1,6 @@
 package com.power.doc.model;
 
-import com.power.doc.annotation.ErrorCode;
-import com.power.doc.enums.ErrorCodeEnum;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
@@ -20,13 +19,12 @@ public class Leader {
      * 姓名
      */
     @NotEmpty
-    @ErrorCode(ErrorCodeEnum.PARAM_EMPTY)
+    @Length(max = 5)
     private String name;
 
     /**
      * 生日
      */
-    @ErrorCode(ErrorCodeEnum.PARAM_ERROR)
     @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
     private String birthday;
 
