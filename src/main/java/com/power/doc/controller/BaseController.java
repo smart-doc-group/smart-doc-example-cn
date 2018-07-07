@@ -24,7 +24,7 @@ public abstract class BaseController {
      * @return
      */
     protected CommonResult validParams(BindingResult bindingResult) {
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             FieldError fieldError = bindingResult.getFieldError();
             return processBindingError(fieldError);
         }
@@ -39,7 +39,7 @@ public abstract class BaseController {
      */
     private CommonResult processBindingError(FieldError fieldError) {
         String code = fieldError.getCode();
-        LOGGER.debug("validator error code:{}", code);
+        LOGGER.debug("validator error code: {}", code);
         switch (code) {
             case "NotEmpty":
                 return ResultUtil.returnError(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
