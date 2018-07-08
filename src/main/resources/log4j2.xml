@@ -29,8 +29,8 @@
         </Root>
         <!--customer log level for this project-->
         <Logger name="com.power.doc" level="DEBUG" additivity="false">
-            <AppenderRef ref="RollingFile" />
-            <AppenderRef ref="Console" />
+            <AppenderRef ref="RollingFile"/>
+            <AppenderRef ref="Console"/>
         </Logger>
     </Loggers>
 </Configuration>

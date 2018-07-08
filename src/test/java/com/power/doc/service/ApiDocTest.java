@@ -1,6 +1,6 @@
 package com.power.doc.service;
 
-import com.power.doc.builer.ApiDocBuilder;
+import com.power.doc.builder.ApiDocBuilder;
 import com.power.doc.model.ApiConfig;
 import com.power.doc.model.ApiReqHeader;
 import com.power.doc.model.CustomRespField;
@@ -16,12 +16,11 @@ public class ApiDocTest {
 
     /**
      * 简单型接口，不需要指定请求头，并且项目是maven的.
-     *
      */
     @Test
-    public void testBuilderControllersApiSimple(){
+    public void testBuilderControllersApiSimple() {
         //将生成的文档输出到d:\md目录下，严格模式下api-doc会检测Controller的接口注释
-        ApiDocBuilder.builderControllersApi("d:\\md",true);
+        ApiDocBuilder.builderControllersApi("d:\\md", true);
 
     }
 
@@ -34,7 +33,7 @@ public class ApiDocTest {
         config.setStrict(true);
         config.setOutPath("d:\\md");
         //默认是src/main/java,maven项目可以不写
-        config.setSourcePath("src/test/java");
+       // config.setSourcePath("src/test/java");
 
         //设置请求头，如果没有请求头，可以不用设置
         config.setRequestHeaders(
