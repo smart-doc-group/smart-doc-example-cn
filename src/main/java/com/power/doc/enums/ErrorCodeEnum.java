@@ -35,6 +35,9 @@ public enum ErrorCodeEnum {
 
     @Override
     public String toString() {
-        return "[" + this.code + "]" + this.desc;
+        return "ErrorCodeEnum{" +
+                "code='" + code + '\'' +
+                ", desc='" + desc + '\'' +
+                '}';
     }
 }
