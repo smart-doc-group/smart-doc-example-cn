@@ -51,7 +51,7 @@ public class SimpleObjectController2 {
      * @return
      */
     @PostMapping(value = "/children")
-    public Children testChildren(){
+    public Children testChildren(Children children){
         return null;
     }
 }
