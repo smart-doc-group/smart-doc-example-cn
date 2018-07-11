@@ -31,16 +31,11 @@ public class ValidatorTestController extends BaseController {
      * validate验证测试
      *
      * @param leader
-     * @param bindingResult
      * @return
      */
     @PostMapping("/test")
-    public CommonResult testSimpleValidate(@Valid @RequestBody Leader leader, BindingResult bindingResult) {
+    public CommonResult testSimpleValidate(@Valid @RequestBody Leader leader) {
         LOGGER.debug("ReqParams:{}", JSON.toJSONString(leader));
-        CommonResult result = validParams(bindingResult);
-        if (!result.isSuccess()) {
-            return result;
-        }
         return ResultUtil.returnSuccess("");
     }
 }

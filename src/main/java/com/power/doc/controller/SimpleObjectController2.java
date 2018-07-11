@@ -4,6 +4,7 @@ import com.power.common.model.CommonResult;
 import com.power.doc.model.Children;
 import com.power.doc.model.Staff;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -48,10 +49,12 @@ public class SimpleObjectController2 {
 
     /**
      * 继承测试
+     * @param children
      * @return
      */
     @PostMapping(value = "/children")
-    public Children testChildren(Children children){
-        return null;
+    public Children testChildren(@RequestBody Children children){
+
+        return children;
     }
 }
