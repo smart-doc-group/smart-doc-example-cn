@@ -11,7 +11,7 @@ public class Parent {
     /**
      * 姓名
      */
-    public String name;
+    private String name;
 
 
     public String getName() {

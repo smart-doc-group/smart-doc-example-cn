@@ -36,6 +36,6 @@ public class ValidatorTestController extends BaseController {
     @PostMapping("/test")
     public CommonResult testSimpleValidate(@Valid @RequestBody Leader leader) {
         LOGGER.debug("ReqParams:{}", JSON.toJSONString(leader));
-        return ResultUtil.returnSuccess("");
+        return ResultUtil.success("");
     }
 }

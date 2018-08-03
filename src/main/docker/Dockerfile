@@ -1,8 +1,10 @@
-FROM java:8
+FROM frolvlad/alpine-oraclejdk8
 
 MAINTAINER shalousun
 EXPOSE 8080
 
+# set timezone
+RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
 #install Spring Boot artifact
 VOLUME /tmp
 ADD api-doc-test.jar app.jar

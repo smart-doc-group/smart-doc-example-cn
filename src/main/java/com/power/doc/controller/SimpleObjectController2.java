@@ -54,7 +54,6 @@ public class SimpleObjectController2 {
      */
     @PostMapping(value = "/children")
     public Children testChildren(@RequestBody Children children){
-
         return children;
     }
 }

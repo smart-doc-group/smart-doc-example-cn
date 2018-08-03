@@ -1,10 +1,13 @@
 package com.power.doc.service;
 
+import com.power.common.util.DateTimeUtil;
 import com.power.doc.builder.ApiDocBuilder;
-import com.power.doc.model.ApiConfig;
-import com.power.doc.model.ApiReqHeader;
-import com.power.doc.model.CustomRespField;
+import com.power.doc.enums.ErrorCodeEnum;
+import com.power.doc.model.*;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Description:
@@ -30,10 +33,16 @@ public class ApiDocTest {
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
+        config.setServerUrl("http://localhost:8080");
         config.setStrict(true);
         config.setOutPath("d:\\md");
-        //默认是src/main/java,maven项目可以不写
-       // config.setSourcePath("src/test/java");
+        //不指定SourcePaths默认加载代码为项目src/main/java下的,如果项目的某一些实体来自外部代码可以一起加载
+        config.setSourcePaths(
+                SourcePath.path().setDesc("本项目代码").setPath("src/main/java")
+
+               //  SourcePath.path().setPath("E:\\Test\\Mybatis-PageHelper-master\\src\\main\\java"),
+               // SourcePath.path().setDesc("加载项目外代码").setPath("E:\\ApplicationPower\\ApplicationPower\\Common-util\\src\\main\\java")
+        );
 
         //设置请求头，如果没有请求头，可以不用设置
         config.setRequestHeaders(
@@ -49,8 +58,20 @@ public class ApiDocTest {
                 CustomRespField.field().setName("code").setValue("00000").setDesc("响应代码")
         );
 
+        //设置项目错误码列表，设置自动生成错误列表,
+        List<ApiErrorCode> errorCodeList = new ArrayList<>();
+        for(ErrorCodeEnum codeEnum: ErrorCodeEnum.values()){
+            ApiErrorCode errorCode = new ApiErrorCode();
+            errorCode.setValue(codeEnum.getCode()).setDesc(codeEnum.getDesc());
+            errorCodeList.add(errorCode);
+        }
+        //如果没需要可以不设置
+        config.setErrorCodes(errorCodeList);
 
+        long start = System.currentTimeMillis();
         ApiDocBuilder.builderControllersApi(config);
+        long end = System.currentTimeMillis();
+        DateTimeUtil.printRunTime(end, start);
     }
 
 }
