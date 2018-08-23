@@ -49,7 +49,7 @@ public class ApiDocTest {
                 ApiReqHeader.header().setName("access_token").setType("string").setDesc("Basic auth credentials"),
                 ApiReqHeader.header().setName("user_uuid").setType("string").setDesc("User Uuid key")
         );
-        //对于外部jar的类，api-doc目前无法自动获取注释，
+        //对于外部jar的类，编译后注释会被擦除，无法获取注释，但是如果量比较多请使用setSourcePaths来加载外部代码
         //如果有这种场景，则自己添加字段和注释，api-doc后期遇到同名字段则直接给相应字段加注释
         config.setCustomResponseFields(
                 CustomRespField.field().setName("success").setDesc("成功返回true,失败返回false"),
