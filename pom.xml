@@ -91,8 +91,8 @@
         <!--https://gitee.com/sunyurepository/ApplicationPower-->
         <dependency>
             <groupId>com.github.shalousun</groupId>
-            <artifactId>api-doc</artifactId>
-            <version>0.5</version>
+            <artifactId>smart-doc</artifactId>
+            <version>1.0</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

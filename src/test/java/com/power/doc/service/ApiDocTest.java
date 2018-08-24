@@ -35,6 +35,7 @@ public class ApiDocTest {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
         config.setStrict(true);
+        config.setAllInOne(true);
         config.setOutPath("d:\\md");
         //不指定SourcePaths默认加载代码为项目src/main/java下的,如果项目的某一些实体来自外部代码可以一起加载
         config.setSourcePaths(

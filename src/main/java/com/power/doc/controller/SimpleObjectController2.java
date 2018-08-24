@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Description:
+ *
  * 简单对象测试2
  *
  * @author yu 2018/06/30.

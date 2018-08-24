@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 /**
- * Description:
+ *
  * 普通java对象api文档测试
  *
  * @author yu 2018/06/27.

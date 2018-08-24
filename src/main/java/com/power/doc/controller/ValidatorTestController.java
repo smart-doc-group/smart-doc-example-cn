@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 /**
- * Description:
+ *
  * 关于Validator使用测试
  *
  * @author yu 2018/06/28.
