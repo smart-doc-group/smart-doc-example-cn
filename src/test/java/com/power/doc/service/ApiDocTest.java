@@ -34,8 +34,8 @@ public class ApiDocTest {
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
-        config.setStrict(true);
-        config.setAllInOne(true);
+        config.setStrict(true);//true会严格要求注释，推荐设置true
+        config.setAllInOne(true);//true会将文档合并导出到一个markdown
         config.setOutPath("d:\\md");
         //不指定SourcePaths默认加载代码为项目src/main/java下的,如果项目的某一些实体来自外部代码可以一起加载
         config.setSourcePaths(
