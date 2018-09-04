@@ -37,6 +37,9 @@ public class ApiDocTest {
         config.setStrict(true);//true会严格要求注释，推荐设置true
         config.setAllInOne(true);//true会将文档合并导出到一个markdown
         config.setOutPath("d:\\md");
+        // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
+        // 如果需要配置有多个controller可以使用逗号隔开
+        config.setPackageFilters("com.power.doc.controller.app");
         //不指定SourcePaths默认加载代码为项目src/main/java下的,如果项目的某一些实体来自外部代码可以一起加载
         config.setSourcePaths(
                 SourcePath.path().setDesc("本项目代码").setPath("src/main/java")
