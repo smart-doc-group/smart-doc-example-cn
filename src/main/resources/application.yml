@@ -2,6 +2,9 @@
 server:
   port: 8080
   undertow:
-     accesslog:
+    accesslog:
       enabled: true
       dir: ../logs
+  error:
+    whitelabel:
+      enabled: false

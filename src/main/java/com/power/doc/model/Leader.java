@@ -1,12 +1,9 @@
 package com.power.doc.model;
 
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import javax.validation.constraints.*;
 
 /**
  * Description:
@@ -26,7 +23,7 @@ public class Leader {
     /**
      * 生日
      */
-    @NotNull(message = "生日不能为空")
+    @NotBlank(message = "生日不能为空")
     @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
     private String birthday;
 
