@@ -37,6 +37,7 @@ public class Leader {
      * 科目
      */
     @Valid
+    @NotNull(message = "")
     private Subject subject;
 
     public String getName() {
