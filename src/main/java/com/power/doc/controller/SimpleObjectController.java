@@ -1,9 +1,6 @@
 package com.power.doc.controller;
 
-import com.power.doc.model.Staff;
-import com.power.doc.model.Student;
-import com.power.doc.model.Teacher;
-import com.power.doc.model.User;
+import com.power.doc.model.*;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -70,6 +67,15 @@ public class SimpleObjectController {
      */
     @PostMapping("/teacher2")
     public Teacher<List<User>, User, Student> testTeacher1() {
+        return null;
+    }
+
+    /**
+     * 测试SubUser
+     * @return
+     */
+    @PostMapping("/subUser")
+    public SubUser testSubUser(){
         return null;
     }
 

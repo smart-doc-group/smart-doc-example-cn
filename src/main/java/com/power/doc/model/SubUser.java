@@ -1,5 +1,7 @@
 package com.power.doc.model;
 
+import java.math.BigInteger;
+
 /**
  * Description:
  * 子用户
@@ -13,6 +15,11 @@ public class SubUser {
      */
     private String subUserName;
 
+    /**
+     * bigInteger
+     */
+    private BigInteger numbers;
+
 
     public String getSubUserName() {
         return subUserName;
@@ -20,5 +27,13 @@ public class SubUser {
 
     public void setSubUserName(String subUserName) {
         this.subUserName = subUserName;
+    }
+
+    public BigInteger getNumbers() {
+        return numbers;
+    }
+
+    public void setNumbers(BigInteger numbers) {
+        this.numbers = numbers;
     }
 }

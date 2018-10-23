@@ -35,7 +35,7 @@ public class ApiDocTest {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
         config.setStrict(true);//true会严格要求注释，推荐设置true
-        config.setAllInOne(true);//true会将文档合并导出到一个markdown
+        //config.setAllInOne(true);//true会将文档合并导出到一个markdown
         config.setOutPath("d:\\md");
         // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
         // 如果需要配置有多个controller可以使用逗号隔开
