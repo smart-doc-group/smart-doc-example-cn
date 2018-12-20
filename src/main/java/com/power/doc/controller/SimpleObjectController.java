@@ -1,10 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.doc.model.*;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,10 +20,10 @@ public class SimpleObjectController {
      *
      * @return
      */
-    @PostMapping("/str")
+    @GetMapping("/str")
     public String testString() {
 
-        return null;
+        return "hello world";
     }
 
     /**
