@@ -59,11 +59,8 @@ public class RestExceptionHandler {
         StringBuilder builder = new StringBuilder();
         builder.append(ex.getContentType());
         builder.append(" media type is not supported. Supported media types are ");
-        List<MediaType> typeList = ex.getSupportedMediaTypes();
-        for (MediaType type : typeList) {
-            builder.append(type + ", ");
-        }
-        return new CommonResult("400", builder.toString());
+        ex.getSupportedMediaTypes().forEach(t->builder.append(t).append(","));
+        return new CommonResult("415", builder.toString());
     }
 
     @ExceptionHandler(value = {HttpRequestMethodNotSupportedException.class})
@@ -93,37 +90,37 @@ public class RestExceptionHandler {
         LOGGER.debug("validator error code: {}", code);
         switch (code) {
             case "NotEmpty":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
             case "NotBlank":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
             case "NotNull":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_EMPTY.getCode(), fieldError.getDefaultMessage());
             case "Pattern":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Min":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Max":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Length":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Range":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Email":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "DecimalMin":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "DecimalMax":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Size":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Digits":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Past":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             case "Future":
-                return ResultUtil.error(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
+                return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             default:
-                return ResultUtil.error(ErrorCodeEnum.UNKNOWN_ERROR);
+                return CommonResult.fail(ErrorCodeEnum.UNKNOWN_ERROR.getCode(),ErrorCodeEnum.UNKNOWN_ERROR.getDesc());
         }
     }
 }

@@ -2,7 +2,9 @@ package com.power.doc.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.power.common.model.CommonResult;
+import com.power.doc.model.BaseReq;
 import com.power.doc.model.Leader;
+import com.power.doc.model.SubUser;
 import com.power.doc.util.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,4 +40,17 @@ public class ValidatorTestController extends BaseController {
         LOGGER.debug("ReqParams:{}", JSON.toJSONString(leader));
         return ResultUtil.success("");
     }
+
+
+    /**
+     * 验证通用参数
+     * @param param
+     * @return
+     */
+    @PostMapping("valid")
+    public CommonResult testValid(@Valid @RequestBody BaseReq<SubUser> param){
+        LOGGER.debug("ReqParams:{}", JSON.toJSONString(param));
+        return CommonResult.ok();
+    }
+
 }

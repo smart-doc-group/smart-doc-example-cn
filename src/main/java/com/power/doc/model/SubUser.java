@@ -1,5 +1,6 @@
 package com.power.doc.model;
 
+import javax.validation.constraints.NotBlank;
 import java.math.BigInteger;
 
 /**
@@ -13,6 +14,7 @@ public class SubUser {
     /**
      * 用户名称
      */
+    @NotBlank(message = "subUserName不能为空")
     private String subUserName;
 
     /**
