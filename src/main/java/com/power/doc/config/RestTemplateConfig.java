@@ -23,15 +23,13 @@ public class RestTemplateConfig {
         SSLContext sslContext = SSLContexts.custom()
                 .loadTrustMaterial(new TrustSelfSignedStrategy()).build();
         CloseableHttpClient httpClient = HttpClients.custom()
-                .setSSLContext(sslContext)
+                .setSSLContext(sslContext)//not necessary
                 .setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE)
                 .build();
 
         HttpComponentsClientHttpRequestFactory requestFactory =
                 new HttpComponentsClientHttpRequestFactory();
-        RestTemplate restTemplate = new RestTemplate(requestFactory);
-        ((HttpComponentsClientHttpRequestFactory) restTemplate
-                .getRequestFactory()).setHttpClient(httpClient);
-        return restTemplate;
+        requestFactory.setHttpClient(httpClient);
+        return new RestTemplate(requestFactory);
     }
 }
