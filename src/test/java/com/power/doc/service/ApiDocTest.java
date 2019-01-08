@@ -72,6 +72,12 @@ public class ApiDocTest {
         //如果没需要可以不设置
         config.setErrorCodes(errorCodeList);
 
+        //非必须只有当setAllInOne设置为true时文档变更记录才生效，https://gitee.com/sunyurepository/ApplicationPower/issues/IPS4O
+        config.setRevisionLogs(
+                RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("测试").setStatus("创建").setVersion("V1.0"),
+                RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("测试2").setStatus("修改").setVersion("V2.0")
+        );
+
         long start = System.currentTimeMillis();
         ApiDocBuilder.builderControllersApi(config);
         long end = System.currentTimeMillis();
