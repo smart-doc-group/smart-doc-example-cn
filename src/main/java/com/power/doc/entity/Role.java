@@ -9,17 +9,20 @@ public class Role extends XbootBaseEntity {
 
     /**
      * 角色名 以ROLE_开头
+     * @since v1.0
      */
     private String name;
 
 
     /**
      * 是否为注册默认角色
+     * @since v1.0
      */
     private Boolean defaultRole;
 
     /**
      * 拥有权限
+     * @since v1.0
      */
     private List<Permission> permissions;
 }

@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.annotation.Resource;
 
 /**
+ * https测试
  * @author yu 2018/12/20.
  */
 @RestController
@@ -16,6 +17,10 @@ public class HttpsController {
     @Resource
     private RestTemplate restTemplate;
 
+    /**
+     * 测试https
+     * @return
+     */
     @GetMapping("testHttps")
     public CommonResult<String> testHttps(){
         String url = "https://www.baidu.com/";
@@ -23,6 +28,10 @@ public class HttpsController {
         return CommonResult.ok().setResult(result);
     }
 
+    /**
+     * 测试http
+     * @return
+     */
     @GetMapping("testHttp")
     public CommonResult<String> testHttp(){
         String url = "http://localhost:8080/simple/str";
