@@ -79,7 +79,7 @@
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>common-util</artifactId>
-            <version>1.8.4</version>
+            <version>1.8.5</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -90,7 +90,7 @@
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>smart-doc</artifactId>
-            <version>1.6.3</version>
+            <version>1.6.4</version>
             <scope>test</scope>
         </dependency>
     </dependencies>

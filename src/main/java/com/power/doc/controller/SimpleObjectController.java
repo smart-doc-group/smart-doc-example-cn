@@ -1,5 +1,6 @@
 package com.power.doc.controller;
 
+import com.power.common.model.CommonResult;
 import com.power.doc.model.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -73,6 +74,15 @@ public class SimpleObjectController {
      */
     @PostMapping("/subUser")
     public SubUser testSubUser(){
+        return null;
+    }
+
+    /**
+     * 通过CommonResult返回SubUser
+     * @return
+     */
+    @PostMapping("/subUser/result")
+    public CommonResult<SubUser> testSubUserResult() {
         return null;
     }
 
