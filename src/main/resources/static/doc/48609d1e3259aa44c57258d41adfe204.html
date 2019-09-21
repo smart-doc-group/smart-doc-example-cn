@@ -1,0 +1,818 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="markdown.css"/>
+    <title>SimpleObjectController</title>
+</head>
+<body>
+<div class="markdown-body">
+    <h1>普通java对象api文档测试</h1>
+<h2>返回普通String测试</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//str</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>no param name</td><td>string</td><td>The interface directly returns the string type value.</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>2n84ng
+</code></pre>
+<h2>返回普通javabean</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//user</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
+<tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
+<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>false</td><td>-</td></tr>
+<tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
+<tr><td>createTime</td><td>number</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
+<tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
+<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>false</td><td>-</td></tr>
+<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
+<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;userName&quot;:&quot;俊驰.梁&quot;,
+	&quot;nickName&quot;:&quot;crysta.braun&quot;,
+	&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+	&quot;userAge&quot;:40,
+	&quot;phone&quot;:&quot;13212921676&quot;,
+	&quot;createTime&quot;:1569079616020,
+	&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+	&quot;telephone&quot;:&quot;13212921676&quot;,
+	&quot;subUser&quot;:{
+		&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+		&quot;numbers&quot;:687
+	}
+}
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;userName&quot;:&quot;俊驰.梁&quot;,
+	&quot;nickName&quot;:&quot;crysta.braun&quot;,
+	&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+	&quot;userAge&quot;:40,
+	&quot;phone&quot;:&quot;13212921676&quot;,
+	&quot;createTime&quot;:1569079616020,
+	&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+	&quot;telephone&quot;:&quot;13212921676&quot;,
+	&quot;subUser&quot;:{
+		&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+		&quot;numbers&quot;:424
+	}
+}
+</code></pre>
+<h2>返回Student</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//stu</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>stuName</td><td>string</td><td>姓名</td><td>-</td></tr>
+<tr><td>stuAge</td><td>boolean</td><td>年龄</td><td>-</td></tr>
+<tr><td>stuAddress</td><td>string</td><td>地址</td><td>-</td></tr>
+<tr><td>user</td><td>object</td><td>用户对象</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>userMap</td><td>map</td><td>map用户信息</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>userTreeSet</td><td>object</td><td>用户列表</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>user1</td><td>object</td><td>用户对象2</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;stuName&quot;:&quot;俊驰.梁&quot;,
+	&quot;stuAge&quot;:true,
+	&quot;stuAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+	&quot;user&quot;:{
+		&quot;userName&quot;:&quot;俊驰.梁&quot;,
+		&quot;nickName&quot;:&quot;crysta.braun&quot;,
+		&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+		&quot;userAge&quot;:40,
+		&quot;phone&quot;:&quot;13212921676&quot;,
+		&quot;createTime&quot;:1569079616020,
+		&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+		&quot;telephone&quot;:&quot;13212921676&quot;,
+		&quot;subUser&quot;:{
+			&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+			&quot;numbers&quot;:365
+		}
+	},
+	&quot;userMap&quot;:{
+		&quot;mapKey&quot;:{
+			
+		}
+	},
+	&quot;userTreeSet&quot;:[
+		{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:160
+			}
+		}
+	],
+	&quot;user1&quot;:{
+		&quot;userName&quot;:&quot;俊驰.梁&quot;,
+		&quot;nickName&quot;:&quot;crysta.braun&quot;,
+		&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+		&quot;userAge&quot;:40,
+		&quot;phone&quot;:&quot;13212921676&quot;,
+		&quot;createTime&quot;:1569079616020,
+		&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+		&quot;telephone&quot;:&quot;13212921676&quot;,
+		&quot;subUser&quot;:{
+			&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+			&quot;numbers&quot;:934
+		}
+	}
+}
+</code></pre>
+<h2>Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//teacher</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─age</td><td>int</td><td>年龄</td><td>-</td></tr>
+<tr><td>data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
+<tr><td>└─data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─age</td><td>int</td><td>年龄</td><td>-</td></tr>
+<tr><td>data2</td><td>object</td><td>data2</td><td>-</td></tr>
+<tr><td>└─data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─age</td><td>int</td><td>年龄</td><td>-</td></tr>
+<tr><td>age</td><td>int</td><td>年龄</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;data&quot;:{
+		&quot;data&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:998
+			}
+		},
+		&quot;data1&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:94
+			}
+		},
+		&quot;data2&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:519
+			}
+		},
+		&quot;age&quot;:40
+	},
+	&quot;data1&quot;:{
+		&quot;data&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:747
+			}
+		},
+		&quot;data1&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:650
+			}
+		},
+		&quot;data2&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:174
+			}
+		},
+		&quot;age&quot;:40
+	},
+	&quot;data2&quot;:{
+		&quot;data&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:750
+			}
+		},
+		&quot;data1&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:840
+			}
+		},
+		&quot;data2&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:900
+			}
+		},
+		&quot;age&quot;:40
+	},
+	&quot;age&quot;:40
+}
+</code></pre>
+<h2>Teacher&lt;List<User>, User, Student&gt;</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//teacher2</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
+<tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>└─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>└─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>└─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>└─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>     └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>     └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>data2</td><td>object</td><td>data2</td><td>-</td></tr>
+<tr><td>└─stuName</td><td>string</td><td>姓名</td><td>-</td></tr>
+<tr><td>└─stuAge</td><td>boolean</td><td>年龄</td><td>-</td></tr>
+<tr><td>└─stuAddress</td><td>string</td><td>地址</td><td>-</td></tr>
+<tr><td>└─user</td><td>object</td><td>用户对象</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─userMap</td><td>map</td><td>map用户信息</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─userTreeSet</td><td>object</td><td>用户列表</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>└─user1</td><td>object</td><td>用户对象2</td><td>-</td></tr>
+<tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>     └─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
+<tr><td>     └─userAge</td><td>int</td><td>用户年龄</td><td>-</td></tr>
+<tr><td>     └─phone</td><td>string</td><td>手机号</td><td>-</td></tr>
+<tr><td>     └─createTime</td><td>number</td><td>创建时间</td><td>-</td></tr>
+<tr><td>     └─ipv6</td><td>string</td><td>ipv6</td><td>-</td></tr>
+<tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
+<tr><td>     └─subUser</td><td>object</td><td>子用户信息</td><td>-</td></tr>
+<tr><td>          └─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>          └─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>age</td><td>int</td><td>年龄</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;data&quot;:[
+		{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:759
+			}
+		}
+	],
+	&quot;data1&quot;:{
+		&quot;userName&quot;:&quot;俊驰.梁&quot;,
+		&quot;nickName&quot;:&quot;crysta.braun&quot;,
+		&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+		&quot;userAge&quot;:40,
+		&quot;phone&quot;:&quot;13212921676&quot;,
+		&quot;createTime&quot;:1569079616020,
+		&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+		&quot;telephone&quot;:&quot;13212921676&quot;,
+		&quot;subUser&quot;:{
+			&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+			&quot;numbers&quot;:732
+		}
+	},
+	&quot;data2&quot;:{
+		&quot;stuName&quot;:&quot;俊驰.梁&quot;,
+		&quot;stuAge&quot;:true,
+		&quot;stuAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+		&quot;user&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:80
+			}
+		},
+		&quot;userMap&quot;:{
+			&quot;mapKey&quot;:{
+				
+			}
+		},
+		&quot;userTreeSet&quot;:[
+			{
+				&quot;userName&quot;:&quot;俊驰.梁&quot;,
+				&quot;nickName&quot;:&quot;crysta.braun&quot;,
+				&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+				&quot;userAge&quot;:40,
+				&quot;phone&quot;:&quot;13212921676&quot;,
+				&quot;createTime&quot;:1569079616020,
+				&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+				&quot;telephone&quot;:&quot;13212921676&quot;,
+				&quot;subUser&quot;:{
+					&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+					&quot;numbers&quot;:797
+				}
+			}
+		],
+		&quot;user1&quot;:{
+			&quot;userName&quot;:&quot;俊驰.梁&quot;,
+			&quot;nickName&quot;:&quot;crysta.braun&quot;,
+			&quot;userAddress&quot;:&quot;Suite 237 雷巷0243号， 荆州， 鲁 757439&quot;,
+			&quot;userAge&quot;:40,
+			&quot;phone&quot;:&quot;13212921676&quot;,
+			&quot;createTime&quot;:1569079616020,
+			&quot;ipv6&quot;:&quot;a096:2db7:2d25:d91e:cb16:a97e:94b4:b0ae&quot;,
+			&quot;telephone&quot;:&quot;13212921676&quot;,
+			&quot;subUser&quot;:{
+				&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+				&quot;numbers&quot;:749
+			}
+		}
+	},
+	&quot;age&quot;:40
+}
+</code></pre>
+<h2>测试SubUser</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//subUser</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+	&quot;numbers&quot;:791
+}
+</code></pre>
+<h2>通过CommonResult返回SubUser</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple//subUser/result</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>No request parameters are required.
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>success</td><td>boolean</td><td>成功返回true,失败返回false</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>接口响应信息</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>-</td></tr>
+<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>-</td></tr>
+<tr><td>code</td><td>string</td><td>响应代码</td><td>-</td></tr>
+<tr><td>timestamp</td><td>string</td><td>No comments found.</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;success&quot;:true,
+	&quot;message&quot;:&quot;success&quot;,
+	&quot;data&quot;:{
+		&quot;subUserName&quot;:&quot;俊驰.梁&quot;,
+		&quot;numbers&quot;:516
+	},
+	&quot;code&quot;:&quot;00000&quot;,
+	&quot;timestamp&quot;:&quot;2019-09-21 23:26:55&quot;
+}
+</code></pre>
+
+    <footer class="page-footer">
+        <span class="copyright">Generated by smart-doc at 2019-09-21 23:27:03</span>
+        <span class="footer-modification">Suggestions, contact, support and error reporting on
+            <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
+            <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
+        </span>
+    </footer>
+</div>
+</body>
+</html>
