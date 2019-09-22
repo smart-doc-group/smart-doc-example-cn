@@ -6,14 +6,14 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css"/>
+    <link rel="stylesheet" href="markdown.css?v=1569170177625"/>
     <title>普通java对象api文档测试</title>
 </head>
 <body>
 <div class="markdown-body">
     <h1>普通java对象api文档测试</h1>
 <h2>返回普通String测试</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//str</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/str</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -27,7 +27,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/str
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -39,10 +39,10 @@
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
-<pre><code>z0c9xj
+<pre><code>i92vjo
 </code></pre>
 <h2>返回普通javabean</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//user</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/user</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -76,17 +76,17 @@
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>{
-	&quot;userName&quot;:&quot;擎宇.龙&quot;,
-	&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-	&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-	&quot;userAge&quot;:23,
-	&quot;phone&quot;:&quot;15750552062&quot;,
-	&quot;createTime&quot;:1569141473727,
-	&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-	&quot;telephone&quot;:&quot;15750552062&quot;,
+	&quot;userName&quot;:&quot;乐驹.郑&quot;,
+	&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+	&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+	&quot;userAge&quot;:16,
+	&quot;phone&quot;:&quot;15063612032&quot;,
+	&quot;createTime&quot;:1569170184126,
+	&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+	&quot;telephone&quot;:&quot;15063612032&quot;,
 	&quot;subUser&quot;:{
-		&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-		&quot;numbers&quot;:652
+		&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+		&quot;numbers&quot;:893
 	}
 }
 </code></pre>
@@ -111,22 +111,22 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;userName&quot;:&quot;擎宇.龙&quot;,
-	&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-	&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-	&quot;userAge&quot;:23,
-	&quot;phone&quot;:&quot;15750552062&quot;,
-	&quot;createTime&quot;:1569141473727,
-	&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-	&quot;telephone&quot;:&quot;15750552062&quot;,
+	&quot;userName&quot;:&quot;乐驹.郑&quot;,
+	&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+	&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+	&quot;userAge&quot;:16,
+	&quot;phone&quot;:&quot;15063612032&quot;,
+	&quot;createTime&quot;:1569170184126,
+	&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+	&quot;telephone&quot;:&quot;15063612032&quot;,
 	&quot;subUser&quot;:{
-		&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-		&quot;numbers&quot;:278
+		&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+		&quot;numbers&quot;:897
 	}
 }
 </code></pre>
 <h2>返回复杂实体数据</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//stu</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/stu</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -140,7 +140,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/stu
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -203,21 +203,21 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;stuName&quot;:&quot;擎宇.龙&quot;,
+	&quot;stuName&quot;:&quot;乐驹.郑&quot;,
 	&quot;stuAge&quot;:true,
-	&quot;stuAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
+	&quot;stuAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
 	&quot;user&quot;:{
-		&quot;userName&quot;:&quot;擎宇.龙&quot;,
-		&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-		&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-		&quot;userAge&quot;:23,
-		&quot;phone&quot;:&quot;15750552062&quot;,
-		&quot;createTime&quot;:1569141473727,
-		&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-		&quot;telephone&quot;:&quot;15750552062&quot;,
+		&quot;userName&quot;:&quot;乐驹.郑&quot;,
+		&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+		&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+		&quot;userAge&quot;:16,
+		&quot;phone&quot;:&quot;15063612032&quot;,
+		&quot;createTime&quot;:1569170184126,
+		&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+		&quot;telephone&quot;:&quot;15063612032&quot;,
 		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-			&quot;numbers&quot;:326
+			&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+			&quot;numbers&quot;:347
 		}
 	},
 	&quot;userMap&quot;:{
@@ -227,38 +227,38 @@
 	},
 	&quot;userTreeSet&quot;:[
 		{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:414
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:75
 			}
 		}
 	],
 	&quot;user1&quot;:{
-		&quot;userName&quot;:&quot;擎宇.龙&quot;,
-		&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-		&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-		&quot;userAge&quot;:23,
-		&quot;phone&quot;:&quot;15750552062&quot;,
-		&quot;createTime&quot;:1569141473727,
-		&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-		&quot;telephone&quot;:&quot;15750552062&quot;,
+		&quot;userName&quot;:&quot;乐驹.郑&quot;,
+		&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+		&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+		&quot;userAge&quot;:16,
+		&quot;phone&quot;:&quot;15063612032&quot;,
+		&quot;createTime&quot;:1569170184126,
+		&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+		&quot;telephone&quot;:&quot;15063612032&quot;,
 		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-			&quot;numbers&quot;:939
+			&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+			&quot;numbers&quot;:732
 		}
 	}
 }
 </code></pre>
 <h2>Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//teacher</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/teacher</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -272,7 +272,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/teacher
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -401,144 +401,144 @@
 <pre><code>{
 	&quot;data&quot;:{
 		&quot;data&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:916
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:383
 			}
 		},
 		&quot;data1&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:229
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:93
 			}
 		},
 		&quot;data2&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:145
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:410
 			}
 		},
-		&quot;age&quot;:23
+		&quot;age&quot;:16
 	},
 	&quot;data1&quot;:{
 		&quot;data&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:31
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:892
 			}
 		},
 		&quot;data1&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:938
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:414
 			}
 		},
 		&quot;data2&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:329
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:80
 			}
 		},
-		&quot;age&quot;:23
+		&quot;age&quot;:16
 	},
 	&quot;data2&quot;:{
 		&quot;data&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:985
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:642
 			}
 		},
 		&quot;data1&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:361
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:98
 			}
 		},
 		&quot;data2&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:385
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:816
 			}
 		},
-		&quot;age&quot;:23
+		&quot;age&quot;:16
 	},
-	&quot;age&quot;:23
+	&quot;age&quot;:16
 }
 </code></pre>
 <h2>Teacher&lt;List&lt;User&gt;, User, Student&gt;</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//teacher2</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/teacher2</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -552,7 +552,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/teacher2
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -643,50 +643,50 @@
 <pre><code>{
 	&quot;data&quot;:[
 		{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:816
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:856
 			}
 		}
 	],
 	&quot;data1&quot;:{
-		&quot;userName&quot;:&quot;擎宇.龙&quot;,
-		&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-		&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-		&quot;userAge&quot;:23,
-		&quot;phone&quot;:&quot;15750552062&quot;,
-		&quot;createTime&quot;:1569141473727,
-		&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-		&quot;telephone&quot;:&quot;15750552062&quot;,
+		&quot;userName&quot;:&quot;乐驹.郑&quot;,
+		&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+		&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+		&quot;userAge&quot;:16,
+		&quot;phone&quot;:&quot;15063612032&quot;,
+		&quot;createTime&quot;:1569170184126,
+		&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+		&quot;telephone&quot;:&quot;15063612032&quot;,
 		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-			&quot;numbers&quot;:860
+			&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+			&quot;numbers&quot;:553
 		}
 	},
 	&quot;data2&quot;:{
-		&quot;stuName&quot;:&quot;擎宇.龙&quot;,
+		&quot;stuName&quot;:&quot;乐驹.郑&quot;,
 		&quot;stuAge&quot;:true,
-		&quot;stuAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
+		&quot;stuAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
 		&quot;user&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:783
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:77
 			}
 		},
 		&quot;userMap&quot;:{
@@ -696,40 +696,40 @@
 		},
 		&quot;userTreeSet&quot;:[
 			{
-				&quot;userName&quot;:&quot;擎宇.龙&quot;,
-				&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-				&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-				&quot;userAge&quot;:23,
-				&quot;phone&quot;:&quot;15750552062&quot;,
-				&quot;createTime&quot;:1569141473727,
-				&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-				&quot;telephone&quot;:&quot;15750552062&quot;,
+				&quot;userName&quot;:&quot;乐驹.郑&quot;,
+				&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+				&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+				&quot;userAge&quot;:16,
+				&quot;phone&quot;:&quot;15063612032&quot;,
+				&quot;createTime&quot;:1569170184126,
+				&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+				&quot;telephone&quot;:&quot;15063612032&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-					&quot;numbers&quot;:829
+					&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+					&quot;numbers&quot;:219
 				}
 			}
 		],
 		&quot;user1&quot;:{
-			&quot;userName&quot;:&quot;擎宇.龙&quot;,
-			&quot;nickName&quot;:&quot;jeramy.zulauf&quot;,
-			&quot;userAddress&quot;:&quot;刘中心717号， 招远， 津 957890&quot;,
-			&quot;userAge&quot;:23,
-			&quot;phone&quot;:&quot;15750552062&quot;,
-			&quot;createTime&quot;:1569141473727,
-			&quot;ipv6&quot;:&quot;4156:c64d:d8aa:f546:904b:a872:6a51:7bb5&quot;,
-			&quot;telephone&quot;:&quot;15750552062&quot;,
+			&quot;userName&quot;:&quot;乐驹.郑&quot;,
+			&quot;nickName&quot;:&quot;nicola.quitzon&quot;,
+			&quot;userAddress&quot;:&quot;苏中心9号， 温州， 黔 258958&quot;,
+			&quot;userAge&quot;:16,
+			&quot;phone&quot;:&quot;15063612032&quot;,
+			&quot;createTime&quot;:1569170184126,
+			&quot;ipv6&quot;:&quot;6960:7531:2d7c:afb7:92a1:0209:e466:a981&quot;,
+			&quot;telephone&quot;:&quot;15063612032&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-				&quot;numbers&quot;:624
+				&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+				&quot;numbers&quot;:214
 			}
 		}
 	},
-	&quot;age&quot;:23
+	&quot;age&quot;:16
 }
 </code></pre>
 <h2>测试SubUser</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//subUser</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/subUser</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -743,7 +743,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/subUser
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -757,12 +757,12 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-	&quot;numbers&quot;:778
+	&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+	&quot;numbers&quot;:360
 }
 </code></pre>
 <h2>返回CommonResult&lt;SubUser&gt;</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/simple//subUser/result</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/simple/subUser/result</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
 <p><strong>Request-headers:</strong></p>
@@ -776,7 +776,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>No request parameters are required.
+<pre><code>http://localhost:8080/simple/subUser/result
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -798,16 +798,16 @@
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
 	&quot;data&quot;:{
-		&quot;subUserName&quot;:&quot;擎宇.龙&quot;,
-		&quot;numbers&quot;:887
+		&quot;subUserName&quot;:&quot;乐驹.郑&quot;,
+		&quot;numbers&quot;:817
 	},
 	&quot;code&quot;:&quot;00000&quot;,
-	&quot;timestamp&quot;:&quot;2019-09-22 16:37:53&quot;
+	&quot;timestamp&quot;:&quot;2019-09-23 00:36:24&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-09-22 16:37:59</span>
+        <span class="copyright">Generated by smart-doc at 2019-09-23 00:36:17</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
