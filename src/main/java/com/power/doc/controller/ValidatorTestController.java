@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 /**
  *
- * 关于Validator使用测试
+ * JSR303参数验证规范测试
  *
  * @author yu 2018/06/28.
  */
@@ -28,7 +28,7 @@ public class ValidatorTestController extends BaseController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorTestController.class);
 
     /**
-     * validate验证测试
+     * 验证validate
      *
      * @param leader
      * @return

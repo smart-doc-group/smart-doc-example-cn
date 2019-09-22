@@ -31,12 +31,12 @@ public class AsyncController {
     private ThreadPoolTaskExecutor executor;
 
     /**
-     * 测试callable
+     * 返回Callable&lt;CommonResult&gt;
      *
      * @return
      */
     @GetMapping(value = "/testCallable")
-    public Callable<CommonResult<String>> testCallable() {
+    public Callable<CommonResult> testCallable() {
         return () -> {
             long sleep = ThreadLocalRandom.current().nextInt(1000);
             LOGGER.info("睡眠时间：{}", sleep);
@@ -46,7 +46,7 @@ public class AsyncController {
     }
 
     /**
-     * 测试deferred响应
+     * 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
      *
      * @return
      */
@@ -70,7 +70,7 @@ public class AsyncController {
     }
 
     /**
-     * WebAsyncTask超时测试
+     * 返回WebAsyncTask&lt;CommonResult&gt;
      *
      * @return
      */
@@ -97,7 +97,7 @@ public class AsyncController {
     }
 
     /**
-     * Future返回测试
+     * 返回Future&lt;CommonResult&lt;String&gt;&gt;
      * @return
      */
     @GetMapping("/future")
@@ -107,7 +107,7 @@ public class AsyncController {
     }
 
     /**
-     * CompletableFuture返回测试
+     * 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
      * @return
      */
     @GetMapping("/completableFuture")

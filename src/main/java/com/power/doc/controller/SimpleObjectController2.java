@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SimpleObjectController2 {
 
     /**
-     * 泛型基础对象
+     * CommonResult&lt;String&gt;
      *
      * @return
      */
@@ -28,7 +28,7 @@ public class SimpleObjectController2 {
     }
 
     /**
-     * Staff<Staff<Staff>>
+     * 返回Staff&lt;Staff&lt;Staff&gt;&gt;
      *
      * @return
      */
@@ -38,7 +38,7 @@ public class SimpleObjectController2 {
     }
 
     /**
-     * Staff String
+     * 返回Staff&lt;String&gt;
      *
      * @return
      */
@@ -48,7 +48,7 @@ public class SimpleObjectController2 {
     }
 
     /**
-     * 继承测试
+     * JAVA继承测试
      * @param children
      * @return
      */

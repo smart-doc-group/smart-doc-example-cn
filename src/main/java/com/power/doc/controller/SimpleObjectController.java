@@ -39,7 +39,7 @@ public class SimpleObjectController {
     }
 
     /**
-     * 返回Student
+     * 返回复杂实体数据
      *
      * @return
      */
@@ -49,7 +49,7 @@ public class SimpleObjectController {
     }
 
     /**
-     * Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>结构
+     * Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
      *
      * @return
      */
@@ -59,7 +59,7 @@ public class SimpleObjectController {
     }
 
     /**
-     * Teacher<List<User>, User, Student>
+     * Teacher&lt;List&lt;User&gt;, User, Student&gt;
      *
      * @return
      */
@@ -78,7 +78,7 @@ public class SimpleObjectController {
     }
 
     /**
-     * 通过CommonResult返回SubUser
+     * 返回CommonResult&lt;SubUser&gt;
      * @return
      */
     @PostMapping("/subUser/result")

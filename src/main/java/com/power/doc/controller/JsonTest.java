@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Fastjson和Jackson注解支持测试
+ * FastJson和Jackson注解支持测试
  * @author yu 2018/7/10.
  */
 @RestController
@@ -25,11 +25,11 @@ public class JsonTest {
     }
 
     /**
-     * fastjson注解支持测试
+     * FastJson注解支持测试
      * @param fastJson
      * @return
      */
-    @RequestMapping(value = "fastjsonTest")
+    @RequestMapping(value = "fastJsonTest")
     public FastJson testFastJson(@RequestBody FastJson fastJson){
         return null;
     }

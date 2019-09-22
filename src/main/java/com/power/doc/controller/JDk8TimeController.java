@@ -6,14 +6,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * 测试JDK8的时间兼容
- * @author yu 2018/12/11.
+ * JDK8的时间测试
+ * @author yu 2019/9/22.
  */
 @RestController
-public class DateEntityController {
-
+public class JDk8TimeController {
     /**
-     * 测试LocalDate
+     * LocalDate和LocalDateTime测试
      * @param dateEntity
      * @return
      */

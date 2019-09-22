@@ -24,7 +24,7 @@ public class MapController {
 
 
     /**
-     * Map<String,Integer>结构
+     * Map&lt;String,Integer&gt;结构
      *
      * @return
      */
@@ -34,7 +34,7 @@ public class MapController {
     }
 
     /**
-     * Map<String,Object>结构
+     * Map&lt;String,Object&gt;结构
      *
      * @return
      */
@@ -44,7 +44,7 @@ public class MapController {
     }
 
     /**
-     * Map<String,User>结构
+     * Map&lt;String,User&gt;结构
      *
      * @return
      */
@@ -54,7 +54,7 @@ public class MapController {
     }
 
     /**
-     * Map<String,Student>结构
+     * Map&lt;String,Student&gt;结构
      *
      * @return
      */
@@ -64,7 +64,7 @@ public class MapController {
     }
 
     /**
-     * Map<String,Teacher<List<User>,User,Student>>超复杂结构
+     * Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
      *
      * @return
      */
@@ -74,7 +74,7 @@ public class MapController {
     }
 
     /**
-     * TreeMap<String,Teacher<List<User>,User,Student>>超复杂结构
+     * TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
      *
      * @return
      */
@@ -84,7 +84,7 @@ public class MapController {
     }
 
     /**
-     * Map<String,Teacher<Map<String,User>,Map<String,User>,Map<String,User>>>超复杂结构
+     * Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
      *
      * @return
      */

@@ -22,7 +22,7 @@ import java.util.Map;
 public class ListController {
 
     /**
-     * List<String>结构
+     * List&lt;String&gt;结构
      *
      * @return
      */
@@ -33,7 +33,7 @@ public class ListController {
 
 
     /**
-     * List<Map<String,String>>结构
+     * List&lt;Map&lt;String,String&gt;&gt;结构
      *
      * @return
      */
@@ -43,7 +43,7 @@ public class ListController {
     }
 
     /**
-     * List<自动义对象>
+     * List&lt;自动义对象&gt;
      *
      * @return
      */
@@ -53,7 +53,7 @@ public class ListController {
     }
 
     /**
-     * List<Map<String,T>>结构
+     * List&lt;Map&lt;String,T&gt;&gt;结构
      *
      * @return
      */
@@ -64,7 +64,7 @@ public class ListController {
 
 
     /**
-     * List<Map<M,N<P,k>>>超复杂结构
+     * List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
      *
      * @return
      */
@@ -74,7 +74,7 @@ public class ListController {
     }
 
     /**
-     * List<T<List<M>,List<M>,List<M>>>超复杂结构
+     * List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
      *
      * @return
      */
@@ -84,7 +84,7 @@ public class ListController {
     }
 
     /**
-     * List<Teacher<Teacher<User,User,User>,User,User>>结构
+     * List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
      *
      * @return
      */
@@ -95,7 +95,7 @@ public class ListController {
 
 
     /**
-     * List<Teacher<Teacher<User,User,User>,Teacher<User,User,User>,Teacher<User,User,User>>>
+     * List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
      *
      * @return
      */
