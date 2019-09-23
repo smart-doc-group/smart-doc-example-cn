@@ -1,0 +1,232 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="markdown.css?v=1569228670519"/>
+    <title>简单对象测试2</title>
+</head>
+<body>
+<div class="markdown-body">
+    <h1>简单对象测试2</h1>
+<h2>CommonResult&lt;String&gt;</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/stringCommonResult</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/stringCommonResult
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>success</td><td>boolean</td><td>成功返回true,失败返回false</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>接口响应信息</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>code</td><td>string</td><td>响应代码</td><td>-</td></tr>
+<tr><td>timestamp</td><td>string</td><td>No comments found.</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;success&quot;:true,
+	&quot;message&quot;:&quot;success&quot;,
+	&quot;data&quot;:&quot;783x0u&quot;,
+	&quot;code&quot;:&quot;00000&quot;,
+	&quot;timestamp&quot;:&quot;2019-09-23 16:51:17&quot;
+}
+</code></pre>
+<h2>返回Staff&lt;Staff&lt;Staff&gt;&gt;</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/staff</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/staff
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>└─name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>└─annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>     └─name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>     └─annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>     └─data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>└─annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>     └─name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>     └─annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>     └─data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>└─data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;name&quot;:&quot;靖琪.潘&quot;,
+	&quot;annyObject&quot;:{
+		&quot;name&quot;:&quot;靖琪.潘&quot;,
+		&quot;annyObject&quot;:{
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;annyObject&quot;:{
+				&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
+			},
+			&quot;data&quot;:[
+				{
+					&quot;$ref&quot;:&quot;..&quot;
+				}
+			]
+		},
+		&quot;data&quot;:[
+			{
+				&quot;$ref&quot;:&quot;..&quot;
+			}
+		]
+	},
+	&quot;data&quot;:[
+		{
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;annyObject&quot;:{
+				&quot;name&quot;:&quot;靖琪.潘&quot;,
+				&quot;annyObject&quot;:{
+					&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
+				},
+				&quot;data&quot;:[
+					{
+						&quot;$ref&quot;:&quot;..&quot;
+					}
+				]
+			},
+			&quot;data&quot;:[
+				{
+					&quot;$ref&quot;:&quot;..&quot;
+				}
+			]
+		}
+	]
+}
+</code></pre>
+<h2>返回Staff&lt;String&gt;</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/staffStr</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/staffStr
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>职工名称</td><td>-</td></tr>
+<tr><td>annyObject</td><td>object</td><td>任何信息对象</td><td>-</td></tr>
+<tr><td>data</td><td>array</td><td>接口响应数据</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;name&quot;:&quot;靖琪.潘&quot;,
+	&quot;annyObject&quot;:&quot;wf0g0x&quot;,
+	&quot;data&quot;:[
+		&quot;gyxdri&quot;
+	]
+}
+</code></pre>
+<h2>JAVA继承测试</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/children</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>姓名</td><td>false</td><td>-</td></tr>
+<tr><td>age</td><td>int</td><td>年龄</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;name&quot;:&quot;靖琪.潘&quot;,
+	&quot;age&quot;:39
+}
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>姓名</td><td>-</td></tr>
+<tr><td>age</td><td>int</td><td>年龄</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;name&quot;:&quot;靖琪.潘&quot;,
+	&quot;age&quot;:39
+}
+</code></pre>
+
+    <footer class="page-footer">
+        <span class="copyright">Generated by smart-doc at 2019-09-23 16:51:10</span>
+        <span class="footer-modification">Suggestions, contact, support and error reporting on
+            <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
+            <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
+        </span>
+    </footer>
+</div>
+</body>
+</html>

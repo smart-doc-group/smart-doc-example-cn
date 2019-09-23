@@ -1,0 +1,455 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="markdown.css?v=1569228670519"/>
+    <title>用户信息操作接口</title>
+</head>
+<body>
+<div class="markdown-body">
+    <h1>用户信息操作接口</h1>
+<h2>添加用户</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/user/add</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;username&quot;:&quot;靖琪.潘&quot;,
+	&quot;password&quot;:&quot;c6ysef&quot;,
+	&quot;nickName&quot;:&quot;lou.runolfsdottir&quot;,
+	&quot;mobile&quot;:&quot;17818270176&quot;
+}
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>-</td></tr>
+<tr><td>email</td><td>string</td><td>邮箱</td><td>-</td></tr>
+<tr><td>address</td><td>string</td><td>地址</td><td>-</td></tr>
+<tr><td>sex</td><td>int</td><td>性别(男1 女 2)</td><td>-</td></tr>
+<tr><td>avatar</td><td>string</td><td>No comments found.</td><td>-</td></tr>
+<tr><td>type</td><td>int</td><td>类型</td><td>-</td></tr>
+<tr><td>status</td><td>int</td><td>状态</td><td>-</td></tr>
+<tr><td>description</td><td>string</td><td>描述</td><td>-</td></tr>
+<tr><td>roles</td><td>array</td><td>用户拥有角色</td><td>-</td></tr>
+<tr><td>└─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>└─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>└─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>└─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>└─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>└─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>└─name</td><td>string</td><td>角色名 以ROLE_开头</td><td>v1.0</td></tr>
+<tr><td>└─defaultRole</td><td>boolean</td><td>是否为注册默认角色</td><td>v1.0</td></tr>
+<tr><td>└─permissions</td><td>array</td><td>拥有权限</td><td>v1.0</td></tr>
+<tr><td>     └─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>     └─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>     └─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>     └─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>     └─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>     └─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>     └─name</td><td>string</td><td>菜单/权限名称</td><td>-</td></tr>
+<tr><td>     └─level</td><td>int</td><td>层级</td><td>-</td></tr>
+<tr><td>     └─type</td><td>int</td><td>类型 0页面 1具体操作</td><td>-</td></tr>
+<tr><td>     └─title</td><td>string</td><td>菜单标题</td><td>-</td></tr>
+<tr><td>     └─path</td><td>string</td><td>页面路径/资源链接url</td><td>-</td></tr>
+<tr><td>     └─component</td><td>string</td><td>前端组件</td><td>-</td></tr>
+<tr><td>     └─icon</td><td>string</td><td>图标</td><td>-</td></tr>
+<tr><td>     └─buttonType</td><td>string</td><td>按钮权限类型</td><td>-</td></tr>
+<tr><td>     └─parentId</td><td>string</td><td>父id</td><td>-</td></tr>
+<tr><td>     └─description</td><td>string</td><td>说明备注</td><td>-</td></tr>
+<tr><td>     └─sortOrder</td><td>number</td><td>排序值</td><td>-</td></tr>
+<tr><td>     └─status</td><td>int</td><td>是否启用 0启用 -1禁用</td><td>-</td></tr>
+<tr><td>     └─children</td><td>array</td><td>子菜单/权限</td><td>-</td></tr>
+<tr><td>     └─permTypes</td><td>array</td><td>页面拥有的权限类型</td><td>-</td></tr>
+<tr><td>     └─expand</td><td>boolean</td><td>节点展开 前端所需</td><td>-</td></tr>
+<tr><td>     └─checked</td><td>boolean</td><td>是否勾选 前端所需</td><td>-</td></tr>
+<tr><td>     └─selected</td><td>boolean</td><td>是否选中 前端所需</td><td>-</td></tr>
+<tr><td>permissions</td><td>array</td><td>用户拥有的权限</td><td>-</td></tr>
+<tr><td>└─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>└─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>└─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>└─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>└─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>└─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>└─name</td><td>string</td><td>菜单/权限名称</td><td>-</td></tr>
+<tr><td>└─level</td><td>int</td><td>层级</td><td>-</td></tr>
+<tr><td>└─type</td><td>int</td><td>类型 0页面 1具体操作</td><td>-</td></tr>
+<tr><td>└─title</td><td>string</td><td>菜单标题</td><td>-</td></tr>
+<tr><td>└─path</td><td>string</td><td>页面路径/资源链接url</td><td>-</td></tr>
+<tr><td>└─component</td><td>string</td><td>前端组件</td><td>-</td></tr>
+<tr><td>└─icon</td><td>string</td><td>图标</td><td>-</td></tr>
+<tr><td>└─buttonType</td><td>string</td><td>按钮权限类型</td><td>-</td></tr>
+<tr><td>└─parentId</td><td>string</td><td>父id</td><td>-</td></tr>
+<tr><td>└─description</td><td>string</td><td>说明备注</td><td>-</td></tr>
+<tr><td>└─sortOrder</td><td>number</td><td>排序值</td><td>-</td></tr>
+<tr><td>└─status</td><td>int</td><td>是否启用 0启用 -1禁用</td><td>-</td></tr>
+<tr><td>└─children</td><td>array</td><td>子菜单/权限</td><td>-</td></tr>
+<tr><td>└─permTypes</td><td>array</td><td>页面拥有的权限类型</td><td>-</td></tr>
+<tr><td>└─expand</td><td>boolean</td><td>节点展开 前端所需</td><td>-</td></tr>
+<tr><td>└─checked</td><td>boolean</td><td>是否勾选 前端所需</td><td>-</td></tr>
+<tr><td>└─selected</td><td>boolean</td><td>是否选中 前端所需</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;id&quot;:&quot;1d2qs4&quot;,
+	&quot;createBy&quot;:&quot;62vq5z&quot;,
+	&quot;createTime&quot;:2019-09-23,
+	&quot;updateBy&quot;:&quot;0gg5uz&quot;,
+	&quot;updateTime&quot;:2019-09-23,
+	&quot;delFlag&quot;:8,
+	&quot;username&quot;:&quot;靖琪.潘&quot;,
+	&quot;password&quot;:&quot;6ono3v&quot;,
+	&quot;nickName&quot;:&quot;lou.runolfsdottir&quot;,
+	&quot;mobile&quot;:&quot;17818270176&quot;,
+	&quot;email&quot;:&quot;浩.赵@gmail.com&quot;,
+	&quot;address&quot;:&quot;姚桥7号， 北海， 辽 024997&quot;,
+	&quot;sex&quot;:1,
+	&quot;avatar&quot;:&quot;recv8h&quot;,
+	&quot;type&quot;:842,
+	&quot;status&quot;:914,
+	&quot;description&quot;:&quot;u56sow&quot;,
+	&quot;roles&quot;:[
+		{
+			&quot;id&quot;:&quot;3zzl42&quot;,
+			&quot;createBy&quot;:&quot;3a538d&quot;,
+			&quot;createTime&quot;:2019-09-23,
+			&quot;updateBy&quot;:&quot;iauvik&quot;,
+			&quot;updateTime&quot;:2019-09-23,
+			&quot;delFlag&quot;:8,
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;defaultRole&quot;:true,
+			&quot;permissions&quot;:[
+				{
+					&quot;id&quot;:&quot;4irtv9&quot;,
+					&quot;createBy&quot;:&quot;5kaymy&quot;,
+					&quot;createTime&quot;:2019-09-23,
+					&quot;updateBy&quot;:&quot;0rrv22&quot;,
+					&quot;updateTime&quot;:2019-09-23,
+					&quot;delFlag&quot;:8,
+					&quot;name&quot;:&quot;靖琪.潘&quot;,
+					&quot;level&quot;:274,
+					&quot;type&quot;:65,
+					&quot;title&quot;:&quot;bg3d2x&quot;,
+					&quot;path&quot;:&quot;ff2bkp&quot;,
+					&quot;component&quot;:&quot;q1k30z&quot;,
+					&quot;icon&quot;:&quot;92sbxa&quot;,
+					&quot;buttonType&quot;:&quot;26j7os&quot;,
+					&quot;parentId&quot;:&quot;4min28&quot;,
+					&quot;description&quot;:&quot;1g2art&quot;,
+					&quot;sortOrder&quot;:390,
+					&quot;status&quot;:510,
+					&quot;children&quot;:[
+						{
+							&quot;$ref&quot;:&quot;..&quot;
+						}
+					],
+					&quot;permTypes&quot;:[
+						&quot;pcsszn&quot;
+					],
+					&quot;expand&quot;:true,
+					&quot;checked&quot;:true,
+					&quot;selected&quot;:true
+				}
+			]
+		}
+	],
+	&quot;permissions&quot;:[
+		{
+			&quot;id&quot;:&quot;o6894r&quot;,
+			&quot;createBy&quot;:&quot;n7ga1t&quot;,
+			&quot;createTime&quot;:2019-09-23,
+			&quot;updateBy&quot;:&quot;g7ut27&quot;,
+			&quot;updateTime&quot;:2019-09-23,
+			&quot;delFlag&quot;:8,
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;level&quot;:322,
+			&quot;type&quot;:152,
+			&quot;title&quot;:&quot;alpsy0&quot;,
+			&quot;path&quot;:&quot;ym6mf1&quot;,
+			&quot;component&quot;:&quot;uh7zb4&quot;,
+			&quot;icon&quot;:&quot;u0kdyv&quot;,
+			&quot;buttonType&quot;:&quot;9ylgju&quot;,
+			&quot;parentId&quot;:&quot;rfobb4&quot;,
+			&quot;description&quot;:&quot;mqvkjb&quot;,
+			&quot;sortOrder&quot;:576,
+			&quot;status&quot;:943,
+			&quot;children&quot;:[
+				{
+					&quot;$ref&quot;:&quot;..&quot;
+				}
+			],
+			&quot;permTypes&quot;:[
+				&quot;f68rlv&quot;
+			],
+			&quot;expand&quot;:true,
+			&quot;checked&quot;:true,
+			&quot;selected&quot;:true
+		}
+	]
+}
+</code></pre>
+<h2>更新用户</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/user/update</code></p>
+<p><strong>Type:</strong> <code>PUT</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;username&quot;:&quot;靖琪.潘&quot;,
+	&quot;password&quot;:&quot;dgxzie&quot;,
+	&quot;nickName&quot;:&quot;lou.runolfsdottir&quot;,
+	&quot;mobile&quot;:&quot;17818270176&quot;
+}
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>-</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>-</td></tr>
+<tr><td>email</td><td>string</td><td>邮箱</td><td>-</td></tr>
+<tr><td>address</td><td>string</td><td>地址</td><td>-</td></tr>
+<tr><td>sex</td><td>int</td><td>性别(男1 女 2)</td><td>-</td></tr>
+<tr><td>avatar</td><td>string</td><td>No comments found.</td><td>-</td></tr>
+<tr><td>type</td><td>int</td><td>类型</td><td>-</td></tr>
+<tr><td>status</td><td>int</td><td>状态</td><td>-</td></tr>
+<tr><td>description</td><td>string</td><td>描述</td><td>-</td></tr>
+<tr><td>roles</td><td>array</td><td>用户拥有角色</td><td>-</td></tr>
+<tr><td>└─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>└─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>└─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>└─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>└─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>└─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>└─name</td><td>string</td><td>角色名 以ROLE_开头</td><td>v1.0</td></tr>
+<tr><td>└─defaultRole</td><td>boolean</td><td>是否为注册默认角色</td><td>v1.0</td></tr>
+<tr><td>└─permissions</td><td>array</td><td>拥有权限</td><td>v1.0</td></tr>
+<tr><td>     └─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>     └─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>     └─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>     └─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>     └─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>     └─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>     └─name</td><td>string</td><td>菜单/权限名称</td><td>-</td></tr>
+<tr><td>     └─level</td><td>int</td><td>层级</td><td>-</td></tr>
+<tr><td>     └─type</td><td>int</td><td>类型 0页面 1具体操作</td><td>-</td></tr>
+<tr><td>     └─title</td><td>string</td><td>菜单标题</td><td>-</td></tr>
+<tr><td>     └─path</td><td>string</td><td>页面路径/资源链接url</td><td>-</td></tr>
+<tr><td>     └─component</td><td>string</td><td>前端组件</td><td>-</td></tr>
+<tr><td>     └─icon</td><td>string</td><td>图标</td><td>-</td></tr>
+<tr><td>     └─buttonType</td><td>string</td><td>按钮权限类型</td><td>-</td></tr>
+<tr><td>     └─parentId</td><td>string</td><td>父id</td><td>-</td></tr>
+<tr><td>     └─description</td><td>string</td><td>说明备注</td><td>-</td></tr>
+<tr><td>     └─sortOrder</td><td>number</td><td>排序值</td><td>-</td></tr>
+<tr><td>     └─status</td><td>int</td><td>是否启用 0启用 -1禁用</td><td>-</td></tr>
+<tr><td>     └─children</td><td>array</td><td>子菜单/权限</td><td>-</td></tr>
+<tr><td>     └─permTypes</td><td>array</td><td>页面拥有的权限类型</td><td>-</td></tr>
+<tr><td>     └─expand</td><td>boolean</td><td>节点展开 前端所需</td><td>-</td></tr>
+<tr><td>     └─checked</td><td>boolean</td><td>是否勾选 前端所需</td><td>-</td></tr>
+<tr><td>     └─selected</td><td>boolean</td><td>是否选中 前端所需</td><td>-</td></tr>
+<tr><td>permissions</td><td>array</td><td>用户拥有的权限</td><td>-</td></tr>
+<tr><td>└─id</td><td>string</td><td>自增编号</td><td>v1.0</td></tr>
+<tr><td>└─createBy</td><td>string</td><td>创建人</td><td>v1.2</td></tr>
+<tr><td>└─createTime</td><td>string</td><td>创建时间</td><td>v1.0</td></tr>
+<tr><td>└─updateBy</td><td>string</td><td>修改人</td><td>v1.1</td></tr>
+<tr><td>└─updateTime</td><td>string</td><td>修改时间</td><td>v1.1</td></tr>
+<tr><td>└─delFlag</td><td>int</td><td>删除标记[1表示已删除，默认值0]</td><td>v1.1</td></tr>
+<tr><td>└─name</td><td>string</td><td>菜单/权限名称</td><td>-</td></tr>
+<tr><td>└─level</td><td>int</td><td>层级</td><td>-</td></tr>
+<tr><td>└─type</td><td>int</td><td>类型 0页面 1具体操作</td><td>-</td></tr>
+<tr><td>└─title</td><td>string</td><td>菜单标题</td><td>-</td></tr>
+<tr><td>└─path</td><td>string</td><td>页面路径/资源链接url</td><td>-</td></tr>
+<tr><td>└─component</td><td>string</td><td>前端组件</td><td>-</td></tr>
+<tr><td>└─icon</td><td>string</td><td>图标</td><td>-</td></tr>
+<tr><td>└─buttonType</td><td>string</td><td>按钮权限类型</td><td>-</td></tr>
+<tr><td>└─parentId</td><td>string</td><td>父id</td><td>-</td></tr>
+<tr><td>└─description</td><td>string</td><td>说明备注</td><td>-</td></tr>
+<tr><td>└─sortOrder</td><td>number</td><td>排序值</td><td>-</td></tr>
+<tr><td>└─status</td><td>int</td><td>是否启用 0启用 -1禁用</td><td>-</td></tr>
+<tr><td>└─children</td><td>array</td><td>子菜单/权限</td><td>-</td></tr>
+<tr><td>└─permTypes</td><td>array</td><td>页面拥有的权限类型</td><td>-</td></tr>
+<tr><td>└─expand</td><td>boolean</td><td>节点展开 前端所需</td><td>-</td></tr>
+<tr><td>└─checked</td><td>boolean</td><td>是否勾选 前端所需</td><td>-</td></tr>
+<tr><td>└─selected</td><td>boolean</td><td>是否选中 前端所需</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>{
+	&quot;id&quot;:&quot;fzv7a2&quot;,
+	&quot;createBy&quot;:&quot;aeb7n9&quot;,
+	&quot;createTime&quot;:2019-09-23,
+	&quot;updateBy&quot;:&quot;sp72ig&quot;,
+	&quot;updateTime&quot;:2019-09-23,
+	&quot;delFlag&quot;:8,
+	&quot;username&quot;:&quot;靖琪.潘&quot;,
+	&quot;password&quot;:&quot;aw7e3i&quot;,
+	&quot;nickName&quot;:&quot;lou.runolfsdottir&quot;,
+	&quot;mobile&quot;:&quot;17818270176&quot;,
+	&quot;email&quot;:&quot;浩.赵@gmail.com&quot;,
+	&quot;address&quot;:&quot;姚桥7号， 北海， 辽 024997&quot;,
+	&quot;sex&quot;:1,
+	&quot;avatar&quot;:&quot;fuib1w&quot;,
+	&quot;type&quot;:312,
+	&quot;status&quot;:849,
+	&quot;description&quot;:&quot;xqam1b&quot;,
+	&quot;roles&quot;:[
+		{
+			&quot;id&quot;:&quot;urwafr&quot;,
+			&quot;createBy&quot;:&quot;p674ox&quot;,
+			&quot;createTime&quot;:2019-09-23,
+			&quot;updateBy&quot;:&quot;4sas0j&quot;,
+			&quot;updateTime&quot;:2019-09-23,
+			&quot;delFlag&quot;:8,
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;defaultRole&quot;:true,
+			&quot;permissions&quot;:[
+				{
+					&quot;id&quot;:&quot;geiqid&quot;,
+					&quot;createBy&quot;:&quot;smsq89&quot;,
+					&quot;createTime&quot;:2019-09-23,
+					&quot;updateBy&quot;:&quot;lvi0i8&quot;,
+					&quot;updateTime&quot;:2019-09-23,
+					&quot;delFlag&quot;:8,
+					&quot;name&quot;:&quot;靖琪.潘&quot;,
+					&quot;level&quot;:638,
+					&quot;type&quot;:452,
+					&quot;title&quot;:&quot;rs55km&quot;,
+					&quot;path&quot;:&quot;vjl844&quot;,
+					&quot;component&quot;:&quot;8rd7b9&quot;,
+					&quot;icon&quot;:&quot;y7flec&quot;,
+					&quot;buttonType&quot;:&quot;61rnmh&quot;,
+					&quot;parentId&quot;:&quot;1fbnse&quot;,
+					&quot;description&quot;:&quot;nn18e7&quot;,
+					&quot;sortOrder&quot;:444,
+					&quot;status&quot;:172,
+					&quot;children&quot;:[
+						{
+							&quot;$ref&quot;:&quot;..&quot;
+						}
+					],
+					&quot;permTypes&quot;:[
+						&quot;hhmwnt&quot;
+					],
+					&quot;expand&quot;:true,
+					&quot;checked&quot;:true,
+					&quot;selected&quot;:true
+				}
+			]
+		}
+	],
+	&quot;permissions&quot;:[
+		{
+			&quot;id&quot;:&quot;ndvp4o&quot;,
+			&quot;createBy&quot;:&quot;1qfg0x&quot;,
+			&quot;createTime&quot;:2019-09-23,
+			&quot;updateBy&quot;:&quot;sw1k4y&quot;,
+			&quot;updateTime&quot;:2019-09-23,
+			&quot;delFlag&quot;:8,
+			&quot;name&quot;:&quot;靖琪.潘&quot;,
+			&quot;level&quot;:947,
+			&quot;type&quot;:346,
+			&quot;title&quot;:&quot;kna4u4&quot;,
+			&quot;path&quot;:&quot;0wfvg4&quot;,
+			&quot;component&quot;:&quot;cg7jq3&quot;,
+			&quot;icon&quot;:&quot;00g9f8&quot;,
+			&quot;buttonType&quot;:&quot;r7dyq6&quot;,
+			&quot;parentId&quot;:&quot;d1xs6g&quot;,
+			&quot;description&quot;:&quot;pos0y6&quot;,
+			&quot;sortOrder&quot;:43,
+			&quot;status&quot;:708,
+			&quot;children&quot;:[
+				{
+					&quot;$ref&quot;:&quot;..&quot;
+				}
+			],
+			&quot;permTypes&quot;:[
+				&quot;ju0onf&quot;
+			],
+			&quot;expand&quot;:true,
+			&quot;checked&quot;:true,
+			&quot;selected&quot;:true
+		}
+	]
+}
+</code></pre>
+
+    <footer class="page-footer">
+        <span class="copyright">Generated by smart-doc at 2019-09-23 16:51:10</span>
+        <span class="footer-modification">Suggestions, contact, support and error reporting on
+            <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
+            <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
+        </span>
+    </footer>
+</div>
+</body>
+</html>
