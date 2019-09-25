@@ -81,10 +81,18 @@
             <artifactId>common-util</artifactId>
             <version>1.8.5</version>
         </dependency>
+        <!--dependency common-util source-->
+        <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>common-util</artifactId>
+            <version>1.8.5</version>
+            <classifier>sources</classifier>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>1.2.60</version>
+            <version>1.2.61</version>
         </dependency>
         <!--https://gitee.com/sunyurepository/ApplicationPower-->
         <dependency>
@@ -93,6 +101,7 @@
             <version>1.6.4</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -100,14 +109,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <dependencies>
-                    <!-- hot deploy in idea-->
-                    <dependency>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>springloaded</artifactId>
-                        <version>1.2.8.RELEASE</version>
-                    </dependency>
-                </dependencies>
             </plugin>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
@@ -147,7 +148,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
+                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
