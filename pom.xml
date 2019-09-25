@@ -21,6 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
+        <util.version>1.8.6</util.version>
     </properties>
     <dependencies>
         <!-- spring boot -->
@@ -79,13 +80,13 @@
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>common-util</artifactId>
-            <version>1.8.5</version>
+            <version>${util.version}</version>
         </dependency>
         <!--dependency common-util source-->
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>common-util</artifactId>
-            <version>1.8.5</version>
+            <version>${util.version}</version>
             <classifier>sources</classifier>
             <scope>test</scope>
         </dependency>
