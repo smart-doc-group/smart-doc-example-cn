@@ -182,12 +182,17 @@
                 </dependencies>
                 <!-- Configure generic document generation settings -->
                 <configuration>
-                    <sourceDirectory>src/docs/asciidoc/</sourceDirectory>
-                    <sourceHighlighter>coderay</sourceHighlighter>
+                    <sourceDirectory>src/docs/asciidoc</sourceDirectory>
+                    <sourceDocumentName>index.adoc</sourceDocumentName>
                     <attributes>
+                        <backend>html5</backend>
+                        <doctype>book</doctype>
                         <toc>left</toc>
-                        <number></number>
-                        <sourcedir>${project.build.sourceDirectory}</sourcedir>
+                        <toclevels>2</toclevels>
+                        <numbered></numbered>
+                        <hardbreaks></hardbreaks>
+                        <sectlinks></sectlinks>
+                        <sectanchors></sectanchors>
                     </attributes>
                 </configuration>
                 <executions>
