@@ -57,8 +57,8 @@ public void testBuilderControllersApi() {
 }
 ```
 Open the file src/main/resources/static/doc/api.html in your browser to see the generated HTML file.
-You can also start the Spring Boot service and then go directly to 
-http://localhost:8080/doc/api.html to view the documentation.
+You can also start the Spring Boot service and then access 
+`http://localhost:8080/doc/api.html` to view the documentation.
 # Generating AsciiDoc documentation
 If you want to generate REST API documentation in AsciiDoc format. 
 You can generate it using the AdocDocBuilder of the Smart-doc tool.
