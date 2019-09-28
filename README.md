@@ -58,7 +58,7 @@ public void testBuilderControllersApi() {
 }
 ```
 Open the file in your output folder by Typora(A Powerful Markdown Editor).
-# Generating HTML documentation
+## Generating HTML documentation
 The Smart-doc tool is capable of generating HTML5 format REST API documentation.
 You can use HtmlApiDocBuilder to generate HTML5 documentation.
 
@@ -119,7 +119,7 @@ public void testBuilderControllersApi() {
 Open the file src/main/resources/static/doc/api.html in your browser to see the generated HTML file.
 You can also start the Spring Boot service and then access 
 `http://localhost:8080/doc/api.html` to view the documentation.
-# Generating AsciiDoc documentation
+## Generating AsciiDoc documentation
 If you want to generate REST API documentation in AsciiDoc format. 
 You can generate it using the AdocDocBuilder of the Smart-doc tool.
 
@@ -178,11 +178,11 @@ public void testBuilderControllersApi() {
     DateTimeUtil.printRunTime(end, start);
 }
 ```
-## AsciiDoc to HTML 
+### AsciiDoc to HTML 
 You could convert AsciiDoc to HTML5 using the Asciidoctor Maven Plugin. The following will demonstrates how to convert AsciiDoc 
 to HTML5 using the Asciidoctor Maven plugin.
 
-### First:
+#### First:
 Custom properties or variables are useful to keep your Maven pom.xml file more easy to read and maintain.
 Therefore, I recommend placing the Asciidoctor Maven Plugin related property variables in the Maven pom.xml file.
 
@@ -195,7 +195,7 @@ Therefore, I recommend placing the Asciidoctor Maven Plugin related property var
     <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
 </properties>
 ```
-### Second
+#### Second
 Add Asciidoctor Maven Plugin in your Maven pom.xml.
 
 ```
@@ -250,7 +250,7 @@ Add Asciidoctor Maven Plugin in your Maven pom.xml.
     </executions>
 </plugin>
 ```
-### Third
+#### Third
 Convert the AsciiDoc to HTML5 by invoking the `process-resources` goal (configured as the default goal):
 ```
 $ mvn process-resources
