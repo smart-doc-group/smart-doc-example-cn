@@ -77,17 +77,6 @@ Add Asciidoctor Maven Plugin in your Maven pom.xml.
                 <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
             </configuration>
         </execution>
-        <execution>
-            <id>output-pdf</id>
-            <phase>process-resources</phase>
-            <goals>
-                <goal>process-asciidoc</goal>
-            </goals>
-            <configuration>
-                <backend>pdf</backend>
-                <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
-            </configuration>
-        </execution>
     </executions>
 </plugin>
 ```
