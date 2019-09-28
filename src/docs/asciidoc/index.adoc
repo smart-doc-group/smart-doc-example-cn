@@ -1,12 +1,31 @@
-= 用户信息查询
 
-== 根据用户编号获取用户信息
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Version |  Update Time  | Status | Author |  Description
+|V1.0|2018/12/15|创建|chen|测试
+|V2.0|2018/12/16|修改|chen2|测试2
+|====================
 
-*URL:* `http://localhost:8080/benchmark/user/{id}`
 
-*Type:* `GET`
+== app端接口测试
+=== app测试
+*URL:* http://localhost:8080/app/test
 
-*Content-Type:* `application/x-www-form-urlencoded`
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
 
 *Request-parameters:*
 
@@ -14,36 +33,3306 @@
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
-|id|string|用户id|true|-
-|id|string|用户id|false|-
-|id|string|用户id|true|-
-|id|string|用户id|false|-
+|name|string|姓名|true|-
 |====================
 
 *Request-example:*
-
 ----
-http://localhost:8080/benchmark/user/agmiub
+http://localhost:8080/app/test?name=嘉熙.许
 ----
-
 *Response-fields:*
 
 [width="100%",options="header,footer"]
 [stripes=even]
 |====================
-|Parameter | Type|Description|Required|Since
-|id|string|用户id|true|-
-|id|string|用户id|false|-
-|id|string|用户id|true|-
-|id|string|用户id|false|-
+|Field | Type|Description|Since
+|no param name|string|The api directly returns the string type value.|-
 |====================
 
+*Response-example:*
+----
+s4bxit
+----
+
+== 异步返回信息测试
+=== 返回Callable&lt;CommonResult&gt;
+*URL:* http://localhost:8080/testCallable
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/testCallable
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
 
 *Response-example:*
 ----
 {
-	"uid":"e85bd8aa-777a-4809-85f0-02acf2000dcf",
-	"name":"正豪.沈",
-	"address":"曾侬357号， 上海， 甘 555265"
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
 }
 ----
+
+=== 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
+*URL:* http://localhost:8080/async-deferredresult
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/async-deferredresult
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"nwcwh3",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 返回WebAsyncTask&lt;CommonResult&gt;
+*URL:* http://localhost:8080/WebAsync/timeout
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/WebAsync/timeout
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 返回Future&lt;CommonResult&lt;String&gt;&gt;
+*URL:* http://localhost:8080/future
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/future
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"um1z8n",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
+*URL:* http://localhost:8080/completableFuture
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/completableFuture
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"cudl4k",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+== https测试
+=== 测试https
+*URL:* http://localhost:8080/testHttps
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/testHttps
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"dsn6r2",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 测试http
+*URL:* http://localhost:8080/testHttp
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/testHttp
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"5ocfxi",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+== JDK8的时间测试
+=== LocalDate和LocalDateTime测试
+*URL:* http://localhost:8080/dateEntity
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|localDate|string|创建日期|false|v1.0
+|localDateTime|string|创建时间|false|v1.0
+|====================
+
+*Request-example:*
+----
+{
+	"localDate":"2019-09-28",
+	"localDateTime":"2019-09-28 00:23:34"
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|localDate|string|创建日期|v1.0
+|localDateTime|string|创建时间|v1.0
+|====================
+
+*Response-example:*
+----
+{
+	"localDate":"2019-09-28",
+	"localDateTime":"2019-09-28 00:23:34"
+}
+----
+
+== FastJson和Jackson注解支持测试
+=== Jackson注解支持测试
+*URL:* http://localhost:8080/json/jacksonTest
+
+*Type:* GET
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|username|string|用户名|false|-
+|idCard|string|身份证号|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"username":"嘉熙.许",
+	"idCard":"130626197810156524"
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|用户名|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"嘉熙.许"
+}
+----
+
+=== FastJson注解支持测试
+*URL:* http://localhost:8080/json/fastJsonTest
+
+*Type:* GET
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|username|string|用户名|false|-
+|idCard|string|身份证号|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"username":"嘉熙.许",
+	"idCard":"130626197810156524"
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|用户名|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"嘉熙.许"
+}
+----
+
+== List返回接口Api文档测试
+=== List&lt;String&gt;结构
+*URL:* http://localhost:8080/list/listString
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listString
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|no param name|array of string|The api directly returns the array of string type value.|-
+|====================
+
+*Response-example:*
+----
+[
+	"61zohb",
+	"8gzoj5"
+]
+----
+
+=== List&lt;Map&lt;String,String&gt;&gt;结构
+*URL:* http://localhost:8080/list/listMap
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listMap
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|no param name|string|The api directly returns the string type value.|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"mapKey1":"hfwq1u",
+		"mapKey2":"gj34k4"
+	}
+]
+----
+
+=== List&lt;自动义对象&gt;
+*URL:* http://localhost:8080/list/listObject
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listObject
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|userName|string|用户名|-
+|subUser|object|子用户信息|-
+|└─subUserName|string|用户名称|-
+|└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"userName":"嘉熙.许",
+		"subUser":{
+			"subUserName":"嘉熙.许",
+			"numbers":958
+		}
+	}
+]
+----
+
+=== List&lt;Map&lt;String,T&gt;&gt;结构
+*URL:* http://localhost:8080/list/listMap2
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listMap2
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|stuName|string|姓名|-
+|stuAge|boolean|年龄|-
+|stuAddress|string|地址|-
+|user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"mapKey":{
+			"stuName":"嘉熙.许",
+			"stuAge":true,
+			"stuAddress":"胡路837号， 常州， 川 789392",
+			"user":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":177
+				}
+			},
+			"userMap":{
+				"mapKey":{
+					
+				}
+			},
+			"userTreeSet":[
+				{
+					"userName":"嘉熙.许",
+					"subUser":{
+						"subUserName":"嘉熙.许",
+						"numbers":297
+					}
+				}
+			],
+			"user1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":891
+				}
+			}
+		}
+	}
+]
+----
+
+=== List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
+*URL:* http://localhost:8080/list/listMap3
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listMap3
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"mapKey":{
+			"data":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":512
+				}
+			},
+			"data1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":784
+				}
+			},
+			"data2":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":529
+				}
+			},
+			"age":62
+		}
+	}
+]
+----
+
+=== List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
+*URL:* http://localhost:8080/list/listTeacher
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listTeacher
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"data":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":292
+				}
+			}
+		],
+		"data1":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":449
+				}
+			}
+		],
+		"data2":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":154
+				}
+			}
+		],
+		"age":62
+	}
+]
+----
+
+=== List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
+*URL:* http://localhost:8080/list/listString1
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listString1
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"data":{
+			"data":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":878
+				}
+			},
+			"data1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":355
+				}
+			},
+			"data2":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":722
+				}
+			},
+			"age":62
+		},
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":702
+			}
+		},
+		"data2":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":254
+			}
+		},
+		"age":62
+	}
+]
+----
+
+=== List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
+*URL:* http://localhost:8080/list/listString2
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listString2
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|data1|object|泛型data1|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|data2|object|data2|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"data":{
+			"data":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":207
+				}
+			},
+			"data1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":785
+				}
+			},
+			"data2":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":24
+				}
+			},
+			"age":62
+		},
+		"data1":{
+			"data":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":233
+				}
+			},
+			"data1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":847
+				}
+			},
+			"data2":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":550
+				}
+			},
+			"age":62
+		},
+		"data2":{
+			"data":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":812
+				}
+			},
+			"data1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":168
+				}
+			},
+			"data2":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":989
+				}
+			},
+			"age":62
+		},
+		"age":62
+	}
+]
+----
+
+== Map返回型接口api文档测试
+=== Map&lt;String,Integer&gt;结构
+*URL:* http://localhost:8080/map/primitive
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/primitive
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|no param name|key value|The api directly returns the key value type value.|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey1":391,
+	"mapKey2":817
+}
+----
+
+=== Map&lt;String,Object&gt;结构
+*URL:* http://localhost:8080/map/objectValue
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/objectValue
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|any object|object|any object.|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"waring":"You may use java.util.Object for Map value; smart-doc can't be handle."
+	}
+}
+----
+
+=== Map&lt;String,User&gt;结构
+*URL:* http://localhost:8080/map/object
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/object
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|userName|string|用户名|-
+|subUser|object|子用户信息|-
+|└─subUserName|string|用户名称|-
+|└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"userName":"嘉熙.许",
+		"subUser":{
+			"subUserName":"嘉熙.许",
+			"numbers":237
+		}
+	}
+}
+----
+
+=== Map&lt;String,Student&gt;结构
+*URL:* http://localhost:8080/map/test1
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/test1
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|stuName|string|姓名|-
+|stuAge|boolean|年龄|-
+|stuAddress|string|地址|-
+|user|object|用户对象|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userMap|map|map用户信息|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userTreeSet|object|用户列表|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|user1|object|用户对象2|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"stuName":"嘉熙.许",
+		"stuAge":true,
+		"stuAddress":"胡路837号， 常州， 川 789392",
+		"user":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":136
+			}
+		},
+		"userMap":{
+			"mapKey":{
+				
+			}
+		},
+		"userTreeSet":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":407
+				}
+			}
+		],
+		"user1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":848
+			}
+		}
+	}
+}
+----
+
+=== Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+*URL:* http://localhost:8080/map/test2
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/test2
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─stuName|string|姓名|-
+|└─stuAge|boolean|年龄|-
+|└─stuAddress|string|地址|-
+|└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"data":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":454
+				}
+			}
+		],
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":386
+			}
+		},
+		"data2":{
+			"stuName":"嘉熙.许",
+			"stuAge":true,
+			"stuAddress":"胡路837号， 常州， 川 789392",
+			"user":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":753
+				}
+			},
+			"userMap":{
+				"mapKey":{
+					
+				}
+			},
+			"userTreeSet":[
+				{
+					"userName":"嘉熙.许",
+					"subUser":{
+						"subUserName":"嘉熙.许",
+						"numbers":488
+					}
+				}
+			],
+			"user1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":259
+				}
+			}
+		},
+		"age":62
+	}
+}
+----
+
+=== TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+*URL:* http://localhost:8080/map/test3
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/test3
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─stuName|string|姓名|-
+|└─stuAge|boolean|年龄|-
+|└─stuAddress|string|地址|-
+|└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"data":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":272
+				}
+			}
+		],
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":706
+			}
+		},
+		"data2":{
+			"stuName":"嘉熙.许",
+			"stuAge":true,
+			"stuAddress":"胡路837号， 常州， 川 789392",
+			"user":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":120
+				}
+			},
+			"userMap":{
+				"mapKey":{
+					
+				}
+			},
+			"userTreeSet":[
+				{
+					"userName":"嘉熙.许",
+					"subUser":{
+						"subUserName":"嘉熙.许",
+						"numbers":679
+					}
+				}
+			],
+			"user1":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":871
+				}
+			}
+		},
+		"age":62
+	}
+}
+----
+
+=== Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
+*URL:* http://localhost:8080/map/test4
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/map/test4
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"mapKey":{
+		"data":{
+			"mapKey":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":620
+				}
+			}
+		},
+		"data1":{
+			"mapKey":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":88
+				}
+			}
+		},
+		"data2":{
+			"mapKey":{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":804
+				}
+			}
+		},
+		"age":62
+	}
+}
+----
+
+== 普通java对象api文档测试
+=== 返回普通String测试
+*URL:* http://localhost:8080/simple/str
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/str
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|no param name|string|The api directly returns the string type value.|-
+|====================
+
+*Response-example:*
+----
+bxad11
+----
+
+=== 返回普通javabean
+*URL:* http://localhost:8080/simple/user
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userName|string|用户名|false|-
+|subUser|object|子用户信息|false|-
+|└─subUserName|string|用户名称|true|-
+|└─numbers|number|bigInteger|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"userName":"嘉熙.许",
+	"subUser":{
+		"subUserName":"嘉熙.许",
+		"numbers":917
+	}
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|userName|string|用户名|-
+|subUser|object|子用户信息|-
+|└─subUserName|string|用户名称|-
+|└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+{
+	"userName":"嘉熙.许",
+	"subUser":{
+		"subUserName":"嘉熙.许",
+		"numbers":418
+	}
+}
+----
+
+=== 返回复杂实体数据
+*URL:* http://localhost:8080/simple/stu
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/stu
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|stuName|string|姓名|-
+|stuAge|boolean|年龄|-
+|stuAddress|string|地址|-
+|user|object|用户对象|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userMap|map|map用户信息|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|userTreeSet|object|用户列表|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|user1|object|用户对象2|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+{
+	"stuName":"嘉熙.许",
+	"stuAge":true,
+	"stuAddress":"胡路837号， 常州， 川 789392",
+	"user":{
+		"userName":"嘉熙.许",
+		"subUser":{
+			"subUserName":"嘉熙.许",
+			"numbers":554
+		}
+	},
+	"userMap":{
+		"mapKey":{
+			
+		}
+	},
+	"userTreeSet":[
+		{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":288
+			}
+		}
+	],
+	"user1":{
+		"userName":"嘉熙.许",
+		"subUser":{
+			"subUserName":"嘉熙.许",
+			"numbers":366
+		}
+	}
+}
+----
+
+=== Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
+*URL:* http://localhost:8080/simple/teacher
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/teacher
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|data1|object|泛型data1|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|data2|object|data2|-
+|└─data|object|接口响应数据|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─age|int|年龄|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"data":{
+		"data":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":744
+			}
+		},
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":682
+			}
+		},
+		"data2":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":502
+			}
+		},
+		"age":62
+	},
+	"data1":{
+		"data":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":592
+			}
+		},
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":723
+			}
+		},
+		"data2":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":875
+			}
+		},
+		"age":62
+	},
+	"data2":{
+		"data":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":49
+			}
+		},
+		"data1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":762
+			}
+		},
+		"data2":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":545
+			}
+		},
+		"age":62
+	},
+	"age":62
+}
+----
+
+=== Teacher&lt;List&lt;User&gt;, User, Student&gt;
+*URL:* http://localhost:8080/simple/teacher2
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/teacher2
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|接口响应数据|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data1|object|泛型data1|-
+|└─userName|string|用户名|-
+|└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|data2|object|data2|-
+|└─stuName|string|姓名|-
+|└─stuAge|boolean|年龄|-
+|└─stuAddress|string|地址|-
+|└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"data":[
+		{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":240
+			}
+		}
+	],
+	"data1":{
+		"userName":"嘉熙.许",
+		"subUser":{
+			"subUserName":"嘉熙.许",
+			"numbers":348
+		}
+	},
+	"data2":{
+		"stuName":"嘉熙.许",
+		"stuAge":true,
+		"stuAddress":"胡路837号， 常州， 川 789392",
+		"user":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":369
+			}
+		},
+		"userMap":{
+			"mapKey":{
+				
+			}
+		},
+		"userTreeSet":[
+			{
+				"userName":"嘉熙.许",
+				"subUser":{
+					"subUserName":"嘉熙.许",
+					"numbers":309
+				}
+			}
+		],
+		"user1":{
+			"userName":"嘉熙.许",
+			"subUser":{
+				"subUserName":"嘉熙.许",
+				"numbers":149
+			}
+		}
+	},
+	"age":62
+}
+----
+
+=== 测试SubUser
+*URL:* http://localhost:8080/simple/subUser
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/subUser
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|subUserName|string|用户名称|-
+|numbers|number|bigInteger|-
+|====================
+
+*Response-example:*
+----
+{
+	"subUserName":"嘉熙.许",
+	"numbers":614
+}
+----
+
+=== 返回CommonResult&lt;SubUser&gt;
+*URL:* http://localhost:8080/simple/subUser/result
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/simple/subUser/result
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|└─subUserName|string|用户名称|-
+|└─numbers|number|bigInteger|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"subUserName":"嘉熙.许",
+		"numbers":712
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+== 简单对象测试2
+=== CommonResult&lt;String&gt;
+*URL:* http://localhost:8080/stringCommonResult
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/stringCommonResult
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"g6fuhq",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 返回Staff&lt;Staff&lt;Staff&gt;&gt;
+*URL:* http://localhost:8080/staff
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/staff
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|职工名称|-
+|annyObject|object|任何信息对象|-
+|└─name|string|职工名称|-
+|└─annyObject|object|任何信息对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|职工名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─annyObject|object|任何信息对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─data|array|接口响应数据|-
+|└─data|array|接口响应数据|-
+|data|array|接口响应数据|-
+|└─name|string|职工名称|-
+|└─annyObject|object|任何信息对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|职工名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─annyObject|object|任何信息对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─data|array|接口响应数据|-
+|└─data|array|接口响应数据|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"嘉熙.许",
+	"annyObject":{
+		"name":"嘉熙.许",
+		"annyObject":{
+			"name":"嘉熙.许",
+			"annyObject":{
+				"waring":"You may have used non-display generics."
+			},
+			"data":[
+				{
+					"$ref":".."
+				}
+			]
+		},
+		"data":[
+			{
+				"$ref":".."
+			}
+		]
+	},
+	"data":[
+		{
+			"name":"嘉熙.许",
+			"annyObject":{
+				"name":"嘉熙.许",
+				"annyObject":{
+					"waring":"You may have used non-display generics."
+				},
+				"data":[
+					{
+						"$ref":".."
+					}
+				]
+			},
+			"data":[
+				{
+					"$ref":".."
+				}
+			]
+		}
+	]
+}
+----
+
+=== 返回Staff&lt;String&gt;
+*URL:* http://localhost:8080/staffStr
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+
+*Request-example:*
+----
+http://localhost:8080/staffStr
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|职工名称|-
+|annyObject|object|任何信息对象|-
+|data|array|接口响应数据|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"嘉熙.许",
+	"annyObject":"hdztdx",
+	"data":[
+		"c1skku"
+	]
+}
+----
+
+=== JAVA继承测试
+*URL:* http://localhost:8080/children
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|name|string|姓名|false|-
+|age|int|年龄|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"name":"嘉熙.许",
+	"age":62
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|姓名|-
+|age|int|年龄|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"嘉熙.许",
+	"age":62
+}
+----
+
+== 用户信息操作接口
+=== 添加用户
+*URL:* http://localhost:8080/user/add
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|username|string|用户名|true|v1.0
+|password|string|密码|false|v1.0
+|nickName|string|昵称|false|v1.0
+|mobile|string|电话|false|v1.0
+|====================
+
+*Request-example:*
+----
+{
+	"username":"嘉熙.许",
+	"password":"jyt6sy",
+	"nickName":"pedro.gottlieb",
+	"mobile":"17719049837"
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|id|string|自增编号|v1.0
+|createBy|string|创建人|v1.2
+|createTime|string|创建时间|v1.0
+|updateBy|string|修改人|v1.1
+|updateTime|string|修改时间|v1.1
+|delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|username|string|用户名|-
+|password|string|密码|-
+|nickName|string|昵称|-
+|mobile|string|电话|-
+|email|string|邮箱|-
+|address|string|地址|-
+|sex|int|性别(男1 女 2)|-
+|avatar|string|No comments found.|-
+|type|int|类型|-
+|status|int|状态|-
+|description|string|描述|-
+|roles|array|用户拥有角色|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|角色名 以ROLE_开头|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|v1.0
+|└─permissions|array|拥有权限|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|-
+|permissions|array|用户拥有的权限|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|菜单/权限名称|-
+|└─level|int|层级|-
+|└─type|int|类型 0页面 1具体操作|-
+|└─title|string|菜单标题|-
+|└─path|string|页面路径/资源链接url|-
+|└─component|string|前端组件|-
+|└─icon|string|图标|-
+|└─buttonType|string|按钮权限类型|-
+|└─parentId|string|父id|-
+|└─description|string|说明备注|-
+|└─sortOrder|number|排序值|-
+|└─status|int|是否启用 0启用 -1禁用|-
+|└─children|array|子菜单/权限|-
+|└─permTypes|array|页面拥有的权限类型|-
+|└─expand|boolean|节点展开 前端所需|-
+|└─checked|boolean|是否勾选 前端所需|-
+|└─selected|boolean|是否选中 前端所需|-
+|====================
+
+*Response-example:*
+----
+{
+	"id":"2x12pc",
+	"createBy":"4zbeh6",
+	"createTime":2019-09-28,
+	"updateBy":"wzeevl",
+	"updateTime":2019-09-28,
+	"delFlag":6,
+	"username":"嘉熙.许",
+	"password":"xa1s42",
+	"nickName":"pedro.gottlieb",
+	"mobile":"17719049837",
+	"email":"熠彤.何@hotmail.com",
+	"address":"胡路837号， 常州， 川 789392",
+	"sex":0,
+	"avatar":"t1my5r",
+	"type":740,
+	"status":905,
+	"description":"b79z7y",
+	"roles":[
+		{
+			"id":"p0q5lw",
+			"createBy":"okdc0s",
+			"createTime":2019-09-28,
+			"updateBy":"mnkhcz",
+			"updateTime":2019-09-28,
+			"delFlag":6,
+			"name":"嘉熙.许",
+			"defaultRole":true,
+			"permissions":[
+				{
+					"id":"osf73y",
+					"createBy":"0op9l6",
+					"createTime":2019-09-28,
+					"updateBy":"k70h6e",
+					"updateTime":2019-09-28,
+					"delFlag":6,
+					"name":"嘉熙.许",
+					"level":296,
+					"type":668,
+					"title":"lbjga8",
+					"path":"6tg0qy",
+					"component":"pgx6vp",
+					"icon":"mftqia",
+					"buttonType":"pp43mu",
+					"parentId":"96njm5",
+					"description":"yularp",
+					"sortOrder":402,
+					"status":985,
+					"children":[
+						{
+							"$ref":".."
+						}
+					],
+					"permTypes":[
+						"hxa5fb"
+					],
+					"expand":true,
+					"checked":true,
+					"selected":true
+				}
+			]
+		}
+	],
+	"permissions":[
+		{
+			"id":"0bpo01",
+			"createBy":"ancdml",
+			"createTime":2019-09-28,
+			"updateBy":"tl98wv",
+			"updateTime":2019-09-28,
+			"delFlag":6,
+			"name":"嘉熙.许",
+			"level":137,
+			"type":243,
+			"title":"ef31dn",
+			"path":"arixl8",
+			"component":"2xcbqy",
+			"icon":"j9e8qq",
+			"buttonType":"rfw2b3",
+			"parentId":"13uwdy",
+			"description":"013pum",
+			"sortOrder":520,
+			"status":275,
+			"children":[
+				{
+					"$ref":".."
+				}
+			],
+			"permTypes":[
+				"cb69sg"
+			],
+			"expand":true,
+			"checked":true,
+			"selected":true
+		}
+	]
+}
+----
+
+=== 更新用户
+*URL:* http://localhost:8080/user/update
+
+*Type:* PUT
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|username|string|用户名|true|v1.0
+|password|string|密码|false|v1.0
+|nickName|string|昵称|false|v1.0
+|mobile|string|电话|false|v1.0
+|====================
+
+*Request-example:*
+----
+{
+	"username":"嘉熙.许",
+	"password":"bjk7je",
+	"nickName":"pedro.gottlieb",
+	"mobile":"17719049837"
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|id|string|自增编号|v1.0
+|createBy|string|创建人|v1.2
+|createTime|string|创建时间|v1.0
+|updateBy|string|修改人|v1.1
+|updateTime|string|修改时间|v1.1
+|delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|username|string|用户名|-
+|password|string|密码|-
+|nickName|string|昵称|-
+|mobile|string|电话|-
+|email|string|邮箱|-
+|address|string|地址|-
+|sex|int|性别(男1 女 2)|-
+|avatar|string|No comments found.|-
+|type|int|类型|-
+|status|int|状态|-
+|description|string|描述|-
+|roles|array|用户拥有角色|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|角色名 以ROLE_开头|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|v1.0
+|└─permissions|array|拥有权限|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|-
+|permissions|array|用户拥有的权限|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|菜单/权限名称|-
+|└─level|int|层级|-
+|└─type|int|类型 0页面 1具体操作|-
+|└─title|string|菜单标题|-
+|└─path|string|页面路径/资源链接url|-
+|└─component|string|前端组件|-
+|└─icon|string|图标|-
+|└─buttonType|string|按钮权限类型|-
+|└─parentId|string|父id|-
+|└─description|string|说明备注|-
+|└─sortOrder|number|排序值|-
+|└─status|int|是否启用 0启用 -1禁用|-
+|└─children|array|子菜单/权限|-
+|└─permTypes|array|页面拥有的权限类型|-
+|└─expand|boolean|节点展开 前端所需|-
+|└─checked|boolean|是否勾选 前端所需|-
+|└─selected|boolean|是否选中 前端所需|-
+|====================
+
+*Response-example:*
+----
+{
+	"id":"uocupo",
+	"createBy":"owwdxm",
+	"createTime":2019-09-28,
+	"updateBy":"z2h3ig",
+	"updateTime":2019-09-28,
+	"delFlag":6,
+	"username":"嘉熙.许",
+	"password":"uoqlws",
+	"nickName":"pedro.gottlieb",
+	"mobile":"17719049837",
+	"email":"熠彤.何@hotmail.com",
+	"address":"胡路837号， 常州， 川 789392",
+	"sex":0,
+	"avatar":"z4zp8q",
+	"type":554,
+	"status":326,
+	"description":"n01egb",
+	"roles":[
+		{
+			"id":"9m91jg",
+			"createBy":"w9dzdb",
+			"createTime":2019-09-28,
+			"updateBy":"tbkiw8",
+			"updateTime":2019-09-28,
+			"delFlag":6,
+			"name":"嘉熙.许",
+			"defaultRole":true,
+			"permissions":[
+				{
+					"id":"juv4pu",
+					"createBy":"55tb7k",
+					"createTime":2019-09-28,
+					"updateBy":"qzjbx6",
+					"updateTime":2019-09-28,
+					"delFlag":6,
+					"name":"嘉熙.许",
+					"level":208,
+					"type":94,
+					"title":"dnc383",
+					"path":"f0imcn",
+					"component":"7q3ria",
+					"icon":"n5ll5f",
+					"buttonType":"uwuz3i",
+					"parentId":"butv6g",
+					"description":"2frhc5",
+					"sortOrder":326,
+					"status":693,
+					"children":[
+						{
+							"$ref":".."
+						}
+					],
+					"permTypes":[
+						"ckrmtb"
+					],
+					"expand":true,
+					"checked":true,
+					"selected":true
+				}
+			]
+		}
+	],
+	"permissions":[
+		{
+			"id":"t4zpwz",
+			"createBy":"nnjo7v",
+			"createTime":2019-09-28,
+			"updateBy":"y3kxlp",
+			"updateTime":2019-09-28,
+			"delFlag":6,
+			"name":"嘉熙.许",
+			"level":794,
+			"type":967,
+			"title":"atrpjo",
+			"path":"9sit10",
+			"component":"f9pdsk",
+			"icon":"v8skaz",
+			"buttonType":"fleynb",
+			"parentId":"d7ophr",
+			"description":"gwba5o",
+			"sortOrder":628,
+			"status":555,
+			"children":[
+				{
+					"$ref":".."
+				}
+			],
+			"permTypes":[
+				"1dqvxq"
+			],
+			"expand":true,
+			"checked":true,
+			"selected":true
+		}
+	]
+}
+----
+
+== JSR303参数验证规范测试
+=== 验证validate
+*URL:* http://localhost:8080/validator/test
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|leader|object|No comments found.|true|-
+|name|string|姓名|true|-
+|birthday|string|生日|true|-
+|age|int|年龄|false|-
+|subject|object|科目|true|-
+|└─subjectName|string|科目名称|true|-
+|====================
+
+*Request-example:*
+----
+{
+	"name":"嘉熙.许",
+	"birthday":"2019-09-28",
+	"age":62,
+	"subject":{
+		"subjectName":"嘉熙.许"
+	}
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== 验证通用参数
+*URL:* http://localhost:8080/validator/valid
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|param|object|No comments found.|true|-
+|token|string|token|true|-
+|sequenceNo|string|序列号|true|-
+|parameter|object|No comments found.|false|-
+|└─subUserName|string|用户名称|true|-
+|└─numbers|number|bigInteger|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"token":"19fb34",
+	"sequenceNo":"2yqpva",
+	"parameter":{
+		"subUserName":"嘉熙.许",
+		"numbers":284
+	}
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+== xss拦击测试
+=== xss过滤普通post请求
+*URL:* http://localhost:8080/xss/text
+
+*Type:* POST
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|text|string|请求文本|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/xss/text?text=r8f7pa
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"th2cb4",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== xss过滤get请求
+*URL:* http://localhost:8080/xss/query
+
+*Type:* GET
+
+*Content-Type:* application/x-www-form-urlencoded
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|query|string|请求参数|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/xss/query?query=3gj0cm
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":"2gow2b",
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+=== xss过滤json数据
+*URL:* http://localhost:8080/xss/json
+
+*Type:* POST
+
+*Content-Type:* application/json; charset=utf-8
+
+*Request-headers:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Header | Type|Description|Required|Since
+|access_token|string|Basic auth credentials|true|v1.1.0
+|user_uuid|string|User Uuid key|false|-
+
+|====================
+
+*Request-parameters:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|name|string|姓名|false|-
+|age|int|年龄|false|-
+|====================
+
+*Request-example:*
+----
+{
+	"name":"嘉熙.许",
+	"age":62
+}
+----
+*Response-fields:*
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|成功返回true,失败返回false|-
+|message|string|接口响应信息|-
+|data|object|接口响应数据|-
+|└─name|string|姓名|-
+|└─age|int|年龄|-
+|code|string|响应代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"name":"嘉熙.许",
+		"age":62
+	},
+	"code":"00000",
+	"timestamp":"2019-09-28 00:23:33"
+}
+----
+
+== Error code list
+
+[width="100%",options="header,footer"]
+[stripes=even]
+|====================
+|Error code |Description
+|0000|success
+|1001|必选参数为空
+|1002|参数格式错误
+|9999|系统繁忙，请稍后再试....
+|====================

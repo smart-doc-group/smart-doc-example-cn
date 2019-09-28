@@ -22,6 +22,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <util.version>1.8.6</util.version>
+        <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
+        <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
+        <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
+        <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
     </properties>
     <dependencies>
         <!-- spring boot -->
@@ -182,44 +186,44 @@
                 </dependencies>
                 <!-- Configure generic document generation settings -->
                 <configuration>
-                    <sourceDirectory>src/docs/asciidoc</sourceDirectory>
+                    <sourceDirectory>${asciidoctor.input.directory}</sourceDirectory>
                     <sourceDocumentName>index.adoc</sourceDocumentName>
                     <attributes>
-                        <backend>html5</backend>
                         <doctype>book</doctype>
                         <toc>left</toc>
-                        <toclevels>2</toclevels>
+                        <toclevels>3</toclevels>
                         <numbered></numbered>
                         <hardbreaks></hardbreaks>
                         <sectlinks></sectlinks>
                         <sectanchors></sectanchors>
+                        <generated>${generated.asciidoc.directory}</generated>
                     </attributes>
                 </configuration>
+                <!-- Since each execution can only handle one backend, run
+                     separate executions for each desired output type -->
                 <executions>
                     <execution>
                         <id>output-html</id>
-                        <phase>generate-resources</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
                             <backend>html5</backend>
-                            <outputDirectory>src/docs/asciidoc/html</outputDirectory>
+                            <outputDirectory>${asciidoctor.html.output.directory}</outputDirectory>
                         </configuration>
                     </execution>
-
                     <execution>
                         <id>output-pdf</id>
-                        <phase>generate-resources</phase>
+                        <phase>process-resources</phase>
                         <goals>
                             <goal>process-asciidoc</goal>
                         </goals>
                         <configuration>
                             <backend>pdf</backend>
-                            <outputDirectory>src/docs/asciidoc/pdf</outputDirectory>
+                            <outputDirectory>${asciidoctor.pdf.output.directory}</outputDirectory>
                         </configuration>
                     </execution>
-
                 </executions>
             </plugin>
         </plugins>
