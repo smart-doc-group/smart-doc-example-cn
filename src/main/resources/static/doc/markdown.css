@@ -1,17 +1,4 @@
-body {
-    margin: 0;
-    padding: 0;
-    height: auto;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
-    font-size: 1rem;
-    line-height: 1.42857;
-    overflow-x: hidden;
-    background: inherit;
-    tab-size: 4
-}
+
 
 .margin-tb-zero, .markdown-body ol ol, .markdown-body ul ol, .markdown-body ol ul, .markdown-body ul ul, .markdown-body ol ul ol, .markdown-body ul ul ol, .markdown-body ol ul ul, .markdown-body ul ul ul {
     margin-top: 0;

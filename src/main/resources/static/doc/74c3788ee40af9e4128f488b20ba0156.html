@@ -1,0 +1,253 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width initial-scale=1'>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link rel="stylesheet" href="markdown.css?v=1569685127221"/>
+    <title>Spring boot params test</title>
+</head>
+<body>
+<div class="markdown-body">
+    <h1>Spring boot params test</h1>
+<h2>Test Normal param binding</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testNormalParams/binding</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>name</td><td>true</td><td>-</td></tr>
+<tr><td>age</td><td>int</td><td>age</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/testNormalParams/binding?name=博文.蔡&amp;age=37
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestBody User</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestBody</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
+<tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
+<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>false</td><td>-</td></tr>
+<tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
+<tr><td>createTime</td><td>number</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
+<tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
+<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>false</td><td>-</td></tr>
+<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
+<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;userName&quot;:&quot;博文.蔡&quot;,
+	&quot;nickName&quot;:&quot;deshawn.feest&quot;,
+	&quot;userAddress&quot;:&quot;Apt. 744 何街2812号， 呼和浩特， 滇 404341&quot;,
+	&quot;userAge&quot;:37,
+	&quot;phone&quot;:&quot;14796528007&quot;,
+	&quot;createTime&quot;:1569685134967,
+	&quot;ipv6&quot;:&quot;6d60:76d0:7c4c:6421:8701:45a1:af26:2ef0&quot;,
+	&quot;telephone&quot;:&quot;14796528007&quot;,
+	&quot;subUser&quot;:{
+		&quot;subUserName&quot;:&quot;博文.蔡&quot;,
+		&quot;numbers&quot;:126
+	}
+}
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestBody Map</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestBodyMap</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
+<tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
+<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>false</td><td>-</td></tr>
+<tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
+<tr><td>createTime</td><td>number</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
+<tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
+<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>false</td><td>-</td></tr>
+<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
+<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>{
+	&quot;mapKey&quot;:{
+		&quot;userName&quot;:&quot;博文.蔡&quot;,
+		&quot;nickName&quot;:&quot;deshawn.feest&quot;,
+		&quot;userAddress&quot;:&quot;Apt. 744 何街2812号， 呼和浩特， 滇 404341&quot;,
+		&quot;userAge&quot;:37,
+		&quot;phone&quot;:&quot;14796528007&quot;,
+		&quot;createTime&quot;:1569685134967,
+		&quot;ipv6&quot;:&quot;6d60:76d0:7c4c:6421:8701:45a1:af26:2ef0&quot;,
+		&quot;telephone&quot;:&quot;14796528007&quot;,
+		&quot;subUser&quot;:{
+			&quot;subUserName&quot;:&quot;博文.蔡&quot;,
+			&quot;numbers&quot;:560
+		}
+	}
+}
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestBody List</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestBodyList</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>ids</td><td>array</td><td>array of user id</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>[
+	&quot;wd54g4&quot;,
+	&quot;y1nj18&quot;
+]
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @PathVariable</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/test/{name}/{no}/info</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>name</td><td>true</td><td>-</td></tr>
+<tr><td>no</td><td>string</td><td>no</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/test/博文.蔡/2vkhxk/info
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestParam</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestParam</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>author</td><td>string</td><td>author</td><td>true</td><td>-</td></tr>
+<tr><td>type</td><td>string</td><td>type</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/testRequestParam?author=白文&amp;type=d13255
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+
+    <footer class="page-footer">
+        <span class="copyright">Generated by smart-doc at 2019-09-28 23:38:47</span>
+        <span class="footer-modification">Suggestions, contact, support and error reporting on
+            <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
+            <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
+        </span>
+    </footer>
+</div>
+</body>
+</html>
