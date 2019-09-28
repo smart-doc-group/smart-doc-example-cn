@@ -1,6 +1,7 @@
-
-# Generating Markdown documentation
-You can use ApiDocBuilder to generate Markdown documentation.
+# Smart-doc Samples
+Samples for Smart-doc
+## Generating Markdown documentation
+You can use the ApiDocBuilder of the Smart-doc tool to generate REST API documentation in Markdown.
 
 **Usage**
 
