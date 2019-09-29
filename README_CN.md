@@ -62,6 +62,7 @@ Markdown生成好后你可以自行编辑内容，这里推荐使用Typora(一�
 Smart-doc能够直接生成静态HTML5的文档的文档，HTML5格式的文档也有两种类型。一种是基于MD5算法将每个接口的
 名称做MD5后生成一个单独的HTML5页面，然后通过点击`api.html`的书签列表通过IFRAME嵌入每个单独的HTML5页面。
 另外一种是生成代码是设置allInOne属性将所有接口都生成到一个`index.html`HTML5页面中,页面同样带有书签。
+
 **Usage**
 
 ```
