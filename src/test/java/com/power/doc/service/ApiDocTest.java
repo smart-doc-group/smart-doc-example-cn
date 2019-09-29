@@ -27,15 +27,6 @@ public class ApiDocTest {
      */
     private static final String IV = "7201084316056726";
 
-    /**
-     * 简单型接口，不需要指定请求头，并且项目是maven的.
-     */
-    @Test
-    public void testBuilderControllersApiSimple() {
-        //将生成的文档输出到d:\md目录下，严格模式下api-doc会检测Controller的接口注释
-        ApiDocBuilder.builderControllersApi("d:\\md", true);
-
-    }
 
     /**
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
@@ -63,8 +54,7 @@ public class ApiDocTest {
 
         //设置请求头，如果没有请求头，可以不用设置
         config.setRequestHeaders(
-                ApiReqHeader.header().setName("access_token").setType("string")
-                        .setDesc("Basic auth credentials").setRequired(true).setSince("v1.1.0"),
+                ApiReqHeader.header().setName("access_token").setType("string").setDesc("Basic auth credentials"),
                 ApiReqHeader.header().setName("user_uuid").setType("string").setDesc("User Uuid key")
         );
         //对于外部jar的类，编译后注释会被擦除，无法获取注释，但是如果量比较多请使用setSourcePaths来加载外部代码
@@ -102,7 +92,7 @@ public class ApiDocTest {
         ApiDocBuilder.builderControllersApi(config);
 
         //@since 1.7+版本开始，smart-doc支撑生成类似gitbook样式html文档，html文档可选择下面额方式
-        //HtmlApiDocBuilder.builderControllersApi(config);
+        ApiDocBuilder.builderControllersApi(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);
     }
