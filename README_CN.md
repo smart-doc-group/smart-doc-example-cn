@@ -203,7 +203,7 @@ public void testBuilderControllersApi() {
 <plugin>
     <groupId>org.asciidoctor</groupId>
     <artifactId>asciidoctor-maven-plugin</artifactId>
-    <version>1.5.6</version>
+    <version>1.6.0</version>
     <!-- Include Asciidoctor PDF for pdf generation -->
     <dependencies>
         <dependency>

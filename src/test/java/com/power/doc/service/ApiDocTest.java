@@ -2,6 +2,7 @@ package com.power.doc.service;
 
 import com.power.common.util.DateTimeUtil;
 import com.power.doc.builder.ApiDocBuilder;
+import com.power.doc.constants.DocGlobalConstants;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.model.*;
 import org.junit.Test;
@@ -18,25 +19,18 @@ import java.util.List;
 public class ApiDocTest {
 
     /**
-     * aes key
-     */
-    private static final String KEY = "aespower98765432";
-
-    /**
-     * 非ECB加密模式的向量
-     */
-    private static final String IV = "7201084316056726";
-
-
-    /**
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
      */
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
-        config.setStrict(true);//true会严格要求注释，推荐设置true
-        //config.setAllInOne(true);//true会将文档合并导出到一个markdown
+        //true会严格要求注释，推荐设置true
+        config.setStrict(true);
+        //true会将文档合并导出到一个markdown
+        config.setAllInOne(true);
+        //生成html时加密文档名不暴露controller的名称
+        config.setMd5EncryptedHtmlName(true);
 
         //指定文档输出路径
         //@since 1.7 版本开始，选择生成静态html doc文档可使用该路径：DocGlobalConstants.HTML_DOC_OUT_PATH;
@@ -45,11 +39,10 @@ public class ApiDocTest {
         // 如果需要配置有多个controller可以使用逗号隔开
         config.setPackageFilters("com.power.doc.controller");
         //不指定SourcePaths默认加载代码为项目src/main/java下的,如果项目的某一些实体来自外部代码可以一起加载
-        config.setSourcePaths(
-                SourcePath.path().setDesc("本项目代码").setPath("src/main/java")
-
-               //  SourcePath.path().setPath("E:\\Test\\Mybatis-PageHelper-master\\src\\main\\java"),
-               // SourcePath.path().setDesc("加载项目外代码").setPath("E:\\ApplicationPower\\ApplicationPower\\Common-util\\src\\main\\java")
+        config.setSourceCodePaths(
+                //自1.7.0版本开始，在此处可以不设置本地代码路径，单独添加外部代码路径即可
+//            SourceCodePath.path().setDesc("本项目代码").setPath("src/main/java"),
+            SourceCodePath.path().setDesc("加载项目外代码").setPath("E:\\ApplicationPower\\ApplicationPower\\Common-util\\src\\main\\java")
         );
 
         //设置请求头，如果没有请求头，可以不用设置
@@ -68,7 +61,7 @@ public class ApiDocTest {
 
         //设置项目错误码列表，设置自动生成错误列表,
         List<ApiErrorCode> errorCodeList = new ArrayList<>();
-        for(ErrorCodeEnum codeEnum: ErrorCodeEnum.values()){
+        for (ErrorCodeEnum codeEnum : ErrorCodeEnum.values()) {
             ApiErrorCode errorCode = new ApiErrorCode();
             errorCode.setValue(codeEnum.getCode()).setDesc(codeEnum.getDesc());
             errorCodeList.add(errorCode);
@@ -82,17 +75,12 @@ public class ApiDocTest {
                 RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("测试2").setStatus("修改").setVersion("V2.0")
         );
 
-        //since 1.7+版本开始，由于支持生成html的静态文档，为了防止controller名字直接暴露，
-        //因此smart-doc在生成文件名时采用用aes算法根据controller名称生成html的文件名，生成的注意文件名并不能反解密
-//        config.setAesInfo(
-//                ApiAesInfo.create().setKey(KEY).setVector(IV)
-//        );
 
         long start = System.currentTimeMillis();
         ApiDocBuilder.builderControllersApi(config);
 
         //@since 1.7+版本开始，smart-doc支撑生成类似gitbook样式html文档，html文档可选择下面额方式
-        ApiDocBuilder.builderControllersApi(config);
+        //HtmlApiDocBuilder.builderControllersApi(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);
     }
