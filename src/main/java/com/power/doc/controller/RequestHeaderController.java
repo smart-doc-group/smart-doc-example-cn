@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class RequestHeaderController {
     @GetMapping("testRequstHeader")
-    public void testNormalParam(@RequestHeader(value = "token",defaultValue = "da" ,required = false)String name, Integer age) {
+    public void testRequstHeader(@RequestHeader(value = "token",defaultValue = "da" ,required = false)String name, Integer age) {
 
     }
 }
