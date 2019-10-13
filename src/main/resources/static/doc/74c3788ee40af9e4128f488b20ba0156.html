@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1569688629922"/>
+    <link rel="stylesheet" href="markdown.css?v=1569824183071"/>
     <title>Spring boot params test</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -37,7 +37,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testNormalParams/binding?name=智宸.徐&amp;age=68
+<pre><code>http://localhost:8080/testNormalParams/binding?name=果.邵&amp;age=25
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -52,7 +52,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -77,17 +77,17 @@
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>{
-	&quot;userName&quot;:&quot;智宸.徐&quot;,
-	&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-	&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-	&quot;userAge&quot;:68,
-	&quot;phone&quot;:&quot;14599838458&quot;,
-	&quot;createTime&quot;:1569688636362,
-	&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-	&quot;telephone&quot;:&quot;14599838458&quot;,
+	&quot;userName&quot;:&quot;果.邵&quot;,
+	&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+	&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+	&quot;userAge&quot;:25,
+	&quot;phone&quot;:&quot;15823781769&quot;,
+	&quot;createTime&quot;:1569824190299,
+	&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+	&quot;telephone&quot;:&quot;15823781769&quot;,
 	&quot;subUser&quot;:{
-		&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-		&quot;numbers&quot;:743
+		&quot;subUserName&quot;:&quot;果.邵&quot;,
+		&quot;numbers&quot;:915
 	}
 }
 </code></pre>
@@ -104,7 +104,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -130,17 +130,17 @@
 <p><strong>Request-example:</strong></p>
 <pre><code>{
 	&quot;mapKey&quot;:{
-		&quot;userName&quot;:&quot;智宸.徐&quot;,
-		&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-		&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-		&quot;userAge&quot;:68,
-		&quot;phone&quot;:&quot;14599838458&quot;,
-		&quot;createTime&quot;:1569688636362,
-		&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-		&quot;telephone&quot;:&quot;14599838458&quot;,
+		&quot;userName&quot;:&quot;果.邵&quot;,
+		&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+		&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+		&quot;userAge&quot;:25,
+		&quot;phone&quot;:&quot;15823781769&quot;,
+		&quot;createTime&quot;:1569824190299,
+		&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+		&quot;telephone&quot;:&quot;15823781769&quot;,
 		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-			&quot;numbers&quot;:811
+			&quot;subUserName&quot;:&quot;果.邵&quot;,
+			&quot;numbers&quot;:677
 		}
 	}
 }
@@ -158,7 +158,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -173,8 +173,8 @@
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>[
-	&quot;jmove0&quot;,
-	&quot;vguqsh&quot;
+	&quot;fspk30&quot;,
+	&quot;1vg14a&quot;
 ]
 </code></pre>
 <p><strong>Response-example:</strong></p>
@@ -190,7 +190,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -205,7 +205,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/test/智宸.徐/7i6ry7/info
+<pre><code>http://localhost:8080/test/果.邵/9w4vex/info
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -220,7 +220,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -235,14 +235,14 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testRequestParam?author=薛烨伟&amp;type=kz1ozm
+<pre><code>http://localhost:8080/testRequestParam?author=许昊天&amp;type=7t11yl
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-09-29 00:37:09</span>
+        <span class="copyright">Generated by smart-doc at 2019-09-30 14:16:23</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

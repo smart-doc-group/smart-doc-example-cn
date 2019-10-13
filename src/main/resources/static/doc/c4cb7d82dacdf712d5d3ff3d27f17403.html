@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1569688629922"/>
+    <link rel="stylesheet" href="markdown.css?v=1569824183071"/>
     <title>Map返回型接口api文档测试</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -40,8 +40,8 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;mapKey1&quot;:743,
-	&quot;mapKey2&quot;:542
+	&quot;mapKey1&quot;:850,
+	&quot;mapKey2&quot;:108
 }
 </code></pre>
 <h2>Map&lt;String,Object&gt;结构</h2>
@@ -54,7 +54,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -87,7 +87,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -116,17 +116,17 @@
 <p><strong>Response-example:</strong></p>
 <pre><code>{
 	&quot;mapKey&quot;:{
-		&quot;userName&quot;:&quot;智宸.徐&quot;,
-		&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-		&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-		&quot;userAge&quot;:68,
-		&quot;phone&quot;:&quot;14599838458&quot;,
-		&quot;createTime&quot;:1569688636362,
-		&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-		&quot;telephone&quot;:&quot;14599838458&quot;,
+		&quot;userName&quot;:&quot;果.邵&quot;,
+		&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+		&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+		&quot;userAge&quot;:25,
+		&quot;phone&quot;:&quot;15823781769&quot;,
+		&quot;createTime&quot;:1569824190299,
+		&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+		&quot;telephone&quot;:&quot;15823781769&quot;,
 		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-			&quot;numbers&quot;:33
+			&quot;subUserName&quot;:&quot;果.邵&quot;,
+			&quot;numbers&quot;:335
 		}
 	}
 }
@@ -141,7 +141,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -210,21 +210,21 @@
 <p><strong>Response-example:</strong></p>
 <pre><code>{
 	&quot;mapKey&quot;:{
-		&quot;stuName&quot;:&quot;智宸.徐&quot;,
+		&quot;stuName&quot;:&quot;果.邵&quot;,
 		&quot;stuAge&quot;:true,
-		&quot;stuAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
+		&quot;stuAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
 		&quot;user&quot;:{
-			&quot;userName&quot;:&quot;智宸.徐&quot;,
-			&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-			&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-			&quot;userAge&quot;:68,
-			&quot;phone&quot;:&quot;14599838458&quot;,
-			&quot;createTime&quot;:1569688636362,
-			&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-			&quot;telephone&quot;:&quot;14599838458&quot;,
+			&quot;userName&quot;:&quot;果.邵&quot;,
+			&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+			&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+			&quot;userAge&quot;:25,
+			&quot;phone&quot;:&quot;15823781769&quot;,
+			&quot;createTime&quot;:1569824190299,
+			&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+			&quot;telephone&quot;:&quot;15823781769&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-				&quot;numbers&quot;:740
+				&quot;subUserName&quot;:&quot;果.邵&quot;,
+				&quot;numbers&quot;:45
 			}
 		},
 		&quot;userMap&quot;:{
@@ -234,32 +234,32 @@
 		},
 		&quot;userTreeSet&quot;:[
 			{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:562
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:279
 				}
 			}
 		],
 		&quot;user1&quot;:{
-			&quot;userName&quot;:&quot;智宸.徐&quot;,
-			&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-			&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-			&quot;userAge&quot;:68,
-			&quot;phone&quot;:&quot;14599838458&quot;,
-			&quot;createTime&quot;:1569688636362,
-			&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-			&quot;telephone&quot;:&quot;14599838458&quot;,
+			&quot;userName&quot;:&quot;果.邵&quot;,
+			&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+			&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+			&quot;userAge&quot;:25,
+			&quot;phone&quot;:&quot;15823781769&quot;,
+			&quot;createTime&quot;:1569824190299,
+			&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+			&quot;telephone&quot;:&quot;15823781769&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-				&quot;numbers&quot;:202
+				&quot;subUserName&quot;:&quot;果.邵&quot;,
+				&quot;numbers&quot;:753
 			}
 		}
 	}
@@ -275,7 +275,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -288,7 +288,7 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>data</td><td>object</td><td>泛型data</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
 <tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
@@ -372,50 +372,50 @@
 	&quot;mapKey&quot;:{
 		&quot;data&quot;:[
 			{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:185
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:972
 				}
 			}
 		],
 		&quot;data1&quot;:{
-			&quot;userName&quot;:&quot;智宸.徐&quot;,
-			&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-			&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-			&quot;userAge&quot;:68,
-			&quot;phone&quot;:&quot;14599838458&quot;,
-			&quot;createTime&quot;:1569688636362,
-			&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-			&quot;telephone&quot;:&quot;14599838458&quot;,
+			&quot;userName&quot;:&quot;果.邵&quot;,
+			&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+			&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+			&quot;userAge&quot;:25,
+			&quot;phone&quot;:&quot;15823781769&quot;,
+			&quot;createTime&quot;:1569824190299,
+			&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+			&quot;telephone&quot;:&quot;15823781769&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-				&quot;numbers&quot;:158
+				&quot;subUserName&quot;:&quot;果.邵&quot;,
+				&quot;numbers&quot;:328
 			}
 		},
 		&quot;data2&quot;:{
-			&quot;stuName&quot;:&quot;智宸.徐&quot;,
+			&quot;stuName&quot;:&quot;果.邵&quot;,
 			&quot;stuAge&quot;:true,
-			&quot;stuAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
+			&quot;stuAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
 			&quot;user&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:801
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:215
 				}
 			},
 			&quot;userMap&quot;:{
@@ -425,36 +425,36 @@
 			},
 			&quot;userTreeSet&quot;:[
 				{
-					&quot;userName&quot;:&quot;智宸.徐&quot;,
-					&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-					&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-					&quot;userAge&quot;:68,
-					&quot;phone&quot;:&quot;14599838458&quot;,
-					&quot;createTime&quot;:1569688636362,
-					&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-					&quot;telephone&quot;:&quot;14599838458&quot;,
+					&quot;userName&quot;:&quot;果.邵&quot;,
+					&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+					&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+					&quot;userAge&quot;:25,
+					&quot;phone&quot;:&quot;15823781769&quot;,
+					&quot;createTime&quot;:1569824190299,
+					&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+					&quot;telephone&quot;:&quot;15823781769&quot;,
 					&quot;subUser&quot;:{
-						&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-						&quot;numbers&quot;:364
+						&quot;subUserName&quot;:&quot;果.邵&quot;,
+						&quot;numbers&quot;:541
 					}
 				}
 			],
 			&quot;user1&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:32
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:591
 				}
 			}
 		},
-		&quot;age&quot;:68
+		&quot;age&quot;:25
 	}
 }
 </code></pre>
@@ -468,7 +468,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -481,7 +481,7 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>data</td><td>object</td><td>泛型data</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
 <tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
@@ -565,50 +565,50 @@
 	&quot;mapKey&quot;:{
 		&quot;data&quot;:[
 			{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:591
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:825
 				}
 			}
 		],
 		&quot;data1&quot;:{
-			&quot;userName&quot;:&quot;智宸.徐&quot;,
-			&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-			&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-			&quot;userAge&quot;:68,
-			&quot;phone&quot;:&quot;14599838458&quot;,
-			&quot;createTime&quot;:1569688636362,
-			&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-			&quot;telephone&quot;:&quot;14599838458&quot;,
+			&quot;userName&quot;:&quot;果.邵&quot;,
+			&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+			&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+			&quot;userAge&quot;:25,
+			&quot;phone&quot;:&quot;15823781769&quot;,
+			&quot;createTime&quot;:1569824190299,
+			&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+			&quot;telephone&quot;:&quot;15823781769&quot;,
 			&quot;subUser&quot;:{
-				&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-				&quot;numbers&quot;:688
+				&quot;subUserName&quot;:&quot;果.邵&quot;,
+				&quot;numbers&quot;:564
 			}
 		},
 		&quot;data2&quot;:{
-			&quot;stuName&quot;:&quot;智宸.徐&quot;,
+			&quot;stuName&quot;:&quot;果.邵&quot;,
 			&quot;stuAge&quot;:true,
-			&quot;stuAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
+			&quot;stuAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
 			&quot;user&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:128
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:669
 				}
 			},
 			&quot;userMap&quot;:{
@@ -618,36 +618,36 @@
 			},
 			&quot;userTreeSet&quot;:[
 				{
-					&quot;userName&quot;:&quot;智宸.徐&quot;,
-					&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-					&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-					&quot;userAge&quot;:68,
-					&quot;phone&quot;:&quot;14599838458&quot;,
-					&quot;createTime&quot;:1569688636362,
-					&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-					&quot;telephone&quot;:&quot;14599838458&quot;,
+					&quot;userName&quot;:&quot;果.邵&quot;,
+					&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+					&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+					&quot;userAge&quot;:25,
+					&quot;phone&quot;:&quot;15823781769&quot;,
+					&quot;createTime&quot;:1569824190299,
+					&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+					&quot;telephone&quot;:&quot;15823781769&quot;,
 					&quot;subUser&quot;:{
-						&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-						&quot;numbers&quot;:598
+						&quot;subUserName&quot;:&quot;果.邵&quot;,
+						&quot;numbers&quot;:417
 					}
 				}
 			],
 			&quot;user1&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:943
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:371
 				}
 			}
 		},
-		&quot;age&quot;:68
+		&quot;age&quot;:25
 	}
 }
 </code></pre>
@@ -661,7 +661,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -674,7 +674,7 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>data</td><td>object</td><td>泛型data</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
 <tr><td>└─userAddress</td><td>string</td><td>用户地址</td><td>-</td></tr>
@@ -718,59 +718,59 @@
 	&quot;mapKey&quot;:{
 		&quot;data&quot;:{
 			&quot;mapKey&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:350
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:784
 				}
 			}
 		},
 		&quot;data1&quot;:{
 			&quot;mapKey&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:363
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:445
 				}
 			}
 		},
 		&quot;data2&quot;:{
 			&quot;mapKey&quot;:{
-				&quot;userName&quot;:&quot;智宸.徐&quot;,
-				&quot;nickName&quot;:&quot;maxima.pollich&quot;,
-				&quot;userAddress&quot;:&quot;黄栋413号， 秦皇岛， 蒙 040517&quot;,
-				&quot;userAge&quot;:68,
-				&quot;phone&quot;:&quot;14599838458&quot;,
-				&quot;createTime&quot;:1569688636362,
-				&quot;ipv6&quot;:&quot;92c2:0566:2700:7a89:a558:104b:daad:7f13&quot;,
-				&quot;telephone&quot;:&quot;14599838458&quot;,
+				&quot;userName&quot;:&quot;果.邵&quot;,
+				&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
+				&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
+				&quot;userAge&quot;:25,
+				&quot;phone&quot;:&quot;15823781769&quot;,
+				&quot;createTime&quot;:1569824190299,
+				&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
+				&quot;telephone&quot;:&quot;15823781769&quot;,
 				&quot;subUser&quot;:{
-					&quot;subUserName&quot;:&quot;智宸.徐&quot;,
-					&quot;numbers&quot;:416
+					&quot;subUserName&quot;:&quot;果.邵&quot;,
+					&quot;numbers&quot;:233
 				}
 			}
 		},
-		&quot;age&quot;:68
+		&quot;age&quot;:25
 	}
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-09-29 00:37:09</span>
+        <span class="copyright">Generated by smart-doc at 2019-09-30 14:16:23</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

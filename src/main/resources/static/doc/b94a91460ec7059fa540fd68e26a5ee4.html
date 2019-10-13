@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1569688629922"/>
+    <link rel="stylesheet" href="markdown.css?v=1569824183071"/>
     <title>xss拦击测试</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -36,7 +36,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/xss/text?text=o6zedx
+<pre><code>http://localhost:8080/xss/text?text=4shpgx
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -44,10 +44,10 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
-<tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
+<tr><td>success</td><td>boolean</td><td>成功返回true,失败返回false</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>接口响应信息</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>code</td><td>string</td><td>响应代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
 </table>
@@ -55,9 +55,9 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;dv0blr&quot;,
-	&quot;code&quot;:&quot;1821&quot;,
-	&quot;timestamp&quot;:&quot;2019-09-29 00:37:16&quot;
+	&quot;data&quot;:&quot;pjx491&quot;,
+	&quot;code&quot;:&quot;00000&quot;,
+	&quot;timestamp&quot;:&quot;2019-09-30 14:16:30&quot;
 }
 </code></pre>
 <h2>xss过滤get请求</h2>
@@ -70,7 +70,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -84,7 +84,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/xss/query?query=pifdnh
+<pre><code>http://localhost:8080/xss/query?query=j4ym56
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -92,10 +92,10 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
-<tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
+<tr><td>success</td><td>boolean</td><td>成功返回true,失败返回false</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>接口响应信息</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
+<tr><td>code</td><td>string</td><td>响应代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
 </table>
@@ -103,9 +103,9 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;4ehky4&quot;,
-	&quot;code&quot;:&quot;1821&quot;,
-	&quot;timestamp&quot;:&quot;2019-09-29 00:37:16&quot;
+	&quot;data&quot;:&quot;v3x8az&quot;,
+	&quot;code&quot;:&quot;00000&quot;,
+	&quot;timestamp&quot;:&quot;2019-09-30 14:16:30&quot;
 }
 </code></pre>
 <h2>xss过滤json数据</h2>
@@ -118,7 +118,7 @@
 <tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>true</td><td>v1.1.0</td></tr>
+<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
 <tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
@@ -134,8 +134,8 @@
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>{
-	&quot;name&quot;:&quot;智宸.徐&quot;,
-	&quot;age&quot;:68
+	&quot;name&quot;:&quot;果.邵&quot;,
+	&quot;age&quot;:25
 }
 </code></pre>
 <p><strong>Response-fields:</strong></p>
@@ -144,12 +144,12 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>success</td><td>boolean</td><td>成功返回true,失败返回false</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>接口响应信息</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>接口响应数据</td><td>-</td></tr>
 <tr><td>└─name</td><td>string</td><td>姓名</td><td>-</td></tr>
 <tr><td>└─age</td><td>int</td><td>年龄</td><td>-</td></tr>
-<tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
+<tr><td>code</td><td>string</td><td>响应代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
 </table>
@@ -158,16 +158,16 @@
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
 	&quot;data&quot;:{
-		&quot;name&quot;:&quot;智宸.徐&quot;,
-		&quot;age&quot;:68
+		&quot;name&quot;:&quot;果.邵&quot;,
+		&quot;age&quot;:25
 	},
-	&quot;code&quot;:&quot;1821&quot;,
-	&quot;timestamp&quot;:&quot;2019-09-29 00:37:16&quot;
+	&quot;code&quot;:&quot;00000&quot;,
+	&quot;timestamp&quot;:&quot;2019-09-30 14:16:30&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-09-29 00:37:09</span>
+        <span class="copyright">Generated by smart-doc at 2019-09-30 14:16:23</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
