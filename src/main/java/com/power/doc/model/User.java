@@ -48,10 +48,10 @@ public class User {
      */
     private String telephone;
 
-    /**
-     * 子用户信息
-     */
-    private SubUser subUser;
+//    /**
+//     * 子用户信息
+//     */
+//    private SubUser subUser;
 
 
     public String getUserName() {
@@ -118,11 +118,11 @@ public class User {
         this.telephone = telephone;
     }
 
-    public SubUser getSubUser() {
-        return subUser;
-    }
-
-    public void setSubUser(SubUser subUser) {
-        this.subUser = subUser;
-    }
+//    public SubUser getSubUser() {
+//        return subUser;
+//    }
+//
+//    public void setSubUser(SubUser subUser) {
+//        this.subUser = subUser;
+//    }
 }

@@ -1,8 +1,10 @@
 package com.power.doc.controller;
 
+import com.power.common.model.CommonResult;
 import com.power.doc.model.Student;
 import com.power.doc.model.Teacher;
 import com.power.doc.model.User;
+import com.power.doc.model.UserDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -101,6 +103,15 @@ public class ListController {
      */
     @GetMapping(value = "listString2")
     public List<Teacher<Teacher<User, User, User>, Teacher<User, User, User>, Teacher<User, User, User>>> testList2() {
+        return null;
+    }
+
+    /**
+     * CommonResult&lt;List&lt;UserDto&gt;&gt;
+     * @return
+     */
+    @GetMapping(value = "listUserDto")
+    public CommonResult<List<UserDto>> testListUserDto(){
         return null;
     }
 }
