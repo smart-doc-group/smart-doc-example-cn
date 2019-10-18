@@ -2,8 +2,9 @@ package com.power.doc.model;
 
 import com.power.doc.annotation.ErrorCode;
 import com.power.doc.enums.ErrorCodeEnum;
-import org.hibernate.validator.constraints.NotBlank;
-import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotEmpty;
+
 
 /**
  * Description:
