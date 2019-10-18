@@ -1,6 +1,7 @@
 package com.power.doc.service;
 
 import com.power.common.util.DateTimeUtil;
+import com.power.doc.builder.AdocDocBuilder;
 import com.power.doc.builder.ApiDocBuilder;
 import com.power.doc.builder.HtmlApiDocBuilder;
 import com.power.doc.constants.DocGlobalConstants;
@@ -37,6 +38,7 @@ public class ApiDocTest {
         //指定文档输出路径
         //@since 1.7 版本开始，选择生成静态html doc文档可使用该路径：DocGlobalConstants.HTML_DOC_OUT_PATH;
         config.setOutPath(DocGlobalConstants.HTML_DOC_OUT_PATH);
+        //config.setOutPath("E:\\chen\\test-smart");
         // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
         // 如果需要配置有多个controller可以使用逗号隔开
 //        config.setPackageFilters("com.power.doc.controller");
@@ -45,6 +47,8 @@ public class ApiDocTest {
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
         HtmlApiDocBuilder.builderControllersApi(config);
+        AdocDocBuilder.builderControllersApi(config);
+        ApiDocBuilder.builderControllersApi(config);
         //List<ApiDoc> docList = ApiDocBuilder.listOfApiData(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);
