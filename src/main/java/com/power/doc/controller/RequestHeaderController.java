@@ -10,12 +10,34 @@ import org.springframework.web.bind.annotation.*;
 public class RequestHeaderController {
 
     /**
-     * 测试RequestHeader
+     * 测试RequestHeader常规使用
      * @param name 请求头(name)
      * @param age   年龄
      */
     @GetMapping("testRequestHeader")
-    public void testRequestHeader(@RequestHeader(value = "token",defaultValue = "da" ,required = false)String name, Integer age) {
+    public void testRequestHeader(@RequestHeader String name, Integer age) {
 
     }
+
+    /**
+     * 测试RequestHeader绑定参数名
+     * @param name 请求头(name)
+     * @param age   年龄
+     */
+    @GetMapping("testRequestHeader")
+    public void testRequestHeaderAnnotationWithValue(@RequestHeader(value = "token", required = false)String name, Integer age) {
+
+    }
+
+    /**
+     * 测试RequestHeader绑定默认值
+     * @param name 请求头(name)
+     * @param age   年龄
+     */
+    @GetMapping("testRequestHeader")
+    public void testRequestHeaderAnnotationWithDefaultVal(@RequestHeader(value = "token",defaultValue = "da",required = false)String name, Integer age) {
+
+    }
+
+
 }

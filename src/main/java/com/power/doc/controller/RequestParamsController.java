@@ -11,6 +11,7 @@ import java.util.Map;
  *
  * @author yu 2019/9/28.
  */
+
 @RestController
 public class RequestParamsController {
 
@@ -74,6 +75,26 @@ public class RequestParamsController {
      */
     @GetMapping("testRequestParam")
     public void testRequestParam(@RequestParam String author, @RequestParam String type) {
+
+    }
+
+    /**
+     * Test @RequestParam with value
+     * @apiNote Use @RequestParam binding value is name,but method param name is userName
+     * @param userName user name
+     */
+    @GetMapping("testRequestParamWithValue")
+    public void testRequestParamWithValue(@RequestParam(value = "name") String userName) {
+
+    }
+
+    /**
+     * Test @RequestParam with default value
+     * @apiNote Use @RequestParam binding default value Jordan
+     * @param userName user name
+     */
+    @GetMapping("testRequestParamWithDefaultVal")
+    public void testRequestParamWithDefaultVal(@RequestParam(defaultValue = "Jordan") String userName) {
 
     }
 

@@ -1,5 +1,7 @@
 package com.power.doc.model;
 
+import java.util.List;
+
 /**
  * Description:
  * 用户对象
@@ -8,6 +10,15 @@ package com.power.doc.model;
  */
 public class User {
 
+    /**
+     * 用户详情
+     */
+    private List<UserDetail> userDetails;
+
+    /**
+     * 用户列表
+     */
+    private List<User> userList;
     /**
      * 用户名
      */
@@ -39,6 +50,16 @@ public class User {
     private Long createTime;
 
     /**
+     * 钱少
+     */
+    private Float small;
+
+    /**
+     * 钱太多了
+     */
+    private Double money;
+
+    /**
      * ipv6
      */
     private String ipv6;
@@ -47,6 +68,8 @@ public class User {
      * 固定电话
      */
     private String telephone;
+
+
 
 //    /**
 //     * 子用户信息
