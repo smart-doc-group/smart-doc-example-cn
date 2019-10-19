@@ -24,6 +24,7 @@ public class ApiDocTest {
     /**
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
      */
+    @Deprecated
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
@@ -31,7 +32,7 @@ public class ApiDocTest {
         //true会严格要求注释，推荐设置true
         config.setStrict(true);
         //true会将文档合并导出到一个markdown
-        config.setAllInOne(true);
+       // config.setAllInOne(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
 
@@ -47,8 +48,8 @@ public class ApiDocTest {
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
         HtmlApiDocBuilder.builderControllersApi(config);
-        AdocDocBuilder.builderControllersApi(config);
-        ApiDocBuilder.builderControllersApi(config);
+        //AdocDocBuilder.builderControllersApi(config);
+        //ApiDocBuilder.builderControllersApi(config);
         //List<ApiDoc> docList = ApiDocBuilder.listOfApiData(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);

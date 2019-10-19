@@ -8,13 +8,53 @@
 
 *Description:* 用于测试apiNote注释是否有效
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/json; charset=utf-8
 
 
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userDetails|array|用户详情|false|-
+|userList|array|用户列表|false|-
+|userName|string|用户名|false|-
+|nickName|string|昵称|false|-
+|userAddress|string|用户地址|false|-
+|userAge|int32|用户年龄|false|-
+|phone|string|手机号|false|-
+|createTime|int64|创建时间|false|-
+|small|float|钱少|false|-
+|money|double|钱太多了|false|-
+|ipv6|string|ipv6|false|-
+|telephone|string|固定电话|false|-
+|====================
 
 *Request-example:*
 ----
-http://localhost:8080/test
+{
+	"userDetails":[
+		{
+			"githubAddress":"王侬9号， 湛江， 宁 156068"
+		}
+	],
+	"userList":[
+		{
+			"$ref":".."
+		}
+	],
+	"userName":"凯瑞.韩",
+	"nickName":"johnathan.shields",
+	"userAddress":"王侬9号， 湛江， 宁 156068",
+	"userAge":68,
+	"phone":"15911872515",
+	"createTime":1571492174727,
+	"small":23.88,
+	"money":25.79,
+	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+	"telephone":"15911872515"
+}
 ----
 *Response-fields:*
 
@@ -27,7 +67,7 @@ http://localhost:8080/test
 
 *Response-example:*
 ----
-u9zmrv
+jy9xsf
 ----
 
 == app端接口测试
@@ -52,7 +92,7 @@ u9zmrv
 
 *Request-example:*
 ----
-http://localhost:8080/app/test?name=烨伟.白
+http://localhost:8080/app/test?name=凯瑞.韩
 ----
 *Response-fields:*
 
@@ -65,7 +105,7 @@ http://localhost:8080/app/test?name=烨伟.白
 
 *Response-example:*
 ----
-adc6rt
+v3j21g
 ----
 
 == 异步返回信息测试
@@ -105,8 +145,8 @@ http://localhost:8080/testCallable
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -143,9 +183,9 @@ http://localhost:8080/async-deferredresult
 {
 	"success":true,
 	"message":"success",
-	"data":"6lvfn2",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"r3q83n",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -185,8 +225,8 @@ http://localhost:8080/WebAsync/timeout
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -223,9 +263,9 @@ http://localhost:8080/future
 {
 	"success":true,
 	"message":"success",
-	"data":"53lamg",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"0uig9s",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -262,9 +302,9 @@ http://localhost:8080/completableFuture
 {
 	"success":true,
 	"message":"success",
-	"data":"prislr",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"g35i4j",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -302,9 +342,9 @@ http://localhost:8080/testHttps
 {
 	"success":true,
 	"message":"success",
-	"data":"wcwlip",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"goojms",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -341,9 +381,46 @@ http://localhost:8080/testHttp
 {
 	"success":true,
 	"message":"success",
-	"data":"kqrl2m",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"nth4d6",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
+}
+----
+
+== Test inner class
+=== Return A object contains Inner class
+*URL:* http://localhost:8080/inner/class
+
+*Type:* GET
+
+*Description:* Return A object contains Inner class
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+
+*Request-example:*
+----
+http://localhost:8080/inner/class
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|姓名|-
+|innerClass|object|内部类|-
+|└─phone|string|电话|-
+|====================
+
+*Response-example:*
+----
+{
+	"name":"凯瑞.韩",
+	"innerClass":{
+		"phone":"15911872515"
+	}
 }
 ----
 
@@ -371,8 +448,8 @@ http://localhost:8080/testHttp
 *Request-example:*
 ----
 {
-	"localDate":"2019-10-18",
-	"localDateTime":"2019-10-18 10:42:24"
+	"localDate":"2019-10-19",
+	"localDateTime":"2019-10-19 21:36:17"
 }
 ----
 *Response-fields:*
@@ -388,8 +465,8 @@ http://localhost:8080/testHttp
 *Response-example:*
 ----
 {
-	"localDate":"2019-10-18",
-	"localDateTime":"2019-10-18 10:42:24"
+	"localDate":"2019-10-19",
+	"localDateTime":"2019-10-19 21:36:17"
 }
 ----
 
@@ -417,8 +494,8 @@ http://localhost:8080/testHttp
 *Request-example:*
 ----
 {
-	"username":"烨伟.白",
-	"idCard":"811828198511112958"
+	"username":"凯瑞.韩",
+	"idCard":"211414197001035543"
 }
 ----
 *Response-fields:*
@@ -433,7 +510,7 @@ http://localhost:8080/testHttp
 *Response-example:*
 ----
 {
-	"name":"烨伟.白"
+	"name":"凯瑞.韩"
 }
 ----
 
@@ -460,8 +537,8 @@ http://localhost:8080/testHttp
 *Request-example:*
 ----
 {
-	"username":"烨伟.白",
-	"idCard":"811828198511112958"
+	"username":"凯瑞.韩",
+	"idCard":"211414197001035543"
 }
 ----
 *Response-fields:*
@@ -476,7 +553,7 @@ http://localhost:8080/testHttp
 *Response-example:*
 ----
 {
-	"name":"烨伟.白"
+	"name":"凯瑞.韩"
 }
 ----
 
@@ -508,8 +585,8 @@ http://localhost:8080/list/listString
 *Response-example:*
 ----
 [
-	"2sqkzx",
-	"qcucch"
+	"buy2pa",
+	"t0ntnz"
 ]
 ----
 
@@ -541,8 +618,8 @@ http://localhost:8080/list/listMap
 ----
 [
 	{
-		"mapKey1":"4qh8mp",
-		"mapKey2":"pguf1y"
+		"mapKey1":"xf17gn",
+		"mapKey2":"jnbkn9"
 	}
 ]
 ----
@@ -568,35 +645,44 @@ http://localhost:8080/list/listObject
 [stripes=even]
 |====================
 |Field | Type|Description|Since
+|userDetails|array|用户详情|-
+|userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
 |userAddress|string|用户地址|-
-|userAge|int|用户年龄|-
+|userAge|int32|用户年龄|-
 |phone|string|手机号|-
-|createTime|number|创建时间|-
+|createTime|int64|创建时间|-
+|small|float|钱少|-
+|money|double|钱太多了|-
 |ipv6|string|ipv6|-
 |telephone|string|固定电话|-
-|subUser|object|子用户信息|-
-|└─subUserName|string|用户名称|-
-|└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
 ----
 [
 	{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":171
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":14.62,
+		"money":85.73,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	}
 ]
 ----
@@ -626,53 +712,57 @@ http://localhost:8080/list/listMap2
 |stuAge|boolean|年龄|-
 |stuAddress|string|地址|-
 |user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
@@ -680,22 +770,30 @@ http://localhost:8080/list/listMap2
 [
 	{
 		"mapKey":{
-			"stuName":"烨伟.白",
+			"stuName":"凯瑞.韩",
 			"stuAge":true,
-			"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+			"stuAddress":"王侬9号， 湛江， 宁 156068",
 			"user":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":368
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":92.58,
+				"money":34.61,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"userMap":{
 				"mapKey":{
@@ -704,33 +802,49 @@ http://localhost:8080/list/listMap2
 			},
 			"userTreeSet":[
 				{
-					"userName":"烨伟.白",
-					"nickName":"brandon.schoen",
-					"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-					"userAge":42,
-					"phone":"15391490302",
-					"createTime":1571366542272,
-					"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-					"telephone":"15391490302",
-					"subUser":{
-						"subUserName":"烨伟.白",
-						"numbers":921
-					}
+					"userDetails":[
+						{
+							"githubAddress":"王侬9号， 湛江， 宁 156068"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"凯瑞.韩",
+					"nickName":"johnathan.shields",
+					"userAddress":"王侬9号， 湛江， 宁 156068",
+					"userAge":68,
+					"phone":"15911872515",
+					"createTime":1571492174727,
+					"small":61.65,
+					"money":75.89,
+					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+					"telephone":"15911872515"
 				}
 			],
 			"user1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":479
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":92.66,
+				"money":12.53,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		}
 	}
@@ -759,42 +873,45 @@ http://localhost:8080/list/listMap3
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -803,48 +920,72 @@ http://localhost:8080/list/listMap3
 	{
 		"mapKey":{
 			"data":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":337
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":7.09,
+				"money":70.08,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":980
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":0.99,
+				"money":45.83,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data2":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":562
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":26.72,
+				"money":4.40,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
-			"age":42
+			"age":68
 		}
 	}
 ]
@@ -872,42 +1013,45 @@ http://localhost:8080/list/listTeacher
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -916,53 +1060,77 @@ http://localhost:8080/list/listTeacher
 	{
 		"data":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":674
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":71.03,
+				"money":74.11,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"data1":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":370
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":39.43,
+				"money":94.21,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"data2":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":704
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":30.58,
+				"money":77.49,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
-		"age":42
+		"age":68
 	}
 ]
 ----
@@ -990,67 +1158,72 @@ http://localhost:8080/list/listString1
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -1059,78 +1232,118 @@ http://localhost:8080/list/listString1
 	{
 		"data":{
 			"data":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":784
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":5.93,
+				"money":61.28,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":419
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":68.85,
+				"money":8.48,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data2":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":526
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":25.63,
+				"money":6.31,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
-			"age":42
+			"age":68
 		},
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":799
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":12.70,
+			"money":69.10,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":431
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":17.57,
+			"money":41.53,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
-		"age":42
+		"age":68
 	}
 ]
 ----
@@ -1158,119 +1371,128 @@ http://localhost:8080/list/listString2
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |data1|object|泛型data1|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |data2|object|data2|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
-|age|int|年龄|-
+|└─age|int32|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -1279,142 +1501,267 @@ http://localhost:8080/list/listString2
 	{
 		"data":{
 			"data":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":24
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":66.13,
+				"money":86.13,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":609
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":88.86,
+				"money":22.07,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data2":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":255
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":48.96,
+				"money":19.11,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
-			"age":42
+			"age":68
 		},
 		"data1":{
 			"data":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":66
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":25.88,
+				"money":79.30,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":436
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":98.86,
+				"money":7.97,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data2":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":441
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":92.27,
+				"money":64.53,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
-			"age":42
+			"age":68
 		},
 		"data2":{
 			"data":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":685
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":94.07,
+				"money":30.39,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":663
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":81.11,
+				"money":57.28,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"data2":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":783
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":13.37,
+				"money":92.37,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
-			"age":42
+			"age":68
 		},
-		"age":42
+		"age":68
 	}
 ]
+----
+
+=== CommonResult&lt;List&lt;UserDto&gt;&gt;
+*URL:* http://localhost:8080/list/listUserDto
+
+*Type:* GET
+
+*Description:* CommonResult&lt;List&lt;UserDto&gt;&gt;
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+
+*Request-example:*
+----
+http://localhost:8080/list/listUserDto
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|└─token|string|token|-
+|└─LoginList|array|UserDto 用户信息列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─password|string|密码|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"token":"h1im0f",
+			"LoginList":[
+				{
+					"userName":"凯瑞.韩",
+					"password":"wmab7w"
+				}
+			]
+		}
+	],
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
+}
 ----
 
 == Map返回型接口api文档测试
@@ -1445,8 +1792,8 @@ http://localhost:8080/map/primitive
 *Response-example:*
 ----
 {
-	"mapKey1":447,
-	"mapKey2":821
+	"mapKey1":740,
+	"mapKey2":288
 }
 ----
 
@@ -1504,35 +1851,44 @@ http://localhost:8080/map/object
 [stripes=even]
 |====================
 |Field | Type|Description|Since
+|userDetails|array|用户详情|-
+|userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
 |userAddress|string|用户地址|-
-|userAge|int|用户年龄|-
+|userAge|int32|用户年龄|-
 |phone|string|手机号|-
-|createTime|number|创建时间|-
+|createTime|int64|创建时间|-
+|small|float|钱少|-
+|money|double|钱太多了|-
 |ipv6|string|ipv6|-
 |telephone|string|固定电话|-
-|subUser|object|子用户信息|-
-|└─subUserName|string|用户名称|-
-|└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
 ----
 {
 	"mapKey":{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":163
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":54.23,
+		"money":7.27,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	}
 }
 ----
@@ -1562,75 +1918,87 @@ http://localhost:8080/map/test1
 |stuAge|boolean|年龄|-
 |stuAddress|string|地址|-
 |user|object|用户对象|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userMap|map|map用户信息|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userTreeSet|object|用户列表|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |user1|object|用户对象2|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
 ----
 {
 	"mapKey":{
-		"stuName":"烨伟.白",
+		"stuName":"凯瑞.韩",
 		"stuAge":true,
-		"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+		"stuAddress":"王侬9号， 湛江， 宁 156068",
 		"user":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":147
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":26.31,
+			"money":76.20,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"userMap":{
 			"mapKey":{
@@ -1639,33 +2007,49 @@ http://localhost:8080/map/test1
 		},
 		"userTreeSet":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":916
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":79.23,
+				"money":88.74,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"user1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":251
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":63.94,
+			"money":79.78,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		}
 	}
 }
@@ -1693,82 +2077,88 @@ http://localhost:8080/map/test2
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
 |└─stuName|string|姓名|-
 |└─stuAge|boolean|年龄|-
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -1777,51 +2167,75 @@ http://localhost:8080/map/test2
 	"mapKey":{
 		"data":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":333
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":24.72,
+				"money":55.48,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":172
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":90.14,
+			"money":59.40,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"stuName":"烨伟.白",
+			"stuName":"凯瑞.韩",
 			"stuAge":true,
-			"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+			"stuAddress":"王侬9号， 湛江， 宁 156068",
 			"user":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":548
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":97.12,
+				"money":84.97,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"userMap":{
 				"mapKey":{
@@ -1830,36 +2244,52 @@ http://localhost:8080/map/test2
 			},
 			"userTreeSet":[
 				{
-					"userName":"烨伟.白",
-					"nickName":"brandon.schoen",
-					"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-					"userAge":42,
-					"phone":"15391490302",
-					"createTime":1571366542272,
-					"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-					"telephone":"15391490302",
-					"subUser":{
-						"subUserName":"烨伟.白",
-						"numbers":107
-					}
+					"userDetails":[
+						{
+							"githubAddress":"王侬9号， 湛江， 宁 156068"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"凯瑞.韩",
+					"nickName":"johnathan.shields",
+					"userAddress":"王侬9号， 湛江， 宁 156068",
+					"userAge":68,
+					"phone":"15911872515",
+					"createTime":1571492174727,
+					"small":80.72,
+					"money":30.28,
+					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+					"telephone":"15911872515"
 				}
 			],
 			"user1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":271
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":85.64,
+				"money":69.49,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		},
-		"age":42
+		"age":68
 	}
 }
 ----
@@ -1886,82 +2316,88 @@ http://localhost:8080/map/test3
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
 |└─stuName|string|姓名|-
 |└─stuAge|boolean|年龄|-
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -1970,51 +2406,75 @@ http://localhost:8080/map/test3
 	"mapKey":{
 		"data":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":915
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":43.91,
+				"money":84.06,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":16
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":80.34,
+			"money":21.51,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"stuName":"烨伟.白",
+			"stuName":"凯瑞.韩",
 			"stuAge":true,
-			"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+			"stuAddress":"王侬9号， 湛江， 宁 156068",
 			"user":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":105
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":98.26,
+				"money":87.49,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			},
 			"userMap":{
 				"mapKey":{
@@ -2023,36 +2483,52 @@ http://localhost:8080/map/test3
 			},
 			"userTreeSet":[
 				{
-					"userName":"烨伟.白",
-					"nickName":"brandon.schoen",
-					"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-					"userAge":42,
-					"phone":"15391490302",
-					"createTime":1571366542272,
-					"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-					"telephone":"15391490302",
-					"subUser":{
-						"subUserName":"烨伟.白",
-						"numbers":918
-					}
+					"userDetails":[
+						{
+							"githubAddress":"王侬9号， 湛江， 宁 156068"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"凯瑞.韩",
+					"nickName":"johnathan.shields",
+					"userAddress":"王侬9号， 湛江， 宁 156068",
+					"userAge":68,
+					"phone":"15911872515",
+					"createTime":1571492174727,
+					"small":17.20,
+					"money":8.67,
+					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+					"telephone":"15911872515"
 				}
 			],
 			"user1":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":192
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":66.95,
+				"money":53.75,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		},
-		"age":42
+		"age":68
 	}
 }
 ----
@@ -2079,42 +2555,45 @@ http://localhost:8080/map/test4
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -2123,64 +2602,88 @@ http://localhost:8080/map/test4
 	"mapKey":{
 		"data":{
 			"mapKey":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":181
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":34.26,
+				"money":63.05,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		},
 		"data1":{
 			"mapKey":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":134
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":35.09,
+				"money":3.25,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		},
 		"data2":{
 			"mapKey":{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":507
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":83.01,
+				"money":45.03,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		},
-		"age":42
+		"age":68
 	}
 }
 ----
 
 == RequestHeader注解测试
-=== 测试RequestHeader
+=== 测试RequestHeader常规使用
 *URL:* http://localhost:8080/testRequestHeader
 
 *Type:* GET
 
-*Description:* 测试RequestHeader
+*Description:* 测试RequestHeader常规使用
 
 *Content-Type:* application/x-www-form-urlencoded
 
@@ -2191,12 +2694,70 @@ http://localhost:8080/map/test4
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
-|age|int|  年龄|true|-
+|age|int32|  年龄|true|-
 |====================
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestHeader?age=42
+http://localhost:8080/testRequestHeader?age=68
+----
+
+*Response-example:*
+----
+This api return nothing.
+----
+
+=== 测试RequestHeader绑定参数名
+*URL:* http://localhost:8080/testRequestHeader
+
+*Type:* GET
+
+*Description:* 测试RequestHeader绑定参数名
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|age|int32|  年龄|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/testRequestHeader?age=68
+----
+
+*Response-example:*
+----
+This api return nothing.
+----
+
+=== 测试RequestHeader绑定默认值
+*URL:* http://localhost:8080/testRequestHeader
+
+*Type:* GET
+
+*Description:* 测试RequestHeader绑定默认值
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|age|int32|  年龄|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/testRequestHeader?age=68
 ----
 
 *Response-example:*
@@ -2222,12 +2783,12 @@ This api return nothing.
 |====================
 |Parameter | Type|Description|Required|Since
 |name|string|name|true|-
-|age|int| age|true|-
+|age|int32| age|true|-
 |====================
 
 *Request-example:*
 ----
-http://localhost:8080/testNormalParams/binding?name=烨伟.白&age=42
+http://localhost:8080/testNormalParams/binding?name=凯瑞.韩&age=68
 ----
 
 *Response-example:*
@@ -2251,34 +2812,43 @@ This api return nothing.
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
+|userDetails|array|用户详情|false|-
+|userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
 |userAddress|string|用户地址|false|-
-|userAge|int|用户年龄|false|-
+|userAge|int32|用户年龄|false|-
 |phone|string|手机号|false|-
-|createTime|number|创建时间|false|-
+|createTime|int64|创建时间|false|-
+|small|float|钱少|false|-
+|money|double|钱太多了|false|-
 |ipv6|string|ipv6|false|-
 |telephone|string|固定电话|false|-
-|subUser|object|子用户信息|false|-
-|└─subUserName|string|用户名称|true|-
-|└─numbers|number|bigInteger|false|-
 |====================
 
 *Request-example:*
 ----
 {
-	"userName":"烨伟.白",
-	"nickName":"brandon.schoen",
-	"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-	"userAge":42,
-	"phone":"15391490302",
-	"createTime":1571366542272,
-	"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-	"telephone":"15391490302",
-	"subUser":{
-		"subUserName":"烨伟.白",
-		"numbers":401
-	}
+	"userDetails":[
+		{
+			"githubAddress":"王侬9号， 湛江， 宁 156068"
+		}
+	],
+	"userList":[
+		{
+			"$ref":".."
+		}
+	],
+	"userName":"凯瑞.韩",
+	"nickName":"johnathan.shields",
+	"userAddress":"王侬9号， 湛江， 宁 156068",
+	"userAge":68,
+	"phone":"15911872515",
+	"createTime":1571492174727,
+	"small":9.28,
+	"money":11.54,
+	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+	"telephone":"15911872515"
 }
 ----
 
@@ -2303,35 +2873,44 @@ This api return nothing.
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
+|userDetails|array|用户详情|false|-
+|userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
 |userAddress|string|用户地址|false|-
-|userAge|int|用户年龄|false|-
+|userAge|int32|用户年龄|false|-
 |phone|string|手机号|false|-
-|createTime|number|创建时间|false|-
+|createTime|int64|创建时间|false|-
+|small|float|钱少|false|-
+|money|double|钱太多了|false|-
 |ipv6|string|ipv6|false|-
 |telephone|string|固定电话|false|-
-|subUser|object|子用户信息|false|-
-|└─subUserName|string|用户名称|true|-
-|└─numbers|number|bigInteger|false|-
 |====================
 
 *Request-example:*
 ----
 {
 	"mapKey":{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":578
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":89.52,
+		"money":93.11,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	}
 }
 ----
@@ -2363,8 +2942,8 @@ This api return nothing.
 *Request-example:*
 ----
 [
-	"2zpafp",
-	"h0auc1"
+	"kb90kv",
+	"upmrb3"
 ]
 ----
 
@@ -2395,7 +2974,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/test/烨伟.白/yvlobb/info
+http://localhost:8080/test/凯瑞.韩/d2r932/info
 ----
 
 *Response-example:*
@@ -2425,12 +3004,134 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestParam?author=董熠彤&type=0vrtt5
+http://localhost:8080/testRequestParam?author=邹晓啸&type=sabawt
 ----
 
 *Response-example:*
 ----
 This api return nothing.
+----
+
+=== Test @RequestParam with value
+*URL:* http://localhost:8080/testRequestParamWithValue
+
+*Type:* GET
+
+*Description:* Use@RequestParam binding value is name,but method param name is userName
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|name|string|user name|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/testRequestParamWithValue?name=凯瑞.韩
+----
+
+*Response-example:*
+----
+This api return nothing.
+----
+
+=== Test @RequestParam with default value
+*URL:* http://localhost:8080/testRequestParamWithDefaultVal
+
+*Type:* GET
+
+*Description:* Use@RequestParam binding default value Jordan
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userName|string|user name|true|-
+|====================
+
+*Request-example:*
+----
+http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
+----
+
+*Response-example:*
+----
+This api return nothing.
+----
+
+== Test ResponseEntity
+=== ResponseEntity return List
+*URL:* http://localhost:8080/responseEntity/list
+
+*Type:* GET
+
+*Description:* ResponseEntity return List
+
+*Content-Type:* application/x-www-form-urlencoded
+
+
+
+*Request-example:*
+----
+http://localhost:8080/responseEntity/list
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|userDetails|array|用户详情|-
+|userList|array|用户列表|-
+|userName|string|用户名|-
+|nickName|string|昵称|-
+|userAddress|string|用户地址|-
+|userAge|int32|用户年龄|-
+|phone|string|手机号|-
+|createTime|int64|创建时间|-
+|small|float|钱少|-
+|money|double|钱太多了|-
+|ipv6|string|ipv6|-
+|telephone|string|固定电话|-
+|====================
+
+*Response-example:*
+----
+[
+	{
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":12.58,
+		"money":89.18,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
+	}
+]
 ----
 
 == 普通java对象api文档测试
@@ -2460,7 +3161,7 @@ http://localhost:8080/simple/str
 
 *Response-example:*
 ----
-ijeumf
+9lvq9b
 ----
 
 === 返回普通javabean
@@ -2479,34 +3180,43 @@ ijeumf
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
+|userDetails|array|用户详情|false|-
+|userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
 |userAddress|string|用户地址|false|-
-|userAge|int|用户年龄|false|-
+|userAge|int32|用户年龄|false|-
 |phone|string|手机号|false|-
-|createTime|number|创建时间|false|-
+|createTime|int64|创建时间|false|-
+|small|float|钱少|false|-
+|money|double|钱太多了|false|-
 |ipv6|string|ipv6|false|-
 |telephone|string|固定电话|false|-
-|subUser|object|子用户信息|false|-
-|└─subUserName|string|用户名称|true|-
-|└─numbers|number|bigInteger|false|-
 |====================
 
 *Request-example:*
 ----
 {
-	"userName":"烨伟.白",
-	"nickName":"brandon.schoen",
-	"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-	"userAge":42,
-	"phone":"15391490302",
-	"createTime":1571366542272,
-	"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-	"telephone":"15391490302",
-	"subUser":{
-		"subUserName":"烨伟.白",
-		"numbers":880
-	}
+	"userDetails":[
+		{
+			"githubAddress":"王侬9号， 湛江， 宁 156068"
+		}
+	],
+	"userList":[
+		{
+			"$ref":".."
+		}
+	],
+	"userName":"凯瑞.韩",
+	"nickName":"johnathan.shields",
+	"userAddress":"王侬9号， 湛江， 宁 156068",
+	"userAge":68,
+	"phone":"15911872515",
+	"createTime":1571492174727,
+	"small":94.86,
+	"money":83.54,
+	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+	"telephone":"15911872515"
 }
 ----
 *Response-fields:*
@@ -2515,34 +3225,43 @@ ijeumf
 [stripes=even]
 |====================
 |Field | Type|Description|Since
+|userDetails|array|用户详情|-
+|userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
 |userAddress|string|用户地址|-
-|userAge|int|用户年龄|-
+|userAge|int32|用户年龄|-
 |phone|string|手机号|-
-|createTime|number|创建时间|-
+|createTime|int64|创建时间|-
+|small|float|钱少|-
+|money|double|钱太多了|-
 |ipv6|string|ipv6|-
 |telephone|string|固定电话|-
-|subUser|object|子用户信息|-
-|└─subUserName|string|用户名称|-
-|└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
 ----
 {
-	"userName":"烨伟.白",
-	"nickName":"brandon.schoen",
-	"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-	"userAge":42,
-	"phone":"15391490302",
-	"createTime":1571366542272,
-	"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-	"telephone":"15391490302",
-	"subUser":{
-		"subUserName":"烨伟.白",
-		"numbers":180
-	}
+	"userDetails":[
+		{
+			"githubAddress":"王侬9号， 湛江， 宁 156068"
+		}
+	],
+	"userList":[
+		{
+			"$ref":".."
+		}
+	],
+	"userName":"凯瑞.韩",
+	"nickName":"johnathan.shields",
+	"userAddress":"王侬9号， 湛江， 宁 156068",
+	"userAge":68,
+	"phone":"15911872515",
+	"createTime":1571492174727,
+	"small":36.54,
+	"money":91.89,
+	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+	"telephone":"15911872515"
 }
 ----
 
@@ -2571,74 +3290,86 @@ http://localhost:8080/simple/stu
 |stuAge|boolean|年龄|-
 |stuAddress|string|地址|-
 |user|object|用户对象|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userMap|map|map用户信息|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |userTreeSet|object|用户列表|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |user1|object|用户对象2|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |====================
 
 *Response-example:*
 ----
 {
-	"stuName":"烨伟.白",
+	"stuName":"凯瑞.韩",
 	"stuAge":true,
-	"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+	"stuAddress":"王侬9号， 湛江， 宁 156068",
 	"user":{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":800
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":19.46,
+		"money":28.83,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	},
 	"userMap":{
 		"mapKey":{
@@ -2647,33 +3378,49 @@ http://localhost:8080/simple/stu
 	},
 	"userTreeSet":[
 		{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":104
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":97.30,
+			"money":35.38,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		}
 	],
 	"user1":{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":513
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":33.79,
+		"money":52.39,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	}
 }
 ----
@@ -2701,119 +3448,128 @@ http://localhost:8080/simple/teacher
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |data1|object|泛型data1|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |data2|object|data2|-
 |└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|└─age|int|年龄|-
-|age|int|年龄|-
+|└─age|int32|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -2821,140 +3577,212 @@ http://localhost:8080/simple/teacher
 {
 	"data":{
 		"data":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":27
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":77.73,
+			"money":40.08,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":816
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":94.42,
+			"money":61.32,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":219
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":75.67,
+			"money":55.12,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
-		"age":42
+		"age":68
 	},
 	"data1":{
 		"data":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":585
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":13.07,
+			"money":58.59,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":576
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":73.97,
+			"money":99.29,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":838
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":80.01,
+			"money":7.79,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
-		"age":42
+		"age":68
 	},
 	"data2":{
 		"data":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":398
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":34.86,
+			"money":6.67,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":877
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":60.82,
+			"money":38.86,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"data2":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":413
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":79.45,
+			"money":61.61,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
-		"age":42
+		"age":68
 	},
-	"age":42
+	"age":68
 }
 ----
 
@@ -2980,82 +3808,88 @@ http://localhost:8080/simple/teacher2
 |====================
 |Field | Type|Description|Since
 |data|object|泛型data|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
 |└─userAddress|string|用户地址|-
-|└─userAge|int|用户年龄|-
+|└─userAge|int32|用户年龄|-
 |└─phone|string|手机号|-
-|└─createTime|number|创建时间|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
 |└─ipv6|string|ipv6|-
 |└─telephone|string|固定电话|-
-|└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |data2|object|data2|-
 |└─stuName|string|姓名|-
 |└─stuAge|boolean|年龄|-
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─userTreeSet|object|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 |└─user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|number|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser|object|子用户信息|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
@@ -3063,51 +3897,75 @@ http://localhost:8080/simple/teacher2
 {
 	"data":[
 		{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":301
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":54.46,
+			"money":64.16,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		}
 	],
 	"data1":{
-		"userName":"烨伟.白",
-		"nickName":"brandon.schoen",
-		"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-		"userAge":42,
-		"phone":"15391490302",
-		"createTime":1571366542272,
-		"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-		"telephone":"15391490302",
-		"subUser":{
-			"subUserName":"烨伟.白",
-			"numbers":153
-		}
+		"userDetails":[
+			{
+				"githubAddress":"王侬9号， 湛江， 宁 156068"
+			}
+		],
+		"userList":[
+			{
+				"$ref":".."
+			}
+		],
+		"userName":"凯瑞.韩",
+		"nickName":"johnathan.shields",
+		"userAddress":"王侬9号， 湛江， 宁 156068",
+		"userAge":68,
+		"phone":"15911872515",
+		"createTime":1571492174727,
+		"small":17.97,
+		"money":64.11,
+		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+		"telephone":"15911872515"
 	},
 	"data2":{
-		"stuName":"烨伟.白",
+		"stuName":"凯瑞.韩",
 		"stuAge":true,
-		"stuAddress":"尹巷49485号， 汕头， 鲁 143909",
+		"stuAddress":"王侬9号， 湛江， 宁 156068",
 		"user":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":583
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":34.73,
+			"money":2.51,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		},
 		"userMap":{
 			"mapKey":{
@@ -3116,36 +3974,52 @@ http://localhost:8080/simple/teacher2
 		},
 		"userTreeSet":[
 			{
-				"userName":"烨伟.白",
-				"nickName":"brandon.schoen",
-				"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-				"userAge":42,
-				"phone":"15391490302",
-				"createTime":1571366542272,
-				"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-				"telephone":"15391490302",
-				"subUser":{
-					"subUserName":"烨伟.白",
-					"numbers":80
-				}
+				"userDetails":[
+					{
+						"githubAddress":"王侬9号， 湛江， 宁 156068"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"凯瑞.韩",
+				"nickName":"johnathan.shields",
+				"userAddress":"王侬9号， 湛江， 宁 156068",
+				"userAge":68,
+				"phone":"15911872515",
+				"createTime":1571492174727,
+				"small":50.46,
+				"money":27.88,
+				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+				"telephone":"15911872515"
 			}
 		],
 		"user1":{
-			"userName":"烨伟.白",
-			"nickName":"brandon.schoen",
-			"userAddress":"尹巷49485号， 汕头， 鲁 143909",
-			"userAge":42,
-			"phone":"15391490302",
-			"createTime":1571366542272,
-			"ipv6":"00d1:73ea:d254:3751:87bd:e03f:8af7:59e0",
-			"telephone":"15391490302",
-			"subUser":{
-				"subUserName":"烨伟.白",
-				"numbers":600
-			}
+			"userDetails":[
+				{
+					"githubAddress":"王侬9号， 湛江， 宁 156068"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"凯瑞.韩",
+			"nickName":"johnathan.shields",
+			"userAddress":"王侬9号， 湛江， 宁 156068",
+			"userAge":68,
+			"phone":"15911872515",
+			"createTime":1571492174727,
+			"small":96.60,
+			"money":28.24,
+			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
+			"telephone":"15911872515"
 		}
 	},
-	"age":42
+	"age":68
 }
 ----
 
@@ -3177,8 +4051,8 @@ http://localhost:8080/simple/subUser
 *Response-example:*
 ----
 {
-	"subUserName":"烨伟.白",
-	"numbers":987
+	"subUserName":"凯瑞.韩",
+	"numbers":164
 }
 ----
 
@@ -3218,11 +4092,11 @@ http://localhost:8080/simple/subUser/result
 	"success":true,
 	"message":"success",
 	"data":{
-		"subUserName":"烨伟.白",
-		"numbers":14
+		"subUserName":"凯瑞.韩",
+		"numbers":88
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -3260,9 +4134,9 @@ http://localhost:8080/stringCommonResult
 {
 	"success":true,
 	"message":"success",
-	"data":"e7zu3d",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"eneavi",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -3307,11 +4181,11 @@ http://localhost:8080/staff
 *Response-example:*
 ----
 {
-	"name":"烨伟.白",
+	"name":"凯瑞.韩",
 	"annyObject":{
-		"name":"烨伟.白",
+		"name":"凯瑞.韩",
 		"annyObject":{
-			"name":"烨伟.白",
+			"name":"凯瑞.韩",
 			"annyObject":{
 				"waring":"You may have used non-display generics."
 			},
@@ -3329,9 +4203,9 @@ http://localhost:8080/staff
 	},
 	"data":[
 		{
-			"name":"烨伟.白",
+			"name":"凯瑞.韩",
 			"annyObject":{
-				"name":"烨伟.白",
+				"name":"凯瑞.韩",
 				"annyObject":{
 					"waring":"You may have used non-display generics."
 				},
@@ -3380,10 +4254,10 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"name":"烨伟.白",
-	"annyObject":"hyp34c",
+	"name":"凯瑞.韩",
+	"annyObject":"orj6dv",
 	"data":[
-		"g002aw"
+		"192la3"
 	]
 }
 ----
@@ -3405,14 +4279,14 @@ http://localhost:8080/staffStr
 |====================
 |Parameter | Type|Description|Required|Since
 |name|string|姓名|false|-
-|age|int|年龄|false|-
+|age|int32|年龄|false|-
 |====================
 
 *Request-example:*
 ----
 {
-	"name":"烨伟.白",
-	"age":42
+	"name":"凯瑞.韩",
+	"age":68
 }
 ----
 *Response-fields:*
@@ -3422,14 +4296,14 @@ http://localhost:8080/staffStr
 |====================
 |Field | Type|Description|Since
 |name|string|姓名|-
-|age|int|年龄|-
+|age|int32|年龄|-
 |====================
 
 *Response-example:*
 ----
 {
-	"name":"烨伟.白",
-	"age":42
+	"name":"凯瑞.韩",
+	"age":68
 }
 ----
 
@@ -3459,10 +4333,10 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"username":"烨伟.白",
-	"password":"2o2uro",
-	"nickName":"brandon.schoen",
-	"mobile":"15875548557"
+	"username":"凯瑞.韩",
+	"password":"8jx92b",
+	"nickName":"johnathan.shields",
+	"mobile":"15162888866"
 }
 ----
 *Response-fields:*
@@ -3476,17 +4350,17 @@ http://localhost:8080/staffStr
 |createTime|string|创建时间|v1.0
 |updateBy|string|修改人|v1.1
 |updateTime|string|修改时间|v1.1
-|delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |username|string|用户名|-
 |password|string|密码|-
 |nickName|string|昵称|-
 |mobile|string|电话|-
 |email|string|邮箱|-
 |address|string|地址|-
-|sex|int|性别(男1 女 2)|-
+|sex|int32|性别(男1 女 2)|-
 |avatar|string|No comments found.|-
-|type|int|类型|-
-|status|int|状态|-
+|type|int32|类型|-
+|status|int32|状态|-
 |description|string|描述|-
 |roles|array|用户拥有角色|-
 |└─id|string|自增编号|v1.0
@@ -3494,7 +4368,7 @@ http://localhost:8080/staffStr
 |└─createTime|string|创建时间|v1.0
 |└─updateBy|string|修改人|v1.1
 |└─updateTime|string|修改时间|v1.1
-|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |└─name|string|角色名 以ROLE_开头|v1.0
 |└─defaultRole|boolean|是否为注册默认角色|v1.0
 |└─permissions|array|拥有权限|v1.0
@@ -3503,10 +4377,10 @@ http://localhost:8080/staffStr
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int|层级|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
@@ -3515,7 +4389,7 @@ http://localhost:8080/staffStr
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
@@ -3527,10 +4401,10 @@ http://localhost:8080/staffStr
 |└─createTime|string|创建时间|v1.0
 |└─updateBy|string|修改人|v1.1
 |└─updateTime|string|修改时间|v1.1
-|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |└─name|string|菜单/权限名称|-
-|└─level|int|层级|-
-|└─type|int|类型 0页面 1具体操作|-
+|└─level|int32|层级|-
+|└─type|int32|类型 0页面 1具体操作|-
 |└─title|string|菜单标题|-
 |└─path|string|页面路径/资源链接url|-
 |└─component|string|前端组件|-
@@ -3539,7 +4413,7 @@ http://localhost:8080/staffStr
 |└─parentId|string|父id|-
 |└─description|string|说明备注|-
 |└─sortOrder|number|排序值|-
-|└─status|int|是否启用 0启用 -1禁用|-
+|└─status|int32|是否启用 0启用 -1禁用|-
 |└─children|array|子菜单/权限|-
 |└─permTypes|array|页面拥有的权限类型|-
 |└─expand|boolean|节点展开 前端所需|-
@@ -3550,60 +4424,60 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"id":"whj1p4",
-	"createBy":"k3dhws",
-	"createTime":2019-10-18,
-	"updateBy":"d9dlsf",
-	"updateTime":2019-10-18,
-	"delFlag":0,
-	"username":"烨伟.白",
-	"password":"1nuny5",
-	"nickName":"brandon.schoen",
-	"mobile":"15875548557",
-	"email":"鹏飞.戴@gmail.com",
-	"address":"尹巷49485号， 汕头， 鲁 143909",
+	"id":"d4cyi4",
+	"createBy":"fstx45",
+	"createTime":2019-10-19,
+	"updateBy":"5ji5b2",
+	"updateTime":2019-10-19,
+	"delFlag":8,
+	"username":"凯瑞.韩",
+	"password":"72pgzp",
+	"nickName":"johnathan.shields",
+	"mobile":"15162888866",
+	"email":"思聪.雷@hotmail.com",
+	"address":"王侬9号， 湛江， 宁 156068",
 	"sex":1,
-	"avatar":"78nsjq",
-	"type":976,
-	"status":128,
-	"description":"20l8j2",
+	"avatar":"bs9n65",
+	"type":200,
+	"status":303,
+	"description":"mn86kj",
 	"roles":[
 		{
-			"id":"lb6uuy",
-			"createBy":"bu9br6",
-			"createTime":2019-10-18,
-			"updateBy":"lbl1js",
-			"updateTime":2019-10-18,
-			"delFlag":0,
-			"name":"烨伟.白",
+			"id":"8fdpo3",
+			"createBy":"fvdyqp",
+			"createTime":2019-10-19,
+			"updateBy":"4kybkj",
+			"updateTime":2019-10-19,
+			"delFlag":8,
+			"name":"凯瑞.韩",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"y7t6ah",
-					"createBy":"62r9g7",
-					"createTime":2019-10-18,
-					"updateBy":"8kcev9",
-					"updateTime":2019-10-18,
-					"delFlag":0,
-					"name":"烨伟.白",
-					"level":289,
-					"type":172,
-					"title":"swzoe6",
-					"path":"4ylwhv",
-					"component":"2zb7i3",
-					"icon":"juljde",
-					"buttonType":"k9dbvn",
-					"parentId":"jdkzc5",
-					"description":"9w7mda",
-					"sortOrder":852,
-					"status":837,
+					"id":"ngtahd",
+					"createBy":"0mkrcn",
+					"createTime":2019-10-19,
+					"updateBy":"gbnuz2",
+					"updateTime":2019-10-19,
+					"delFlag":8,
+					"name":"凯瑞.韩",
+					"level":927,
+					"type":659,
+					"title":"wtrcfv",
+					"path":"8dv6jl",
+					"component":"nwskau",
+					"icon":"ky5000",
+					"buttonType":"4o1iyu",
+					"parentId":"c999xg",
+					"description":"q4ivhb",
+					"sortOrder":148,
+					"status":15,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"yk0r4g"
+						"qkneg3"
 					],
 					"expand":true,
 					"checked":true,
@@ -3614,31 +4488,31 @@ http://localhost:8080/staffStr
 	],
 	"permissions":[
 		{
-			"id":"dca3qs",
-			"createBy":"tfgq57",
-			"createTime":2019-10-18,
-			"updateBy":"428bst",
-			"updateTime":2019-10-18,
-			"delFlag":0,
-			"name":"烨伟.白",
-			"level":978,
-			"type":352,
-			"title":"osulj6",
-			"path":"8dvlvo",
-			"component":"wm049m",
-			"icon":"6dkvb6",
-			"buttonType":"c30k6n",
-			"parentId":"rvebbq",
-			"description":"0av25q",
-			"sortOrder":278,
-			"status":680,
+			"id":"hvr6l1",
+			"createBy":"pru81g",
+			"createTime":2019-10-19,
+			"updateBy":"gt20na",
+			"updateTime":2019-10-19,
+			"delFlag":8,
+			"name":"凯瑞.韩",
+			"level":885,
+			"type":342,
+			"title":"q07524",
+			"path":"b1t3kt",
+			"component":"97tlii",
+			"icon":"ykuh64",
+			"buttonType":"l8myta",
+			"parentId":"yj5jji",
+			"description":"z101y8",
+			"sortOrder":572,
+			"status":237,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"be562c"
+				"2nfpfs"
 			],
 			"expand":true,
 			"checked":true,
@@ -3673,10 +4547,10 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"username":"烨伟.白",
-	"password":"xyvuo3",
-	"nickName":"brandon.schoen",
-	"mobile":"15875548557"
+	"username":"凯瑞.韩",
+	"password":"1y9s4i",
+	"nickName":"johnathan.shields",
+	"mobile":"15162888866"
 }
 ----
 *Response-fields:*
@@ -3690,17 +4564,17 @@ http://localhost:8080/staffStr
 |createTime|string|创建时间|v1.0
 |updateBy|string|修改人|v1.1
 |updateTime|string|修改时间|v1.1
-|delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |username|string|用户名|-
 |password|string|密码|-
 |nickName|string|昵称|-
 |mobile|string|电话|-
 |email|string|邮箱|-
 |address|string|地址|-
-|sex|int|性别(男1 女 2)|-
+|sex|int32|性别(男1 女 2)|-
 |avatar|string|No comments found.|-
-|type|int|类型|-
-|status|int|状态|-
+|type|int32|类型|-
+|status|int32|状态|-
 |description|string|描述|-
 |roles|array|用户拥有角色|-
 |└─id|string|自增编号|v1.0
@@ -3708,7 +4582,7 @@ http://localhost:8080/staffStr
 |└─createTime|string|创建时间|v1.0
 |└─updateBy|string|修改人|v1.1
 |└─updateTime|string|修改时间|v1.1
-|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |└─name|string|角色名 以ROLE_开头|v1.0
 |└─defaultRole|boolean|是否为注册默认角色|v1.0
 |└─permissions|array|拥有权限|v1.0
@@ -3717,10 +4591,10 @@ http://localhost:8080/staffStr
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int|层级|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
@@ -3729,7 +4603,7 @@ http://localhost:8080/staffStr
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
@@ -3741,10 +4615,10 @@ http://localhost:8080/staffStr
 |└─createTime|string|创建时间|v1.0
 |└─updateBy|string|修改人|v1.1
 |└─updateTime|string|修改时间|v1.1
-|└─delFlag|int|删除标记[1表示已删除，默认值0]|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
 |└─name|string|菜单/权限名称|-
-|└─level|int|层级|-
-|└─type|int|类型 0页面 1具体操作|-
+|└─level|int32|层级|-
+|└─type|int32|类型 0页面 1具体操作|-
 |└─title|string|菜单标题|-
 |└─path|string|页面路径/资源链接url|-
 |└─component|string|前端组件|-
@@ -3753,7 +4627,7 @@ http://localhost:8080/staffStr
 |└─parentId|string|父id|-
 |└─description|string|说明备注|-
 |└─sortOrder|number|排序值|-
-|└─status|int|是否启用 0启用 -1禁用|-
+|└─status|int32|是否启用 0启用 -1禁用|-
 |└─children|array|子菜单/权限|-
 |└─permTypes|array|页面拥有的权限类型|-
 |└─expand|boolean|节点展开 前端所需|-
@@ -3764,60 +4638,60 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"id":"ygf9z1",
-	"createBy":"a4mo0x",
-	"createTime":2019-10-18,
-	"updateBy":"9uzz8p",
-	"updateTime":2019-10-18,
-	"delFlag":0,
-	"username":"烨伟.白",
-	"password":"i8vv4a",
-	"nickName":"brandon.schoen",
-	"mobile":"15875548557",
-	"email":"鹏飞.戴@gmail.com",
-	"address":"尹巷49485号， 汕头， 鲁 143909",
+	"id":"ovuqjb",
+	"createBy":"od2x32",
+	"createTime":2019-10-19,
+	"updateBy":"52pxjb",
+	"updateTime":2019-10-19,
+	"delFlag":8,
+	"username":"凯瑞.韩",
+	"password":"ti1f5a",
+	"nickName":"johnathan.shields",
+	"mobile":"15162888866",
+	"email":"思聪.雷@hotmail.com",
+	"address":"王侬9号， 湛江， 宁 156068",
 	"sex":1,
-	"avatar":"rxu8u3",
-	"type":374,
-	"status":820,
-	"description":"f3e4fq",
+	"avatar":"dur2bf",
+	"type":926,
+	"status":459,
+	"description":"k45hsy",
 	"roles":[
 		{
-			"id":"mgmufu",
-			"createBy":"9uzlz7",
-			"createTime":2019-10-18,
-			"updateBy":"6ss54r",
-			"updateTime":2019-10-18,
-			"delFlag":0,
-			"name":"烨伟.白",
+			"id":"su6tv6",
+			"createBy":"stkusq",
+			"createTime":2019-10-19,
+			"updateBy":"iua3j0",
+			"updateTime":2019-10-19,
+			"delFlag":8,
+			"name":"凯瑞.韩",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"2qet43",
-					"createBy":"2c2ek7",
-					"createTime":2019-10-18,
-					"updateBy":"m7l7l7",
-					"updateTime":2019-10-18,
-					"delFlag":0,
-					"name":"烨伟.白",
-					"level":731,
-					"type":195,
-					"title":"1ul0v0",
-					"path":"0w2lji",
-					"component":"23dykl",
-					"icon":"4o7tik",
-					"buttonType":"wakin9",
-					"parentId":"5112gr",
-					"description":"mwzmgx",
-					"sortOrder":294,
-					"status":700,
+					"id":"v5rjco",
+					"createBy":"039m82",
+					"createTime":2019-10-19,
+					"updateBy":"mjhuob",
+					"updateTime":2019-10-19,
+					"delFlag":8,
+					"name":"凯瑞.韩",
+					"level":151,
+					"type":295,
+					"title":"fzyifc",
+					"path":"gqpixz",
+					"component":"mbeact",
+					"icon":"azopza",
+					"buttonType":"3qhlsb",
+					"parentId":"u8k8kv",
+					"description":"ueoeel",
+					"sortOrder":438,
+					"status":825,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"rrqct1"
+						"l68iia"
 					],
 					"expand":true,
 					"checked":true,
@@ -3828,31 +4702,31 @@ http://localhost:8080/staffStr
 	],
 	"permissions":[
 		{
-			"id":"tr66jd",
-			"createBy":"k93oc8",
-			"createTime":2019-10-18,
-			"updateBy":"8c5vsu",
-			"updateTime":2019-10-18,
-			"delFlag":0,
-			"name":"烨伟.白",
-			"level":368,
-			"type":564,
-			"title":"330zf8",
-			"path":"q31l4n",
-			"component":"xw4zsn",
-			"icon":"3evm16",
-			"buttonType":"10k75u",
-			"parentId":"z7yf0y",
-			"description":"vnmr3q",
-			"sortOrder":839,
-			"status":345,
+			"id":"wtpuqc",
+			"createBy":"t7zvnh",
+			"createTime":2019-10-19,
+			"updateBy":"5ztkp7",
+			"updateTime":2019-10-19,
+			"delFlag":8,
+			"name":"凯瑞.韩",
+			"level":787,
+			"type":213,
+			"title":"ift0jk",
+			"path":"dxwwwx",
+			"component":"o1qcsp",
+			"icon":"2l8csq",
+			"buttonType":"0xwu5o",
+			"parentId":"rbehqz",
+			"description":"9y1tv3",
+			"sortOrder":90,
+			"status":486,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"8b8ok2"
+				"1jdzec"
 			],
 			"expand":true,
 			"checked":true,
@@ -3882,7 +4756,7 @@ http://localhost:8080/staffStr
 |leader|object|No comments found.|true|-
 |name|string|姓名|true|-
 |birthday|string|生日|true|-
-|age|int|年龄|false|-
+|age|int32|年龄|false|-
 |subject|object|科目|true|-
 |└─subjectName|string|科目名称|true|-
 |====================
@@ -3890,11 +4764,11 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"name":"烨伟.白",
-	"birthday":"2019-10-18",
-	"age":42,
+	"name":"凯瑞.韩",
+	"birthday":"2019-10-19",
+	"age":68,
 	"subject":{
-		"subjectName":"烨伟.白"
+		"subjectName":"凯瑞.韩"
 	}
 }
 ----
@@ -3919,8 +4793,8 @@ http://localhost:8080/staffStr
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -3951,11 +4825,11 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"token":"dry3xs",
-	"sequenceNo":"13ngnq",
+	"token":"rh6ocd",
+	"sequenceNo":"kjrfc0",
 	"parameter":{
-		"subUserName":"烨伟.白",
-		"numbers":433
+		"subUserName":"凯瑞.韩",
+		"numbers":886
 	}
 }
 ----
@@ -3980,8 +4854,8 @@ http://localhost:8080/staffStr
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -3993,7 +4867,7 @@ http://localhost:8080/staffStr
 
 *Description:* xss过滤普通post请求
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/json; charset=utf-8
 
 
 *Request-parameters:*
@@ -4007,7 +4881,9 @@ http://localhost:8080/staffStr
 
 *Request-example:*
 ----
-http://localhost:8080/xss/text?text=uti5hu
+{
+	"text":"mrrxhg"
+}
 ----
 *Response-fields:*
 
@@ -4027,9 +4903,9 @@ http://localhost:8080/xss/text?text=uti5hu
 {
 	"success":true,
 	"message":"success",
-	"data":"rfq4zc",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"2d59gz",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -4054,7 +4930,7 @@ http://localhost:8080/xss/text?text=uti5hu
 
 *Request-example:*
 ----
-http://localhost:8080/xss/query?query=t6lmzg
+http://localhost:8080/xss/query?query=0bnmo7
 ----
 *Response-fields:*
 
@@ -4074,9 +4950,9 @@ http://localhost:8080/xss/query?query=t6lmzg
 {
 	"success":true,
 	"message":"success",
-	"data":"aa3p8l",
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"data":"y0zrn2",
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 
@@ -4097,14 +4973,14 @@ http://localhost:8080/xss/query?query=t6lmzg
 |====================
 |Parameter | Type|Description|Required|Since
 |name|string|姓名|false|-
-|age|int|年龄|false|-
+|age|int32|年龄|false|-
 |====================
 
 *Request-example:*
 ----
 {
-	"name":"烨伟.白",
-	"age":42
+	"name":"凯瑞.韩",
+	"age":68
 }
 ----
 *Response-fields:*
@@ -4117,7 +4993,7 @@ http://localhost:8080/xss/query?query=t6lmzg
 |message|string|响应信息|-
 |data|object|响应数据|-
 |└─name|string|姓名|-
-|└─age|int|年龄|-
+|└─age|int32|年龄|-
 |code|string|错误代码|-
 |timestamp|string|响应时间|-
 |====================
@@ -4128,11 +5004,11 @@ http://localhost:8080/xss/query?query=t6lmzg
 	"success":true,
 	"message":"success",
 	"data":{
-		"name":"烨伟.白",
-		"age":42
+		"name":"凯瑞.韩",
+		"age":68
 	},
-	"code":"5687",
-	"timestamp":"2019-10-18 10:42:22"
+	"code":"54113",
+	"timestamp":"2019-10-19 21:36:14"
 }
 ----
 

@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1569824183071"/>
+    <link rel="stylesheet" href="markdown.css?v=1571501404328"/>
     <title>Spring boot params test</title>
 </head>
 <body>
@@ -16,16 +16,7 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/testNormalParams/binding</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test Normal param binding</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -33,11 +24,11 @@
 </thead>
 <tbody>
 <tr><td>name</td><td>string</td><td>name</td><td>true</td><td>-</td></tr>
-<tr><td>age</td><td>int</td><td>age</td><td>true</td><td>-</td></tr>
+<tr><td>age</td><td>int32</td><td>age</td><td>true</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testNormalParams/binding?name=果.邵&amp;age=25
+<pre><code>http://localhost:8080/testNormalParams/binding?name=思远.马&amp;age=35
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -46,49 +37,49 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/testRequestBody</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test @RequestBody User</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
+<tr><td>userDetails</td><td>array</td><td>用户详情</td><td>false</td><td>-</td></tr>
+<tr><td>userList</td><td>array</td><td>用户列表</td><td>false</td><td>-</td></tr>
 <tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
 <tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
-<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>false</td><td>-</td></tr>
+<tr><td>userAge</td><td>int32</td><td>用户年龄</td><td>false</td><td>-</td></tr>
 <tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
-<tr><td>createTime</td><td>number</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>createTime</td><td>int64</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>small</td><td>float</td><td>钱少</td><td>false</td><td>-</td></tr>
+<tr><td>money</td><td>double</td><td>钱太多了</td><td>false</td><td>-</td></tr>
 <tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
 <tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
-<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>false</td><td>-</td></tr>
-<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
-<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>{
-	&quot;userName&quot;:&quot;果.邵&quot;,
-	&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
-	&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
-	&quot;userAge&quot;:25,
-	&quot;phone&quot;:&quot;15823781769&quot;,
-	&quot;createTime&quot;:1569824190299,
-	&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
-	&quot;telephone&quot;:&quot;15823781769&quot;,
-	&quot;subUser&quot;:{
-		&quot;subUserName&quot;:&quot;果.邵&quot;,
-		&quot;numbers&quot;:915
-	}
+	&quot;userDetails&quot;:[
+		{
+			&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+		}
+	],
+	&quot;userList&quot;:[
+		{
+			&quot;$ref&quot;:&quot;..&quot;
+		}
+	],
+	&quot;userName&quot;:&quot;思远.马&quot;,
+	&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
+	&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
+	&quot;userAge&quot;:35,
+	&quot;phone&quot;:&quot;15683490083&quot;,
+	&quot;createTime&quot;:1571501406552,
+	&quot;small&quot;:86.60,
+	&quot;money&quot;:12.93,
+	&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
+	&quot;telephone&quot;:&quot;15683490083&quot;
 }
 </code></pre>
 <p><strong>Response-example:</strong></p>
@@ -98,50 +89,50 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/testRequestBodyMap</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test @RequestBody Map</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
+<tr><td>userDetails</td><td>array</td><td>用户详情</td><td>false</td><td>-</td></tr>
+<tr><td>userList</td><td>array</td><td>用户列表</td><td>false</td><td>-</td></tr>
 <tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
 <tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
-<tr><td>userAge</td><td>int</td><td>用户年龄</td><td>false</td><td>-</td></tr>
+<tr><td>userAge</td><td>int32</td><td>用户年龄</td><td>false</td><td>-</td></tr>
 <tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
-<tr><td>createTime</td><td>number</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>createTime</td><td>int64</td><td>创建时间</td><td>false</td><td>-</td></tr>
+<tr><td>small</td><td>float</td><td>钱少</td><td>false</td><td>-</td></tr>
+<tr><td>money</td><td>double</td><td>钱太多了</td><td>false</td><td>-</td></tr>
 <tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
 <tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
-<tr><td>subUser</td><td>object</td><td>子用户信息</td><td>false</td><td>-</td></tr>
-<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
-<tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>{
 	&quot;mapKey&quot;:{
-		&quot;userName&quot;:&quot;果.邵&quot;,
-		&quot;nickName&quot;:&quot;thresa.cummerata&quot;,
-		&quot;userAddress&quot;:&quot;Suite 215 钱中心1853号， 盐城， 宁 240220&quot;,
-		&quot;userAge&quot;:25,
-		&quot;phone&quot;:&quot;15823781769&quot;,
-		&quot;createTime&quot;:1569824190299,
-		&quot;ipv6&quot;:&quot;a160:7bd9:e6ba:e6a7:6c1d:fe2c:7a25:18e3&quot;,
-		&quot;telephone&quot;:&quot;15823781769&quot;,
-		&quot;subUser&quot;:{
-			&quot;subUserName&quot;:&quot;果.邵&quot;,
-			&quot;numbers&quot;:677
-		}
+		&quot;userDetails&quot;:[
+			{
+				&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+			}
+		],
+		&quot;userList&quot;:[
+			{
+				&quot;$ref&quot;:&quot;..&quot;
+			}
+		],
+		&quot;userName&quot;:&quot;思远.马&quot;,
+		&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
+		&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
+		&quot;userAge&quot;:35,
+		&quot;phone&quot;:&quot;15683490083&quot;,
+		&quot;createTime&quot;:1571501406552,
+		&quot;small&quot;:35.09,
+		&quot;money&quot;:90.16,
+		&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
+		&quot;telephone&quot;:&quot;15683490083&quot;
 	}
 }
 </code></pre>
@@ -152,16 +143,7 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/testRequestBodyList</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test @RequestBody List</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -173,8 +155,8 @@
 </table>
 <p><strong>Request-example:</strong></p>
 <pre><code>[
-	&quot;fspk30&quot;,
-	&quot;1vg14a&quot;
+	&quot;alcjmt&quot;,
+	&quot;tzxwxv&quot;
 ]
 </code></pre>
 <p><strong>Response-example:</strong></p>
@@ -184,16 +166,7 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/test/{name}/{no}/info</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test @PathVariable</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -205,7 +178,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/test/果.邵/9w4vex/info
+<pre><code>http://localhost:8080/test/思远.马/cmpj8e/info
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -214,16 +187,7 @@
 <p><strong>URL:</strong> <code>http://localhost:8080/testRequestParam</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
-<p><strong>Request-headers:</strong></p>
-<table>
-<thead>
-<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>access_token</td><td>string</td><td>Basic auth credentials</td><td>false</td><td>-</td></tr>
-<tr><td>user_uuid</td><td>string</td><td>User Uuid key</td><td>false</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Test @RequestParam</p>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -235,14 +199,54 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testRequestParam?author=许昊天&amp;type=7t11yl
+<pre><code>http://localhost:8080/testRequestParam?author=郭潇然&amp;type=79z1ly
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestParam with value</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestParamWithValue</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Description:</strong> Use@RequestParam binding value is name,but method param name is userName</p>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>name</td><td>string</td><td>user name</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/testRequestParamWithValue?name=思远.马
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test @RequestParam with default value</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testRequestParamWithDefaultVal</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Description:</strong> Use@RequestParam binding default value Jordan</p>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userName</td><td>string</td><td>user name</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-09-30 14:16:23</span>
+        <span class="copyright">Generated by smart-doc at 2019-10-20 00:10:04</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

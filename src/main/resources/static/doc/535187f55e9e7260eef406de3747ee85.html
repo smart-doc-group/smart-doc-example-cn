@@ -7,27 +7,18 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <link rel="stylesheet" href="markdown.css?v=1571501404328"/>
-    <title>app端接口测试</title>
+    <title>Test inner class</title>
 </head>
 <body>
 <div class="markdown-body">
-    <h1>app端接口测试</h1>
-<h2>app测试</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/app/test</code></p>
+    <h1>Test inner class</h1>
+<h2>Return A object contains Inner class</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/inner/class</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
-<p><strong>Description:</strong> app测试</p>
-<p><strong>Request-parameters:</strong></p>
-<table>
-<thead>
-<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
-</thead>
-<tbody>
-<tr><td>name</td><td>string</td><td>姓名</td><td>true</td><td>-</td></tr>
-</tbody>
-</table>
+<p><strong>Description:</strong> Return A object contains Inner class</p>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/app/test?name=思远.马
+<pre><code>http://localhost:8080/inner/class
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -35,11 +26,18 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>no param name</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
+<tr><td>name</td><td>string</td><td>姓名</td><td>-</td></tr>
+<tr><td>innerClass</td><td>object</td><td>内部类</td><td>-</td></tr>
+<tr><td>└─phone</td><td>string</td><td>电话</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
-<pre><code>b3flvx
+<pre><code>{
+	&quot;name&quot;:&quot;思远.马&quot;,
+	&quot;innerClass&quot;:{
+		&quot;phone&quot;:&quot;15683490083&quot;
+	}
+}
 </code></pre>
 
     <footer class="page-footer">
