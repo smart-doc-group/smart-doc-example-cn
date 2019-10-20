@@ -24,7 +24,7 @@ public class RequestHeaderController {
      * @param name 请求头(name)
      * @param age   年龄
      */
-    @GetMapping("testRequestHeader")
+    @GetMapping("testRequestHeader/value")
     public void testRequestHeaderAnnotationWithValue(@RequestHeader(value = "token", required = false)String name, Integer age) {
 
     }
@@ -34,7 +34,7 @@ public class RequestHeaderController {
      * @param name 请求头(name)
      * @param age   年龄
      */
-    @GetMapping("testRequestHeader")
+    @GetMapping("testRequestHeader/DefaultVal")
     public void testRequestHeaderAnnotationWithDefaultVal(@RequestHeader(value = "token",defaultValue = "da",required = false)String name, Integer age) {
 
     }
