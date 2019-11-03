@@ -24,6 +24,13 @@ public void testBuilderControllersApi() {
     // 配置多个报名有英文逗号隔开
     config.setPackageFilters("com.power.doc.controller");
     
+    //since 1.7.5
+    //如果该选项的值为false,则smart-doc生成allInOne.md文件的名称会自动添加版本号
+    config.setCoverOld(true);
+    //since 1.7.5
+    //设置项目名(非必须)，如果不设置会导致在使用一些自动添加标题序号的工具显示的序号不正常
+    config.setProjectName("抢购系统");
+    
     //设置公共请求头.如果不需要请求头，则无需设置
     config.setRequestHeaders(
             ApiReqHeader.header().setName("access_token").setType("string")

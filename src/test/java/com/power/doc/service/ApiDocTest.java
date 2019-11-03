@@ -36,6 +36,11 @@ public class ApiDocTest {
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
 
+        config.setCoverOld(true);
+
+        config.setProjectName("测试");
+
+
         //指定文档输出路径
         //@since 1.7 版本开始，选择生成静态html doc文档可使用该路径：DocGlobalConstants.HTML_DOC_OUT_PATH;
         config.setOutPath(DocGlobalConstants.HTML_DOC_OUT_PATH);
@@ -47,9 +52,9 @@ public class ApiDocTest {
 
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
-        HtmlApiDocBuilder.builderControllersApi(config);
+//        HtmlApiDocBuilder.builderControllersApi(config);
         //AdocDocBuilder.builderControllersApi(config);
-        //ApiDocBuilder.builderControllersApi(config);
+        ApiDocBuilder.builderControllersApi(config);
         //List<ApiDoc> docList = ApiDocBuilder.listOfApiData(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);
