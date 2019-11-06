@@ -54,6 +54,13 @@ public void testBuilderControllersApi() {
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
     );
+    
+    //since 1.7.5
+    //文档添加数据字典，非必须，根据项目决定
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("订单状态").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("订单状态1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
+    );
 
     long start = System.currentTimeMillis();
     //生成Markdown文件
@@ -113,6 +120,13 @@ public void testBuilderControllersApi() {
     config.setRevisionLogs(
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
+    );
+    
+    //since 1.7.5
+    //文档添加数据字典，非必须，根据项目决定
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("订单状态").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("订单状态1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
     );
 
     long start = System.currentTimeMillis();
@@ -174,6 +188,13 @@ public void testBuilderControllersApi() {
     config.setRevisionLogs(
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
+    );
+    
+    //since 1.7.5
+    //文档添加数据字典，非必须，根据项目决定
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("订单状态").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("订单状态1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
     );
 
     long start = System.currentTimeMillis();

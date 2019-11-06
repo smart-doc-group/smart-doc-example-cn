@@ -55,6 +55,13 @@ public void testBuilderControllersApi() {
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
     );
+    
+    //since 1.7.5
+    //add data dictionary,not necessary
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("Order status").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("Order status1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
+    );
 
     long start = System.currentTimeMillis();
     //Generating Markdown documentation
@@ -113,6 +120,13 @@ public void testBuilderControllersApi() {
     config.setRevisionLogs(
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
+    );
+    
+    //since 1.7.5
+    //add data dictionary,not necessary
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("Order status").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("Order status1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
     );
 
     long start = System.currentTimeMillis();
@@ -175,6 +189,13 @@ public void testBuilderControllersApi() {
     config.setRevisionLogs(
             RevisionLog.getLog().setRevisionTime("2018/12/15").setAuthor("chen").setRemarks("test").setStatus("create").setVersion("V1.0"),
             RevisionLog.getLog().setRevisionTime("2018/12/16").setAuthor("chen2").setRemarks("test2").setStatus("update").setVersion("V2.0")
+    );
+    
+    //since 1.7.5
+    //add data dictionary,not necessary
+    config.setDataDictionaries(
+        ApiDataDictionary.dict().setTitle("Order status").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc"),
+        ApiDataDictionary.dict().setTitle("Order status1").setEnumClass(OrderEnum.class).setCodeField("code").setDescField("desc")
     );
 
     long start = System.currentTimeMillis();
