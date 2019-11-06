@@ -6,19 +6,19 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1571501404328"/>
+    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
     <title>异步返回信息测试</title>
 </head>
 <body>
 <div class="markdown-body">
     <h1>异步返回信息测试</h1>
 <h2>返回Callable&lt;CommonResult&gt;</h2>
-<p><strong>URL:</strong> <code>http://localhost:8080/testCallable</code></p>
+<p><strong>URL:</strong> <code>http://localhost:8080/ /testCallable</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回Callable&lt;CommonResult&gt;</p>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testCallable
+<pre><code>http://localhost:8080/  /testCallable
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -40,14 +40,14 @@
 	&quot;data&quot;:{
 		&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
 	},
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 <h2>返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/async-deferredresult</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/async-deferredresult
@@ -69,15 +69,15 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;zrd9qw&quot;,
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;data&quot;:&quot;m9ugrv&quot;,
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 <h2>返回WebAsyncTask&lt;CommonResult&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/WebAsync/timeout</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回WebAsyncTask&lt;CommonResult&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/WebAsync/timeout
@@ -102,14 +102,14 @@
 	&quot;data&quot;:{
 		&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
 	},
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 <h2>返回Future&lt;CommonResult&lt;String&gt;&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/future</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回Future&lt;CommonResult&lt;String&gt;&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/future
@@ -131,15 +131,15 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;cax43h&quot;,
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;data&quot;:&quot;ua1mra&quot;,
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 <h2>返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/completableFuture</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/completableFuture
@@ -161,14 +161,14 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;a8pwb1&quot;,
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;data&quot;:&quot;pwwln1&quot;,
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-10-20 00:10:04</span>
+        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

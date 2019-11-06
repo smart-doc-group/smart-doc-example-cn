@@ -18,6 +18,7 @@
 |====================
 |Parameter | Type|Description|Required|Since
 |userDetails|array|用户详情|false|-
+|└─githubAddress|string|测试|false|-
 |userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
@@ -36,7 +37,7 @@
 {
 	"userDetails":[
 		{
-			"githubAddress":"王侬9号， 湛江， 宁 156068"
+			"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 		}
 	],
 	"userList":[
@@ -44,16 +45,16 @@
 			"$ref":".."
 		}
 	],
-	"userName":"凯瑞.韩",
-	"nickName":"johnathan.shields",
-	"userAddress":"王侬9号， 湛江， 宁 156068",
-	"userAge":68,
-	"phone":"15911872515",
-	"createTime":1571492174727,
-	"small":23.88,
-	"money":25.79,
-	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-	"telephone":"15911872515"
+	"userName":"天宇.陈",
+	"nickName":"donn.fay",
+	"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+	"userAge":69,
+	"phone":"15984506514",
+	"createTime":1573029140988,
+	"small":14.13,
+	"money":44.33,
+	"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+	"telephone":"15984506514"
 }
 ----
 *Response-fields:*
@@ -67,7 +68,7 @@
 
 *Response-example:*
 ----
-jy9xsf
+2lodry
 ----
 
 == app端接口测试
@@ -78,7 +79,7 @@ jy9xsf
 
 *Description:* app测试
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -92,7 +93,7 @@ jy9xsf
 
 *Request-example:*
 ----
-http://localhost:8080/app/test?name=凯瑞.韩
+http://localhost:8080/app/test?name=天宇.陈
 ----
 *Response-fields:*
 
@@ -105,24 +106,24 @@ http://localhost:8080/app/test?name=凯瑞.韩
 
 *Response-example:*
 ----
-v3j21g
+8vd30v
 ----
 
 == 异步返回信息测试
 === 返回Callable&lt;CommonResult&gt;
-*URL:* http://localhost:8080/testCallable
+*URL:* http://localhost:8080/  /testCallable
 
 *Type:* GET
 
 *Description:* 返回Callable&lt;CommonResult&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
 *Request-example:*
 ----
-http://localhost:8080/testCallable
+http://localhost:8080/  /testCallable
 ----
 *Response-fields:*
 
@@ -145,8 +146,8 @@ http://localhost:8080/testCallable
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -157,7 +158,7 @@ http://localhost:8080/testCallable
 
 *Description:* 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -183,9 +184,9 @@ http://localhost:8080/async-deferredresult
 {
 	"success":true,
 	"message":"success",
-	"data":"r3q83n",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"l3yniw",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -196,7 +197,7 @@ http://localhost:8080/async-deferredresult
 
 *Description:* 返回WebAsyncTask&lt;CommonResult&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -225,8 +226,8 @@ http://localhost:8080/WebAsync/timeout
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -237,7 +238,7 @@ http://localhost:8080/WebAsync/timeout
 
 *Description:* 返回Future&lt;CommonResult&lt;String&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -263,9 +264,9 @@ http://localhost:8080/future
 {
 	"success":true,
 	"message":"success",
-	"data":"0uig9s",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"zqwas4",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -276,7 +277,7 @@ http://localhost:8080/future
 
 *Description:* 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -302,10 +303,143 @@ http://localhost:8080/completableFuture
 {
 	"success":true,
 	"message":"success",
-	"data":"g35i4j",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"r2ayb1",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
+----
+
+== 文件上传测试
+=== 上传单个文件
+*URL:* http://localhost:8080/upload
+
+*Type:* POST
+
+*Description:* 上传单个文件
+
+*Content-Type:* multipart/form-data
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|file|file|文件|true|-
+|====================
+
+*Request-example:*
+----
+Use FormData upload file.
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
+}
+----
+
+=== 批量上传文件
+*URL:* http://localhost:8080/batchUpload
+
+*Type:* POST
+
+*Description:* 批量上传文件
+
+*Content-Type:* multipart/form-data
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|file|array|文件|true|-
+|====================
+
+*Request-example:*
+----
+Use FormData upload files.
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
+}
+----
+
+== 接收表单参数
+=== 测试formData
+*URL:* http://localhost:8080/formData1
+
+*Type:* POST
+
+*Description:* 测试formData
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|username|string|用户名|true|v1.0
+|password|string|密码|false|v1.0
+|nickName|string|昵称|false|v1.0
+|mobile|string|电话|false|v1.0
+|====================
+
+*Request-example:*
+----
+Smart-doc can't support create form-data example,
+It is recommended to use @RequestBody to receive parameters.
+----
+
+*Response-example:*
+----
+This api return nothing.
 ----
 
 == https测试
@@ -316,7 +450,7 @@ http://localhost:8080/completableFuture
 
 *Description:* 测试https
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -342,9 +476,9 @@ http://localhost:8080/testHttps
 {
 	"success":true,
 	"message":"success",
-	"data":"goojms",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"1ubzes",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -355,7 +489,7 @@ http://localhost:8080/testHttps
 
 *Description:* 测试http
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -381,9 +515,9 @@ http://localhost:8080/testHttp
 {
 	"success":true,
 	"message":"success",
-	"data":"nth4d6",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"zygz5i",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -395,7 +529,7 @@ http://localhost:8080/testHttp
 
 *Description:* Return A object contains Inner class
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -417,9 +551,9 @@ http://localhost:8080/inner/class
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩",
+	"name":"天宇.陈",
 	"innerClass":{
-		"phone":"15911872515"
+		"phone":"15984506514"
 	}
 }
 ----
@@ -448,8 +582,8 @@ http://localhost:8080/inner/class
 *Request-example:*
 ----
 {
-	"localDate":"2019-10-19",
-	"localDateTime":"2019-10-19 21:36:17"
+	"localDate":"2019-11-06",
+	"localDateTime":"2019-11-06 16:32:21"
 }
 ----
 *Response-fields:*
@@ -465,8 +599,8 @@ http://localhost:8080/inner/class
 *Response-example:*
 ----
 {
-	"localDate":"2019-10-19",
-	"localDateTime":"2019-10-19 21:36:17"
+	"localDate":"2019-11-06",
+	"localDateTime":"2019-11-06 16:32:21"
 }
 ----
 
@@ -494,8 +628,8 @@ http://localhost:8080/inner/class
 *Request-example:*
 ----
 {
-	"username":"凯瑞.韩",
-	"idCard":"211414197001035543"
+	"username":"天宇.陈",
+	"idCard":"140217199806137360"
 }
 ----
 *Response-fields:*
@@ -510,7 +644,7 @@ http://localhost:8080/inner/class
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩"
+	"name":"天宇.陈"
 }
 ----
 
@@ -537,8 +671,8 @@ http://localhost:8080/inner/class
 *Request-example:*
 ----
 {
-	"username":"凯瑞.韩",
-	"idCard":"211414197001035543"
+	"username":"天宇.陈",
+	"idCard":"140217199806137360"
 }
 ----
 *Response-fields:*
@@ -553,7 +687,7 @@ http://localhost:8080/inner/class
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩"
+	"name":"天宇.陈"
 }
 ----
 
@@ -565,7 +699,7 @@ http://localhost:8080/inner/class
 
 *Description:* List&lt;String&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -585,8 +719,8 @@ http://localhost:8080/list/listString
 *Response-example:*
 ----
 [
-	"buy2pa",
-	"t0ntnz"
+	"e15ywp",
+	"tqwrhw"
 ]
 ----
 
@@ -597,7 +731,7 @@ http://localhost:8080/list/listString
 
 *Description:* List&lt;Map&lt;String,String&gt;&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -618,8 +752,8 @@ http://localhost:8080/list/listMap
 ----
 [
 	{
-		"mapKey1":"xf17gn",
-		"mapKey2":"jnbkn9"
+		"mapKey1":"gvq61k",
+		"mapKey2":"yim41y"
 	}
 ]
 ----
@@ -631,7 +765,7 @@ http://localhost:8080/list/listMap
 
 *Description:* List&lt;自动义对象&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -646,6 +780,7 @@ http://localhost:8080/list/listObject
 |====================
 |Field | Type|Description|Since
 |userDetails|array|用户详情|-
+|└─githubAddress|string|测试|-
 |userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
@@ -665,7 +800,7 @@ http://localhost:8080/list/listObject
 	{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -673,16 +808,16 @@ http://localhost:8080/list/listObject
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":14.62,
-		"money":85.73,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":75.96,
+		"money":18.08,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	}
 ]
 ----
@@ -694,7 +829,7 @@ http://localhost:8080/list/listObject
 
 *Description:* List&lt;Map&lt;String,T&gt;&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -713,6 +848,7 @@ http://localhost:8080/list/listMap2
 |stuAddress|string|地址|-
 |user|object|用户对象|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -726,6 +862,7 @@ http://localhost:8080/list/listMap2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |userMap|map|map用户信息|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -739,6 +876,7 @@ http://localhost:8080/list/listMap2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |userTreeSet|object|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -752,6 +890,7 @@ http://localhost:8080/list/listMap2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |user1|object|用户对象2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -770,13 +909,13 @@ http://localhost:8080/list/listMap2
 [
 	{
 		"mapKey":{
-			"stuName":"凯瑞.韩",
+			"stuName":"天宇.陈",
 			"stuAge":true,
-			"stuAddress":"王侬9号， 湛江， 宁 156068",
+			"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -784,16 +923,16 @@ http://localhost:8080/list/listMap2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":92.58,
-				"money":34.61,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":80.46,
+				"money":81.05,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"userMap":{
 				"mapKey":{
@@ -804,7 +943,7 @@ http://localhost:8080/list/listMap2
 				{
 					"userDetails":[
 						{
-							"githubAddress":"王侬9号， 湛江， 宁 156068"
+							"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 						}
 					],
 					"userList":[
@@ -812,22 +951,22 @@ http://localhost:8080/list/listMap2
 							"$ref":".."
 						}
 					],
-					"userName":"凯瑞.韩",
-					"nickName":"johnathan.shields",
-					"userAddress":"王侬9号， 湛江， 宁 156068",
-					"userAge":68,
-					"phone":"15911872515",
-					"createTime":1571492174727,
-					"small":61.65,
-					"money":75.89,
-					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-					"telephone":"15911872515"
+					"userName":"天宇.陈",
+					"nickName":"donn.fay",
+					"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+					"userAge":69,
+					"phone":"15984506514",
+					"createTime":1573029140988,
+					"small":56.51,
+					"money":46.21,
+					"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+					"telephone":"15984506514"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -835,16 +974,16 @@ http://localhost:8080/list/listMap2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":92.66,
-				"money":12.53,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":64.58,
+				"money":43.81,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		}
 	}
@@ -858,7 +997,7 @@ http://localhost:8080/list/listMap2
 
 *Description:* List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -874,6 +1013,7 @@ http://localhost:8080/list/listMap3
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -887,6 +1027,7 @@ http://localhost:8080/list/listMap3
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -900,6 +1041,7 @@ http://localhost:8080/list/listMap3
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -922,7 +1064,7 @@ http://localhost:8080/list/listMap3
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -930,21 +1072,21 @@ http://localhost:8080/list/listMap3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":7.09,
-				"money":70.08,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":32.25,
+				"money":45.71,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -952,21 +1094,21 @@ http://localhost:8080/list/listMap3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":0.99,
-				"money":45.83,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":75.52,
+				"money":95.52,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -974,18 +1116,18 @@ http://localhost:8080/list/listMap3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":26.72,
-				"money":4.40,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":65.75,
+				"money":82.82,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
-			"age":68
+			"age":69
 		}
 	}
 ]
@@ -998,7 +1140,7 @@ http://localhost:8080/list/listMap3
 
 *Description:* List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1014,6 +1156,7 @@ http://localhost:8080/list/listTeacher
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1027,6 +1170,7 @@ http://localhost:8080/list/listTeacher
 |└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1040,6 +1184,7 @@ http://localhost:8080/list/listTeacher
 |└─telephone|string|固定电话|-
 |data2|object|data2|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1062,7 +1207,7 @@ http://localhost:8080/list/listTeacher
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1070,23 +1215,23 @@ http://localhost:8080/list/listTeacher
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":71.03,
-				"money":74.11,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":93.49,
+				"money":64.24,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"data1":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1094,23 +1239,23 @@ http://localhost:8080/list/listTeacher
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":39.43,
-				"money":94.21,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":31.09,
+				"money":63.96,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"data2":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1118,19 +1263,19 @@ http://localhost:8080/list/listTeacher
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":30.58,
-				"money":77.49,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":79.58,
+				"money":62.27,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
-		"age":68
+		"age":69
 	}
 ]
 ----
@@ -1142,7 +1287,7 @@ http://localhost:8080/list/listTeacher
 
 *Description:* List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1159,6 +1304,7 @@ http://localhost:8080/list/listString1
 |data|object|泛型data|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1172,6 +1318,7 @@ http://localhost:8080/list/listString1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1185,6 +1332,7 @@ http://localhost:8080/list/listString1
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1199,6 +1347,7 @@ http://localhost:8080/list/listString1
 |└─age|int32|年龄|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1212,6 +1361,7 @@ http://localhost:8080/list/listString1
 |└─telephone|string|固定电话|-
 |data2|object|data2|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1234,7 +1384,7 @@ http://localhost:8080/list/listString1
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1242,21 +1392,21 @@ http://localhost:8080/list/listString1
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":5.93,
-				"money":61.28,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":39.17,
+				"money":40.84,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1264,21 +1414,21 @@ http://localhost:8080/list/listString1
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":68.85,
-				"money":8.48,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":88.09,
+				"money":32.83,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1286,23 +1436,23 @@ http://localhost:8080/list/listString1
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":25.63,
-				"money":6.31,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":19.89,
+				"money":78.22,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
-			"age":68
+			"age":69
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -1310,21 +1460,21 @@ http://localhost:8080/list/listString1
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":12.70,
-			"money":69.10,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":35.67,
+			"money":9.67,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -1332,18 +1482,18 @@ http://localhost:8080/list/listString1
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":17.57,
-			"money":41.53,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":35.28,
+			"money":62.39,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
-		"age":68
+		"age":69
 	}
 ]
 ----
@@ -1355,7 +1505,7 @@ http://localhost:8080/list/listString1
 
 *Description:* List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1372,6 +1522,7 @@ http://localhost:8080/list/listString2
 |data|object|泛型data|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1385,6 +1536,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1398,6 +1550,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1413,6 +1566,7 @@ http://localhost:8080/list/listString2
 |data1|object|泛型data1|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1426,6 +1580,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1439,6 +1594,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1454,6 +1610,7 @@ http://localhost:8080/list/listString2
 |data2|object|data2|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1467,6 +1624,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1480,6 +1638,7 @@ http://localhost:8080/list/listString2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -1503,7 +1662,7 @@ http://localhost:8080/list/listString2
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1511,21 +1670,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":66.13,
-				"money":86.13,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":1.38,
+				"money":77.62,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1533,21 +1692,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":88.86,
-				"money":22.07,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":32.47,
+				"money":39.21,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1555,24 +1714,24 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":48.96,
-				"money":19.11,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":99.18,
+				"money":77.68,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
-			"age":68
+			"age":69
 		},
 		"data1":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1580,21 +1739,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":25.88,
-				"money":79.30,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":70.93,
+				"money":96.92,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1602,21 +1761,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":98.86,
-				"money":7.97,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":72.76,
+				"money":22.11,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1624,24 +1783,24 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":92.27,
-				"money":64.53,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":74.59,
+				"money":50.61,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
-			"age":68
+			"age":69
 		},
 		"data2":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1649,21 +1808,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":94.07,
-				"money":30.39,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":11.46,
+				"money":72.01,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1671,21 +1830,21 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":81.11,
-				"money":57.28,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":65.89,
+				"money":42.91,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -1693,20 +1852,20 @@ http://localhost:8080/list/listString2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":13.37,
-				"money":92.37,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":75.75,
+				"money":82.75,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
-			"age":68
+			"age":69
 		},
-		"age":68
+		"age":69
 	}
 ]
 ----
@@ -1718,7 +1877,7 @@ http://localhost:8080/list/listString2
 
 *Description:* CommonResult&lt;List&lt;UserDto&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1750,17 +1909,17 @@ http://localhost:8080/list/listUserDto
 	"message":"success",
 	"data":[
 		{
-			"token":"h1im0f",
+			"token":"6ytljd",
 			"LoginList":[
 				{
-					"userName":"凯瑞.韩",
-					"password":"wmab7w"
+					"userName":"天宇.陈",
+					"password":"pbdad0"
 				}
 			]
 		}
 	],
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -1772,7 +1931,7 @@ http://localhost:8080/list/listUserDto
 
 *Description:* Map&lt;String,Integer&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1792,8 +1951,8 @@ http://localhost:8080/map/primitive
 *Response-example:*
 ----
 {
-	"mapKey1":740,
-	"mapKey2":288
+	"mapKey1":574,
+	"mapKey2":121
 }
 ----
 
@@ -1804,7 +1963,7 @@ http://localhost:8080/map/primitive
 
 *Description:* Map&lt;String,Object&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1837,7 +1996,7 @@ http://localhost:8080/map/objectValue
 
 *Description:* Map&lt;String,User&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1852,6 +2011,7 @@ http://localhost:8080/map/object
 |====================
 |Field | Type|Description|Since
 |userDetails|array|用户详情|-
+|└─githubAddress|string|测试|-
 |userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
@@ -1871,7 +2031,7 @@ http://localhost:8080/map/object
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -1879,16 +2039,16 @@ http://localhost:8080/map/object
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":54.23,
-		"money":7.27,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":2.68,
+		"money":32.38,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	}
 }
 ----
@@ -1900,7 +2060,7 @@ http://localhost:8080/map/object
 
 *Description:* Map&lt;String,Student&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -1919,6 +2079,7 @@ http://localhost:8080/map/test1
 |stuAddress|string|地址|-
 |user|object|用户对象|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1932,6 +2093,7 @@ http://localhost:8080/map/test1
 |└─telephone|string|固定电话|-
 |userMap|map|map用户信息|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1945,6 +2107,7 @@ http://localhost:8080/map/test1
 |└─telephone|string|固定电话|-
 |userTreeSet|object|用户列表|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1958,6 +2121,7 @@ http://localhost:8080/map/test1
 |└─telephone|string|固定电话|-
 |user1|object|用户对象2|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -1975,13 +2139,13 @@ http://localhost:8080/map/test1
 ----
 {
 	"mapKey":{
-		"stuName":"凯瑞.韩",
+		"stuName":"天宇.陈",
 		"stuAge":true,
-		"stuAddress":"王侬9号， 湛江， 宁 156068",
+		"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -1989,16 +2153,16 @@ http://localhost:8080/map/test1
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":26.31,
-			"money":76.20,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":29.43,
+			"money":41.41,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"userMap":{
 			"mapKey":{
@@ -2009,7 +2173,7 @@ http://localhost:8080/map/test1
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2017,22 +2181,22 @@ http://localhost:8080/map/test1
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":79.23,
-				"money":88.74,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":84.94,
+				"money":32.41,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -2040,16 +2204,16 @@ http://localhost:8080/map/test1
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":63.94,
-			"money":79.78,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":84.97,
+			"money":33.04,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		}
 	}
 }
@@ -2062,7 +2226,7 @@ http://localhost:8080/map/test1
 
 *Description:* Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -2078,6 +2242,7 @@ http://localhost:8080/map/test2
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2091,6 +2256,7 @@ http://localhost:8080/map/test2
 |└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2108,6 +2274,7 @@ http://localhost:8080/map/test2
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2121,6 +2288,7 @@ http://localhost:8080/map/test2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userMap|map|map用户信息|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2134,6 +2302,7 @@ http://localhost:8080/map/test2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userTreeSet|object|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2147,6 +2316,7 @@ http://localhost:8080/map/test2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─user1|object|用户对象2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2169,7 +2339,7 @@ http://localhost:8080/map/test2
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2177,22 +2347,22 @@ http://localhost:8080/map/test2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":24.72,
-				"money":55.48,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":92.76,
+				"money":86.91,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -2200,25 +2370,25 @@ http://localhost:8080/map/test2
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":90.14,
-			"money":59.40,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":28.75,
+			"money":24.52,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
-			"stuName":"凯瑞.韩",
+			"stuName":"天宇.陈",
 			"stuAge":true,
-			"stuAddress":"王侬9号， 湛江， 宁 156068",
+			"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2226,16 +2396,16 @@ http://localhost:8080/map/test2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":97.12,
-				"money":84.97,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":26.46,
+				"money":4.64,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"userMap":{
 				"mapKey":{
@@ -2246,7 +2416,7 @@ http://localhost:8080/map/test2
 				{
 					"userDetails":[
 						{
-							"githubAddress":"王侬9号， 湛江， 宁 156068"
+							"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 						}
 					],
 					"userList":[
@@ -2254,22 +2424,22 @@ http://localhost:8080/map/test2
 							"$ref":".."
 						}
 					],
-					"userName":"凯瑞.韩",
-					"nickName":"johnathan.shields",
-					"userAddress":"王侬9号， 湛江， 宁 156068",
-					"userAge":68,
-					"phone":"15911872515",
-					"createTime":1571492174727,
-					"small":80.72,
-					"money":30.28,
-					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-					"telephone":"15911872515"
+					"userName":"天宇.陈",
+					"nickName":"donn.fay",
+					"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+					"userAge":69,
+					"phone":"15984506514",
+					"createTime":1573029140988,
+					"small":33.85,
+					"money":41.47,
+					"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+					"telephone":"15984506514"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2277,19 +2447,19 @@ http://localhost:8080/map/test2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":85.64,
-				"money":69.49,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":75.23,
+				"money":23.92,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		},
-		"age":68
+		"age":69
 	}
 }
 ----
@@ -2301,7 +2471,7 @@ http://localhost:8080/map/test2
 
 *Description:* TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -2317,6 +2487,7 @@ http://localhost:8080/map/test3
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2330,6 +2501,7 @@ http://localhost:8080/map/test3
 |└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2347,6 +2519,7 @@ http://localhost:8080/map/test3
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2360,6 +2533,7 @@ http://localhost:8080/map/test3
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userMap|map|map用户信息|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2373,6 +2547,7 @@ http://localhost:8080/map/test3
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userTreeSet|object|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2386,6 +2561,7 @@ http://localhost:8080/map/test3
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─user1|object|用户对象2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -2408,7 +2584,7 @@ http://localhost:8080/map/test3
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2416,22 +2592,22 @@ http://localhost:8080/map/test3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":43.91,
-				"money":84.06,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":76.95,
+				"money":23.02,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -2439,25 +2615,25 @@ http://localhost:8080/map/test3
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":80.34,
-			"money":21.51,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":7.79,
+			"money":79.76,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
-			"stuName":"凯瑞.韩",
+			"stuName":"天宇.陈",
 			"stuAge":true,
-			"stuAddress":"王侬9号， 湛江， 宁 156068",
+			"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2465,16 +2641,16 @@ http://localhost:8080/map/test3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":98.26,
-				"money":87.49,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":49.97,
+				"money":57.09,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			},
 			"userMap":{
 				"mapKey":{
@@ -2485,7 +2661,7 @@ http://localhost:8080/map/test3
 				{
 					"userDetails":[
 						{
-							"githubAddress":"王侬9号， 湛江， 宁 156068"
+							"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 						}
 					],
 					"userList":[
@@ -2493,22 +2669,22 @@ http://localhost:8080/map/test3
 							"$ref":".."
 						}
 					],
-					"userName":"凯瑞.韩",
-					"nickName":"johnathan.shields",
-					"userAddress":"王侬9号， 湛江， 宁 156068",
-					"userAge":68,
-					"phone":"15911872515",
-					"createTime":1571492174727,
-					"small":17.20,
-					"money":8.67,
-					"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-					"telephone":"15911872515"
+					"userName":"天宇.陈",
+					"nickName":"donn.fay",
+					"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+					"userAge":69,
+					"phone":"15984506514",
+					"createTime":1573029140988,
+					"small":51.03,
+					"money":24.79,
+					"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+					"telephone":"15984506514"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2516,19 +2692,19 @@ http://localhost:8080/map/test3
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":66.95,
-				"money":53.75,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":85.06,
+				"money":53.42,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		},
-		"age":68
+		"age":69
 	}
 }
 ----
@@ -2540,7 +2716,7 @@ http://localhost:8080/map/test3
 
 *Description:* Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -2556,6 +2732,7 @@ http://localhost:8080/map/test4
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2569,6 +2746,7 @@ http://localhost:8080/map/test4
 |└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2582,6 +2760,7 @@ http://localhost:8080/map/test4
 |└─telephone|string|固定电话|-
 |data2|object|data2|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -2604,7 +2783,7 @@ http://localhost:8080/map/test4
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2612,23 +2791,23 @@ http://localhost:8080/map/test4
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":34.26,
-				"money":63.05,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":90.55,
+				"money":13.02,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		},
 		"data1":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2636,23 +2815,23 @@ http://localhost:8080/map/test4
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":35.09,
-				"money":3.25,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":42.02,
+				"money":72.65,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		},
 		"data2":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -2660,19 +2839,19 @@ http://localhost:8080/map/test4
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":83.01,
-				"money":45.03,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":36.25,
+				"money":59.10,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		},
-		"age":68
+		"age":69
 	}
 }
 ----
@@ -2685,7 +2864,7 @@ http://localhost:8080/map/test4
 
 *Description:* 测试RequestHeader常规使用
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -2699,7 +2878,7 @@ http://localhost:8080/map/test4
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestHeader?age=68
+http://localhost:8080/testRequestHeader?age=69
 ----
 
 *Response-example:*
@@ -2708,13 +2887,13 @@ This api return nothing.
 ----
 
 === 测试RequestHeader绑定参数名
-*URL:* http://localhost:8080/testRequestHeader
+*URL:* http://localhost:8080/testRequestHeader/value
 
 *Type:* GET
 
 *Description:* 测试RequestHeader绑定参数名
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -2728,7 +2907,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestHeader?age=68
+http://localhost:8080/testRequestHeader/value?age=69
 ----
 
 *Response-example:*
@@ -2737,13 +2916,13 @@ This api return nothing.
 ----
 
 === 测试RequestHeader绑定默认值
-*URL:* http://localhost:8080/testRequestHeader
+*URL:* http://localhost:8080/testRequestHeader/DefaultVal
 
 *Type:* GET
 
 *Description:* 测试RequestHeader绑定默认值
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -2757,7 +2936,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestHeader?age=68
+http://localhost:8080/testRequestHeader/DefaultVal?age=69
 ----
 
 *Response-example:*
@@ -2773,7 +2952,7 @@ This api return nothing.
 
 *Description:* Test Normal param binding
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -2788,7 +2967,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testNormalParams/binding?name=凯瑞.韩&age=68
+http://localhost:8080/testNormalParams/binding?name=天宇.陈&age=69
 ----
 
 *Response-example:*
@@ -2813,6 +2992,7 @@ This api return nothing.
 |====================
 |Parameter | Type|Description|Required|Since
 |userDetails|array|用户详情|false|-
+|└─githubAddress|string|测试|false|-
 |userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
@@ -2831,7 +3011,7 @@ This api return nothing.
 {
 	"userDetails":[
 		{
-			"githubAddress":"王侬9号， 湛江， 宁 156068"
+			"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 		}
 	],
 	"userList":[
@@ -2839,16 +3019,16 @@ This api return nothing.
 			"$ref":".."
 		}
 	],
-	"userName":"凯瑞.韩",
-	"nickName":"johnathan.shields",
-	"userAddress":"王侬9号， 湛江， 宁 156068",
-	"userAge":68,
-	"phone":"15911872515",
-	"createTime":1571492174727,
-	"small":9.28,
-	"money":11.54,
-	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-	"telephone":"15911872515"
+	"userName":"天宇.陈",
+	"nickName":"donn.fay",
+	"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+	"userAge":69,
+	"phone":"15984506514",
+	"createTime":1573029140988,
+	"small":36.70,
+	"money":66.02,
+	"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+	"telephone":"15984506514"
 }
 ----
 
@@ -2874,6 +3054,7 @@ This api return nothing.
 |====================
 |Parameter | Type|Description|Required|Since
 |userDetails|array|用户详情|false|-
+|└─githubAddress|string|测试|false|-
 |userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
@@ -2893,7 +3074,7 @@ This api return nothing.
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -2901,16 +3082,16 @@ This api return nothing.
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":89.52,
-		"money":93.11,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":70.73,
+		"money":79.92,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	}
 }
 ----
@@ -2942,8 +3123,8 @@ This api return nothing.
 *Request-example:*
 ----
 [
-	"kb90kv",
-	"upmrb3"
+	"ire2nt",
+	"6arwxs"
 ]
 ----
 
@@ -2959,7 +3140,7 @@ This api return nothing.
 
 *Description:* Test @PathVariable
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -2974,7 +3155,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/test/凯瑞.韩/d2r932/info
+http://localhost:8080/test/天宇.陈/2mi9th/info
 ----
 
 *Response-example:*
@@ -2989,7 +3170,7 @@ This api return nothing.
 
 *Description:* Test @RequestParam
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -3004,7 +3185,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestParam?author=邹晓啸&type=sabawt
+http://localhost:8080/testRequestParam?author=姜昊天&type=4j95bw
 ----
 
 *Response-example:*
@@ -3019,7 +3200,7 @@ This api return nothing.
 
 *Description:* Use@RequestParam binding value is name,but method param name is userName
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -3033,7 +3214,7 @@ This api return nothing.
 
 *Request-example:*
 ----
-http://localhost:8080/testRequestParamWithValue?name=凯瑞.韩
+http://localhost:8080/testRequestParamWithValue?name=天宇.陈
 ----
 
 *Response-example:*
@@ -3048,7 +3229,7 @@ This api return nothing.
 
 *Description:* Use@RequestParam binding default value Jordan
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -3078,7 +3259,7 @@ This api return nothing.
 
 *Description:* ResponseEntity return List
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -3093,6 +3274,7 @@ http://localhost:8080/responseEntity/list
 |====================
 |Field | Type|Description|Since
 |userDetails|array|用户详情|-
+|└─githubAddress|string|测试|-
 |userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
@@ -3112,7 +3294,7 @@ http://localhost:8080/responseEntity/list
 	{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -3120,16 +3302,16 @@ http://localhost:8080/responseEntity/list
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":12.58,
-		"money":89.18,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":5.50,
+		"money":9.97,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	}
 ]
 ----
@@ -3142,7 +3324,7 @@ http://localhost:8080/responseEntity/list
 
 *Description:* 返回普通String测试
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -3161,7 +3343,7 @@ http://localhost:8080/simple/str
 
 *Response-example:*
 ----
-9lvq9b
+hnaafa
 ----
 
 === 返回普通javabean
@@ -3181,6 +3363,7 @@ http://localhost:8080/simple/str
 |====================
 |Parameter | Type|Description|Required|Since
 |userDetails|array|用户详情|false|-
+|└─githubAddress|string|测试|false|-
 |userList|array|用户列表|false|-
 |userName|string|用户名|false|-
 |nickName|string|昵称|false|-
@@ -3199,7 +3382,7 @@ http://localhost:8080/simple/str
 {
 	"userDetails":[
 		{
-			"githubAddress":"王侬9号， 湛江， 宁 156068"
+			"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 		}
 	],
 	"userList":[
@@ -3207,16 +3390,16 @@ http://localhost:8080/simple/str
 			"$ref":".."
 		}
 	],
-	"userName":"凯瑞.韩",
-	"nickName":"johnathan.shields",
-	"userAddress":"王侬9号， 湛江， 宁 156068",
-	"userAge":68,
-	"phone":"15911872515",
-	"createTime":1571492174727,
-	"small":94.86,
-	"money":83.54,
-	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-	"telephone":"15911872515"
+	"userName":"天宇.陈",
+	"nickName":"donn.fay",
+	"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+	"userAge":69,
+	"phone":"15984506514",
+	"createTime":1573029140988,
+	"small":55.25,
+	"money":11.60,
+	"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+	"telephone":"15984506514"
 }
 ----
 *Response-fields:*
@@ -3226,6 +3409,7 @@ http://localhost:8080/simple/str
 |====================
 |Field | Type|Description|Since
 |userDetails|array|用户详情|-
+|└─githubAddress|string|测试|-
 |userList|array|用户列表|-
 |userName|string|用户名|-
 |nickName|string|昵称|-
@@ -3244,7 +3428,7 @@ http://localhost:8080/simple/str
 {
 	"userDetails":[
 		{
-			"githubAddress":"王侬9号， 湛江， 宁 156068"
+			"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 		}
 	],
 	"userList":[
@@ -3252,16 +3436,16 @@ http://localhost:8080/simple/str
 			"$ref":".."
 		}
 	],
-	"userName":"凯瑞.韩",
-	"nickName":"johnathan.shields",
-	"userAddress":"王侬9号， 湛江， 宁 156068",
-	"userAge":68,
-	"phone":"15911872515",
-	"createTime":1571492174727,
-	"small":36.54,
-	"money":91.89,
-	"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-	"telephone":"15911872515"
+	"userName":"天宇.陈",
+	"nickName":"donn.fay",
+	"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+	"userAge":69,
+	"phone":"15984506514",
+	"createTime":1573029140988,
+	"small":99.79,
+	"money":84.66,
+	"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+	"telephone":"15984506514"
 }
 ----
 
@@ -3272,7 +3456,7 @@ http://localhost:8080/simple/str
 
 *Description:* 返回复杂实体数据
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -3291,6 +3475,7 @@ http://localhost:8080/simple/stu
 |stuAddress|string|地址|-
 |user|object|用户对象|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3304,6 +3489,7 @@ http://localhost:8080/simple/stu
 |└─telephone|string|固定电话|-
 |userMap|map|map用户信息|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3317,6 +3503,7 @@ http://localhost:8080/simple/stu
 |└─telephone|string|固定电话|-
 |userTreeSet|object|用户列表|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3330,6 +3517,7 @@ http://localhost:8080/simple/stu
 |└─telephone|string|固定电话|-
 |user1|object|用户对象2|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3346,13 +3534,13 @@ http://localhost:8080/simple/stu
 *Response-example:*
 ----
 {
-	"stuName":"凯瑞.韩",
+	"stuName":"天宇.陈",
 	"stuAge":true,
-	"stuAddress":"王侬9号， 湛江， 宁 156068",
+	"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 	"user":{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -3360,16 +3548,16 @@ http://localhost:8080/simple/stu
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":19.46,
-		"money":28.83,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":39.91,
+		"money":93.27,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	},
 	"userMap":{
 		"mapKey":{
@@ -3380,7 +3568,7 @@ http://localhost:8080/simple/stu
 		{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3388,22 +3576,22 @@ http://localhost:8080/simple/stu
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":97.30,
-			"money":35.38,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":88.96,
+			"money":51.59,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		}
 	],
 	"user1":{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -3411,16 +3599,16 @@ http://localhost:8080/simple/stu
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":33.79,
-		"money":52.39,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":8.67,
+		"money":91.17,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	}
 }
 ----
@@ -3432,7 +3620,7 @@ http://localhost:8080/simple/stu
 
 *Description:* Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -3449,6 +3637,7 @@ http://localhost:8080/simple/teacher
 |data|object|泛型data|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3462,6 +3651,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3475,6 +3665,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3490,6 +3681,7 @@ http://localhost:8080/simple/teacher
 |data1|object|泛型data1|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3503,6 +3695,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3516,6 +3709,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3531,6 +3725,7 @@ http://localhost:8080/simple/teacher
 |data2|object|data2|-
 |└─data|object|泛型data|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3544,6 +3739,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data1|object|泛型data1|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3557,6 +3753,7 @@ http://localhost:8080/simple/teacher
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─data2|object|data2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3579,7 +3776,7 @@ http://localhost:8080/simple/teacher
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3587,21 +3784,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":77.73,
-			"money":40.08,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":86.10,
+			"money":41.62,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3609,21 +3806,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":94.42,
-			"money":61.32,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":56.44,
+			"money":98.91,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3631,24 +3828,24 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":75.67,
-			"money":55.12,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":23.54,
+			"money":9.06,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
-		"age":68
+		"age":69
 	},
 	"data1":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3656,21 +3853,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":13.07,
-			"money":58.59,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":44.44,
+			"money":19.09,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3678,21 +3875,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":73.97,
-			"money":99.29,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":32.77,
+			"money":64.30,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3700,24 +3897,24 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":80.01,
-			"money":7.79,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":14.63,
+			"money":75.54,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
-		"age":68
+		"age":69
 	},
 	"data2":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3725,21 +3922,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":34.86,
-			"money":6.67,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":16.99,
+			"money":79.88,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3747,21 +3944,21 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":60.82,
-			"money":38.86,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":39.19,
+			"money":3.53,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3769,20 +3966,20 @@ http://localhost:8080/simple/teacher
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":79.45,
-			"money":61.61,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":20.13,
+			"money":59.47,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
-		"age":68
+		"age":69
 	},
-	"age":68
+	"age":69
 }
 ----
 
@@ -3793,7 +3990,7 @@ http://localhost:8080/simple/teacher
 
 *Description:* Teacher&lt;List&lt;User&gt;, User, Student&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -3809,6 +4006,7 @@ http://localhost:8080/simple/teacher2
 |Field | Type|Description|Since
 |data|object|泛型data|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3822,6 +4020,7 @@ http://localhost:8080/simple/teacher2
 |└─telephone|string|固定电话|-
 |data1|object|泛型data1|-
 |└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |└─userList|array|用户列表|-
 |└─userName|string|用户名|-
 |└─nickName|string|昵称|-
@@ -3839,6 +4038,7 @@ http://localhost:8080/simple/teacher2
 |└─stuAddress|string|地址|-
 |└─user|object|用户对象|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3852,6 +4052,7 @@ http://localhost:8080/simple/teacher2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userMap|map|map用户信息|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3865,6 +4066,7 @@ http://localhost:8080/simple/teacher2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─userTreeSet|object|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3878,6 +4080,7 @@ http://localhost:8080/simple/teacher2
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 |└─user1|object|用户对象2|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
@@ -3899,7 +4102,7 @@ http://localhost:8080/simple/teacher2
 		{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3907,22 +4110,22 @@ http://localhost:8080/simple/teacher2
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":54.46,
-			"money":64.16,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":65.57,
+			"money":50.80,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		}
 	],
 	"data1":{
 		"userDetails":[
 			{
-				"githubAddress":"王侬9号， 湛江， 宁 156068"
+				"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 			}
 		],
 		"userList":[
@@ -3930,25 +4133,25 @@ http://localhost:8080/simple/teacher2
 				"$ref":".."
 			}
 		],
-		"userName":"凯瑞.韩",
-		"nickName":"johnathan.shields",
-		"userAddress":"王侬9号， 湛江， 宁 156068",
-		"userAge":68,
-		"phone":"15911872515",
-		"createTime":1571492174727,
-		"small":17.97,
-		"money":64.11,
-		"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-		"telephone":"15911872515"
+		"userName":"天宇.陈",
+		"nickName":"donn.fay",
+		"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+		"userAge":69,
+		"phone":"15984506514",
+		"createTime":1573029140988,
+		"small":98.78,
+		"money":52.42,
+		"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+		"telephone":"15984506514"
 	},
 	"data2":{
-		"stuName":"凯瑞.韩",
+		"stuName":"天宇.陈",
 		"stuAge":true,
-		"stuAddress":"王侬9号， 湛江， 宁 156068",
+		"stuAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -3956,16 +4159,16 @@ http://localhost:8080/simple/teacher2
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":34.73,
-			"money":2.51,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":82.08,
+			"money":50.44,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		},
 		"userMap":{
 			"mapKey":{
@@ -3976,7 +4179,7 @@ http://localhost:8080/simple/teacher2
 			{
 				"userDetails":[
 					{
-						"githubAddress":"王侬9号， 湛江， 宁 156068"
+						"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 					}
 				],
 				"userList":[
@@ -3984,22 +4187,22 @@ http://localhost:8080/simple/teacher2
 						"$ref":".."
 					}
 				],
-				"userName":"凯瑞.韩",
-				"nickName":"johnathan.shields",
-				"userAddress":"王侬9号， 湛江， 宁 156068",
-				"userAge":68,
-				"phone":"15911872515",
-				"createTime":1571492174727,
-				"small":50.46,
-				"money":27.88,
-				"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-				"telephone":"15911872515"
+				"userName":"天宇.陈",
+				"nickName":"donn.fay",
+				"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+				"userAge":69,
+				"phone":"15984506514",
+				"createTime":1573029140988,
+				"small":76.00,
+				"money":44.37,
+				"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+				"telephone":"15984506514"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"王侬9号， 湛江， 宁 156068"
+					"githubAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138"
 				}
 			],
 			"userList":[
@@ -4007,19 +4210,19 @@ http://localhost:8080/simple/teacher2
 					"$ref":".."
 				}
 			],
-			"userName":"凯瑞.韩",
-			"nickName":"johnathan.shields",
-			"userAddress":"王侬9号， 湛江， 宁 156068",
-			"userAge":68,
-			"phone":"15911872515",
-			"createTime":1571492174727,
-			"small":96.60,
-			"money":28.24,
-			"ipv6":"0e10:6d73:1847:2fd5:10f2:2742:bd14:a4e5",
-			"telephone":"15911872515"
+			"userName":"天宇.陈",
+			"nickName":"donn.fay",
+			"userAddress":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
+			"userAge":69,
+			"phone":"15984506514",
+			"createTime":1573029140988,
+			"small":34.45,
+			"money":19.85,
+			"ipv6":"e93b:1bd1:18a5:b63c:c501:f12e:9f73:283f",
+			"telephone":"15984506514"
 		}
 	},
-	"age":68
+	"age":69
 }
 ----
 
@@ -4030,7 +4233,7 @@ http://localhost:8080/simple/teacher2
 
 *Description:* 测试SubUser
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -4051,8 +4254,8 @@ http://localhost:8080/simple/subUser
 *Response-example:*
 ----
 {
-	"subUserName":"凯瑞.韩",
-	"numbers":164
+	"subUserName":"天宇.陈",
+	"numbers":920
 }
 ----
 
@@ -4063,7 +4266,7 @@ http://localhost:8080/simple/subUser
 
 *Description:* 返回CommonResult&lt;SubUser&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -4092,11 +4295,11 @@ http://localhost:8080/simple/subUser/result
 	"success":true,
 	"message":"success",
 	"data":{
-		"subUserName":"凯瑞.韩",
-		"numbers":88
+		"subUserName":"天宇.陈",
+		"numbers":741
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4108,7 +4311,7 @@ http://localhost:8080/simple/subUser/result
 
 *Description:* CommonResult&lt;String&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -4134,9 +4337,9 @@ http://localhost:8080/stringCommonResult
 {
 	"success":true,
 	"message":"success",
-	"data":"eneavi",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"is076v",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4147,7 +4350,7 @@ http://localhost:8080/stringCommonResult
 
 *Description:* 返回Staff&lt;Staff&lt;Staff&gt;&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -4181,19 +4384,11 @@ http://localhost:8080/staff
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩",
+	"name":"天宇.陈",
 	"annyObject":{
-		"name":"凯瑞.韩",
+		"name":"天宇.陈",
 		"annyObject":{
-			"name":"凯瑞.韩",
-			"annyObject":{
-				"waring":"You may have used non-display generics."
-			},
-			"data":[
-				{
-					"$ref":".."
-				}
-			]
+			"$ref":"..."
 		},
 		"data":[
 			{
@@ -4203,17 +4398,9 @@ http://localhost:8080/staff
 	},
 	"data":[
 		{
-			"name":"凯瑞.韩",
+			"name":"天宇.陈",
 			"annyObject":{
-				"name":"凯瑞.韩",
-				"annyObject":{
-					"waring":"You may have used non-display generics."
-				},
-				"data":[
-					{
-						"$ref":".."
-					}
-				]
+				"$ref":"..."
 			},
 			"data":[
 				{
@@ -4232,7 +4419,7 @@ http://localhost:8080/staff
 
 *Description:* 返回Staff&lt;String&gt;
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 
@@ -4254,10 +4441,10 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩",
-	"annyObject":"orj6dv",
+	"name":"天宇.陈",
+	"annyObject":"3de75q",
 	"data":[
-		"192la3"
+		"o7dttr"
 	]
 }
 ----
@@ -4285,8 +4472,8 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"name":"凯瑞.韩",
-	"age":68
+	"name":"天宇.陈",
+	"age":69
 }
 ----
 *Response-fields:*
@@ -4302,8 +4489,8 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"name":"凯瑞.韩",
-	"age":68
+	"name":"天宇.陈",
+	"age":69
 }
 ----
 
@@ -4333,10 +4520,10 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"username":"凯瑞.韩",
-	"password":"8jx92b",
-	"nickName":"johnathan.shields",
-	"mobile":"15162888866"
+	"username":"天宇.陈",
+	"password":"qzfgoe",
+	"nickName":"donn.fay",
+	"mobile":"17244263125"
 }
 ----
 *Response-fields:*
@@ -4424,60 +4611,60 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"id":"d4cyi4",
-	"createBy":"fstx45",
-	"createTime":2019-10-19,
-	"updateBy":"5ji5b2",
-	"updateTime":2019-10-19,
-	"delFlag":8,
-	"username":"凯瑞.韩",
-	"password":"72pgzp",
-	"nickName":"johnathan.shields",
-	"mobile":"15162888866",
-	"email":"思聪.雷@hotmail.com",
-	"address":"王侬9号， 湛江， 宁 156068",
+	"id":"180",
+	"createBy":"3th77v",
+	"createTime":2019-11-06,
+	"updateBy":"f5790i",
+	"updateTime":2019-11-06,
+	"delFlag":4,
+	"username":"天宇.陈",
+	"password":"mov80q",
+	"nickName":"donn.fay",
+	"mobile":"17244263125",
+	"email":"天宇.钱@hotmail.com",
+	"address":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 	"sex":1,
-	"avatar":"bs9n65",
-	"type":200,
-	"status":303,
-	"description":"mn86kj",
+	"avatar":"vokiyn",
+	"type":495,
+	"status":571,
+	"description":"wrl1az",
 	"roles":[
 		{
-			"id":"8fdpo3",
-			"createBy":"fvdyqp",
-			"createTime":2019-10-19,
-			"updateBy":"4kybkj",
-			"updateTime":2019-10-19,
-			"delFlag":8,
-			"name":"凯瑞.韩",
+			"id":"180",
+			"createBy":"xaefbp",
+			"createTime":2019-11-06,
+			"updateBy":"dta5gw",
+			"updateTime":2019-11-06,
+			"delFlag":4,
+			"name":"天宇.陈",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"ngtahd",
-					"createBy":"0mkrcn",
-					"createTime":2019-10-19,
-					"updateBy":"gbnuz2",
-					"updateTime":2019-10-19,
-					"delFlag":8,
-					"name":"凯瑞.韩",
-					"level":927,
-					"type":659,
-					"title":"wtrcfv",
-					"path":"8dv6jl",
-					"component":"nwskau",
-					"icon":"ky5000",
-					"buttonType":"4o1iyu",
-					"parentId":"c999xg",
-					"description":"q4ivhb",
-					"sortOrder":148,
-					"status":15,
+					"id":"180",
+					"createBy":"yhoj8d",
+					"createTime":2019-11-06,
+					"updateBy":"d8plqb",
+					"updateTime":2019-11-06,
+					"delFlag":4,
+					"name":"天宇.陈",
+					"level":233,
+					"type":722,
+					"title":"v9gj72",
+					"path":"cx6f1e",
+					"component":"z2m883",
+					"icon":"tu3few",
+					"buttonType":"342pwt",
+					"parentId":"180",
+					"description":"1cg2cm",
+					"sortOrder":290,
+					"status":133,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"qkneg3"
+						"6l35uq"
 					],
 					"expand":true,
 					"checked":true,
@@ -4488,31 +4675,31 @@ http://localhost:8080/staffStr
 	],
 	"permissions":[
 		{
-			"id":"hvr6l1",
-			"createBy":"pru81g",
-			"createTime":2019-10-19,
-			"updateBy":"gt20na",
-			"updateTime":2019-10-19,
-			"delFlag":8,
-			"name":"凯瑞.韩",
-			"level":885,
-			"type":342,
-			"title":"q07524",
-			"path":"b1t3kt",
-			"component":"97tlii",
-			"icon":"ykuh64",
-			"buttonType":"l8myta",
-			"parentId":"yj5jji",
-			"description":"z101y8",
-			"sortOrder":572,
-			"status":237,
+			"id":"180",
+			"createBy":"6yjt2i",
+			"createTime":2019-11-06,
+			"updateBy":"otvzq3",
+			"updateTime":2019-11-06,
+			"delFlag":4,
+			"name":"天宇.陈",
+			"level":243,
+			"type":988,
+			"title":"8hd85o",
+			"path":"54mfhs",
+			"component":"xbzjp7",
+			"icon":"e1cto1",
+			"buttonType":"qwx042",
+			"parentId":"180",
+			"description":"k4ed51",
+			"sortOrder":827,
+			"status":203,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"2nfpfs"
+				"4sxtm2"
 			],
 			"expand":true,
 			"checked":true,
@@ -4547,10 +4734,10 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"username":"凯瑞.韩",
-	"password":"1y9s4i",
-	"nickName":"johnathan.shields",
-	"mobile":"15162888866"
+	"username":"天宇.陈",
+	"password":"z3lvrr",
+	"nickName":"donn.fay",
+	"mobile":"17244263125"
 }
 ----
 *Response-fields:*
@@ -4638,60 +4825,60 @@ http://localhost:8080/staffStr
 *Response-example:*
 ----
 {
-	"id":"ovuqjb",
-	"createBy":"od2x32",
-	"createTime":2019-10-19,
-	"updateBy":"52pxjb",
-	"updateTime":2019-10-19,
-	"delFlag":8,
-	"username":"凯瑞.韩",
-	"password":"ti1f5a",
-	"nickName":"johnathan.shields",
-	"mobile":"15162888866",
-	"email":"思聪.雷@hotmail.com",
-	"address":"王侬9号， 湛江， 宁 156068",
+	"id":"180",
+	"createBy":"z02wwg",
+	"createTime":2019-11-06,
+	"updateBy":"jiduco",
+	"updateTime":2019-11-06,
+	"delFlag":4,
+	"username":"天宇.陈",
+	"password":"6o8ubz",
+	"nickName":"donn.fay",
+	"mobile":"17244263125",
+	"email":"天宇.钱@hotmail.com",
+	"address":"Apt. 174 阎巷94043号， 贵阳， 浙 693138",
 	"sex":1,
-	"avatar":"dur2bf",
-	"type":926,
-	"status":459,
-	"description":"k45hsy",
+	"avatar":"7js72c",
+	"type":116,
+	"status":661,
+	"description":"9xxb3u",
 	"roles":[
 		{
-			"id":"su6tv6",
-			"createBy":"stkusq",
-			"createTime":2019-10-19,
-			"updateBy":"iua3j0",
-			"updateTime":2019-10-19,
-			"delFlag":8,
-			"name":"凯瑞.韩",
+			"id":"180",
+			"createBy":"4qeu8j",
+			"createTime":2019-11-06,
+			"updateBy":"cc6oau",
+			"updateTime":2019-11-06,
+			"delFlag":4,
+			"name":"天宇.陈",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"v5rjco",
-					"createBy":"039m82",
-					"createTime":2019-10-19,
-					"updateBy":"mjhuob",
-					"updateTime":2019-10-19,
-					"delFlag":8,
-					"name":"凯瑞.韩",
-					"level":151,
-					"type":295,
-					"title":"fzyifc",
-					"path":"gqpixz",
-					"component":"mbeact",
-					"icon":"azopza",
-					"buttonType":"3qhlsb",
-					"parentId":"u8k8kv",
-					"description":"ueoeel",
-					"sortOrder":438,
-					"status":825,
+					"id":"180",
+					"createBy":"h8zns3",
+					"createTime":2019-11-06,
+					"updateBy":"oucncp",
+					"updateTime":2019-11-06,
+					"delFlag":4,
+					"name":"天宇.陈",
+					"level":147,
+					"type":61,
+					"title":"7ogdyq",
+					"path":"u4enzx",
+					"component":"4o5exc",
+					"icon":"4a68js",
+					"buttonType":"19emj3",
+					"parentId":"180",
+					"description":"19pi8b",
+					"sortOrder":528,
+					"status":627,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"l68iia"
+						"gyv2d0"
 					],
 					"expand":true,
 					"checked":true,
@@ -4702,31 +4889,31 @@ http://localhost:8080/staffStr
 	],
 	"permissions":[
 		{
-			"id":"wtpuqc",
-			"createBy":"t7zvnh",
-			"createTime":2019-10-19,
-			"updateBy":"5ztkp7",
-			"updateTime":2019-10-19,
-			"delFlag":8,
-			"name":"凯瑞.韩",
-			"level":787,
-			"type":213,
-			"title":"ift0jk",
-			"path":"dxwwwx",
-			"component":"o1qcsp",
-			"icon":"2l8csq",
-			"buttonType":"0xwu5o",
-			"parentId":"rbehqz",
-			"description":"9y1tv3",
-			"sortOrder":90,
-			"status":486,
+			"id":"180",
+			"createBy":"802l3a",
+			"createTime":2019-11-06,
+			"updateBy":"nwe5qj",
+			"updateTime":2019-11-06,
+			"delFlag":4,
+			"name":"天宇.陈",
+			"level":238,
+			"type":887,
+			"title":"eewe4m",
+			"path":"jhzv22",
+			"component":"vv90rz",
+			"icon":"n841m7",
+			"buttonType":"ismvrv",
+			"parentId":"180",
+			"description":"6eyly2",
+			"sortOrder":488,
+			"status":115,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"1jdzec"
+				"p5ojf1"
 			],
 			"expand":true,
 			"checked":true,
@@ -4753,7 +4940,6 @@ http://localhost:8080/staffStr
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
-|leader|object|No comments found.|true|-
 |name|string|姓名|true|-
 |birthday|string|生日|true|-
 |age|int32|年龄|false|-
@@ -4764,11 +4950,11 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"name":"凯瑞.韩",
-	"birthday":"2019-10-19",
-	"age":68,
+	"name":"天宇.陈",
+	"birthday":"2019-11-06",
+	"age":69,
 	"subject":{
-		"subjectName":"凯瑞.韩"
+		"subjectName":"天宇.陈"
 	}
 }
 ----
@@ -4793,8 +4979,8 @@ http://localhost:8080/staffStr
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4814,7 +5000,6 @@ http://localhost:8080/staffStr
 [stripes=even]
 |====================
 |Parameter | Type|Description|Required|Since
-|param|object|No comments found.|true|-
 |token|string|token|true|-
 |sequenceNo|string|序列号|true|-
 |parameter|object|No comments found.|false|-
@@ -4825,11 +5010,11 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"token":"rh6ocd",
-	"sequenceNo":"kjrfc0",
+	"token":"fnclbu",
+	"sequenceNo":"5m097s",
 	"parameter":{
-		"subUserName":"凯瑞.韩",
-		"numbers":886
+		"subUserName":"天宇.陈",
+		"numbers":956
 	}
 }
 ----
@@ -4854,8 +5039,8 @@ http://localhost:8080/staffStr
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4882,7 +5067,7 @@ http://localhost:8080/staffStr
 *Request-example:*
 ----
 {
-	"text":"mrrxhg"
+	"text":"5i9e5j"
 }
 ----
 *Response-fields:*
@@ -4903,9 +5088,9 @@ http://localhost:8080/staffStr
 {
 	"success":true,
 	"message":"success",
-	"data":"2d59gz",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"8cdy01",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4916,7 +5101,7 @@ http://localhost:8080/staffStr
 
 *Description:* xss过滤get请求
 
-*Content-Type:* application/x-www-form-urlencoded
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
 
 
 *Request-parameters:*
@@ -4930,7 +5115,7 @@ http://localhost:8080/staffStr
 
 *Request-example:*
 ----
-http://localhost:8080/xss/query?query=0bnmo7
+http://localhost:8080/xss/query?query=b3gn6w
 ----
 *Response-fields:*
 
@@ -4950,9 +5135,9 @@ http://localhost:8080/xss/query?query=0bnmo7
 {
 	"success":true,
 	"message":"success",
-	"data":"y0zrn2",
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"data":"rbj8p3",
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
@@ -4979,8 +5164,8 @@ http://localhost:8080/xss/query?query=0bnmo7
 *Request-example:*
 ----
 {
-	"name":"凯瑞.韩",
-	"age":68
+	"name":"天宇.陈",
+	"age":69
 }
 ----
 *Response-fields:*
@@ -5004,11 +5189,33 @@ http://localhost:8080/xss/query?query=0bnmo7
 	"success":true,
 	"message":"success",
 	"data":{
-		"name":"凯瑞.韩",
-		"age":68
+		"name":"天宇.陈",
+		"age":69
 	},
-	"code":"54113",
-	"timestamp":"2019-10-19 21:36:14"
+	"code":"34975",
+	"timestamp":"2019-11-06 16:32:20"
 }
 ----
 
+
+== 数据字典
+=== 订单状态
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Code |Type|Description
+|0|string|已支付
+|1|string|已支付
+|2|string|已经失效
+|====================
+=== 订单状态1
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Code |Type|Description
+|0|string|已支付
+|1|string|已支付
+|2|string|已经失效
+|====================

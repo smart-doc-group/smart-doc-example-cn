@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1571501404328"/>
+    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
     <title>普通java对象api文档测试</title>
 </head>
 <body>
@@ -15,7 +15,7 @@
 <h2>返回普通String测试</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/str</code></p>
 <p><strong>Type:</strong> <code>GET</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回普通String测试</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/str
@@ -30,7 +30,7 @@
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
-<pre><code>ati8zi
+<pre><code>36zcel
 </code></pre>
 <h2>返回普通javabean</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/user</code></p>
@@ -44,6 +44,7 @@
 </thead>
 <tbody>
 <tr><td>userDetails</td><td>array</td><td>用户详情</td><td>false</td><td>-</td></tr>
+<tr><td>└─githubAddress</td><td>string</td><td>测试</td><td>false</td><td>-</td></tr>
 <tr><td>userList</td><td>array</td><td>用户列表</td><td>false</td><td>-</td></tr>
 <tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
@@ -61,7 +62,7 @@
 <pre><code>{
 	&quot;userDetails&quot;:[
 		{
-			&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+			&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 		}
 	],
 	&quot;userList&quot;:[
@@ -69,16 +70,16 @@
 			&quot;$ref&quot;:&quot;..&quot;
 		}
 	],
-	&quot;userName&quot;:&quot;思远.马&quot;,
-	&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-	&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-	&quot;userAge&quot;:35,
-	&quot;phone&quot;:&quot;15683490083&quot;,
-	&quot;createTime&quot;:1571501406552,
-	&quot;small&quot;:1.04,
-	&quot;money&quot;:6.67,
-	&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-	&quot;telephone&quot;:&quot;15683490083&quot;
+	&quot;userName&quot;:&quot;聪健.雷&quot;,
+	&quot;nickName&quot;:&quot;hyman.huels&quot;,
+	&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+	&quot;userAge&quot;:18,
+	&quot;phone&quot;:&quot;13616630336&quot;,
+	&quot;createTime&quot;:1573035799477,
+	&quot;small&quot;:78.49,
+	&quot;money&quot;:58.61,
+	&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+	&quot;telephone&quot;:&quot;13616630336&quot;
 }
 </code></pre>
 <p><strong>Response-fields:</strong></p>
@@ -88,6 +89,7 @@
 </thead>
 <tbody>
 <tr><td>userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>└─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -105,7 +107,7 @@
 <pre><code>{
 	&quot;userDetails&quot;:[
 		{
-			&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+			&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 		}
 	],
 	&quot;userList&quot;:[
@@ -113,22 +115,22 @@
 			&quot;$ref&quot;:&quot;..&quot;
 		}
 	],
-	&quot;userName&quot;:&quot;思远.马&quot;,
-	&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-	&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-	&quot;userAge&quot;:35,
-	&quot;phone&quot;:&quot;15683490083&quot;,
-	&quot;createTime&quot;:1571501406552,
-	&quot;small&quot;:74.30,
-	&quot;money&quot;:17.08,
-	&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-	&quot;telephone&quot;:&quot;15683490083&quot;
+	&quot;userName&quot;:&quot;聪健.雷&quot;,
+	&quot;nickName&quot;:&quot;hyman.huels&quot;,
+	&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+	&quot;userAge&quot;:18,
+	&quot;phone&quot;:&quot;13616630336&quot;,
+	&quot;createTime&quot;:1573035799477,
+	&quot;small&quot;:29.64,
+	&quot;money&quot;:81.50,
+	&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+	&quot;telephone&quot;:&quot;13616630336&quot;
 }
 </code></pre>
 <h2>返回复杂实体数据</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/stu</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回复杂实体数据</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/stu
@@ -144,6 +146,7 @@
 <tr><td>stuAddress</td><td>string</td><td>地址</td><td>-</td></tr>
 <tr><td>user</td><td>object</td><td>用户对象</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -157,6 +160,7 @@
 <tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>userMap</td><td>map</td><td>map用户信息</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -170,6 +174,7 @@
 <tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>userTreeSet</td><td>object</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -183,6 +188,7 @@
 <tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>user1</td><td>object</td><td>用户对象2</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -198,13 +204,13 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;stuName&quot;:&quot;思远.马&quot;,
+	&quot;stuName&quot;:&quot;聪健.雷&quot;,
 	&quot;stuAge&quot;:true,
-	&quot;stuAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
+	&quot;stuAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
 	&quot;user&quot;:{
 		&quot;userDetails&quot;:[
 			{
-				&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+				&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 			}
 		],
 		&quot;userList&quot;:[
@@ -212,16 +218,16 @@
 				&quot;$ref&quot;:&quot;..&quot;
 			}
 		],
-		&quot;userName&quot;:&quot;思远.马&quot;,
-		&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-		&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-		&quot;userAge&quot;:35,
-		&quot;phone&quot;:&quot;15683490083&quot;,
-		&quot;createTime&quot;:1571501406552,
-		&quot;small&quot;:12.93,
-		&quot;money&quot;:18.33,
-		&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-		&quot;telephone&quot;:&quot;15683490083&quot;
+		&quot;userName&quot;:&quot;聪健.雷&quot;,
+		&quot;nickName&quot;:&quot;hyman.huels&quot;,
+		&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+		&quot;userAge&quot;:18,
+		&quot;phone&quot;:&quot;13616630336&quot;,
+		&quot;createTime&quot;:1573035799477,
+		&quot;small&quot;:60.27,
+		&quot;money&quot;:89.69,
+		&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+		&quot;telephone&quot;:&quot;13616630336&quot;
 	},
 	&quot;userMap&quot;:{
 		&quot;mapKey&quot;:{
@@ -232,7 +238,7 @@
 		{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -240,22 +246,22 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:1.62,
-			&quot;money&quot;:31.84,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:13.24,
+			&quot;money&quot;:37.15,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		}
 	],
 	&quot;user1&quot;:{
 		&quot;userDetails&quot;:[
 			{
-				&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+				&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 			}
 		],
 		&quot;userList&quot;:[
@@ -263,23 +269,23 @@
 				&quot;$ref&quot;:&quot;..&quot;
 			}
 		],
-		&quot;userName&quot;:&quot;思远.马&quot;,
-		&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-		&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-		&quot;userAge&quot;:35,
-		&quot;phone&quot;:&quot;15683490083&quot;,
-		&quot;createTime&quot;:1571501406552,
-		&quot;small&quot;:83.36,
-		&quot;money&quot;:50.68,
-		&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-		&quot;telephone&quot;:&quot;15683490083&quot;
+		&quot;userName&quot;:&quot;聪健.雷&quot;,
+		&quot;nickName&quot;:&quot;hyman.huels&quot;,
+		&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+		&quot;userAge&quot;:18,
+		&quot;phone&quot;:&quot;13616630336&quot;,
+		&quot;createTime&quot;:1573035799477,
+		&quot;small&quot;:79.03,
+		&quot;money&quot;:2.42,
+		&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+		&quot;telephone&quot;:&quot;13616630336&quot;
 	}
 }
 </code></pre>
 <h2>Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/teacher</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/teacher
@@ -293,6 +299,7 @@
 <tr><td>data</td><td>object</td><td>泛型data</td><td>-</td></tr>
 <tr><td>└─data</td><td>object</td><td>泛型data</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -306,6 +313,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -319,6 +327,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -334,6 +343,7 @@
 <tr><td>data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
 <tr><td>└─data</td><td>object</td><td>泛型data</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -347,6 +357,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -360,6 +371,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -375,6 +387,7 @@
 <tr><td>data2</td><td>object</td><td>data2</td><td>-</td></tr>
 <tr><td>└─data</td><td>object</td><td>泛型data</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -388,6 +401,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -401,6 +415,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─data2</td><td>object</td><td>data2</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -422,7 +437,7 @@
 		&quot;data&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -430,21 +445,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:9.39,
-			&quot;money&quot;:96.33,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:50.92,
+			&quot;money&quot;:45.69,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data1&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -452,21 +467,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:31.35,
-			&quot;money&quot;:89.44,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:88.92,
+			&quot;money&quot;:63.70,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data2&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -474,24 +489,24 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:37.08,
-			&quot;money&quot;:92.16,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:1.30,
+			&quot;money&quot;:7.04,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
-		&quot;age&quot;:35
+		&quot;age&quot;:18
 	},
 	&quot;data1&quot;:{
 		&quot;data&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -499,21 +514,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:19.01,
-			&quot;money&quot;:89.48,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:18.62,
+			&quot;money&quot;:15.66,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data1&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -521,21 +536,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:7.05,
-			&quot;money&quot;:4.10,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:38.24,
+			&quot;money&quot;:92.88,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data2&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -543,24 +558,24 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:45.46,
-			&quot;money&quot;:87.58,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:42.61,
+			&quot;money&quot;:66.87,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
-		&quot;age&quot;:35
+		&quot;age&quot;:18
 	},
 	&quot;data2&quot;:{
 		&quot;data&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -568,21 +583,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:37.32,
-			&quot;money&quot;:63.65,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:15.91,
+			&quot;money&quot;:62.18,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data1&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -590,21 +605,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:86.54,
-			&quot;money&quot;:62.79,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:76.52,
+			&quot;money&quot;:30.93,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;data2&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -612,26 +627,26 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:93.05,
-			&quot;money&quot;:34.56,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:21.37,
+			&quot;money&quot;:19.12,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
-		&quot;age&quot;:35
+		&quot;age&quot;:18
 	},
-	&quot;age&quot;:35
+	&quot;age&quot;:18
 }
 </code></pre>
 <h2>Teacher&lt;List&lt;User&gt;, User, Student&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/teacher2</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Teacher&lt;List&lt;User&gt;, User, Student&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/teacher2
@@ -644,6 +659,7 @@
 <tbody>
 <tr><td>data</td><td>object</td><td>泛型data</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -657,6 +673,7 @@
 <tr><td>└─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>data1</td><td>object</td><td>泛型data1</td><td>-</td></tr>
 <tr><td>└─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>     └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>└─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>└─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>└─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -674,6 +691,7 @@
 <tr><td>└─stuAddress</td><td>string</td><td>地址</td><td>-</td></tr>
 <tr><td>└─user</td><td>object</td><td>用户对象</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -687,6 +705,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─userMap</td><td>map</td><td>map用户信息</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -700,6 +719,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─userTreeSet</td><td>object</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -713,6 +733,7 @@
 <tr><td>     └─telephone</td><td>string</td><td>固定电话</td><td>-</td></tr>
 <tr><td>└─user1</td><td>object</td><td>用户对象2</td><td>-</td></tr>
 <tr><td>     └─userDetails</td><td>array</td><td>用户详情</td><td>-</td></tr>
+<tr><td>          └─githubAddress</td><td>string</td><td>测试</td><td>-</td></tr>
 <tr><td>     └─userList</td><td>array</td><td>用户列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
 <tr><td>     └─nickName</td><td>string</td><td>昵称</td><td>-</td></tr>
@@ -733,7 +754,7 @@
 		{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -741,22 +762,22 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:83.06,
-			&quot;money&quot;:42.38,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:9.81,
+			&quot;money&quot;:92.21,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		}
 	],
 	&quot;data1&quot;:{
 		&quot;userDetails&quot;:[
 			{
-				&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+				&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 			}
 		],
 		&quot;userList&quot;:[
@@ -764,25 +785,25 @@
 				&quot;$ref&quot;:&quot;..&quot;
 			}
 		],
-		&quot;userName&quot;:&quot;思远.马&quot;,
-		&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-		&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-		&quot;userAge&quot;:35,
-		&quot;phone&quot;:&quot;15683490083&quot;,
-		&quot;createTime&quot;:1571501406552,
-		&quot;small&quot;:6.08,
-		&quot;money&quot;:77.41,
-		&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-		&quot;telephone&quot;:&quot;15683490083&quot;
+		&quot;userName&quot;:&quot;聪健.雷&quot;,
+		&quot;nickName&quot;:&quot;hyman.huels&quot;,
+		&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+		&quot;userAge&quot;:18,
+		&quot;phone&quot;:&quot;13616630336&quot;,
+		&quot;createTime&quot;:1573035799477,
+		&quot;small&quot;:52.47,
+		&quot;money&quot;:27.74,
+		&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+		&quot;telephone&quot;:&quot;13616630336&quot;
 	},
 	&quot;data2&quot;:{
-		&quot;stuName&quot;:&quot;思远.马&quot;,
+		&quot;stuName&quot;:&quot;聪健.雷&quot;,
 		&quot;stuAge&quot;:true,
-		&quot;stuAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
+		&quot;stuAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
 		&quot;user&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -790,16 +811,16 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:0.34,
-			&quot;money&quot;:2.84,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:73.54,
+			&quot;money&quot;:39.11,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		},
 		&quot;userMap&quot;:{
 			&quot;mapKey&quot;:{
@@ -810,7 +831,7 @@
 			{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -818,22 +839,22 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;思远.马&quot;,
-				&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-				&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-				&quot;userAge&quot;:35,
-				&quot;phone&quot;:&quot;15683490083&quot;,
-				&quot;createTime&quot;:1571501406552,
-				&quot;small&quot;:7.50,
-				&quot;money&quot;:90.74,
-				&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-				&quot;telephone&quot;:&quot;15683490083&quot;
+				&quot;userName&quot;:&quot;聪健.雷&quot;,
+				&quot;nickName&quot;:&quot;hyman.huels&quot;,
+				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+				&quot;userAge&quot;:18,
+				&quot;phone&quot;:&quot;13616630336&quot;,
+				&quot;createTime&quot;:1573035799477,
+				&quot;small&quot;:76.95,
+				&quot;money&quot;:3.70,
+				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+				&quot;telephone&quot;:&quot;13616630336&quot;
 			}
 		],
 		&quot;user1&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;
+					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -841,25 +862,25 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;思远.马&quot;,
-			&quot;nickName&quot;:&quot;keren.nikolaus&quot;,
-			&quot;userAddress&quot;:&quot;Suite 870 龙中心11号， 呼和浩特， 甘 844026&quot;,
-			&quot;userAge&quot;:35,
-			&quot;phone&quot;:&quot;15683490083&quot;,
-			&quot;createTime&quot;:1571501406552,
-			&quot;small&quot;:17.31,
-			&quot;money&quot;:8.36,
-			&quot;ipv6&quot;:&quot;d62a:7f21:7e27:fc27:016c:f8f4:795f:8b91&quot;,
-			&quot;telephone&quot;:&quot;15683490083&quot;
+			&quot;userName&quot;:&quot;聪健.雷&quot;,
+			&quot;nickName&quot;:&quot;hyman.huels&quot;,
+			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;userAge&quot;:18,
+			&quot;phone&quot;:&quot;13616630336&quot;,
+			&quot;createTime&quot;:1573035799477,
+			&quot;small&quot;:16.95,
+			&quot;money&quot;:81.54,
+			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
+			&quot;telephone&quot;:&quot;13616630336&quot;
 		}
 	},
-	&quot;age&quot;:35
+	&quot;age&quot;:18
 }
 </code></pre>
 <h2>测试SubUser</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/subUser</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 测试SubUser</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/subUser
@@ -876,14 +897,14 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;subUserName&quot;:&quot;思远.马&quot;,
-	&quot;numbers&quot;:551
+	&quot;subUserName&quot;:&quot;聪健.雷&quot;,
+	&quot;numbers&quot;:159
 }
 </code></pre>
 <h2>返回CommonResult&lt;SubUser&gt;</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/simple/subUser/result</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 返回CommonResult&lt;SubUser&gt;</p>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/simple/subUser/result
@@ -908,16 +929,16 @@
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
 	&quot;data&quot;:{
-		&quot;subUserName&quot;:&quot;思远.马&quot;,
-		&quot;numbers&quot;:723
+		&quot;subUserName&quot;:&quot;聪健.雷&quot;,
+		&quot;numbers&quot;:153
 	},
-	&quot;code&quot;:&quot;26511&quot;,
-	&quot;timestamp&quot;:&quot;2019-10-20 00:10:06&quot;
+	&quot;code&quot;:&quot;80321&quot;,
+	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-10-20 00:10:04</span>
+        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
