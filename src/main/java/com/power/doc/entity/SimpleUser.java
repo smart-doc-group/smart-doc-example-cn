@@ -1,10 +1,14 @@
 package com.power.doc.entity;
 
+import com.power.doc.enums.GenderEnum;
+import lombok.Data;
+
 import javax.validation.constraints.NotNull;
 
 /**
  * @author yu 2018/8/4.
  */
+@Data
 public class SimpleUser {
 
     /**
@@ -31,5 +35,10 @@ public class SimpleUser {
      * @since v1.0
      */
     private String mobile;
+
+    /**
+     * 性别
+     */
+    private GenderEnum gender;
 
 }
