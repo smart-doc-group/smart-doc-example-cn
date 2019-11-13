@@ -25,7 +25,7 @@ public class RequestHeaderController {
      * @param age   年龄
      */
     @GetMapping("testRequestHeader/value")
-    public void testRequestHeaderAnnotationWithValue(@RequestHeader(value = "token", required = false)String name, Integer age) {
+    public void testRequestHeaderAnnotationWithValue(@RequestHeader(value = "token", required = false)String name,@RequestHeader Integer age) {
 
     }
 
