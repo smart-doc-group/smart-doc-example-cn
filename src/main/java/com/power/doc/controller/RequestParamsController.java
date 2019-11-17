@@ -70,8 +70,9 @@ public class RequestParamsController {
 
     /**
      * Test @RequestParam
+     *
      * @param author author
-     * @param type type
+     * @param type   type
      */
     @GetMapping("testRequestParam")
     public void testRequestParam(@RequestParam String author, @RequestParam String type) {
@@ -80,8 +81,9 @@ public class RequestParamsController {
 
     /**
      * Test @RequestParam with value
-     * @apiNote Use @RequestParam binding value is name,but method param name is userName
+     *
      * @param userName user name
+     * @apiNote Use @RequestParam binding value is name,but method param name is userName
      */
     @GetMapping("testRequestParamWithValue")
     public void testRequestParamWithValue(@RequestParam(value = "name") String userName) {
@@ -90,13 +92,35 @@ public class RequestParamsController {
 
     /**
      * Test @RequestParam with default value
-     * @apiNote Use @RequestParam binding default value Jordan
+     *
      * @param userName user name
+     * @apiNote Use @RequestParam binding default value Jordan
      */
     @GetMapping("testRequestParamWithDefaultVal")
     public void testRequestParamWithDefaultVal(@RequestParam(defaultValue = "Jordan") String userName) {
 
     }
 
+    /**
+     * Test much path
+     *
+     * @param userId userId
+     * @apiNote gitee issues #I1545A
+     */
+    @GetMapping(value = {"/testMuchPath/get/{userId}", "/testMuchPath/find/{userId}"})
+    public void testMuchPath(@PathVariable Long userId) {
+
+    }
+
+    /**
+     * Test much path much parameter
+     *
+     * @param userId userId
+     * @param deptId deptId
+     */
+    @PostMapping(value = {"/get/{deptId}/{userId}", "/find/{deptId}/{userId}"})
+    public void testMuchPathMuchParameter(@PathVariable Long userId, @PathVariable Long deptId) {
+
+    }
 
 }
