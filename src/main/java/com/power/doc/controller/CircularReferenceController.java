@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since smart-doc 1.7.4
  * @author yu 2019/10/24.
  */
-//@RestController
+@RestController
 public class CircularReferenceController {
 
     /**
