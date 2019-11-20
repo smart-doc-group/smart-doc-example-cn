@@ -11,58 +11,64 @@
 
 **Description:** 用于测试apiNote注释是否有效
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-userDetails|array|用户详情|false|-
-└─githubAddress|string|测试|false|-
-userList|array|用户列表|false|-
-userName|string|用户名|false|-
-nickName|string|昵称|false|-
-userAddress|string|用户地址|false|-
-userAge|int32|用户年龄|false|-
-phone|string|手机号|false|-
-createTime|int64|创建时间|false|-
-small|float|钱少|false|-
-money|double|钱太多了|false|-
-ipv6|string|ipv6|false|-
-telephone|string|固定电话|false|-
+username|string|用户名|true|v1.0
+password|string|密码|false|v1.0
+nickName|string|昵称|false|v1.0
+mobile|string|电话|false|v1.0
+gender|int32|性别(See: 性别数据字典)|false|-
 
 **Request-example:**
 ```
 {
-	"userDetails":[
-		{
-			"githubAddress":"郑街197号， 盐城， 京 711291"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"鹏煊.朱",
-	"nickName":"gayle.quigley",
-	"userAddress":"郑街197号， 盐城， 京 711291",
-	"userAge":37,
-	"phone":"15392341080",
-	"createTime":1573029211927,
-	"small":89.14,
-	"money":78.89,
-	"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-	"telephone":"15392341080"
+	"username":"煜城.丁",
+	"password":"1cxxrl",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"gender":2
 }
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+username|string|用户名|v1.0
+password|string|密码|v1.0
+nickName|string|昵称|v1.0
+mobile|string|电话|v1.0
+gender|object|性别(See: 性别数据字典)|-
 
 **Response-example:**
 ```
-g5zqiy
+{
+	"username":"煜城.丁",
+	"password":"xah2po",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"gender":{
+		"name":"煜城.丁",
+		"ordinal":256,
+		"WOMAN":{
+			"$ref":"..."
+		},
+		"MAN":{
+			"$ref":"..."
+		},
+		"code":593,
+		"desc":"txkgv1"
+	}
+}
 ```
 
 ## app端接口测试
@@ -75,6 +81,14 @@ g5zqiy
 
 **Description:** app测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -83,7 +97,7 @@ name|string|姓名|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/app/test?name=鹏煊.朱
+http://localhost:8080/app/test?name=煜城.丁
 ```
 **Response-fields:**
 
@@ -93,7 +107,7 @@ no param name|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-w1h422
+na864z
 ```
 
 ## 异步返回信息测试
@@ -106,6 +120,14 @@ w1h422
 
 **Description:** 返回Callable&lt;CommonResult&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/  /testCallable
@@ -115,8 +137,8 @@ http://localhost:8080/  /testCallable
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -128,8 +150,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -142,6 +164,14 @@ timestamp|string|响应时间|-
 
 **Description:** 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/async-deferredresult
@@ -151,8 +181,8 @@ http://localhost:8080/async-deferredresult
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -161,9 +191,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"9bczq9",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"zmje11",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -176,6 +206,14 @@ timestamp|string|响应时间|-
 
 **Description:** 返回WebAsyncTask&lt;CommonResult&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/WebAsync/timeout
@@ -185,8 +223,8 @@ http://localhost:8080/WebAsync/timeout
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -198,8 +236,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -212,6 +250,14 @@ timestamp|string|响应时间|-
 
 **Description:** 返回Future&lt;CommonResult&lt;String&gt;&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/future
@@ -221,8 +267,8 @@ http://localhost:8080/future
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -231,9 +277,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"p756y9",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"qhpkh7",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -246,6 +292,14 @@ timestamp|string|响应时间|-
 
 **Description:** 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/completableFuture
@@ -255,8 +309,8 @@ http://localhost:8080/completableFuture
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -265,10 +319,71 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"wc917g",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"i84ykx",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
+```
+
+## 循环引用依赖测试
+### 循环依赖参数推导
+**URL:** http://localhost:8080/circularReference
+
+**Type:** GET
+
+**Content-Type:** application/json; charset=utf-8
+
+**Description:** 循环依赖参数推导(不建议使用)
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+userName|string|用户名|false|-
+roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多个角色|false|-
+└─id|string|角色编号|false|-
+└─users|object|多对多<br>查询权限时使用，同一角色可能对应多个用户|false|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|false|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多个角色|false|-
+
+**Request-example:**
+```
+{
+	"userName":"煜城.丁",
+	"roles":[
+		{
+			"id":"136",
+			"users":[
+				{
+					"userName":"煜城.丁",
+					"roles":[
+						{
+							"$ref":"..."
+						}
+					]
+				}
+			]
+		}
+	]
+}
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+no param name|string|The api directly returns the string type value.|-
+
+**Response-example:**
+```
+klcvm8
 ```
 
 ## 文件上传测试
@@ -280,6 +395,14 @@ timestamp|string|响应时间|-
 **Content-Type:** multipart/form-data
 
 **Description:** 上传单个文件
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -296,8 +419,8 @@ Use FormData upload file.
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -309,8 +432,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -322,6 +445,14 @@ timestamp|string|响应时间|-
 **Content-Type:** multipart/form-data
 
 **Description:** 批量上传文件
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -338,8 +469,8 @@ Use FormData upload files.
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -351,8 +482,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -366,6 +497,14 @@ timestamp|string|响应时间|-
 
 **Description:** 测试formData
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -374,6 +513,7 @@ username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
+gender|int32|性别(See: 性别数据字典)|false|-
 
 **Request-example:**
 ```
@@ -396,6 +536,14 @@ This api return nothing.
 
 **Description:** 测试https
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/testHttps
@@ -405,8 +553,8 @@ http://localhost:8080/testHttps
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -415,9 +563,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"167cbm",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"ta558e",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -430,6 +578,14 @@ timestamp|string|响应时间|-
 
 **Description:** 测试http
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/testHttp
@@ -439,8 +595,8 @@ http://localhost:8080/testHttp
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -449,9 +605,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"hqjlu7",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"vfjxba",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -464,6 +620,14 @@ timestamp|string|响应时间|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Return A object contains Inner class
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -480,9 +644,9 @@ innerClass|object|内部类|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱",
+	"name":"煜城.丁",
 	"innerClass":{
-		"phone":"15392341080"
+		"phone":"18076612577"
 	}
 }
 ```
@@ -497,6 +661,14 @@ innerClass|object|内部类|-
 
 **Description:** LocalDate和LocalDateTime测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -507,8 +679,8 @@ localDateTime|string|创建时间|false|v1.0
 **Request-example:**
 ```
 {
-	"localDate":"2019-11-06",
-	"localDateTime":"2019-11-06 16:33:32"
+	"localDate":"2019-11-14",
+	"localDateTime":"2019-11-14 22:06:02"
 }
 ```
 **Response-fields:**
@@ -521,8 +693,8 @@ localDateTime|string|创建时间|v1.0
 **Response-example:**
 ```
 {
-	"localDate":"2019-11-06",
-	"localDateTime":"2019-11-06 16:33:32"
+	"localDate":"2019-11-14",
+	"localDateTime":"2019-11-14 22:06:02"
 }
 ```
 
@@ -536,6 +708,14 @@ localDateTime|string|创建时间|v1.0
 
 **Description:** Jackson注解支持测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -546,8 +726,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"鹏煊.朱",
-	"idCard":"460404197312222233"
+	"username":"煜城.丁",
+	"idCard":"511712199003036002"
 }
 ```
 **Response-fields:**
@@ -559,7 +739,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱"
+	"name":"煜城.丁"
 }
 ```
 
@@ -572,6 +752,14 @@ name|string|用户名|-
 
 **Description:** FastJson注解支持测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -582,8 +770,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"鹏煊.朱",
-	"idCard":"460404197312222233"
+	"username":"煜城.丁",
+	"idCard":"511712199003036002"
 }
 ```
 **Response-fields:**
@@ -595,7 +783,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱"
+	"name":"煜城.丁"
 }
 ```
 
@@ -608,6 +796,14 @@ name|string|用户名|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;String&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -622,8 +818,8 @@ no param name|array of string|The api directly returns the array of string type 
 **Response-example:**
 ```
 [
-	"wsiq0v",
-	"zcjj2j"
+	"qxadeg",
+	"pkrr72"
 ]
 ```
 
@@ -635,6 +831,14 @@ no param name|array of string|The api directly returns the array of string type 
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;Map&lt;String,String&gt;&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -650,8 +854,8 @@ no param name|string|The api directly returns the string type value.|-
 ```
 [
 	{
-		"mapKey1":"beubbo",
-		"mapKey2":"ppquns"
+		"mapKey1":"2r8kl6",
+		"mapKey2":"mlz5n9"
 	}
 ]
 ```
@@ -664,6 +868,14 @@ no param name|string|The api directly returns the string type value.|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;自动义对象&gt;
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -693,7 +905,7 @@ telephone|string|固定电话|-
 	{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -701,16 +913,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":2.02,
-		"money":11.84,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":33.32,
+		"money":92.26,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	}
 ]
 ```
@@ -723,6 +935,14 @@ telephone|string|固定电话|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;Map&lt;String,T&gt;&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -797,13 +1017,13 @@ user1|object|用户对象2|-
 [
 	{
 		"mapKey":{
-			"stuName":"鹏煊.朱",
+			"stuName":"煜城.丁",
 			"stuAge":true,
-			"stuAddress":"郑街197号， 盐城， 京 711291",
+			"stuAddress":"萧路031号， 张家口， 甘 453118",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -811,16 +1031,16 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":75.72,
-				"money":41.96,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":5.06,
+				"money":72.05,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"userMap":{
 				"mapKey":{
@@ -831,7 +1051,7 @@ user1|object|用户对象2|-
 				{
 					"userDetails":[
 						{
-							"githubAddress":"郑街197号， 盐城， 京 711291"
+							"githubAddress":"萧路031号， 张家口， 甘 453118"
 						}
 					],
 					"userList":[
@@ -839,22 +1059,22 @@ user1|object|用户对象2|-
 							"$ref":".."
 						}
 					],
-					"userName":"鹏煊.朱",
-					"nickName":"gayle.quigley",
-					"userAddress":"郑街197号， 盐城， 京 711291",
-					"userAge":37,
-					"phone":"15392341080",
-					"createTime":1573029211927,
-					"small":14.05,
-					"money":80.01,
-					"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-					"telephone":"15392341080"
+					"userName":"煜城.丁",
+					"nickName":"leroy.nicolas",
+					"userAddress":"萧路031号， 张家口， 甘 453118",
+					"userAge":8,
+					"phone":"18076612577",
+					"createTime":1573740361961,
+					"small":77.66,
+					"money":77.46,
+					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+					"telephone":"18076612577"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -862,16 +1082,16 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":90.18,
-				"money":34.33,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":11.56,
+				"money":21.37,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		}
 	}
@@ -886,6 +1106,14 @@ user1|object|用户对象2|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -947,7 +1175,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -955,21 +1183,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":69.39,
-				"money":96.24,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":65.89,
+				"money":79.67,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -977,21 +1205,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":7.77,
-				"money":64.77,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":13.21,
+				"money":82.88,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -999,18 +1227,18 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":15.18,
-				"money":38.56,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":51.82,
+				"money":20.51,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
-			"age":37
+			"age":8
 		}
 	}
 ]
@@ -1024,6 +1252,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1085,7 +1321,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1093,23 +1329,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":59.49,
-				"money":83.62,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":42.80,
+				"money":42.87,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"data1":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1117,23 +1353,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":88.47,
-				"money":86.44,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":49.26,
+				"money":53.97,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"data2":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1141,19 +1377,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":28.81,
-				"money":4.74,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":14.38,
+				"money":83.79,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
-		"age":37
+		"age":8
 	}
 ]
 ```
@@ -1166,6 +1402,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1257,7 +1501,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1265,21 +1509,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":43.42,
-				"money":48.95,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":30.29,
+				"money":68.61,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1287,21 +1531,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":45.08,
-				"money":0.84,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":73.26,
+				"money":32.87,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1309,23 +1553,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":72.45,
-				"money":83.73,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":0.57,
+				"money":80.23,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
-			"age":37
+			"age":8
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -1333,21 +1577,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":81.47,
-			"money":92.21,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":63.12,
+			"money":60.52,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -1355,18 +1599,18 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":26.10,
-			"money":14.24,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":13.93,
+			"money":72.21,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
-		"age":37
+		"age":8
 	}
 ]
 ```
@@ -1379,6 +1623,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1530,7 +1782,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1538,21 +1790,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":37.59,
-				"money":2.87,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":19.93,
+				"money":99.38,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1560,21 +1812,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":35.01,
-				"money":90.31,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":81.14,
+				"money":21.95,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1582,24 +1834,24 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":43.77,
-				"money":65.81,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":52.87,
+				"money":6.07,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
-			"age":37
+			"age":8
 		},
 		"data1":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1607,21 +1859,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":77.12,
-				"money":39.23,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":60.93,
+				"money":98.19,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1629,21 +1881,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":71.39,
-				"money":82.44,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":13.53,
+				"money":54.85,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1651,24 +1903,24 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":13.37,
-				"money":23.63,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":95.46,
+				"money":26.32,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
-			"age":37
+			"age":8
 		},
 		"data2":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1676,21 +1928,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":71.41,
-				"money":79.48,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":86.46,
+				"money":34.53,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1698,21 +1950,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":35.75,
-				"money":56.24,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":66.88,
+				"money":96.66,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -1720,20 +1972,20 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":92.22,
-				"money":61.66,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":56.51,
+				"money":18.45,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
-			"age":37
+			"age":8
 		},
-		"age":37
+		"age":8
 	}
 ]
 ```
@@ -1747,6 +1999,14 @@ age|int32|年龄|-
 
 **Description:** CommonResult&lt;List&lt;UserDto&gt;&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/list/listUserDto
@@ -1756,8 +2016,8 @@ http://localhost:8080/list/listUserDto
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 └─token|string|token|-
 └─LoginList|array|UserDto 用户信息列表|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
@@ -1772,17 +2032,17 @@ timestamp|string|响应时间|-
 	"message":"success",
 	"data":[
 		{
-			"token":"rgq12f",
+			"token":"wzqp6l",
 			"LoginList":[
 				{
-					"userName":"鹏煊.朱",
-					"password":"4o2gq5"
+					"userName":"煜城.丁",
+					"password":"i1jvix"
 				}
 			]
 		}
 	],
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -1795,6 +2055,14 @@ timestamp|string|响应时间|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Map&lt;String,Integer&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1809,8 +2077,8 @@ no param name|key value|The api directly returns the key value type value.|-
 **Response-example:**
 ```
 {
-	"mapKey1":534,
-	"mapKey2":432
+	"mapKey1":814,
+	"mapKey2":942
 }
 ```
 
@@ -1822,6 +2090,14 @@ no param name|key value|The api directly returns the key value type value.|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Map&lt;String,Object&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1851,6 +2127,14 @@ any object|object|any object.|-
 
 **Description:** Map&lt;String,User&gt;结构
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/map/object
@@ -1879,7 +2163,7 @@ telephone|string|固定电话|-
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -1887,16 +2171,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":5.45,
-		"money":22.24,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":43.44,
+		"money":49.17,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	}
 }
 ```
@@ -1909,6 +2193,14 @@ telephone|string|固定电话|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Map&lt;String,Student&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -1982,13 +2274,13 @@ user1|object|用户对象2|-
 ```
 {
 	"mapKey":{
-		"stuName":"鹏煊.朱",
+		"stuName":"煜城.丁",
 		"stuAge":true,
-		"stuAddress":"郑街197号， 盐城， 京 711291",
+		"stuAddress":"萧路031号， 张家口， 甘 453118",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -1996,16 +2288,16 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":69.25,
-			"money":20.40,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":21.37,
+			"money":51.22,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"userMap":{
 			"mapKey":{
@@ -2016,7 +2308,7 @@ user1|object|用户对象2|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2024,22 +2316,22 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":55.08,
-				"money":12.83,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":97.02,
+				"money":35.36,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -2047,16 +2339,16 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":48.92,
-			"money":78.18,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":14.86,
+			"money":10.73,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		}
 	}
 }
@@ -2070,6 +2362,14 @@ user1|object|用户对象2|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -2177,7 +2477,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2185,22 +2485,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":21.99,
-				"money":96.94,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":71.80,
+				"money":42.06,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -2208,25 +2508,25 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":13.11,
-			"money":57.63,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":9.19,
+			"money":10.29,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
-			"stuName":"鹏煊.朱",
+			"stuName":"煜城.丁",
 			"stuAge":true,
-			"stuAddress":"郑街197号， 盐城， 京 711291",
+			"stuAddress":"萧路031号， 张家口， 甘 453118",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2234,16 +2534,16 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":34.11,
-				"money":21.57,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":96.03,
+				"money":51.78,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"userMap":{
 				"mapKey":{
@@ -2254,7 +2554,7 @@ age|int32|年龄|-
 				{
 					"userDetails":[
 						{
-							"githubAddress":"郑街197号， 盐城， 京 711291"
+							"githubAddress":"萧路031号， 张家口， 甘 453118"
 						}
 					],
 					"userList":[
@@ -2262,22 +2562,22 @@ age|int32|年龄|-
 							"$ref":".."
 						}
 					],
-					"userName":"鹏煊.朱",
-					"nickName":"gayle.quigley",
-					"userAddress":"郑街197号， 盐城， 京 711291",
-					"userAge":37,
-					"phone":"15392341080",
-					"createTime":1573029211927,
-					"small":88.75,
-					"money":95.88,
-					"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-					"telephone":"15392341080"
+					"userName":"煜城.丁",
+					"nickName":"leroy.nicolas",
+					"userAddress":"萧路031号， 张家口， 甘 453118",
+					"userAge":8,
+					"phone":"18076612577",
+					"createTime":1573740361961,
+					"small":32.73,
+					"money":35.20,
+					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+					"telephone":"18076612577"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2285,19 +2585,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":1.85,
-				"money":86.92,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":42.83,
+				"money":35.72,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		},
-		"age":37
+		"age":8
 	}
 }
 ```
@@ -2310,6 +2610,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -2417,7 +2725,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2425,22 +2733,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":32.88,
-				"money":24.57,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":94.73,
+				"money":11.25,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -2448,25 +2756,25 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":35.09,
-			"money":81.90,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":88.19,
+			"money":90.62,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
-			"stuName":"鹏煊.朱",
+			"stuName":"煜城.丁",
 			"stuAge":true,
-			"stuAddress":"郑街197号， 盐城， 京 711291",
+			"stuAddress":"萧路031号， 张家口， 甘 453118",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2474,16 +2782,16 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":52.19,
-				"money":94.26,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":30.06,
+				"money":70.78,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			},
 			"userMap":{
 				"mapKey":{
@@ -2494,7 +2802,7 @@ age|int32|年龄|-
 				{
 					"userDetails":[
 						{
-							"githubAddress":"郑街197号， 盐城， 京 711291"
+							"githubAddress":"萧路031号， 张家口， 甘 453118"
 						}
 					],
 					"userList":[
@@ -2502,22 +2810,22 @@ age|int32|年龄|-
 							"$ref":".."
 						}
 					],
-					"userName":"鹏煊.朱",
-					"nickName":"gayle.quigley",
-					"userAddress":"郑街197号， 盐城， 京 711291",
-					"userAge":37,
-					"phone":"15392341080",
-					"createTime":1573029211927,
-					"small":73.10,
-					"money":67.60,
-					"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-					"telephone":"15392341080"
+					"userName":"煜城.丁",
+					"nickName":"leroy.nicolas",
+					"userAddress":"萧路031号， 张家口， 甘 453118",
+					"userAge":8,
+					"phone":"18076612577",
+					"createTime":1573740361961,
+					"small":7.86,
+					"money":44.40,
+					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+					"telephone":"18076612577"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2525,19 +2833,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":92.36,
-				"money":76.95,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":91.66,
+				"money":53.69,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		},
-		"age":37
+		"age":8
 	}
 }
 ```
@@ -2550,6 +2858,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -2611,7 +2927,7 @@ age|int32|年龄|-
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2619,23 +2935,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":18.12,
-				"money":95.13,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":69.12,
+				"money":87.28,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		},
 		"data1":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2643,23 +2959,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":97.26,
-				"money":68.36,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":53.32,
+				"money":6.75,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		},
 		"data2":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -2667,19 +2983,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":74.00,
-				"money":11.90,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":27.93,
+				"money":46.12,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		},
-		"age":37
+		"age":8
 	}
 }
 ```
@@ -2694,6 +3010,15 @@ age|int32|年龄|-
 
 **Description:** 测试RequestHeader常规使用
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+name|string|请求头(name)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2702,7 +3027,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader?age=37
+http://localhost:8080/testRequestHeader?age=8
 ```
 
 **Response-example:**
@@ -2719,15 +3044,18 @@ This api return nothing.
 
 **Description:** 测试RequestHeader绑定参数名
 
-**Request-parameters:**
+**Request-headers:**
 
-Parameter | Type|Description|Required|Since
----|---|---|---|---
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
 age|int32|  年龄|true|-
+
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader/value?age=37
+http://localhost:8080/testRequestHeader/value
 ```
 
 **Response-example:**
@@ -2744,6 +3072,14 @@ This api return nothing.
 
 **Description:** 测试RequestHeader绑定默认值
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2752,7 +3088,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader/DefaultVal?age=37
+http://localhost:8080/testRequestHeader/DefaultVal?age=8
 ```
 
 **Response-example:**
@@ -2770,6 +3106,14 @@ This api return nothing.
 
 **Description:** Test Normal param binding
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2779,7 +3123,7 @@ age|int32| age|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testNormalParams/binding?name=鹏煊.朱&age=37
+http://localhost:8080/testNormalParams/binding?name=煜城.丁&age=8
 ```
 
 **Response-example:**
@@ -2795,6 +3139,14 @@ This api return nothing.
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** Test @RequestBody User
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -2819,7 +3171,7 @@ telephone|string|固定电话|false|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"郑街197号， 盐城， 京 711291"
+			"githubAddress":"萧路031号， 张家口， 甘 453118"
 		}
 	],
 	"userList":[
@@ -2827,16 +3179,16 @@ telephone|string|固定电话|false|-
 			"$ref":".."
 		}
 	],
-	"userName":"鹏煊.朱",
-	"nickName":"gayle.quigley",
-	"userAddress":"郑街197号， 盐城， 京 711291",
-	"userAge":37,
-	"phone":"15392341080",
-	"createTime":1573029211927,
-	"small":94.48,
-	"money":36.65,
-	"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-	"telephone":"15392341080"
+	"userName":"煜城.丁",
+	"nickName":"leroy.nicolas",
+	"userAddress":"萧路031号， 张家口， 甘 453118",
+	"userAge":8,
+	"phone":"18076612577",
+	"createTime":1573740361961,
+	"small":85.24,
+	"money":64.00,
+	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+	"telephone":"18076612577"
 }
 ```
 
@@ -2853,6 +3205,14 @@ This api return nothing.
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** Test @RequestBody Map
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -2878,7 +3238,7 @@ telephone|string|固定电话|false|-
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -2886,16 +3246,16 @@ telephone|string|固定电话|false|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":17.29,
-		"money":18.73,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":12.06,
+		"money":22.17,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	}
 }
 ```
@@ -2914,6 +3274,14 @@ This api return nothing.
 
 **Description:** Test @RequestBody List
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2923,8 +3291,8 @@ ids|array|array of user id|true|-
 **Request-example:**
 ```
 [
-	"vzt36g",
-	"j6vu4c"
+	"hmp832",
+	"t95dlb"
 ]
 ```
 
@@ -2942,6 +3310,14 @@ This api return nothing.
 
 **Description:** Test @PathVariable
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2951,7 +3327,7 @@ no|string|  no|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/test/鹏煊.朱/ggf9w4/info
+http://localhost:8080/test/煜城.丁/ouz45k/info
 ```
 
 **Response-example:**
@@ -2968,6 +3344,14 @@ This api return nothing.
 
 **Description:** Test @RequestParam
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -2977,7 +3361,7 @@ type|string|type|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParam?author=沈泽洋&type=i70jar
+http://localhost:8080/testRequestParam?author=崔文昊&type=ypx240
 ```
 
 **Response-example:**
@@ -2994,6 +3378,14 @@ This api return nothing.
 
 **Description:** Use@RequestParam binding value is name,but method param name is userName
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -3002,7 +3394,7 @@ name|string|user name|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParamWithValue?name=鹏煊.朱
+http://localhost:8080/testRequestParamWithValue?name=煜城.丁
 ```
 
 **Response-example:**
@@ -3018,6 +3410,14 @@ This api return nothing.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Use@RequestParam binding default value Jordan
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -3044,6 +3444,14 @@ This api return nothing.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** ResponseEntity return List
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -3073,7 +3481,7 @@ telephone|string|固定电话|-
 	{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -3081,16 +3489,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":3.02,
-		"money":89.93,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":92.25,
+		"money":3.98,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	}
 ]
 ```
@@ -3105,6 +3513,14 @@ telephone|string|固定电话|-
 
 **Description:** 返回普通String测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/simple/str
@@ -3117,7 +3533,7 @@ no param name|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-3nnwka
+p9r1bs
 ```
 
 ### 返回普通javabean
@@ -3128,6 +3544,14 @@ no param name|string|The api directly returns the string type value.|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 返回普通javabean
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -3152,7 +3576,7 @@ telephone|string|固定电话|false|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"郑街197号， 盐城， 京 711291"
+			"githubAddress":"萧路031号， 张家口， 甘 453118"
 		}
 	],
 	"userList":[
@@ -3160,16 +3584,16 @@ telephone|string|固定电话|false|-
 			"$ref":".."
 		}
 	],
-	"userName":"鹏煊.朱",
-	"nickName":"gayle.quigley",
-	"userAddress":"郑街197号， 盐城， 京 711291",
-	"userAge":37,
-	"phone":"15392341080",
-	"createTime":1573029211927,
-	"small":0.18,
-	"money":11.81,
-	"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-	"telephone":"15392341080"
+	"userName":"煜城.丁",
+	"nickName":"leroy.nicolas",
+	"userAddress":"萧路031号， 张家口， 甘 453118",
+	"userAge":8,
+	"phone":"18076612577",
+	"createTime":1573740361961,
+	"small":43.73,
+	"money":44.22,
+	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+	"telephone":"18076612577"
 }
 ```
 **Response-fields:**
@@ -3195,7 +3619,7 @@ telephone|string|固定电话|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"郑街197号， 盐城， 京 711291"
+			"githubAddress":"萧路031号， 张家口， 甘 453118"
 		}
 	],
 	"userList":[
@@ -3203,16 +3627,16 @@ telephone|string|固定电话|-
 			"$ref":".."
 		}
 	],
-	"userName":"鹏煊.朱",
-	"nickName":"gayle.quigley",
-	"userAddress":"郑街197号， 盐城， 京 711291",
-	"userAge":37,
-	"phone":"15392341080",
-	"createTime":1573029211927,
-	"small":93.59,
-	"money":40.43,
-	"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-	"telephone":"15392341080"
+	"userName":"煜城.丁",
+	"nickName":"leroy.nicolas",
+	"userAddress":"萧路031号， 张家口， 甘 453118",
+	"userAge":8,
+	"phone":"18076612577",
+	"createTime":1573740361961,
+	"small":29.88,
+	"money":87.75,
+	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+	"telephone":"18076612577"
 }
 ```
 
@@ -3224,6 +3648,14 @@ telephone|string|固定电话|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 返回复杂实体数据
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -3296,13 +3728,13 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 {
-	"stuName":"鹏煊.朱",
+	"stuName":"煜城.丁",
 	"stuAge":true,
-	"stuAddress":"郑街197号， 盐城， 京 711291",
+	"stuAddress":"萧路031号， 张家口， 甘 453118",
 	"user":{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -3310,16 +3742,16 @@ user1|object|用户对象2|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":85.11,
-		"money":8.05,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":23.31,
+		"money":91.19,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	},
 	"userMap":{
 		"mapKey":{
@@ -3330,7 +3762,7 @@ user1|object|用户对象2|-
 		{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3338,22 +3770,22 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":45.36,
-			"money":51.81,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":68.24,
+			"money":54.55,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		}
 	],
 	"user1":{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -3361,16 +3793,16 @@ user1|object|用户对象2|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":59.74,
-		"money":24.44,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":25.52,
+		"money":18.68,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	}
 }
 ```
@@ -3383,6 +3815,14 @@ user1|object|用户对象2|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -3533,7 +3973,7 @@ age|int32|年龄|-
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3541,21 +3981,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":73.28,
-			"money":20.29,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":37.27,
+			"money":44.35,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3563,21 +4003,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":92.94,
-			"money":19.25,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":21.94,
+			"money":79.85,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3585,24 +4025,24 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":40.12,
-			"money":44.84,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":32.14,
+			"money":26.54,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
-		"age":37
+		"age":8
 	},
 	"data1":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3610,21 +4050,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":51.15,
-			"money":97.82,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":35.66,
+			"money":72.69,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3632,21 +4072,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":52.46,
-			"money":75.55,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":13.43,
+			"money":1.18,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3654,24 +4094,24 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":97.18,
-			"money":79.02,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":7.09,
+			"money":88.16,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
-		"age":37
+		"age":8
 	},
 	"data2":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3679,21 +4119,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":30.88,
-			"money":95.70,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":76.85,
+			"money":93.82,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3701,21 +4141,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":52.51,
-			"money":0.36,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":38.52,
+			"money":20.13,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3723,20 +4163,20 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":84.04,
-			"money":57.38,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":60.52,
+			"money":35.56,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
-		"age":37
+		"age":8
 	},
-	"age":37
+	"age":8
 }
 ```
 
@@ -3748,6 +4188,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Teacher&lt;List&lt;User&gt;, User, Student&gt;
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -3854,7 +4302,7 @@ age|int32|年龄|-
 		{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3862,22 +4310,22 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":44.80,
-			"money":23.55,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":99.71,
+			"money":76.78,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		}
 	],
 	"data1":{
 		"userDetails":[
 			{
-				"githubAddress":"郑街197号， 盐城， 京 711291"
+				"githubAddress":"萧路031号， 张家口， 甘 453118"
 			}
 		],
 		"userList":[
@@ -3885,25 +4333,25 @@ age|int32|年龄|-
 				"$ref":".."
 			}
 		],
-		"userName":"鹏煊.朱",
-		"nickName":"gayle.quigley",
-		"userAddress":"郑街197号， 盐城， 京 711291",
-		"userAge":37,
-		"phone":"15392341080",
-		"createTime":1573029211927,
-		"small":17.21,
-		"money":26.31,
-		"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-		"telephone":"15392341080"
+		"userName":"煜城.丁",
+		"nickName":"leroy.nicolas",
+		"userAddress":"萧路031号， 张家口， 甘 453118",
+		"userAge":8,
+		"phone":"18076612577",
+		"createTime":1573740361961,
+		"small":3.21,
+		"money":58.65,
+		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+		"telephone":"18076612577"
 	},
 	"data2":{
-		"stuName":"鹏煊.朱",
+		"stuName":"煜城.丁",
 		"stuAge":true,
-		"stuAddress":"郑街197号， 盐城， 京 711291",
+		"stuAddress":"萧路031号， 张家口， 甘 453118",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3911,16 +4359,16 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":65.54,
-			"money":31.33,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":73.98,
+			"money":6.01,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		},
 		"userMap":{
 			"mapKey":{
@@ -3931,7 +4379,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"郑街197号， 盐城， 京 711291"
+						"githubAddress":"萧路031号， 张家口， 甘 453118"
 					}
 				],
 				"userList":[
@@ -3939,22 +4387,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"鹏煊.朱",
-				"nickName":"gayle.quigley",
-				"userAddress":"郑街197号， 盐城， 京 711291",
-				"userAge":37,
-				"phone":"15392341080",
-				"createTime":1573029211927,
-				"small":42.55,
-				"money":66.02,
-				"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-				"telephone":"15392341080"
+				"userName":"煜城.丁",
+				"nickName":"leroy.nicolas",
+				"userAddress":"萧路031号， 张家口， 甘 453118",
+				"userAge":8,
+				"phone":"18076612577",
+				"createTime":1573740361961,
+				"small":97.03,
+				"money":56.47,
+				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+				"telephone":"18076612577"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"郑街197号， 盐城， 京 711291"
+					"githubAddress":"萧路031号， 张家口， 甘 453118"
 				}
 			],
 			"userList":[
@@ -3962,19 +4410,19 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"鹏煊.朱",
-			"nickName":"gayle.quigley",
-			"userAddress":"郑街197号， 盐城， 京 711291",
-			"userAge":37,
-			"phone":"15392341080",
-			"createTime":1573029211927,
-			"small":57.38,
-			"money":51.70,
-			"ipv6":"ed1b:c50c:a00c:f3f3:1375:ac9a:8daf:1ea8",
-			"telephone":"15392341080"
+			"userName":"煜城.丁",
+			"nickName":"leroy.nicolas",
+			"userAddress":"萧路031号， 张家口， 甘 453118",
+			"userAge":8,
+			"phone":"18076612577",
+			"createTime":1573740361961,
+			"small":12.61,
+			"money":36.21,
+			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
+			"telephone":"18076612577"
 		}
 	},
-	"age":37
+	"age":8
 }
 ```
 
@@ -3986,6 +4434,14 @@ age|int32|年龄|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试SubUser
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -4001,8 +4457,8 @@ numbers|number|bigInteger|-
 **Response-example:**
 ```
 {
-	"subUserName":"鹏煊.朱",
-	"numbers":581
+	"subUserName":"煜城.丁",
+	"numbers":630
 }
 ```
 
@@ -4015,6 +4471,14 @@ numbers|number|bigInteger|-
 
 **Description:** 返回CommonResult&lt;SubUser&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/simple/subUser/result
@@ -4024,8 +4488,8 @@ http://localhost:8080/simple/subUser/result
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 └─subUserName|string|用户名称|-
 └─numbers|number|bigInteger|-
 code|string|错误代码|-
@@ -4037,11 +4501,11 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"subUserName":"鹏煊.朱",
-		"numbers":106
+		"subUserName":"煜城.丁",
+		"numbers":851
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4055,6 +4519,14 @@ timestamp|string|响应时间|-
 
 **Description:** CommonResult&lt;String&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/stringCommonResult
@@ -4064,8 +4536,8 @@ http://localhost:8080/stringCommonResult
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -4074,9 +4546,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"njkilt",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"vli68z",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4088,6 +4560,14 @@ timestamp|string|响应时间|-
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 返回Staff&lt;Staff&lt;Staff&gt;&gt;
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-example:**
 ```
@@ -4116,9 +4596,9 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱",
+	"name":"煜城.丁",
 	"annyObject":{
-		"name":"鹏煊.朱",
+		"name":"煜城.丁",
 		"annyObject":{
 			"$ref":"..."
 		},
@@ -4130,7 +4610,7 @@ data|array|泛型数据|-
 	},
 	"data":[
 		{
-			"name":"鹏煊.朱",
+			"name":"煜城.丁",
 			"annyObject":{
 				"$ref":"..."
 			},
@@ -4153,6 +4633,14 @@ data|array|泛型数据|-
 
 **Description:** 返回Staff&lt;String&gt;
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-example:**
 ```
 http://localhost:8080/staffStr
@@ -4168,10 +4656,10 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱",
-	"annyObject":"ugwx98",
+	"name":"煜城.丁",
+	"annyObject":"00o6m1",
 	"data":[
-		"q8erp5"
+		"4abfki"
 	]
 }
 ```
@@ -4185,6 +4673,14 @@ data|array|泛型数据|-
 
 **Description:** JAVA继承测试
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4195,8 +4691,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"鹏煊.朱",
-	"age":37
+	"name":"煜城.丁",
+	"age":8
 }
 ```
 **Response-fields:**
@@ -4209,8 +4705,8 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"name":"鹏煊.朱",
-	"age":37
+	"name":"煜城.丁",
+	"age":8
 }
 ```
 
@@ -4224,6 +4720,14 @@ age|int32|年龄|-
 
 **Description:** 添加用户
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4232,14 +4736,16 @@ username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
+gender|int32|性别(See: 性别数据字典)|false|-
 
 **Request-example:**
 ```
 {
-	"username":"鹏煊.朱",
-	"password":"ibpffo",
-	"nickName":"gayle.quigley",
-	"mobile":"15531606842"
+	"username":"煜城.丁",
+	"password":"g41ph0",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"gender":2
 }
 ```
 **Response-fields:**
@@ -4324,60 +4830,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"107",
-	"createBy":"cslo7z",
-	"createTime":2019-11-06,
-	"updateBy":"m94w0p",
-	"updateTime":2019-11-06,
-	"delFlag":6,
-	"username":"鹏煊.朱",
-	"password":"dcoqsc",
-	"nickName":"gayle.quigley",
-	"mobile":"15531606842",
-	"email":"绍齐.田@gmail.com",
-	"address":"郑街197号， 盐城， 京 711291",
-	"sex":1,
-	"avatar":"xoy5u6",
-	"type":666,
-	"status":312,
-	"description":"2prch1",
+	"id":"136",
+	"createBy":"sja6wf",
+	"createTime":2019-11-14,
+	"updateBy":"sa5xik",
+	"updateTime":2019-11-14,
+	"delFlag":4,
+	"username":"煜城.丁",
+	"password":"xu720t",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"email":"浩然.何@hotmail.com",
+	"address":"萧路031号， 张家口， 甘 453118",
+	"sex":0,
+	"avatar":"9sd5kp",
+	"type":569,
+	"status":835,
+	"description":"mrmhvw",
 	"roles":[
 		{
-			"id":"107",
-			"createBy":"8k3bzg",
-			"createTime":2019-11-06,
-			"updateBy":"lo2i0n",
-			"updateTime":2019-11-06,
-			"delFlag":6,
-			"name":"鹏煊.朱",
+			"id":"136",
+			"createBy":"wayfst",
+			"createTime":2019-11-14,
+			"updateBy":"3mqwjy",
+			"updateTime":2019-11-14,
+			"delFlag":4,
+			"name":"煜城.丁",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"107",
-					"createBy":"hgcii5",
-					"createTime":2019-11-06,
-					"updateBy":"ajfmu2",
-					"updateTime":2019-11-06,
-					"delFlag":6,
-					"name":"鹏煊.朱",
-					"level":509,
-					"type":36,
-					"title":"34qlse",
-					"path":"s3kgi1",
-					"component":"mluhkf",
-					"icon":"h2at6k",
-					"buttonType":"4itxgy",
-					"parentId":"107",
-					"description":"d2tfvp",
-					"sortOrder":320,
-					"status":38,
+					"id":"136",
+					"createBy":"flepk5",
+					"createTime":2019-11-14,
+					"updateBy":"vpsabl",
+					"updateTime":2019-11-14,
+					"delFlag":4,
+					"name":"煜城.丁",
+					"level":658,
+					"type":164,
+					"title":"797n8z",
+					"path":"6nf9wt",
+					"component":"lvbne0",
+					"icon":"4btq91",
+					"buttonType":"3b6u6f",
+					"parentId":"136",
+					"description":"2cp9ka",
+					"sortOrder":761,
+					"status":743,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"drnagb"
+						"ifgdhr"
 					],
 					"expand":true,
 					"checked":true,
@@ -4388,31 +4894,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"107",
-			"createBy":"c4fez6",
-			"createTime":2019-11-06,
-			"updateBy":"diqwpx",
-			"updateTime":2019-11-06,
-			"delFlag":6,
-			"name":"鹏煊.朱",
-			"level":916,
-			"type":126,
-			"title":"8fem2l",
-			"path":"ujrupw",
-			"component":"73xlpe",
-			"icon":"bmifxw",
-			"buttonType":"sopdqh",
-			"parentId":"107",
-			"description":"5efcbh",
-			"sortOrder":233,
-			"status":5,
+			"id":"136",
+			"createBy":"377duw",
+			"createTime":2019-11-14,
+			"updateBy":"u94rit",
+			"updateTime":2019-11-14,
+			"delFlag":4,
+			"name":"煜城.丁",
+			"level":272,
+			"type":77,
+			"title":"n82ohv",
+			"path":"5gh0w7",
+			"component":"ltexv5",
+			"icon":"j02agn",
+			"buttonType":"bngp06",
+			"parentId":"136",
+			"description":"ctnfkm",
+			"sortOrder":380,
+			"status":589,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"o7gy4w"
+				"66abfr"
 			],
 			"expand":true,
 			"checked":true,
@@ -4431,6 +4937,14 @@ permissions|array|用户拥有的权限|-
 
 **Description:** 更新用户
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4439,14 +4953,16 @@ username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
+gender|int32|性别(See: 性别数据字典)|false|-
 
 **Request-example:**
 ```
 {
-	"username":"鹏煊.朱",
-	"password":"0cyypm",
-	"nickName":"gayle.quigley",
-	"mobile":"15531606842"
+	"username":"煜城.丁",
+	"password":"axk9ed",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"gender":2
 }
 ```
 **Response-fields:**
@@ -4531,60 +5047,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"107",
-	"createBy":"jpmjs4",
-	"createTime":2019-11-06,
-	"updateBy":"4k55tr",
-	"updateTime":2019-11-06,
-	"delFlag":6,
-	"username":"鹏煊.朱",
-	"password":"kbs80x",
-	"nickName":"gayle.quigley",
-	"mobile":"15531606842",
-	"email":"绍齐.田@gmail.com",
-	"address":"郑街197号， 盐城， 京 711291",
-	"sex":1,
-	"avatar":"jkscbu",
-	"type":397,
-	"status":508,
-	"description":"6k9t3r",
+	"id":"136",
+	"createBy":"zll2cs",
+	"createTime":2019-11-14,
+	"updateBy":"t975y3",
+	"updateTime":2019-11-14,
+	"delFlag":4,
+	"username":"煜城.丁",
+	"password":"0o2ivy",
+	"nickName":"leroy.nicolas",
+	"mobile":"17538627282",
+	"email":"浩然.何@hotmail.com",
+	"address":"萧路031号， 张家口， 甘 453118",
+	"sex":0,
+	"avatar":"gt6in4",
+	"type":734,
+	"status":760,
+	"description":"qs78uc",
 	"roles":[
 		{
-			"id":"107",
-			"createBy":"sa37uj",
-			"createTime":2019-11-06,
-			"updateBy":"zl8xfw",
-			"updateTime":2019-11-06,
-			"delFlag":6,
-			"name":"鹏煊.朱",
+			"id":"136",
+			"createBy":"my8qy8",
+			"createTime":2019-11-14,
+			"updateBy":"9ujt84",
+			"updateTime":2019-11-14,
+			"delFlag":4,
+			"name":"煜城.丁",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"107",
-					"createBy":"4022rd",
-					"createTime":2019-11-06,
-					"updateBy":"v05xo2",
-					"updateTime":2019-11-06,
-					"delFlag":6,
-					"name":"鹏煊.朱",
-					"level":421,
-					"type":634,
-					"title":"l1z1xs",
-					"path":"vee1wk",
-					"component":"v89bre",
-					"icon":"tsc06t",
-					"buttonType":"ew437d",
-					"parentId":"107",
-					"description":"y7s7wv",
-					"sortOrder":835,
-					"status":516,
+					"id":"136",
+					"createBy":"740yjc",
+					"createTime":2019-11-14,
+					"updateBy":"zfe4nv",
+					"updateTime":2019-11-14,
+					"delFlag":4,
+					"name":"煜城.丁",
+					"level":729,
+					"type":655,
+					"title":"4knr3q",
+					"path":"wiip1i",
+					"component":"fvzajh",
+					"icon":"lahm4k",
+					"buttonType":"4g9hg7",
+					"parentId":"136",
+					"description":"puogw9",
+					"sortOrder":746,
+					"status":377,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"6bywtj"
+						"tvvva3"
 					],
 					"expand":true,
 					"checked":true,
@@ -4595,31 +5111,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"107",
-			"createBy":"mpkx63",
-			"createTime":2019-11-06,
-			"updateBy":"78s8bt",
-			"updateTime":2019-11-06,
-			"delFlag":6,
-			"name":"鹏煊.朱",
-			"level":30,
-			"type":421,
-			"title":"513hus",
-			"path":"j83ep1",
-			"component":"7ykc62",
-			"icon":"10tpfv",
-			"buttonType":"ps03cx",
-			"parentId":"107",
-			"description":"u6n4ic",
-			"sortOrder":363,
-			"status":596,
+			"id":"136",
+			"createBy":"f4v1an",
+			"createTime":2019-11-14,
+			"updateBy":"hq0023",
+			"updateTime":2019-11-14,
+			"delFlag":4,
+			"name":"煜城.丁",
+			"level":133,
+			"type":859,
+			"title":"olcm5r",
+			"path":"jph7nm",
+			"component":"yczlki",
+			"icon":"p1foit",
+			"buttonType":"4v7yqn",
+			"parentId":"136",
+			"description":"ron7h2",
+			"sortOrder":952,
+			"status":620,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"nadebp"
+				"0dztet"
 			],
 			"expand":true,
 			"checked":true,
@@ -4639,6 +5155,14 @@ permissions|array|用户拥有的权限|-
 
 **Description:** 验证validate
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4647,16 +5171,15 @@ name|string|姓名|true|-
 birthday|string|生日|true|-
 age|int32|年龄|false|-
 subject|object|科目|true|-
-└─subjectName|string|科目名称|true|-
 
 **Request-example:**
 ```
 {
-	"name":"鹏煊.朱",
-	"birthday":"2019-11-06",
-	"age":37,
+	"name":"煜城.丁",
+	"birthday":"2019-11-14",
+	"age":8,
 	"subject":{
-		"subjectName":"鹏煊.朱"
+		"subjectName":"煜城.丁"
 	}
 }
 ```
@@ -4665,8 +5188,8 @@ subject|object|科目|true|-
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -4678,8 +5201,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4691,6 +5214,14 @@ timestamp|string|响应时间|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 验证通用参数
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
 
 **Request-parameters:**
 
@@ -4705,11 +5236,11 @@ parameter|object|No comments found.|false|-
 **Request-example:**
 ```
 {
-	"token":"x8zyf2",
-	"sequenceNo":"sg8df4",
+	"token":"xlny8t",
+	"sequenceNo":"d5kpa4",
 	"parameter":{
-		"subUserName":"鹏煊.朱",
-		"numbers":265
+		"subUserName":"煜城.丁",
+		"numbers":388
 	}
 }
 ```
@@ -4718,8 +5249,8 @@ parameter|object|No comments found.|false|-
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -4731,8 +5262,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4746,6 +5277,14 @@ timestamp|string|响应时间|-
 
 **Description:** xss过滤普通post请求
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4755,7 +5294,7 @@ text|string|请求文本|true|-
 **Request-example:**
 ```
 {
-	"text":"vhoodf"
+	"text":"tcueps"
 }
 ```
 **Response-fields:**
@@ -4763,8 +5302,8 @@ text|string|请求文本|true|-
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -4773,9 +5312,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"ob0r7t",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"kl05o6",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4788,6 +5327,14 @@ timestamp|string|响应时间|-
 
 **Description:** xss过滤get请求
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4796,15 +5343,15 @@ query|string|请求参数|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/xss/query?query=knwml0
+http://localhost:8080/xss/query?query=dkzpyf
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
@@ -4813,9 +5360,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"l8nv0r",
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"data":"agq366",
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4828,6 +5375,14 @@ timestamp|string|响应时间|-
 
 **Description:** xss过滤json数据
 
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
 **Request-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4838,8 +5393,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"鹏煊.朱",
-	"age":37
+	"name":"煜城.丁",
+	"age":8
 }
 ```
 **Response-fields:**
@@ -4847,8 +5402,8 @@ age|int32|年龄|false|-
 Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
-message|string|响应信息|-
-data|object|响应数据|-
+message|string|错误提示(成功succeed)|-
+data|object|成功返回的数据|-
 └─name|string|姓名|-
 └─age|int32|年龄|-
 code|string|错误代码|-
@@ -4860,11 +5415,11 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"name":"鹏煊.朱",
-		"age":37
+		"name":"煜城.丁",
+		"age":8
 	},
-	"code":"29231",
-	"timestamp":"2019-11-06 16:33:31"
+	"code":"17289",
+	"timestamp":"2019-11-14 22:06:01"
 }
 ```
 
@@ -4884,3 +5439,9 @@ Code |Type|Description
 0|string|已支付
 1|string|已支付
 2|string|已经失效
+### 性别字典
+
+Code |Type|Description
+---|---|---
+0|int32|女人
+2|int32|男人

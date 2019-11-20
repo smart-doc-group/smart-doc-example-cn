@@ -15,11 +15,12 @@ public class FileUploadController {
 
     /**
      * 上传单个文件
+     * @param userId 用户id
      * @param file 文件
      * @return
      */
     @PostMapping("/upload")
-    public CommonResult upload(@RequestParam MultipartFile file) {
+    public CommonResult upload(String userId,@RequestParam MultipartFile file) {
         return CommonResult.ok();
     }
 

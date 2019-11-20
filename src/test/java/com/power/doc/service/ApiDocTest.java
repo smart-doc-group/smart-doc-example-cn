@@ -5,9 +5,11 @@ import com.power.doc.builder.AdocDocBuilder;
 import com.power.doc.builder.ApiDocBuilder;
 import com.power.doc.builder.HtmlApiDocBuilder;
 import com.power.doc.constants.DocGlobalConstants;
+import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.ApiConfig;
 import com.power.doc.model.ApiDataDictionary;
+import com.power.doc.model.ApiReqHeader;
 import org.junit.Test;
 
 /**
@@ -44,7 +46,12 @@ public class ApiDocTest {
 //        config.setOutPath("E:\\chen\\test-smart");
         // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
         // 如果需要配置有多个controller可以使用逗号隔开
-//        config.setPackageFilters("com.power.doc.controller");
+//        config.setPackageFilters("com.power.doc.controller.app");
+
+        config.setRequestHeaders(
+                ApiReqHeader.header().setName("token").setRequired(true).setType("string").setDesc("token"),
+                ApiReqHeader.header().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
+        );
 
         //添加数据字典
         config.setDataDictionaries(
@@ -52,6 +59,8 @@ public class ApiDocTest {
                         .setCodeField("code") //字典码值字段名
                         .setDescField("desc"), //字段码
                 ApiDataDictionary.dict().setTitle("订单状态1").setEnumClass(OrderEnum.class)
+                        .setCodeField("code").setDescField("desc"),
+                ApiDataDictionary.dict().setTitle("性别字典").setEnumClass(GenderEnum.class)
                         .setCodeField("code").setDescField("desc")
         );
 
