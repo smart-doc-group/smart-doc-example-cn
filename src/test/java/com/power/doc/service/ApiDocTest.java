@@ -37,7 +37,7 @@ public class ApiDocTest {
 
         config.setCoverOld(true);
 
-        config.setProjectName("测试");
+        config.setProjectName("Smart-doc测试样例");
 
 
         //指定文档输出路径

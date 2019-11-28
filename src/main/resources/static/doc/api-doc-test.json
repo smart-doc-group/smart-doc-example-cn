@@ -1,0 +1,2982 @@
+{
+  "info" : {
+    "name" : "api-doc-test",
+    "_postman_id" : "api-doc-test",
+    "description" : "log4j2",
+    "schema" : "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item" : [ {
+    "name" : "apiNote注解测试",
+    "item" : [ {
+      "id" : "62e3a1ca-140f-45ed-8af9-5057a761f125",
+      "name" : "测试apiNote",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/test",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/test",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : " 异步返回信息测试",
+    "item" : [ {
+      "id" : "174d05fe-c62c-4912-b526-f5163a7d60e6",
+      "name" : "返回Callable&lt;CommonResult&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testCallable",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testCallable",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "f58dd9e1-5cc2-48a6-b041-7d9e25aba458",
+      "name" : "返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/async-deferredresult",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/async-deferredresult",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "00d1a97b-23ef-4619-9330-e149753802a5",
+      "name" : "返回WebAsyncTask&lt;CommonResult&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/WebAsync/timeout",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/WebAsync/timeout",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "1f46ec40-4f2c-456e-82b1-78f3bd0e8d37",
+      "name" : "返回Future&lt;CommonResult&lt;String&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/future",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/future",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "d323a070-50a7-4a71-b8ed-1f5b78f74008",
+      "name" : "返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/completableFuture",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/completableFuture",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "循环引用依赖测试",
+    "item" : [ {
+      "id" : "63ce7d14-1a82-47e6-8fd1-3d59cc5466e4",
+      "name" : "循环依赖参数推导",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/circularReference",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"userName\" : \"\",\r\n  \"roles\" : \"new HashSet<>()\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/circularReference",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"userName\" : \"\",\r\n  \"roles\" : \"new HashSet<>()\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "文件上传测试",
+    "item" : [ {
+      "id" : "64339523-3823-46f4-98b2-841642d2b91b",
+      "name" : "上传单个文件",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/upload",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/upload",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "4a313628-1324-4b7f-82f7-ae7147e023af",
+      "name" : "批量上传文件",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/batchUpload",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/batchUpload",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "接收表单参数",
+    "item" : [ {
+      "id" : "59ea0759-0fda-49fe-85cb-2896d3a354c3",
+      "name" : "测试formData",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/formData1",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/formData1",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "https测试",
+    "item" : [ {
+      "id" : "f719ac22-0f9e-44ad-bdbc-213f6c139c19",
+      "name" : "测试https",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testHttps",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testHttps",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "6a8e8bc8-cabf-4cd1-b4e5-746e405ce643",
+      "name" : "测试http",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testHttp",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testHttp",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "Test inner class",
+    "item" : [ {
+      "id" : "08b0b758-3885-455a-b0d1-0c67b30a34ed",
+      "name" : "Return A object contains Inner class",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/inner/class",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/inner/class",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"innerClass\" : {\r\n    \"phone\" : \"\"\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "JDK8的时间测试",
+    "item" : [ {
+      "id" : "ecca9d08-308f-4573-9e86-6b3e26f57cc7",
+      "name" : "LocalDate和LocalDateTime测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/dateEntity",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"localDateTime\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/dateEntity",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"localDateTime\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"localDateTime\" : \"\"\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "FastJson和Jackson注解支持测试",
+    "item" : [ {
+      "id" : "86b2e14c-10e6-4422-a08a-3cd401643e55",
+      "name" : "Jackson注解支持测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/json/jacksonTest",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/json/jacksonTest",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "87ebc57d-2189-42ac-8dc6-92b7f6d72473",
+      "name" : "FastJson注解支持测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/json/fastJsonTest",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/json/fastJsonTest",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"idCard\" : \"\"\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "List返回接口Api文档测试",
+    "item" : [ {
+      "id" : "51ca5604-faa4-48b5-8d1d-dbb5239d157c",
+      "name" : "List&lt;String&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listString",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listString",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ \"\" ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "1c11da6f-91e2-4d2e-895c-547fcf750f33",
+      "name" : "List&lt;Map&lt;String,String&gt;&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listMap",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listMap",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"\" : \"\"\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "56bd937d-b970-479f-97df-e2fcfcba6605",
+      "name" : "List&lt;自动义对象&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listObject",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listObject",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "3236131a-3978-44e0-8f18-c2d1b635f402",
+      "name" : "List&lt;Map&lt;String,T&gt;&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listMap2",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listMap2",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"\" : {\r\n    \"stuName\" : \"\",\r\n    \"stuAddress\" : \"\",\r\n    \"user\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"userMap\" : {\r\n      \"\" : {\r\n        \"userDetails\" : [ {\r\n          \"githubAddress\" : \"\"\r\n        } ],\r\n        \"userName\" : \"\",\r\n        \"nickName\" : \"\",\r\n        \"userAddress\" : \"\",\r\n        \"userAge\" : 0,\r\n        \"phone\" : \"\",\r\n        \"createTime\" : 0,\r\n        \"small\" : 0,\r\n        \"money\" : 0,\r\n        \"ipv6\" : \"\",\r\n        \"telephone\" : \"\"\r\n      }\r\n    },\r\n    \"userTreeSet\" : [ {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    } ],\r\n    \"user1\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    }\r\n  }\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "01931d68-6374-4df4-869f-df048791bf9a",
+      "name" : "List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listMap3",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listMap3",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"\" : {\r\n    \"data\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"age\" : 0\r\n  }\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "381cee8f-e0ab-432d-a386-698227eb234c",
+      "name" : "List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listTeacher",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listTeacher",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"data\" : [ {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  } ],\r\n  \"age\" : 0\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "c6d6fb1e-4f76-4675-b613-52500c79dd94",
+      "name" : "List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listString1",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listString1",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"data\" : {\r\n    \"data\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"age\" : 0\r\n  },\r\n  \"age\" : 0\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "4320ba4c-3781-4a7a-84db-8899ef739db0",
+      "name" : "List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listString2",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listString2",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"data\" : {\r\n    \"data\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"age\" : 0\r\n  },\r\n  \"age\" : 0\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "bb96f1a7-8ca8-4b9c-8aed-48808a6551e7",
+      "name" : "CommonResult&lt;List&lt;UserDto&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/list/listUserDto",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/list/listUserDto",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"token\" : \"\",\r\n  \"LoginList\" : [ {\r\n    \"userName\" : \"\",\r\n    \"password\" : \"\"\r\n  } ]\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "MapController",
+    "item" : [ {
+      "id" : "123889aa-ca1a-4f28-b157-f20c05fd1502",
+      "name" : "Map&lt;String,Integer&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/primitive",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/primitive",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "ea7966da-7915-4a5e-8c3b-cfff70cedac8",
+      "name" : "Map&lt;String,Object&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/objectValue",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/objectValue",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "ceb911b2-5d86-4fef-a36d-6eadc06f3cc0",
+      "name" : "Map&lt;String,User&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/object",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/object",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "9ba7df9e-6f27-48c2-98e7-8d893cafeacb",
+      "name" : "Map&lt;String,Student&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/test1",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/test1",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : {\r\n    \"stuName\" : \"\",\r\n    \"stuAddress\" : \"\",\r\n    \"user\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"userMap\" : {\r\n      \"\" : {\r\n        \"userDetails\" : [ {\r\n          \"githubAddress\" : \"\"\r\n        } ],\r\n        \"userName\" : \"\",\r\n        \"nickName\" : \"\",\r\n        \"userAddress\" : \"\",\r\n        \"userAge\" : 0,\r\n        \"phone\" : \"\",\r\n        \"createTime\" : 0,\r\n        \"small\" : 0,\r\n        \"money\" : 0,\r\n        \"ipv6\" : \"\",\r\n        \"telephone\" : \"\"\r\n      }\r\n    },\r\n    \"userTreeSet\" : [ {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    } ],\r\n    \"user1\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    }\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "52a2e2ea-d1a9-4e8f-a565-201886b2535e",
+      "name" : "Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/test2",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/test2",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : {\r\n    \"data\" : [ {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    } ],\r\n    \"age\" : 0\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "546c59cb-96ee-4f8e-b0a9-4d5453e8fa2b",
+      "name" : "TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/test3",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/test3",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : {\r\n    \"data\" : [ {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    } ],\r\n    \"age\" : 0\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "c7020da0-0287-48fc-89ae-c80569b57bc8",
+      "name" : "Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/map/test4",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/map/test4",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"\" : {\r\n    \"data\" : {\r\n      \"\" : {\r\n        \"userDetails\" : [ {\r\n          \"githubAddress\" : \"\"\r\n        } ],\r\n        \"userName\" : \"\",\r\n        \"nickName\" : \"\",\r\n        \"userAddress\" : \"\",\r\n        \"userAge\" : 0,\r\n        \"phone\" : \"\",\r\n        \"createTime\" : 0,\r\n        \"small\" : 0,\r\n        \"money\" : 0,\r\n        \"ipv6\" : \"\",\r\n        \"telephone\" : \"\"\r\n      }\r\n    },\r\n    \"age\" : 0\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "RequestHeader注解测试",
+    "item" : [ {
+      "id" : "d24317ee-6eca-4b77-925f-453b4fbfc1fc",
+      "name" : "测试RequestHeader常规使用",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestHeader",
+          "query" : [ {
+            "key" : "name",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          }, {
+            "key" : "age",
+            "type" : "Integer",
+            "value" : "",
+            "description" : "0",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ {
+          "key" : "name",
+          "value" : ""
+        } ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestHeader",
+            "query" : [ {
+              "key" : "name",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            }, {
+              "key" : "age",
+              "type" : "Integer",
+              "value" : "",
+              "description" : "0",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ {
+            "key" : "name",
+            "value" : ""
+          } ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "522fd609-9b0f-495c-8fca-19c704e6a07d",
+      "name" : "测试RequestHeader绑定参数名",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestHeader/value",
+          "query" : [ {
+            "key" : "token",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          }, {
+            "key" : "age",
+            "type" : "Integer",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ {
+          "key" : "token",
+          "value" : ""
+        }, {
+          "key" : "age",
+          "value" : ""
+        } ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestHeader/value",
+            "query" : [ {
+              "key" : "token",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            }, {
+              "key" : "age",
+              "type" : "Integer",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ {
+            "key" : "token",
+            "value" : ""
+          }, {
+            "key" : "age",
+            "value" : ""
+          } ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "656342f3-660b-43bd-8cf0-4324b08f90ad",
+      "name" : "测试RequestHeader绑定默认值",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestHeader/DefaultVal",
+          "query" : [ {
+            "key" : "token",
+            "type" : "String",
+            "value" : "",
+            "description" : "da",
+            "disabled" : false
+          }, {
+            "key" : "age",
+            "type" : "Integer",
+            "value" : "",
+            "description" : "0",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ {
+          "key" : "token",
+          "value" : "da"
+        } ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestHeader/DefaultVal",
+            "query" : [ {
+              "key" : "token",
+              "type" : "String",
+              "value" : "",
+              "description" : "da",
+              "disabled" : false
+            }, {
+              "key" : "age",
+              "type" : "Integer",
+              "value" : "",
+              "description" : "0",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ {
+            "key" : "token",
+            "value" : "da"
+          } ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "RequestParamsController",
+    "item" : [ {
+      "id" : "3bd79728-cffd-4d2f-b893-43d0325318ce",
+      "name" : "Test Normal param binding",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testNormalParams/binding",
+          "query" : [ {
+            "key" : "name",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          }, {
+            "key" : "age",
+            "type" : "Integer",
+            "value" : "",
+            "description" : "0",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testNormalParams/binding",
+            "query" : [ {
+              "key" : "name",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            }, {
+              "key" : "age",
+              "type" : "Integer",
+              "value" : "",
+              "description" : "0",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "3d1e6feb-df1e-4b4c-a55b-0c66ef98dfc8",
+      "name" : "Test @RequestBody User",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestBody",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestBody",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "35c2e9be-c9fc-4cbc-8b19-f12be0b1dd36",
+      "name" : "Test @RequestBody Map",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestBodyMap",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"\" : {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  }\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestBodyMap",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"\" : {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  }\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "fe939b74-4230-4394-bf0c-62d8851d5583",
+      "name" : "Test @RequestBody List",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestBodyList",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "[ \"\" ]",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestBodyList",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "[ \"\" ]",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "5ea524b2-53f1-42e5-a05c-814c41a0f575",
+      "name" : "Test @PathVariable",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/test/{name}/{no}/info",
+          "query" : [ {
+            "key" : "name",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          }, {
+            "key" : "no",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/test/{name}/{no}/info",
+            "query" : [ {
+              "key" : "name",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            }, {
+              "key" : "no",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "2e8746f7-15da-4ed8-affb-b1a6d6c79001",
+      "name" : "Test @RequestParam",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestParam",
+          "query" : [ {
+            "key" : "author",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          }, {
+            "key" : "type",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestParam",
+            "query" : [ {
+              "key" : "author",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            }, {
+              "key" : "type",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "c2c4bbd6-0776-4b4d-b592-1a414d2928ec",
+      "name" : "Test @RequestParam with value",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestParamWithValue",
+          "query" : [ {
+            "key" : "name",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestParamWithValue",
+            "query" : [ {
+              "key" : "name",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "92123b32-5f3e-465f-9827-df7f97bbabf6",
+      "name" : "Test @RequestParam with default value",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testRequestParamWithDefaultVal",
+          "query" : [ {
+            "key" : "userName",
+            "type" : "String",
+            "value" : "",
+            "description" : "Jordan",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testRequestParamWithDefaultVal",
+            "query" : [ {
+              "key" : "userName",
+              "type" : "String",
+              "value" : "",
+              "description" : "Jordan",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "2785705c-fa31-4d3d-92bc-4560a2764480",
+      "name" : "Test much path",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/testMuchPath/get/{userId}",
+          "query" : [ {
+            "key" : "userId",
+            "type" : "Long",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/testMuchPath/get/{userId}",
+            "query" : [ {
+              "key" : "userId",
+              "type" : "Long",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "640029b1-60b8-44b3-8064-2a1fa9e29f54",
+      "name" : "Test much path much parameter",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/get/{deptId}/{userId}",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/get/{deptId}/{userId}",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "Test ResponseEntity",
+    "item" : [ {
+      "id" : "f9776960-d543-4520-8c69-a5549dd56e69",
+      "name" : "ResponseEntity return List",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/responseEntity/list",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/responseEntity/list",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "[ {\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n} ]",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "普通java对象api文档测试",
+    "item" : [ {
+      "id" : "a2926482-46fe-4fd5-aa07-92161bdd9126",
+      "name" : "返回普通String测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/str",
+          "query" : [ ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/str",
+            "query" : [ ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "0e76e668-83cc-4be1-af14-5a061fb87c64",
+      "name" : "返回普通javabean",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/user",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/user",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"userDetails\" : [ {\r\n    \"githubAddress\" : \"\"\r\n  } ],\r\n  \"userName\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"userAddress\" : \"\",\r\n  \"userAge\" : 0,\r\n  \"phone\" : \"\",\r\n  \"createTime\" : 0,\r\n  \"small\" : 0,\r\n  \"money\" : 0,\r\n  \"ipv6\" : \"\",\r\n  \"telephone\" : \"\"\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "f233b265-6c80-4f64-96ee-4bb389c5d91d",
+      "name" : "返回复杂实体数据",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/stu",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/stu",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"stuName\" : \"\",\r\n  \"stuAddress\" : \"\",\r\n  \"user\" : {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  },\r\n  \"userMap\" : {\r\n    \"\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    }\r\n  },\r\n  \"userTreeSet\" : [ {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  } ],\r\n  \"user1\" : {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  }\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "185b16f6-8c05-4c28-8e95-79d91e383494",
+      "name" : "Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/teacher",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/teacher",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"data\" : {\r\n    \"data\" : {\r\n      \"userDetails\" : [ {\r\n        \"githubAddress\" : \"\"\r\n      } ],\r\n      \"userName\" : \"\",\r\n      \"nickName\" : \"\",\r\n      \"userAddress\" : \"\",\r\n      \"userAge\" : 0,\r\n      \"phone\" : \"\",\r\n      \"createTime\" : 0,\r\n      \"small\" : 0,\r\n      \"money\" : 0,\r\n      \"ipv6\" : \"\",\r\n      \"telephone\" : \"\"\r\n    },\r\n    \"age\" : 0\r\n  },\r\n  \"age\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "43d5ee52-feef-4a60-94f3-a927ae4b0f3d",
+      "name" : "Teacher&lt;List&lt;User&gt;, User, Student&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/teacher2",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/teacher2",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"data\" : [ {\r\n    \"userDetails\" : [ {\r\n      \"githubAddress\" : \"\"\r\n    } ],\r\n    \"userName\" : \"\",\r\n    \"nickName\" : \"\",\r\n    \"userAddress\" : \"\",\r\n    \"userAge\" : 0,\r\n    \"phone\" : \"\",\r\n    \"createTime\" : 0,\r\n    \"small\" : 0,\r\n    \"money\" : 0,\r\n    \"ipv6\" : \"\",\r\n    \"telephone\" : \"\"\r\n  } ],\r\n  \"age\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "2db3aea3-0b53-4d51-a49b-1ed198ea575f",
+      "name" : "测试SubUser",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/subUser",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/subUser",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"subUserName\" : \"\",\r\n  \"numbers\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "eaa057d8-7043-427b-a2f0-fb95fd87dcf7",
+      "name" : "返回CommonResult&lt;SubUser&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/simple/subUser/result",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/simple/subUser/result",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"subUserName\" : \"\",\r\n  \"numbers\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "SimpleObjectController2",
+    "item" : [ {
+      "id" : "6d75d751-06a2-48bb-8b2f-016584f9c71e",
+      "name" : "CommonResult&lt;String&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/stringCommonResult",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/stringCommonResult",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "26c4203e-311f-4754-9c6f-46e79cf14de7",
+      "name" : "返回Staff&lt;Staff&lt;Staff&gt;&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/staff",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/staff",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"annyObject\" : {\r\n    \"name\" : \"\",\r\n    \"annyObject\" : {\r\n      \"name\" : \"\",\r\n      \"data\" : [ ]\r\n    },\r\n    \"data\" : [ ]\r\n  },\r\n  \"data\" : [ ]\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "b390749d-d4c1-4fad-bbd7-ca13446f3ac2",
+      "name" : "返回Staff&lt;String&gt;",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/staffStr",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/staffStr",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"annyObject\" : \"\",\r\n  \"data\" : [ ]\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "987fd677-b6da-49f4-8e46-e2ff7759a7f1",
+      "name" : "JAVA继承测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/children",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/children",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "UserController",
+    "item" : [ {
+      "id" : "70eb8be2-1439-410a-895c-016f46354aff",
+      "name" : "添加用户",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/user/add",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"gender\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/user/add",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"gender\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"id\" : \"\",\r\n  \"createBy\" : \"\",\r\n  \"createTime\" : \"\",\r\n  \"updateBy\" : \"\",\r\n  \"updateTime\" : \"\",\r\n  \"delFlag\" : 0,\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"email\" : \"\",\r\n  \"address\" : \"\",\r\n  \"sex\" : 0,\r\n  \"avatar\" : \"https://s1.ax1x.com/2018/05/19/CcdVQP.png\",\r\n  \"type\" : 0,\r\n  \"status\" : 0,\r\n  \"description\" : \"\",\r\n  \"roles\" : [ {\r\n    \"id\" : \"\",\r\n    \"createBy\" : \"\",\r\n    \"createTime\" : \"\",\r\n    \"updateBy\" : \"\",\r\n    \"updateTime\" : \"\",\r\n    \"delFlag\" : 0,\r\n    \"name\" : \"\",\r\n    \"permissions\" : [ {\r\n      \"id\" : \"\",\r\n      \"createBy\" : \"\",\r\n      \"createTime\" : \"\",\r\n      \"updateBy\" : \"\",\r\n      \"updateTime\" : \"\",\r\n      \"delFlag\" : 0,\r\n      \"name\" : \"\",\r\n      \"level\" : 0,\r\n      \"type\" : 0,\r\n      \"title\" : \"\",\r\n      \"path\" : \"\",\r\n      \"component\" : \"\",\r\n      \"icon\" : \"\",\r\n      \"buttonType\" : \"\",\r\n      \"parentId\" : \"\",\r\n      \"description\" : \"\",\r\n      \"sortOrder\" : 0,\r\n      \"status\" : 0,\r\n      \"permTypes\" : [ \"\" ],\r\n      \"expand\" : true,\r\n      \"checked\" : false,\r\n      \"selected\" : false\r\n    } ]\r\n  } ],\r\n  \"permissions\" : [ {\r\n    \"id\" : \"\",\r\n    \"createBy\" : \"\",\r\n    \"createTime\" : \"\",\r\n    \"updateBy\" : \"\",\r\n    \"updateTime\" : \"\",\r\n    \"delFlag\" : 0,\r\n    \"name\" : \"\",\r\n    \"level\" : 0,\r\n    \"type\" : 0,\r\n    \"title\" : \"\",\r\n    \"path\" : \"\",\r\n    \"component\" : \"\",\r\n    \"icon\" : \"\",\r\n    \"buttonType\" : \"\",\r\n    \"parentId\" : \"\",\r\n    \"description\" : \"\",\r\n    \"sortOrder\" : 0,\r\n    \"status\" : 0,\r\n    \"permTypes\" : [ \"\" ],\r\n    \"expand\" : true,\r\n    \"checked\" : false,\r\n    \"selected\" : false\r\n  } ]\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "df2be87e-47e8-4dac-9445-016fa5911b84",
+      "name" : "更新用户",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/user/update",
+          "query" : [ ]
+        },
+        "method" : "PUT",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"gender\" : \"\"\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/user/update",
+            "query" : [ ]
+          },
+          "method" : "PUT",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"gender\" : \"\"\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"id\" : \"\",\r\n  \"createBy\" : \"\",\r\n  \"createTime\" : \"\",\r\n  \"updateBy\" : \"\",\r\n  \"updateTime\" : \"\",\r\n  \"delFlag\" : 0,\r\n  \"username\" : \"\",\r\n  \"password\" : \"\",\r\n  \"nickName\" : \"\",\r\n  \"mobile\" : \"\",\r\n  \"email\" : \"\",\r\n  \"address\" : \"\",\r\n  \"sex\" : 0,\r\n  \"avatar\" : \"https://s1.ax1x.com/2018/05/19/CcdVQP.png\",\r\n  \"type\" : 0,\r\n  \"status\" : 0,\r\n  \"description\" : \"\",\r\n  \"roles\" : [ {\r\n    \"id\" : \"\",\r\n    \"createBy\" : \"\",\r\n    \"createTime\" : \"\",\r\n    \"updateBy\" : \"\",\r\n    \"updateTime\" : \"\",\r\n    \"delFlag\" : 0,\r\n    \"name\" : \"\",\r\n    \"permissions\" : [ {\r\n      \"id\" : \"\",\r\n      \"createBy\" : \"\",\r\n      \"createTime\" : \"\",\r\n      \"updateBy\" : \"\",\r\n      \"updateTime\" : \"\",\r\n      \"delFlag\" : 0,\r\n      \"name\" : \"\",\r\n      \"level\" : 0,\r\n      \"type\" : 0,\r\n      \"title\" : \"\",\r\n      \"path\" : \"\",\r\n      \"component\" : \"\",\r\n      \"icon\" : \"\",\r\n      \"buttonType\" : \"\",\r\n      \"parentId\" : \"\",\r\n      \"description\" : \"\",\r\n      \"sortOrder\" : 0,\r\n      \"status\" : 0,\r\n      \"permTypes\" : [ \"\" ],\r\n      \"expand\" : true,\r\n      \"checked\" : false,\r\n      \"selected\" : false\r\n    } ]\r\n  } ],\r\n  \"permissions\" : [ {\r\n    \"id\" : \"\",\r\n    \"createBy\" : \"\",\r\n    \"createTime\" : \"\",\r\n    \"updateBy\" : \"\",\r\n    \"updateTime\" : \"\",\r\n    \"delFlag\" : 0,\r\n    \"name\" : \"\",\r\n    \"level\" : 0,\r\n    \"type\" : 0,\r\n    \"title\" : \"\",\r\n    \"path\" : \"\",\r\n    \"component\" : \"\",\r\n    \"icon\" : \"\",\r\n    \"buttonType\" : \"\",\r\n    \"parentId\" : \"\",\r\n    \"description\" : \"\",\r\n    \"sortOrder\" : 0,\r\n    \"status\" : 0,\r\n    \"permTypes\" : [ \"\" ],\r\n    \"expand\" : true,\r\n    \"checked\" : false,\r\n    \"selected\" : false\r\n  } ]\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "ValidatorTestController",
+    "item" : [ {
+      "id" : "e702730d-a734-4a00-a5e2-5b192cc00f5e",
+      "name" : "验证validate",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/validator/test",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"name\" : \"\",\r\n  \"birthday\" : \"\",\r\n  \"age\" : 0,\r\n  \"subject\" : {\r\n    \"subjectName\" : \"\"\r\n  }\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/validator/test",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"name\" : \"\",\r\n  \"birthday\" : \"\",\r\n  \"age\" : 0,\r\n  \"subject\" : {\r\n    \"subjectName\" : \"\"\r\n  }\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "cbb27302-2ac9-4250-bc81-dff097434cad",
+      "name" : "验证通用参数",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/validator/valid",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"token\" : \"\",\r\n  \"sequenceNo\" : \"\",\r\n  \"parameter\" : {\r\n    \"subUserName\" : \"\",\r\n    \"numbers\" : 0\r\n  }\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/validator/valid",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"token\" : \"\",\r\n  \"sequenceNo\" : \"\",\r\n  \"parameter\" : {\r\n    \"subUserName\" : \"\",\r\n    \"numbers\" : 0\r\n  }\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "null",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "xss拦击测试",
+    "item" : [ {
+      "id" : "eb5fe474-9769-451d-bfea-56e1509008b5",
+      "name" : "xss过滤普通post请求",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/xss/text",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/xss/text",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "e85f27df-6ed3-4633-90a4-313051665835",
+      "name" : "xss过滤get请求",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/xss/query",
+          "query" : [ {
+            "key" : "query",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/xss/query",
+            "query" : [ {
+              "key" : "query",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    }, {
+      "id" : "19f24a3e-a5f9-4022-a1d5-cd046a4277da",
+      "name" : "xss过滤json数据",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/xss/json",
+          "query" : [ ]
+        },
+        "method" : "POST",
+        "header" : [ {
+          "key" : "Content-Type",
+          "value" : "application/json"
+        } ],
+        "body" : {
+          "mode" : "raw",
+          "raw" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/xss/json",
+            "query" : [ ]
+          },
+          "method" : "POST",
+          "header" : [ {
+            "key" : "Content-Type",
+            "value" : "application/json"
+          } ],
+          "body" : {
+            "mode" : "raw",
+            "raw" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "{\r\n  \"name\" : \"\",\r\n  \"age\" : 0\r\n}",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  }, {
+    "name" : "app端接口测试",
+    "item" : [ {
+      "id" : "4be5df5e-c7a0-41d8-ab71-93add569019e",
+      "name" : "app测试",
+      "request" : {
+        "url" : {
+          "protocol" : "http",
+          "host" : "{{host}}",
+          "path" : "/app/test",
+          "query" : [ {
+            "key" : "name",
+            "type" : "String",
+            "value" : "",
+            "description" : "",
+            "disabled" : false
+          } ]
+        },
+        "method" : "GET",
+        "header" : [ ],
+        "body" : {
+          "urlencoded" : [ ],
+          "formdata" : [ ]
+        }
+      },
+      "response" : [ {
+        "name" : "200 OK",
+        "originalRequest" : {
+          "url" : {
+            "protocol" : "http",
+            "host" : "{{host}}",
+            "path" : "/app/test",
+            "query" : [ {
+              "key" : "name",
+              "type" : "String",
+              "value" : "",
+              "description" : "",
+              "disabled" : false
+            } ]
+          },
+          "method" : "GET",
+          "header" : [ ],
+          "body" : {
+            "urlencoded" : [ ],
+            "formdata" : [ ]
+          }
+        },
+        "header" : [ ],
+        "body" : "\"\"",
+        "status" : "OK",
+        "code" : 200,
+        "_postman_previewlanguage" : "json"
+      } ]
+    } ]
+  } ]
+}

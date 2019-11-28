@@ -1,6 +1,7 @@
 package com.power.doc.entity;
 
 import com.power.doc.enums.GenderEnum;
+import com.power.doc.enums.SimpleEnum;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
@@ -11,6 +12,10 @@ import javax.validation.constraints.NotNull;
 @Data
 public class SimpleUser {
 
+    /**
+     * 简单枚举
+     */
+    private SimpleEnum simpleEnum;
     /**
      * 用户名
      * @since v1.0
