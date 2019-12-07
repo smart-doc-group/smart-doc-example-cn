@@ -5,10 +5,12 @@ import com.power.doc.builder.AdocDocBuilder;
 import com.power.doc.builder.ApiDocBuilder;
 import com.power.doc.builder.HtmlApiDocBuilder;
 import com.power.doc.constants.DocGlobalConstants;
+import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.ApiConfig;
 import com.power.doc.model.ApiDataDictionary;
+import com.power.doc.model.ApiErrorCodeDictionary;
 import com.power.doc.model.ApiReqHeader;
 import org.junit.Test;
 
@@ -62,6 +64,12 @@ public class ApiDocTest {
                         .setCodeField("code").setDescField("desc"),
                 ApiDataDictionary.dict().setTitle("性别字典").setEnumClass(GenderEnum.class)
                         .setCodeField("code").setDescField("desc")
+        );
+        //1.7.9 添加错误码处理，用于替代遍历代码
+        config.setErrorCodeDictionaries(
+                ApiErrorCodeDictionary.dict().setEnumClass(ErrorCodeEnum.class)
+                        .setCodeField("code") //错误码值字段名
+                        .setDescField("desc")//错误码描述
         );
 
 
