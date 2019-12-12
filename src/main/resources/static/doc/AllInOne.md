@@ -1,11 +1,11 @@
-# 测试
+# Smart-doc测试样例
 
 
 ## apiNote注解测试
 ### 测试apiNote
 **URL:** http://localhost:8080/test
 
-**Type:** GET
+**Type:** POST
 
 **Content-Type:** application/json; charset=utf-8
 
@@ -23,52 +23,54 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-username|string|用户名|true|v1.0
-password|string|密码|false|v1.0
-nickName|string|昵称|false|v1.0
-mobile|string|电话|false|v1.0
-gender|int32|性别(See: 性别数据字典)|false|-
+userDetails|array|用户详情|false|-
+└─githubAddress|string|测试|false|-
+userList|array|用户列表|false|-
+userName|string|用户名|false|-
+nickName|string|昵称|false|-
+userAddress|string|用户地址|false|-
+userAge|int32|用户年龄|false|-
+phone|string|手机号|false|-
+createTime|int64|创建时间|false|-
+small|float|钱少|false|-
+money|double|钱太多了|false|-
+ipv6|string|ipv6|false|-
+telephone|string|固定电话|false|-
 
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"1cxxrl",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
+	"userDetails":[
+		{
+			"githubAddress":"龙侬003号， 上海， 京 076406"
+		}
+	],
+	"userList":[
+		{
+			"$ref":".."
+		}
+	],
+	"userName":"煜城.卢",
+	"nickName":"barbara.stamm",
+	"userAddress":"龙侬003号， 上海， 京 076406",
+	"userAge":59,
+	"phone":"15513642290",
+	"createTime":1575727186545,
+	"small":69.96,
+	"money":51.53,
+	"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+	"telephone":"15513642290"
 }
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-username|string|用户名|v1.0
-password|string|密码|v1.0
-nickName|string|昵称|v1.0
-mobile|string|电话|v1.0
-gender|object|性别(See: 性别数据字典)|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-{
-	"username":"煜城.丁",
-	"password":"xah2po",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":{
-		"name":"煜城.丁",
-		"ordinal":256,
-		"WOMAN":{
-			"$ref":"..."
-		},
-		"MAN":{
-			"$ref":"..."
-		},
-		"code":593,
-		"desc":"txkgv1"
-	}
-}
+qmofnq
 ```
 
 ## app端接口测试
@@ -97,22 +99,22 @@ name|string|姓名|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/app/test?name=煜城.丁
+http://localhost:8080/app/test?name=煜城.卢
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-na864z
+vlcjz2
 ```
 
 ## 异步返回信息测试
 ### 返回Callable&lt;CommonResult&gt;
-**URL:** http://localhost:8080/  /testCallable
+**URL:** http://localhost:8080/testCallable
 
 **Type:** GET
 
@@ -130,7 +132,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/  /testCallable
+http://localhost:8080/testCallable
 ```
 **Response-fields:**
 
@@ -150,8 +152,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -191,9 +193,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"zmje11",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"l6xdb0",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -236,8 +238,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -277,9 +279,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"qhpkh7",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"uz0vfn",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -319,9 +321,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"i84ykx",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"bzadw2",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -357,13 +359,13 @@ roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多
 **Request-example:**
 ```
 {
-	"userName":"煜城.丁",
+	"userName":"煜城.卢",
 	"roles":[
 		{
-			"id":"136",
+			"id":"34",
 			"users":[
 				{
-					"userName":"煜城.丁",
+					"userName":"煜城.卢",
 					"roles":[
 						{
 							"$ref":"..."
@@ -379,11 +381,88 @@ roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-klcvm8
+jcgeyc
+```
+
+## 枚举参数测试
+### 获取枚举参数
+**URL:** http://localhost:8080/enum
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 获取枚举参数
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+simpleEnum|string|简单枚举|true|-
+
+**Request-example:**
+```
+http://localhost:8080/enum?simpleEnum=RED
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+No field|string|The api directly returns the string type value.|-
+
+**Response-example:**
+```
+l33o4t
+```
+
+### 获取枚举参数
+**URL:** http://localhost:8080/enum/{simpleEnum}
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 获取枚举参数
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+simpleEnum|object|简单枚举|true|-
+
+**Request-example:**
+```
+http://localhost:8080/enum/RED
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+No field|string|The api directly returns the string type value.|-
+
+**Response-example:**
+```
+qh7d3g
 ```
 
 ## 文件上传测试
@@ -408,6 +487,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+userId|string|用户id|true|-
 file|file|文件|true|-
 
 **Request-example:**
@@ -432,8 +512,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -482,8 +562,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -509,6 +589,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -563,9 +644,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"ta558e",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"fsf9g5",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -605,9 +686,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"vfjxba",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"1wl7f6",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -644,9 +725,9 @@ innerClass|object|内部类|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
+	"name":"煜城.卢",
 	"innerClass":{
-		"phone":"18076612577"
+		"phone":"15513642290"
 	}
 }
 ```
@@ -679,8 +760,8 @@ localDateTime|string|创建时间|false|v1.0
 **Request-example:**
 ```
 {
-	"localDate":"2019-11-14",
-	"localDateTime":"2019-11-14 22:06:02"
+	"localDate":"2019-12-07",
+	"localDateTime":"2019-12-07 21:59:46"
 }
 ```
 **Response-fields:**
@@ -693,8 +774,8 @@ localDateTime|string|创建时间|v1.0
 **Response-example:**
 ```
 {
-	"localDate":"2019-11-14",
-	"localDateTime":"2019-11-14 22:06:02"
+	"localDate":"2019-12-07",
+	"localDateTime":"2019-12-07 21:59:46"
 }
 ```
 
@@ -726,8 +807,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"idCard":"511712199003036002"
+	"username":"煜城.卢",
+	"idCard":"531727197003241778"
 }
 ```
 **Response-fields:**
@@ -739,7 +820,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁"
+	"name":"煜城.卢"
 }
 ```
 
@@ -770,8 +851,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"idCard":"511712199003036002"
+	"username":"煜城.卢",
+	"idCard":"531727197003241778"
 }
 ```
 **Response-fields:**
@@ -783,7 +864,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁"
+	"name":"煜城.卢"
 }
 ```
 
@@ -813,13 +894,13 @@ http://localhost:8080/list/listString
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|array of string|The api directly returns the array of string type value.|-
+No field|array of string|The api directly returns the array of string type value.|-
 
 **Response-example:**
 ```
 [
-	"qxadeg",
-	"pkrr72"
+	"uvstc9",
+	"nxsvjz"
 ]
 ```
 
@@ -848,14 +929,14 @@ http://localhost:8080/list/listMap
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
 [
 	{
-		"mapKey1":"2r8kl6",
-		"mapKey2":"mlz5n9"
+		"mapKey1":"gqncr0",
+		"mapKey2":"d3c76h"
 	}
 ]
 ```
@@ -905,7 +986,7 @@ telephone|string|固定电话|-
 	{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -913,16 +994,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":33.32,
-		"money":92.26,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":98.13,
+		"money":82.71,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	}
 ]
 ```
@@ -1017,13 +1098,13 @@ user1|object|用户对象2|-
 [
 	{
 		"mapKey":{
-			"stuName":"煜城.丁",
+			"stuName":"煜城.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"龙侬003号， 上海， 京 076406",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1031,27 +1112,22 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":5.06,
-				"money":72.05,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":52.49,
+				"money":53.35,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"userMap":{
 				"mapKey":{
-					
-				}
-			},
-			"userTreeSet":[
-				{
 					"userDetails":[
 						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
+							"githubAddress":"龙侬003号， 上海， 京 076406"
 						}
 					],
 					"userList":[
@@ -1059,22 +1135,46 @@ user1|object|用户对象2|-
 							"$ref":".."
 						}
 					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":77.66,
-					"money":77.46,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":93.96,
+					"money":27.24,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
+				}
+			},
+			"userTreeSet":[
+				{
+					"userDetails":[
+						{
+							"githubAddress":"龙侬003号， 上海， 京 076406"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":73.92,
+					"money":78.29,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1082,16 +1182,16 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":11.56,
-				"money":21.37,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":67.16,
+				"money":89.99,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		}
 	}
@@ -1175,7 +1275,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1183,21 +1283,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":65.89,
-				"money":79.67,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":13.27,
+				"money":75.57,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1205,21 +1305,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":13.21,
-				"money":82.88,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":13.11,
+				"money":83.66,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1227,18 +1327,18 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":51.82,
-				"money":20.51,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":26.13,
+				"money":74.04,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
-			"age":8
+			"age":59
 		}
 	}
 ]
@@ -1321,7 +1421,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1329,23 +1429,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":42.80,
-				"money":42.87,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":69.17,
+				"money":31.80,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"data1":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1353,23 +1453,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":49.26,
-				"money":53.97,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":72.08,
+				"money":47.22,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"data2":[
 			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1377,19 +1477,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":14.38,
-				"money":83.79,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":75.70,
+				"money":51.12,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
-		"age":8
+		"age":59
 	}
 ]
 ```
@@ -1501,7 +1601,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1509,21 +1609,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":30.29,
-				"money":68.61,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":80.09,
+				"money":51.20,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1531,21 +1631,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":73.26,
-				"money":32.87,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":54.66,
+				"money":33.28,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1553,23 +1653,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":0.57,
-				"money":80.23,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":91.85,
+				"money":51.65,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
-			"age":8
+			"age":59
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -1577,21 +1677,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":63.12,
-			"money":60.52,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":25.06,
+			"money":46.51,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -1599,18 +1699,18 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":13.93,
-			"money":72.21,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":91.54,
+			"money":62.70,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
-		"age":8
+		"age":59
 	}
 ]
 ```
@@ -1782,7 +1882,7 @@ age|int32|年龄|-
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1790,21 +1890,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":19.93,
-				"money":99.38,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":19.16,
+				"money":54.26,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1812,21 +1912,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":81.14,
-				"money":21.95,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":70.80,
+				"money":4.86,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1834,24 +1934,24 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":52.87,
-				"money":6.07,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":24.40,
+				"money":66.04,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
-			"age":8
+			"age":59
 		},
 		"data1":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1859,21 +1959,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":60.93,
-				"money":98.19,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":83.47,
+				"money":64.90,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1881,21 +1981,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":13.53,
-				"money":54.85,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":51.97,
+				"money":93.80,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1903,24 +2003,24 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":95.46,
-				"money":26.32,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":16.64,
+				"money":6.71,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
-			"age":8
+			"age":59
 		},
 		"data2":{
 			"data":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1928,21 +2028,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":86.46,
-				"money":34.53,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":25.00,
+				"money":85.97,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1950,21 +2050,21 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":66.88,
-				"money":96.66,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":41.18,
+				"money":38.71,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"data2":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -1972,20 +2072,20 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":56.51,
-				"money":18.45,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":86.84,
+				"money":51.08,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
-			"age":8
+			"age":59
 		},
-		"age":8
+		"age":59
 	}
 ]
 ```
@@ -2032,17 +2132,17 @@ timestamp|string|响应时间|-
 	"message":"success",
 	"data":[
 		{
-			"token":"wzqp6l",
+			"token":"dgfdg0",
 			"LoginList":[
 				{
-					"userName":"煜城.丁",
-					"password":"i1jvix"
+					"userName":"煜城.卢",
+					"password":"bws3t4"
 				}
 			]
 		}
 	],
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -2072,13 +2172,13 @@ http://localhost:8080/map/primitive
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|key value|The api directly returns the key value type value.|-
+No field|key value|The api directly returns the key value type value.|-
 
 **Response-example:**
 ```
 {
-	"mapKey1":814,
-	"mapKey2":942
+	"mapKey1":986,
+	"mapKey2":580
 }
 ```
 
@@ -2163,7 +2263,7 @@ telephone|string|固定电话|-
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -2171,16 +2271,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":43.44,
-		"money":49.17,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":60.11,
+		"money":91.50,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	}
 }
 ```
@@ -2274,13 +2374,13 @@ user1|object|用户对象2|-
 ```
 {
 	"mapKey":{
-		"stuName":"煜城.丁",
+		"stuName":"煜城.卢",
 		"stuAge":true,
-		"stuAddress":"萧路031号， 张家口， 甘 453118",
+		"stuAddress":"龙侬003号， 上海， 京 076406",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -2288,27 +2388,22 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":21.37,
-			"money":51.22,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":73.50,
+			"money":91.58,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"userMap":{
 			"mapKey":{
-				
-			}
-		},
-		"userTreeSet":[
-			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2316,22 +2411,46 @@ user1|object|用户对象2|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":97.02,
-				"money":35.36,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":13.80,
+				"money":24.56,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
+			}
+		},
+		"userTreeSet":[
+			{
+				"userDetails":[
+					{
+						"githubAddress":"龙侬003号， 上海， 京 076406"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":14.59,
+				"money":78.34,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -2339,16 +2458,16 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":14.86,
-			"money":10.73,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":40.80,
+			"money":76.93,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		}
 	}
 }
@@ -2477,7 +2596,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2485,22 +2604,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":71.80,
-				"money":42.06,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":21.25,
+				"money":60.78,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -2508,25 +2627,25 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":9.19,
-			"money":10.29,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":79.87,
+			"money":40.26,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
-			"stuName":"煜城.丁",
+			"stuName":"煜城.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"龙侬003号， 上海， 京 076406",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2534,27 +2653,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":96.03,
-				"money":51.78,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":42.53,
+				"money":72.05,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"userMap":{
 				"mapKey":{
-					
-				}
-			},
-			"userTreeSet":[
-				{
 					"userDetails":[
 						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
+							"githubAddress":"龙侬003号， 上海， 京 076406"
 						}
 					],
 					"userList":[
@@ -2562,22 +2676,46 @@ age|int32|年龄|-
 							"$ref":".."
 						}
 					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":32.73,
-					"money":35.20,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":34.23,
+					"money":39.91,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
+				}
+			},
+			"userTreeSet":[
+				{
+					"userDetails":[
+						{
+							"githubAddress":"龙侬003号， 上海， 京 076406"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":92.74,
+					"money":21.43,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2585,19 +2723,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":42.83,
-				"money":35.72,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":6.15,
+				"money":29.53,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		},
-		"age":8
+		"age":59
 	}
 }
 ```
@@ -2725,7 +2863,7 @@ age|int32|年龄|-
 			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2733,22 +2871,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":94.73,
-				"money":11.25,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":92.18,
+				"money":38.11,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -2756,25 +2894,25 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":88.19,
-			"money":90.62,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":14.32,
+			"money":39.14,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
-			"stuName":"煜城.丁",
+			"stuName":"煜城.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"龙侬003号， 上海， 京 076406",
 			"user":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2782,27 +2920,22 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":30.06,
-				"money":70.78,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":22.06,
+				"money":55.67,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			},
 			"userMap":{
 				"mapKey":{
-					
-				}
-			},
-			"userTreeSet":[
-				{
 					"userDetails":[
 						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
+							"githubAddress":"龙侬003号， 上海， 京 076406"
 						}
 					],
 					"userList":[
@@ -2810,22 +2943,46 @@ age|int32|年龄|-
 							"$ref":".."
 						}
 					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":7.86,
-					"money":44.40,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":90.05,
+					"money":21.68,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
+				}
+			},
+			"userTreeSet":[
+				{
+					"userDetails":[
+						{
+							"githubAddress":"龙侬003号， 上海， 京 076406"
+						}
+					],
+					"userList":[
+						{
+							"$ref":".."
+						}
+					],
+					"userName":"煜城.卢",
+					"nickName":"barbara.stamm",
+					"userAddress":"龙侬003号， 上海， 京 076406",
+					"userAge":59,
+					"phone":"15513642290",
+					"createTime":1575727186545,
+					"small":51.31,
+					"money":72.21,
+					"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+					"telephone":"15513642290"
 				}
 			],
 			"user1":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2833,19 +2990,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":91.66,
-				"money":53.69,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":93.77,
+				"money":2.02,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		},
-		"age":8
+		"age":59
 	}
 }
 ```
@@ -2927,7 +3084,7 @@ age|int32|年龄|-
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2935,23 +3092,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":69.12,
-				"money":87.28,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":46.20,
+				"money":0.65,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		},
 		"data1":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2959,23 +3116,23 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":53.32,
-				"money":6.75,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":80.13,
+				"money":57.18,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		},
 		"data2":{
 			"mapKey":{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -2983,19 +3140,19 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":27.93,
-				"money":46.12,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":18.03,
+				"money":18.55,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		},
-		"age":8
+		"age":59
 	}
 }
 ```
@@ -3027,7 +3184,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader?age=8
+http://localhost:8080/testRequestHeader?age=59
 ```
 
 **Response-example:**
@@ -3088,7 +3245,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader/DefaultVal?age=8
+http://localhost:8080/testRequestHeader/DefaultVal?age=59
 ```
 
 **Response-example:**
@@ -3123,7 +3280,7 @@ age|int32| age|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testNormalParams/binding?name=煜城.丁&age=8
+http://localhost:8080/testNormalParams/binding?name=煜城.卢&age=59
 ```
 
 **Response-example:**
@@ -3171,7 +3328,7 @@ telephone|string|固定电话|false|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
+			"githubAddress":"龙侬003号， 上海， 京 076406"
 		}
 	],
 	"userList":[
@@ -3179,16 +3336,16 @@ telephone|string|固定电话|false|-
 			"$ref":".."
 		}
 	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":85.24,
-	"money":64.00,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"userName":"煜城.卢",
+	"nickName":"barbara.stamm",
+	"userAddress":"龙侬003号， 上海， 京 076406",
+	"userAge":59,
+	"phone":"15513642290",
+	"createTime":1575727186545,
+	"small":66.76,
+	"money":46.75,
+	"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+	"telephone":"15513642290"
 }
 ```
 
@@ -3238,7 +3395,7 @@ telephone|string|固定电话|false|-
 	"mapKey":{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -3246,16 +3403,16 @@ telephone|string|固定电话|false|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":12.06,
-		"money":22.17,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":99.35,
+		"money":37.55,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	}
 }
 ```
@@ -3291,8 +3448,8 @@ ids|array|array of user id|true|-
 **Request-example:**
 ```
 [
-	"hmp832",
-	"t95dlb"
+	"isk5vm",
+	"xwk3m1"
 ]
 ```
 
@@ -3327,7 +3484,7 @@ no|string|  no|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/test/煜城.丁/ouz45k/info
+http://localhost:8080/test/煜城.卢/iatprc/info
 ```
 
 **Response-example:**
@@ -3357,11 +3514,11 @@ partnerId|string|合作方账号(Global)|true|-
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 author|string|author|true|-
-type|string|type|true|-
+type|string|  type|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParam?author=崔文昊&type=ypx240
+http://localhost:8080/testRequestParam?author=黄瑾瑜&type=5n2gbm
 ```
 
 **Response-example:**
@@ -3394,7 +3551,7 @@ name|string|user name|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParamWithValue?name=煜城.丁
+http://localhost:8080/testRequestParamWithValue?name=煜城.卢
 ```
 
 **Response-example:**
@@ -3428,6 +3585,73 @@ userName|string|user name|true|-
 **Request-example:**
 ```
 http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
+```
+
+**Response-example:**
+```
+This api return nothing.
+```
+
+### Test much path
+**URL:** http://localhost:8080/testMuchPath/get/{userId};	http://localhost:8080/testMuchPath/find/{userId}
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** giteeissues #I1545A
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+userId|int64|userId|true|-
+
+**Request-example:**
+```
+http://localhost:8080/testMuchPath/get/769;	http://localhost:8080/testMuchPath/find/769
+```
+
+**Response-example:**
+```
+This api return nothing.
+```
+
+### Test much path much parameter
+**URL:** http://localhost:8080/get/{deptId}/{userId};	http://localhost:8080/find/{deptId}/{userId}
+
+**Type:** POST
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Test much path much parameter
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+userId|int64|userId|true|-
+deptId|int64|deptId|true|-
+
+**Request-example:**
+```
+http://localhost:8080/get/882/773;	http://localhost:8080/find/882/773
 ```
 
 **Response-example:**
@@ -3481,7 +3705,7 @@ telephone|string|固定电话|-
 	{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -3489,16 +3713,16 @@ telephone|string|固定电话|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":92.25,
-		"money":3.98,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":75.05,
+		"money":19.83,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	}
 ]
 ```
@@ -3529,11 +3753,11 @@ http://localhost:8080/simple/str
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-p9r1bs
+6ttnie
 ```
 
 ### 返回普通javabean
@@ -3576,7 +3800,7 @@ telephone|string|固定电话|false|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
+			"githubAddress":"龙侬003号， 上海， 京 076406"
 		}
 	],
 	"userList":[
@@ -3584,16 +3808,16 @@ telephone|string|固定电话|false|-
 			"$ref":".."
 		}
 	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":43.73,
-	"money":44.22,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"userName":"煜城.卢",
+	"nickName":"barbara.stamm",
+	"userAddress":"龙侬003号， 上海， 京 076406",
+	"userAge":59,
+	"phone":"15513642290",
+	"createTime":1575727186545,
+	"small":91.92,
+	"money":49.10,
+	"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+	"telephone":"15513642290"
 }
 ```
 **Response-fields:**
@@ -3619,7 +3843,7 @@ telephone|string|固定电话|-
 {
 	"userDetails":[
 		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
+			"githubAddress":"龙侬003号， 上海， 京 076406"
 		}
 	],
 	"userList":[
@@ -3627,16 +3851,16 @@ telephone|string|固定电话|-
 			"$ref":".."
 		}
 	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":29.88,
-	"money":87.75,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"userName":"煜城.卢",
+	"nickName":"barbara.stamm",
+	"userAddress":"龙侬003号， 上海， 京 076406",
+	"userAge":59,
+	"phone":"15513642290",
+	"createTime":1575727186545,
+	"small":84.49,
+	"money":88.29,
+	"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+	"telephone":"15513642290"
 }
 ```
 
@@ -3728,13 +3952,13 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 {
-	"stuName":"煜城.丁",
+	"stuName":"煜城.卢",
 	"stuAge":true,
-	"stuAddress":"萧路031号， 张家口， 甘 453118",
+	"stuAddress":"龙侬003号， 上海， 京 076406",
 	"user":{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -3742,27 +3966,22 @@ user1|object|用户对象2|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":23.31,
-		"money":91.19,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":56.78,
+		"money":15.09,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	},
 	"userMap":{
 		"mapKey":{
-			
-		}
-	},
-	"userTreeSet":[
-		{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -3770,22 +3989,46 @@ user1|object|用户对象2|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":68.24,
-			"money":54.55,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":99.90,
+			"money":8.70,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
+		}
+	},
+	"userTreeSet":[
+		{
+			"userDetails":[
+				{
+					"githubAddress":"龙侬003号， 上海， 京 076406"
+				}
+			],
+			"userList":[
+				{
+					"$ref":".."
+				}
+			],
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":76.65,
+			"money":85.19,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		}
 	],
 	"user1":{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -3793,16 +4036,16 @@ user1|object|用户对象2|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":25.52,
-		"money":18.68,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":28.51,
+		"money":63.22,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	}
 }
 ```
@@ -3973,7 +4216,7 @@ age|int32|年龄|-
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -3981,21 +4224,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":37.27,
-			"money":44.35,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":15.20,
+			"money":15.36,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4003,21 +4246,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":21.94,
-			"money":79.85,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":56.93,
+			"money":64.04,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4025,24 +4268,24 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":32.14,
-			"money":26.54,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":79.01,
+			"money":37.21,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
-		"age":8
+		"age":59
 	},
 	"data1":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4050,21 +4293,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":35.66,
-			"money":72.69,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":86.87,
+			"money":7.16,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4072,21 +4315,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":13.43,
-			"money":1.18,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":33.76,
+			"money":15.52,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4094,24 +4337,24 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":7.09,
-			"money":88.16,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":64.98,
+			"money":91.75,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
-		"age":8
+		"age":59
 	},
 	"data2":{
 		"data":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4119,21 +4362,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":76.85,
-			"money":93.82,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":17.58,
+			"money":21.99,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4141,21 +4384,21 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":38.52,
-			"money":20.13,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":32.56,
+			"money":29.13,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"data2":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4163,20 +4406,20 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":60.52,
-			"money":35.56,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":61.54,
+			"money":4.68,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
-		"age":8
+		"age":59
 	},
-	"age":8
+	"age":59
 }
 ```
 
@@ -4302,7 +4545,7 @@ age|int32|年龄|-
 		{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4310,22 +4553,22 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":99.71,
-			"money":76.78,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":59.68,
+			"money":52.01,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		}
 	],
 	"data1":{
 		"userDetails":[
 			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
+				"githubAddress":"龙侬003号， 上海， 京 076406"
 			}
 		],
 		"userList":[
@@ -4333,25 +4576,25 @@ age|int32|年龄|-
 				"$ref":".."
 			}
 		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":3.21,
-		"money":58.65,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"userName":"煜城.卢",
+		"nickName":"barbara.stamm",
+		"userAddress":"龙侬003号， 上海， 京 076406",
+		"userAge":59,
+		"phone":"15513642290",
+		"createTime":1575727186545,
+		"small":93.34,
+		"money":83.29,
+		"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+		"telephone":"15513642290"
 	},
 	"data2":{
-		"stuName":"煜城.丁",
+		"stuName":"煜城.卢",
 		"stuAge":true,
-		"stuAddress":"萧路031号， 张家口， 甘 453118",
+		"stuAddress":"龙侬003号， 上海， 京 076406",
 		"user":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4359,27 +4602,22 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":73.98,
-			"money":6.01,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":20.41,
+			"money":74.65,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		},
 		"userMap":{
 			"mapKey":{
-				
-			}
-		},
-		"userTreeSet":[
-			{
 				"userDetails":[
 					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
+						"githubAddress":"龙侬003号， 上海， 京 076406"
 					}
 				],
 				"userList":[
@@ -4387,22 +4625,46 @@ age|int32|年龄|-
 						"$ref":".."
 					}
 				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":97.03,
-				"money":56.47,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":43.57,
+				"money":54.59,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
+			}
+		},
+		"userTreeSet":[
+			{
+				"userDetails":[
+					{
+						"githubAddress":"龙侬003号， 上海， 京 076406"
+					}
+				],
+				"userList":[
+					{
+						"$ref":".."
+					}
+				],
+				"userName":"煜城.卢",
+				"nickName":"barbara.stamm",
+				"userAddress":"龙侬003号， 上海， 京 076406",
+				"userAge":59,
+				"phone":"15513642290",
+				"createTime":1575727186545,
+				"small":86.32,
+				"money":47.51,
+				"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+				"telephone":"15513642290"
 			}
 		],
 		"user1":{
 			"userDetails":[
 				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
+					"githubAddress":"龙侬003号， 上海， 京 076406"
 				}
 			],
 			"userList":[
@@ -4410,19 +4672,19 @@ age|int32|年龄|-
 					"$ref":".."
 				}
 			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":12.61,
-			"money":36.21,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"userName":"煜城.卢",
+			"nickName":"barbara.stamm",
+			"userAddress":"龙侬003号， 上海， 京 076406",
+			"userAge":59,
+			"phone":"15513642290",
+			"createTime":1575727186545,
+			"small":96.40,
+			"money":49.21,
+			"ipv6":"15b4:33a9:33d1:6ae4:1c7d:627c:b2f3:65c0",
+			"telephone":"15513642290"
 		}
 	},
-	"age":8
+	"age":59
 }
 ```
 
@@ -4457,8 +4719,8 @@ numbers|number|bigInteger|-
 **Response-example:**
 ```
 {
-	"subUserName":"煜城.丁",
-	"numbers":630
+	"subUserName":"煜城.卢",
+	"numbers":566
 }
 ```
 
@@ -4501,11 +4763,11 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"subUserName":"煜城.丁",
-		"numbers":851
+		"subUserName":"煜城.卢",
+		"numbers":365
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -4546,9 +4808,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"vli68z",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"ewbleq",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -4596,9 +4858,9 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
+	"name":"煜城.卢",
 	"annyObject":{
-		"name":"煜城.丁",
+		"name":"煜城.卢",
 		"annyObject":{
 			"$ref":"..."
 		},
@@ -4610,7 +4872,7 @@ data|array|泛型数据|-
 	},
 	"data":[
 		{
-			"name":"煜城.丁",
+			"name":"煜城.卢",
 			"annyObject":{
 				"$ref":"..."
 			},
@@ -4656,10 +4918,10 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
-	"annyObject":"00o6m1",
+	"name":"煜城.卢",
+	"annyObject":"1j3rji",
 	"data":[
-		"4abfki"
+		"x4frax"
 	]
 }
 ```
@@ -4691,8 +4953,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"煜城.卢",
+	"age":59
 }
 ```
 **Response-fields:**
@@ -4705,8 +4967,8 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"煜城.卢",
+	"age":59
 }
 ```
 
@@ -4732,6 +4994,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -4741,11 +5004,12 @@ gender|int32|性别(See: 性别数据字典)|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"g41ph0",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
+	"simpleEnum":"RED",
+	"username":"煜城.卢",
+	"password":"3mld13",
+	"nickName":"barbara.stamm",
+	"mobile":"17650048171",
+	"gender":0
 }
 ```
 **Response-fields:**
@@ -4830,60 +5094,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"136",
-	"createBy":"sja6wf",
-	"createTime":2019-11-14,
-	"updateBy":"sa5xik",
-	"updateTime":2019-11-14,
-	"delFlag":4,
-	"username":"煜城.丁",
-	"password":"xu720t",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"email":"浩然.何@hotmail.com",
-	"address":"萧路031号， 张家口， 甘 453118",
-	"sex":0,
-	"avatar":"9sd5kp",
-	"type":569,
-	"status":835,
-	"description":"mrmhvw",
+	"id":"34",
+	"createBy":"gajla7",
+	"createTime":"2019-12-07",
+	"updateBy":"lq6ylb",
+	"updateTime":"2019-12-07",
+	"delFlag":5,
+	"username":"煜城.卢",
+	"password":"85ugtk",
+	"nickName":"barbara.stamm",
+	"mobile":"17650048171",
+	"email":"越彬.蔡@gmail.com",
+	"address":"龙侬003号， 上海， 京 076406",
+	"sex":1,
+	"avatar":"mcf6q3",
+	"type":776,
+	"status":688,
+	"description":"59a1kh",
 	"roles":[
 		{
-			"id":"136",
-			"createBy":"wayfst",
-			"createTime":2019-11-14,
-			"updateBy":"3mqwjy",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
+			"id":"34",
+			"createBy":"2t5q7c",
+			"createTime":"2019-12-07",
+			"updateBy":"su7bn8",
+			"updateTime":"2019-12-07",
+			"delFlag":5,
+			"name":"煜城.卢",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"136",
-					"createBy":"flepk5",
-					"createTime":2019-11-14,
-					"updateBy":"vpsabl",
-					"updateTime":2019-11-14,
-					"delFlag":4,
-					"name":"煜城.丁",
-					"level":658,
-					"type":164,
-					"title":"797n8z",
-					"path":"6nf9wt",
-					"component":"lvbne0",
-					"icon":"4btq91",
-					"buttonType":"3b6u6f",
-					"parentId":"136",
-					"description":"2cp9ka",
-					"sortOrder":761,
-					"status":743,
+					"id":"34",
+					"createBy":"gyt0tn",
+					"createTime":"2019-12-07",
+					"updateBy":"hjvn1n",
+					"updateTime":"2019-12-07",
+					"delFlag":5,
+					"name":"煜城.卢",
+					"level":904,
+					"type":603,
+					"title":"b2q1tn",
+					"path":"u7pnvm",
+					"component":"k7m07i",
+					"icon":"qq4t02",
+					"buttonType":"f2l057",
+					"parentId":"34",
+					"description":"hlah65",
+					"sortOrder":373,
+					"status":943,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"ifgdhr"
+						"lwby9e"
 					],
 					"expand":true,
 					"checked":true,
@@ -4894,31 +5158,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"136",
-			"createBy":"377duw",
-			"createTime":2019-11-14,
-			"updateBy":"u94rit",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
-			"level":272,
-			"type":77,
-			"title":"n82ohv",
-			"path":"5gh0w7",
-			"component":"ltexv5",
-			"icon":"j02agn",
-			"buttonType":"bngp06",
-			"parentId":"136",
-			"description":"ctnfkm",
-			"sortOrder":380,
-			"status":589,
+			"id":"34",
+			"createBy":"nam19r",
+			"createTime":"2019-12-07",
+			"updateBy":"dweyhx",
+			"updateTime":"2019-12-07",
+			"delFlag":5,
+			"name":"煜城.卢",
+			"level":295,
+			"type":868,
+			"title":"7n46z7",
+			"path":"taalq4",
+			"component":"1o65c6",
+			"icon":"wekd2c",
+			"buttonType":"2cfocm",
+			"parentId":"34",
+			"description":"aobens",
+			"sortOrder":915,
+			"status":300,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"66abfr"
+				"x4yaeg"
 			],
 			"expand":true,
 			"checked":true,
@@ -4949,6 +5213,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -4958,11 +5223,12 @@ gender|int32|性别(See: 性别数据字典)|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"axk9ed",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
+	"simpleEnum":"RED",
+	"username":"煜城.卢",
+	"password":"peiizo",
+	"nickName":"barbara.stamm",
+	"mobile":"17650048171",
+	"gender":0
 }
 ```
 **Response-fields:**
@@ -5047,60 +5313,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"136",
-	"createBy":"zll2cs",
-	"createTime":2019-11-14,
-	"updateBy":"t975y3",
-	"updateTime":2019-11-14,
-	"delFlag":4,
-	"username":"煜城.丁",
-	"password":"0o2ivy",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"email":"浩然.何@hotmail.com",
-	"address":"萧路031号， 张家口， 甘 453118",
-	"sex":0,
-	"avatar":"gt6in4",
-	"type":734,
-	"status":760,
-	"description":"qs78uc",
+	"id":"34",
+	"createBy":"qfqpu9",
+	"createTime":"2019-12-07",
+	"updateBy":"xyb9qj",
+	"updateTime":"2019-12-07",
+	"delFlag":5,
+	"username":"煜城.卢",
+	"password":"ni3rm2",
+	"nickName":"barbara.stamm",
+	"mobile":"17650048171",
+	"email":"越彬.蔡@gmail.com",
+	"address":"龙侬003号， 上海， 京 076406",
+	"sex":1,
+	"avatar":"1g91xy",
+	"type":521,
+	"status":249,
+	"description":"hfwm3v",
 	"roles":[
 		{
-			"id":"136",
-			"createBy":"my8qy8",
-			"createTime":2019-11-14,
-			"updateBy":"9ujt84",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
+			"id":"34",
+			"createBy":"3mmx4a",
+			"createTime":"2019-12-07",
+			"updateBy":"mqupug",
+			"updateTime":"2019-12-07",
+			"delFlag":5,
+			"name":"煜城.卢",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"136",
-					"createBy":"740yjc",
-					"createTime":2019-11-14,
-					"updateBy":"zfe4nv",
-					"updateTime":2019-11-14,
-					"delFlag":4,
-					"name":"煜城.丁",
-					"level":729,
-					"type":655,
-					"title":"4knr3q",
-					"path":"wiip1i",
-					"component":"fvzajh",
-					"icon":"lahm4k",
-					"buttonType":"4g9hg7",
-					"parentId":"136",
-					"description":"puogw9",
-					"sortOrder":746,
-					"status":377,
+					"id":"34",
+					"createBy":"j9loe3",
+					"createTime":"2019-12-07",
+					"updateBy":"evev93",
+					"updateTime":"2019-12-07",
+					"delFlag":5,
+					"name":"煜城.卢",
+					"level":183,
+					"type":565,
+					"title":"968psb",
+					"path":"imkwdr",
+					"component":"90oeof",
+					"icon":"bth45z",
+					"buttonType":"9j8ogw",
+					"parentId":"34",
+					"description":"o8q4tz",
+					"sortOrder":543,
+					"status":554,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"tvvva3"
+						"jcq34k"
 					],
 					"expand":true,
 					"checked":true,
@@ -5111,31 +5377,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"136",
-			"createBy":"f4v1an",
-			"createTime":2019-11-14,
-			"updateBy":"hq0023",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
-			"level":133,
-			"type":859,
-			"title":"olcm5r",
-			"path":"jph7nm",
-			"component":"yczlki",
-			"icon":"p1foit",
-			"buttonType":"4v7yqn",
-			"parentId":"136",
-			"description":"ron7h2",
-			"sortOrder":952,
-			"status":620,
+			"id":"34",
+			"createBy":"plxq0q",
+			"createTime":"2019-12-07",
+			"updateBy":"u65ns7",
+			"updateTime":"2019-12-07",
+			"delFlag":5,
+			"name":"煜城.卢",
+			"level":114,
+			"type":955,
+			"title":"y2vlkx",
+			"path":"bpk4g2",
+			"component":"afehep",
+			"icon":"43597t",
+			"buttonType":"p87u8j",
+			"parentId":"34",
+			"description":"1l8atm",
+			"sortOrder":695,
+			"status":492,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"0dztet"
+				"9sw0jx"
 			],
 			"expand":true,
 			"checked":true,
@@ -5175,11 +5441,11 @@ subject|object|科目|true|-
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"birthday":"2019-11-14",
-	"age":8,
+	"name":"煜城.卢",
+	"birthday":"2019-12-07",
+	"age":59,
 	"subject":{
-		"subjectName":"煜城.丁"
+		"subjectName":"煜城.卢"
 	}
 }
 ```
@@ -5201,8 +5467,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -5236,11 +5502,11 @@ parameter|object|No comments found.|false|-
 **Request-example:**
 ```
 {
-	"token":"xlny8t",
-	"sequenceNo":"d5kpa4",
+	"token":"vwj8y1",
+	"sequenceNo":"0o42s1",
 	"parameter":{
-		"subUserName":"煜城.丁",
-		"numbers":388
+		"subUserName":"煜城.卢",
+		"numbers":678
 	}
 }
 ```
@@ -5262,8 +5528,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -5294,7 +5560,7 @@ text|string|请求文本|true|-
 **Request-example:**
 ```
 {
-	"text":"tcueps"
+	"text":"64n7hv"
 }
 ```
 **Response-fields:**
@@ -5312,9 +5578,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"kl05o6",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"rr88cj",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -5343,7 +5609,7 @@ query|string|请求参数|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/xss/query?query=dkzpyf
+http://localhost:8080/xss/query?query=cuz6un
 ```
 **Response-fields:**
 
@@ -5360,9 +5626,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"agq366",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"u2m9xg",
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
@@ -5393,8 +5659,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"煜城.卢",
+	"age":59
 }
 ```
 **Response-fields:**
@@ -5415,14 +5681,21 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"name":"煜城.丁",
-		"age":8
+		"name":"煜城.卢",
+		"age":59
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"88541",
+	"timestamp":"2019-12-07 21:59:46"
 }
 ```
 
+## 错误码列表
+Error code |Description
+---|---
+0000|success
+1001|必选参数为空
+1002|参数格式错误
+9999|系统繁忙，请稍后再试....
 
 ## 数据字典
 ### 订单状态
