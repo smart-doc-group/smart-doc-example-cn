@@ -1,17 +1,14 @@
 package com.power.doc.service;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.power.common.util.DateTimeUtil;
-import com.power.doc.builder.AdocDocBuilder;
-import com.power.doc.builder.ApiDocBuilder;
-import com.power.doc.builder.HtmlApiDocBuilder;
+import com.power.doc.builder.*;
 import com.power.doc.constants.DocGlobalConstants;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
-import com.power.doc.model.ApiConfig;
-import com.power.doc.model.ApiDataDictionary;
-import com.power.doc.model.ApiErrorCodeDictionary;
-import com.power.doc.model.ApiReqHeader;
+import com.power.doc.model.*;
 import org.junit.Test;
 
 /**
@@ -29,7 +26,7 @@ public class ApiDocTest {
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
-        config.setServerUrl("http://localhost:8080");
+//        config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
         config.setStrict(true);
         //true会将文档合并导出到一个markdown
@@ -39,7 +36,7 @@ public class ApiDocTest {
 
         config.setCoverOld(true);
 
-        config.setProjectName("Smart-doc测试样例");
+//        config.setProjectName("Smart-doc测试样例");
 
 
         //指定文档输出路径
@@ -72,12 +69,18 @@ public class ApiDocTest {
                         .setDescField("desc")//错误码描述
         );
 
+//        String json = JSON.toJSONString(config);
+//        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
+//        System.out.println(JSON.toJSONString(config1));
 
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
         HtmlApiDocBuilder.builderControllersApi(config);
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);
+//        PostmanJsonBuilder.buildPostmanApi(config);
+//        ApiDataBuilder.getApiData(config);
+       // ApiAllData apiAllData = ApiDataBuilder.getApiData(config);
         //List<ApiDoc> docList = ApiDocBuilder.listOfApiData(config);
         long end = System.currentTimeMillis();
         DateTimeUtil.printRunTime(end, start);
