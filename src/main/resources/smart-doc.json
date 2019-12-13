@@ -1,0 +1,59 @@
+{
+  "serverUrl": "http://127.0.0.1",
+  "isStrict": false,
+  "allInOne": true,
+  "outPath": "D://md2",
+  "coverOld": true,
+  "packageFilters": "",
+  "md5EncryptedHtmlName": false,
+  "projectName": "smart-doc",
+  "skipTransientField": true,
+  "dataDictionaries": [
+    {
+      "title": "订单状态",
+      "enumClassName": "com.power.doc.enums.OrderEnum",
+      "codeField": "code",
+      "descField": "desc"
+    }
+  ],
+
+  "errorCodeDictionaries": [{
+    "title": "title",
+    "enumClassName": "com.power.doc.enums.ErrorCodeEnum",
+    "codeField": "code",
+    "descField": "desc"
+  }],
+
+  "revisionLogs": [
+    {
+      "version": "1.0",
+      "status": "use",
+      "author": "author",
+      "remarks": "desc"
+    }
+  ],
+  "customResponseFields": [
+    {
+      "name": "name",
+      "desc": "desc",
+      "ownerClassName": "ownerClassName",
+      "value": "value"
+    }
+  ],
+  "requestHeaders": [
+    {
+      "name": "token",
+      "type": "string",
+      "desc": "desc",
+      "required": false,
+      "since": "-"
+    }
+  ],
+
+  "sourceCodePaths": [
+    {
+      "path": "src/main/java",
+      "desc": "测试"
+    }
+  ]
+}

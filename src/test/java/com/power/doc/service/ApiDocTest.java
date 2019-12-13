@@ -26,7 +26,7 @@ public class ApiDocTest {
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
-//        config.setServerUrl("http://localhost:8080");
+        config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
         config.setStrict(true);
         //true会将文档合并导出到一个markdown
