@@ -1,7 +1,5 @@
 package com.power.doc.service;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.power.common.util.DateTimeUtil;
 import com.power.doc.builder.*;
 import com.power.doc.constants.DocGlobalConstants;
@@ -35,6 +33,9 @@ public class ApiDocTest {
         config.setMd5EncryptedHtmlName(true);
 
         config.setCoverOld(true);
+
+        //是否显示接口作者 默认true
+        //config.setShowAuthor(false);
 
 //        config.setProjectName("Smart-doc测试样例");
 
