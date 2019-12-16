@@ -126,22 +126,6 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.github.apiggs</groupId>
-                <artifactId>apiggs-maven-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>apiggs</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- options in there -->
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>com.github.shalousun</groupId>
                 <artifactId>smart-doc-maven-plugin</artifactId>
                 <version>1.0.0</version>

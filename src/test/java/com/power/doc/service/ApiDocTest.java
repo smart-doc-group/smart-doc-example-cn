@@ -29,6 +29,7 @@ public class ApiDocTest {
         config.setStrict(true);
         //true会将文档合并导出到一个markdown
         config.setAllInOne(true);
+        config.setShowAuthor(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
 
