@@ -17,6 +17,7 @@ public class ApiNoteController {
 
     /**
      * 测试apiNote
+     * @author cht
      * @apiNote 用于测试apiNote注释是否有效
      * @return
      */

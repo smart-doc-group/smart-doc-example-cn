@@ -1,13 +1,12 @@
-# 测试
 
 
 ## apiNote注解测试
 ### 测试apiNote
 **URL:** http://localhost:8080/test
 
-**Type:** GET
+**Type:** POST
 
-**Content-Type:** application/json; charset=utf-8
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 用于测试apiNote注释是否有效
 
@@ -19,55 +18,163 @@ token|string|token(Global)|true|-
 partnerId|string|合作方账号(Global)|true|-
 
 
-**Request-parameters:**
-
-Parameter | Type|Description|Required|Since
----|---|---|---|---
-username|string|用户名|true|v1.0
-password|string|密码|false|v1.0
-nickName|string|昵称|false|v1.0
-mobile|string|电话|false|v1.0
-gender|int32|性别(See: 性别数据字典)|false|-
-
 **Request-example:**
 ```
-{
-	"username":"煜城.丁",
-	"password":"1cxxrl",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
-}
+http://localhost:8080/test
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-username|string|用户名|v1.0
-password|string|密码|v1.0
-nickName|string|昵称|v1.0
-mobile|string|电话|v1.0
-gender|object|性别(See: 性别数据字典)|-
+projectName|string|project name|-
+projectId|string|project id|-
+language|string|docLanguage|-
+apiDocList|array|doc list|-
+└─order|int32|Order of controller|1.7+
+└─name|string|controller name|-
+└─alias|string|controller alias handled by md5|1.7+
+└─list|array|List of method doc|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─methodId|string|methodId handled by md5|1.7.3 +
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|method name|1.7.3 +
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─order|int32|method order|1.7+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|method description|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─detail|string|detailed introduction of the method|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─url|string|controller method url|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|http request type|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─headers|string|only used for generate markdown and adoc<br>http readers|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─contentType|string|http contentType|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestHeaders|array|http request headers|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|Request header name|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|Request header type|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|Request header description|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|required flag|1.7.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─since|string|Starting version number|1.7.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestParams|array|http request params|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field|string|field|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|field type|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|description|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|require flag|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version|string|version|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─requestUsage|string|http request usage|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseUsage|string|http response usage|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─responseParams|array|http response params|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─field|string|field|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|field type|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|description|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─required|boolean|require flag|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─version|string|version|-
+└─desc|string|method description|-
+apiDocDictList|array|No comments found.|-
+└─order|int32|order|-
+└─title|string|dict title|-
+└─dataDictList|array|data dict|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─value|string|dict value|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|string|code type|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─desc|string|dict desc|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ordinal|int32|enum ordinal|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|enum name|-
+errorCodeList|array|error code list|-
+└─value|string|dict value|-
+└─type|string|code type|-
+└─desc|string|dict desc|-
+└─ordinal|int32|enum ordinal|-
+└─name|string|enum name|-
+revisionLogs|array|List of change log|-
+└─version|string|version|-
+└─status|string|status|-
+└─author|string|author|-
+└─revisionTime|string|update time|-
+└─remarks|string|description|-
 
 **Response-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"xah2po",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":{
-		"name":"煜城.丁",
-		"ordinal":256,
-		"WOMAN":{
-			"$ref":"..."
-		},
-		"MAN":{
-			"$ref":"..."
-		},
-		"code":593,
-		"desc":"txkgv1"
-	}
+	"projectName":"文轩.卢",
+	"projectId":"184",
+	"language":"sx0jys",
+	"apiDocList":[
+		{
+			"order":359,
+			"name":"文轩.卢",
+			"alias":"sfn25h",
+			"list":[
+				{
+					"methodId":"184",
+					"name":"文轩.卢",
+					"order":394,
+					"desc":"eocpgu",
+					"detail":"6xsqbl",
+					"url":"www.xn---xn--ilr-us2pl308a.biz",
+					"type":"kb3hm4",
+					"headers":"kcqcsg",
+					"contentType":"op0b0a",
+					"requestHeaders":[
+						{
+							"name":"文轩.卢",
+							"type":"csecot",
+							"desc":"olm4ro",
+							"required":true,
+							"since":"yqv5bc"
+						}
+					],
+					"requestParams":[
+						{
+							"field":"omou2h",
+							"type":"0jskei",
+							"desc":"pzyqr4",
+							"required":true,
+							"version":"0.00"
+						}
+					],
+					"requestUsage":"pdpskj",
+					"responseUsage":"gn83ru",
+					"responseParams":[
+						{
+							"field":"04d6ct",
+							"type":"9gjbkw",
+							"desc":"tr9j80",
+							"required":true,
+							"version":"0.00"
+						}
+					]
+				}
+			],
+			"desc":"et9w6p"
+		}
+	],
+	"apiDocDictList":[
+		{
+			"order":903,
+			"title":"79cp6w",
+			"dataDictList":[
+				{
+					"value":"wrl2hg",
+					"type":"6ln4u1",
+					"desc":"3d7wod",
+					"ordinal":788,
+					"name":"文轩.卢"
+				}
+			]
+		}
+	],
+	"errorCodeList":[
+		{
+			"value":"63i40b",
+			"type":"7fse9p",
+			"desc":"j1zv3e",
+			"ordinal":794,
+			"name":"文轩.卢"
+		}
+	],
+	"revisionLogs":[
+		{
+			"version":"0.00",
+			"status":"x058wn",
+			"author":"韦金鑫",
+			"revisionTime":"2019-12-15 13:56:15",
+			"remarks":"eay7ih"
+		}
+	]
 }
 ```
 
@@ -97,22 +204,22 @@ name|string|姓名|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/app/test?name=煜城.丁
+http://localhost:8080/app/test?name=文轩.卢
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-na864z
+i0xln9
 ```
 
 ## 异步返回信息测试
 ### 返回Callable&lt;CommonResult&gt;
-**URL:** http://localhost:8080/  /testCallable
+**URL:** http://localhost:8080/testCallable
 
 **Type:** GET
 
@@ -130,7 +237,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/  /testCallable
+http://localhost:8080/testCallable
 ```
 **Response-fields:**
 
@@ -150,8 +257,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -191,9 +298,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"zmje11",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"pqrteg",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -236,8 +343,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -277,9 +384,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"qhpkh7",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"027djr",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -319,9 +426,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"i84ykx",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"q4e1tm",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -357,13 +464,13 @@ roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多
 **Request-example:**
 ```
 {
-	"userName":"煜城.丁",
+	"userName":"文轩.卢",
 	"roles":[
 		{
-			"id":"136",
+			"id":"184",
 			"users":[
 				{
-					"userName":"煜城.丁",
+					"userName":"文轩.卢",
 					"roles":[
 						{
 							"$ref":"..."
@@ -379,11 +486,88 @@ roles|object|多对多<br>查询权限时使用，同一用户可同时拥有多
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-klcvm8
+35goo4
+```
+
+## 枚举参数测试
+### 获取枚举参数
+**URL:** http://localhost:8080/enum
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 获取枚举参数
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+simpleEnum|string|简单枚举|true|-
+
+**Request-example:**
+```
+http://localhost:8080/enum?simpleEnum=RED
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+No field|string|The api directly returns the string type value.|-
+
+**Response-example:**
+```
+3pac3e
+```
+
+### 获取枚举参数
+**URL:** http://localhost:8080/enum/{simpleEnum}
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 获取枚举参数
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+simpleEnum|object|简单枚举|true|-
+
+**Request-example:**
+```
+http://localhost:8080/enum/RED
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+No field|string|The api directly returns the string type value.|-
+
+**Response-example:**
+```
+amxszx
 ```
 
 ## 文件上传测试
@@ -408,6 +592,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+userId|string|用户id|true|-
 file|file|文件|true|-
 
 **Request-example:**
@@ -432,8 +617,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -482,8 +667,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -509,6 +694,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -563,9 +749,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"ta558e",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"3mxbwk",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -605,9 +791,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"vfjxba",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"0fkr4c",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -644,9 +830,9 @@ innerClass|object|内部类|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
+	"name":"文轩.卢",
 	"innerClass":{
-		"phone":"18076612577"
+		"phone":"13099815931"
 	}
 }
 ```
@@ -679,8 +865,8 @@ localDateTime|string|创建时间|false|v1.0
 **Request-example:**
 ```
 {
-	"localDate":"2019-11-14",
-	"localDateTime":"2019-11-14 22:06:02"
+	"localDate":"2019-12-15",
+	"localDateTime":"2019-12-15 13:56:15"
 }
 ```
 **Response-fields:**
@@ -693,8 +879,8 @@ localDateTime|string|创建时间|v1.0
 **Response-example:**
 ```
 {
-	"localDate":"2019-11-14",
-	"localDateTime":"2019-11-14 22:06:02"
+	"localDate":"2019-12-15",
+	"localDateTime":"2019-12-15 13:56:15"
 }
 ```
 
@@ -726,8 +912,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"idCard":"511712199003036002"
+	"username":"文轩.卢",
+	"idCard":"310601198003162104"
 }
 ```
 **Response-fields:**
@@ -739,7 +925,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁"
+	"name":"文轩.卢"
 }
 ```
 
@@ -770,8 +956,8 @@ idCard|string|身份证号|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"idCard":"511712199003036002"
+	"username":"文轩.卢",
+	"idCard":"310601198003162104"
 }
 ```
 **Response-fields:**
@@ -783,7 +969,7 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁"
+	"name":"文轩.卢"
 }
 ```
 
@@ -813,13 +999,13 @@ http://localhost:8080/list/listString
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|array of string|The api directly returns the array of string type value.|-
+No field|array of string|The api directly returns the array of string type value.|-
 
 **Response-example:**
 ```
 [
-	"qxadeg",
-	"pkrr72"
+	"tbxw1f",
+	"k9skt9"
 ]
 ```
 
@@ -848,14 +1034,14 @@ http://localhost:8080/list/listMap
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
 [
 	{
-		"mapKey1":"2r8kl6",
-		"mapKey2":"mlz5n9"
+		"mapKey1":"uhps2c",
+		"mapKey2":"3gyqed"
 	}
 ]
 ```
@@ -885,9 +1071,12 @@ http://localhost:8080/list/listObject
 
 Field | Type|Description|Since
 ---|---|---|---
-userDetails|array|用户详情|-
-└─githubAddress|string|测试|-
-userList|array|用户列表|-
+subUser1|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
+subUser2|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
 userName|string|用户名|-
 nickName|string|昵称|-
 userAddress|string|用户地址|-
@@ -903,26 +1092,24 @@ telephone|string|固定电话|-
 ```
 [
 	{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":33.32,
-		"money":92.26,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":177
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":459
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":26.38,
+		"money":28.51,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	}
 ]
 ```
@@ -956,9 +1143,12 @@ stuName|string|姓名|-
 stuAge|boolean|年龄|-
 stuAddress|string|地址|-
 user|object|用户对象|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -970,9 +1160,12 @@ user|object|用户对象|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 userMap|map|map用户信息|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -984,9 +1177,12 @@ userMap|map|map用户信息|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 userTreeSet|object|用户列表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -998,9 +1194,12 @@ userTreeSet|object|用户列表|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 user1|object|用户对象2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1017,81 +1216,92 @@ user1|object|用户对象2|-
 [
 	{
 		"mapKey":{
-			"stuName":"煜城.丁",
+			"stuName":"文轩.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":5.06,
-				"money":72.05,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":994
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":339
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":38.55,
+				"money":48.76,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"userMap":{
 				"mapKey":{
-					
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":360
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":445
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":65.14,
+					"money":36.78,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			},
 			"userTreeSet":[
 				{
-					"userDetails":[
-						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":77.66,
-					"money":77.46,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":162
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":890
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":23.62,
+					"money":79.64,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			],
 			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":11.56,
-				"money":21.37,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":733
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":577
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":58.59,
+				"money":58.67,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		}
 	}
@@ -1124,9 +1334,12 @@ http://localhost:8080/list/listMap3
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1138,9 +1351,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1152,9 +1368,12 @@ data1|object|泛型data1|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1173,72 +1392,66 @@ age|int32|年龄|-
 	{
 		"mapKey":{
 			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":65.89,
-				"money":79.67,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":523
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":902
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":57.19,
+				"money":48.12,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":13.21,
-				"money":82.88,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":315
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":232
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":16.31,
+				"money":42.81,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":51.82,
-				"money":20.51,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":574
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":114
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":79.46,
+				"money":48.51,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
-			"age":8
+			"age":57
 		}
 	}
 ]
@@ -1270,9 +1483,12 @@ http://localhost:8080/list/listTeacher
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -1284,9 +1500,12 @@ data|object|泛型data|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -1298,9 +1517,12 @@ data1|object|泛型data1|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data2|object|data2|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -1319,77 +1541,71 @@ age|int32|年龄|-
 	{
 		"data":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":42.80,
-				"money":42.87,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":636
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":527
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":79.76,
+				"money":64.29,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"data1":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":49.26,
-				"money":53.97,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":140
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":570
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":39.37,
+				"money":53.44,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"data2":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":14.38,
-				"money":83.79,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":51
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":430
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":83.00,
+				"money":27.65,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
-		"age":8
+		"age":57
 	}
 ]
 ```
@@ -1421,9 +1637,12 @@ Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1435,9 +1654,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1449,9 +1671,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1464,9 +1689,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─age|int32|年龄|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -1478,9 +1706,12 @@ data1|object|泛型data1|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data2|object|data2|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -1499,118 +1730,108 @@ age|int32|年龄|-
 	{
 		"data":{
 			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":30.29,
-				"money":68.61,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":281
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":39
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":81.62,
+				"money":82.88,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":73.26,
-				"money":32.87,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":540
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":625
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":95.93,
+				"money":14.91,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":0.57,
-				"money":80.23,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":932
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":56
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":3.64,
+				"money":21.11,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
-			"age":8
+			"age":57
 		},
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":63.12,
-			"money":60.52,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":337
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":424
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":3.46,
+			"money":58.90,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":13.93,
-			"money":72.21,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":609
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":463
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":95.32,
+			"money":96.87,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
-		"age":8
+		"age":57
 	}
 ]
 ```
@@ -1642,9 +1863,12 @@ Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1656,9 +1880,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1670,9 +1897,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1686,9 +1916,12 @@ data|object|泛型data|-
 └─age|int32|年龄|-
 data1|object|泛型data1|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1700,9 +1933,12 @@ data1|object|泛型data1|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1714,9 +1950,12 @@ data1|object|泛型data1|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1730,9 +1969,12 @@ data1|object|泛型data1|-
 └─age|int32|年龄|-
 data2|object|data2|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1744,9 +1986,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1758,9 +2003,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -1780,212 +2028,194 @@ age|int32|年龄|-
 	{
 		"data":{
 			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":19.93,
-				"money":99.38,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":937
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":572
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":22.19,
+				"money":5.09,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":81.14,
-				"money":21.95,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":262
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":140
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":96.49,
+				"money":73.58,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":52.87,
-				"money":6.07,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":641
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":97
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":84.04,
+				"money":94.12,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
-			"age":8
+			"age":57
 		},
 		"data1":{
 			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":60.93,
-				"money":98.19,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":616
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":689
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":61.49,
+				"money":22.28,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":13.53,
-				"money":54.85,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":197
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":419
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":97.82,
+				"money":84.64,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":95.46,
-				"money":26.32,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":714
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":218
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":83.42,
+				"money":25.47,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
-			"age":8
+			"age":57
 		},
 		"data2":{
 			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":86.46,
-				"money":34.53,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":352
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":238
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":15.54,
+				"money":71.81,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":66.88,
-				"money":96.66,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":499
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":175
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":41.69,
+				"money":90.95,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":56.51,
-				"money":18.45,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":440
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":670
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":89.97,
+				"money":83.92,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
-			"age":8
+			"age":57
 		},
-		"age":8
+		"age":57
 	}
 ]
 ```
@@ -2032,17 +2262,17 @@ timestamp|string|响应时间|-
 	"message":"success",
 	"data":[
 		{
-			"token":"wzqp6l",
+			"token":"z39aee",
 			"LoginList":[
 				{
-					"userName":"煜城.丁",
-					"password":"i1jvix"
+					"userName":"文轩.卢",
+					"password":"819gu4"
 				}
 			]
 		}
 	],
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -2072,13 +2302,13 @@ http://localhost:8080/map/primitive
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|key value|The api directly returns the key value type value.|-
+No field|key value|The api directly returns the key value type value.|-
 
 **Response-example:**
 ```
 {
-	"mapKey1":814,
-	"mapKey2":942
+	"mapKey1":647,
+	"mapKey2":686
 }
 ```
 
@@ -2143,9 +2373,12 @@ http://localhost:8080/map/object
 
 Field | Type|Description|Since
 ---|---|---|---
-userDetails|array|用户详情|-
-└─githubAddress|string|测试|-
-userList|array|用户列表|-
+subUser1|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
+subUser2|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
 userName|string|用户名|-
 nickName|string|昵称|-
 userAddress|string|用户地址|-
@@ -2161,26 +2394,24 @@ telephone|string|固定电话|-
 ```
 {
 	"mapKey":{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":43.44,
-		"money":49.17,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":906
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":589
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":73.22,
+		"money":81.10,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	}
 }
 ```
@@ -2214,9 +2445,12 @@ stuName|string|姓名|-
 stuAge|boolean|年龄|-
 stuAddress|string|地址|-
 user|object|用户对象|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2228,9 +2462,12 @@ user|object|用户对象|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 userMap|map|map用户信息|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2242,9 +2479,12 @@ userMap|map|map用户信息|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 userTreeSet|object|用户列表|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2256,9 +2496,12 @@ userTreeSet|object|用户列表|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 user1|object|用户对象2|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2274,81 +2517,92 @@ user1|object|用户对象2|-
 ```
 {
 	"mapKey":{
-		"stuName":"煜城.丁",
+		"stuName":"文轩.卢",
 		"stuAge":true,
-		"stuAddress":"萧路031号， 张家口， 甘 453118",
+		"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 		"user":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":21.37,
-			"money":51.22,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":359
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":906
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":34.89,
+			"money":82.11,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"userMap":{
 			"mapKey":{
-				
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":841
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":50
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":41.79,
+				"money":94.53,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
 		"userTreeSet":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":97.02,
-				"money":35.36,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":883
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":204
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":78.60,
+				"money":35.51,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"user1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":14.86,
-			"money":10.73,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":834
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":502
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":49.67,
+			"money":7.87,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		}
 	}
 }
@@ -2380,9 +2634,12 @@ http://localhost:8080/map/test2
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2394,9 +2651,12 @@ data|object|泛型data|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2412,9 +2672,12 @@ data2|object|data2|-
 └─stuAge|boolean|年龄|-
 └─stuAddress|string|地址|-
 └─user|object|用户对象|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2426,9 +2689,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userMap|map|map用户信息|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2440,9 +2706,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userTreeSet|object|用户列表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2454,9 +2723,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─user1|object|用户对象2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2475,129 +2747,136 @@ age|int32|年龄|-
 	"mapKey":{
 		"data":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":71.80,
-				"money":42.06,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":241
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":264
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":91.59,
+				"money":43.89,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":9.19,
-			"money":10.29,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":926
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":48
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":43.39,
+			"money":6.16,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"stuName":"煜城.丁",
+			"stuName":"文轩.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":96.03,
-				"money":51.78,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":252
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":849
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":71.65,
+				"money":98.09,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"userMap":{
 				"mapKey":{
-					
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":825
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":462
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":87.81,
+					"money":66.05,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			},
 			"userTreeSet":[
 				{
-					"userDetails":[
-						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":32.73,
-					"money":35.20,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":177
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":173
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":91.63,
+					"money":4.41,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			],
 			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":42.83,
-				"money":35.72,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":840
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":325
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":72.24,
+				"money":95.16,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
-		"age":8
+		"age":57
 	}
 }
 ```
@@ -2628,9 +2907,12 @@ http://localhost:8080/map/test3
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2642,9 +2924,12 @@ data|object|泛型data|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2660,9 +2945,12 @@ data2|object|data2|-
 └─stuAge|boolean|年龄|-
 └─stuAddress|string|地址|-
 └─user|object|用户对象|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2674,9 +2962,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userMap|map|map用户信息|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2688,9 +2979,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userTreeSet|object|用户列表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2702,9 +2996,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─user1|object|用户对象2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -2723,129 +3020,136 @@ age|int32|年龄|-
 	"mapKey":{
 		"data":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":94.73,
-				"money":11.25,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":238
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":9
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":43.61,
+				"money":84.90,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":88.19,
-			"money":90.62,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":851
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":51
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":99.62,
+			"money":77.48,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"stuName":"煜城.丁",
+			"stuName":"文轩.卢",
 			"stuAge":true,
-			"stuAddress":"萧路031号， 张家口， 甘 453118",
+			"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":30.06,
-				"money":70.78,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":730
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":937
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":71.98,
+				"money":69.82,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			},
 			"userMap":{
 				"mapKey":{
-					
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":779
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":346
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":15.23,
+					"money":39.84,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			},
 			"userTreeSet":[
 				{
-					"userDetails":[
-						{
-							"githubAddress":"萧路031号， 张家口， 甘 453118"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"煜城.丁",
-					"nickName":"leroy.nicolas",
-					"userAddress":"萧路031号， 张家口， 甘 453118",
-					"userAge":8,
-					"phone":"18076612577",
-					"createTime":1573740361961,
-					"small":7.86,
-					"money":44.40,
-					"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-					"telephone":"18076612577"
+					"subUser1":{
+						"subUserName":"文轩.卢",
+						"numbers":427
+					},
+					"subUser2":{
+						"subUserName":"文轩.卢",
+						"numbers":95
+					},
+					"userName":"文轩.卢",
+					"nickName":"damian.streich",
+					"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+					"userAge":57,
+					"phone":"13099815931",
+					"createTime":1576389375357,
+					"small":5.91,
+					"money":38.94,
+					"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+					"telephone":"13099815931"
 				}
 			],
 			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":91.66,
-				"money":53.69,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":686
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":482
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":68.93,
+				"money":7.24,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
-		"age":8
+		"age":57
 	}
 }
 ```
@@ -2876,9 +3180,12 @@ http://localhost:8080/map/test4
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2890,9 +3197,12 @@ data|object|泛型data|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2904,9 +3214,12 @@ data1|object|泛型data1|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data2|object|data2|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -2925,77 +3238,71 @@ age|int32|年龄|-
 	"mapKey":{
 		"data":{
 			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":69.12,
-				"money":87.28,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":815
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":311
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":58.77,
+				"money":78.54,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
 		"data1":{
 			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":53.32,
-				"money":6.75,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":877
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":41
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":46.18,
+				"money":93.79,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
 		"data2":{
 			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":27.93,
-				"money":46.12,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":290
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":612
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":86.83,
+				"money":33.69,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
-		"age":8
+		"age":57
 	}
 }
 ```
@@ -3027,7 +3334,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader?age=8
+http://localhost:8080/testRequestHeader?age=57
 ```
 
 **Response-example:**
@@ -3088,7 +3395,7 @@ age|int32|  年龄|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestHeader/DefaultVal?age=8
+http://localhost:8080/testRequestHeader/DefaultVal?age=57
 ```
 
 **Response-example:**
@@ -3123,7 +3430,7 @@ age|int32| age|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testNormalParams/binding?name=煜城.丁&age=8
+http://localhost:8080/testNormalParams/binding?name=文轩.卢&age=57
 ```
 
 **Response-example:**
@@ -3152,9 +3459,12 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-userDetails|array|用户详情|false|-
-└─githubAddress|string|测试|false|-
-userList|array|用户列表|false|-
+subUser1|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
+subUser2|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
 userName|string|用户名|false|-
 nickName|string|昵称|false|-
 userAddress|string|用户地址|false|-
@@ -3169,26 +3479,24 @@ telephone|string|固定电话|false|-
 **Request-example:**
 ```
 {
-	"userDetails":[
-		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":85.24,
-	"money":64.00,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"subUser1":{
+		"subUserName":"文轩.卢",
+		"numbers":671
+	},
+	"subUser2":{
+		"subUserName":"文轩.卢",
+		"numbers":545
+	},
+	"userName":"文轩.卢",
+	"nickName":"damian.streich",
+	"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+	"userAge":57,
+	"phone":"13099815931",
+	"createTime":1576389375357,
+	"small":60.66,
+	"money":18.13,
+	"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+	"telephone":"13099815931"
 }
 ```
 
@@ -3218,9 +3526,12 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-userDetails|array|用户详情|false|-
-└─githubAddress|string|测试|false|-
-userList|array|用户列表|false|-
+subUser1|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
+subUser2|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
 userName|string|用户名|false|-
 nickName|string|昵称|false|-
 userAddress|string|用户地址|false|-
@@ -3236,26 +3547,24 @@ telephone|string|固定电话|false|-
 ```
 {
 	"mapKey":{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":12.06,
-		"money":22.17,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":742
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":186
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":91.68,
+		"money":95.17,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	}
 }
 ```
@@ -3291,8 +3600,8 @@ ids|array|array of user id|true|-
 **Request-example:**
 ```
 [
-	"hmp832",
-	"t95dlb"
+	"psyrko",
+	"aqk4xx"
 ]
 ```
 
@@ -3327,7 +3636,7 @@ no|string|  no|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/test/煜城.丁/ouz45k/info
+http://localhost:8080/test/文轩.卢/zdluuy/info
 ```
 
 **Response-example:**
@@ -3357,11 +3666,11 @@ partnerId|string|合作方账号(Global)|true|-
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 author|string|author|true|-
-type|string|type|true|-
+type|string|  type|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParam?author=崔文昊&type=ypx240
+http://localhost:8080/testRequestParam?author=韦金鑫&type=czjtvn
 ```
 
 **Response-example:**
@@ -3394,7 +3703,7 @@ name|string|user name|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/testRequestParamWithValue?name=煜城.丁
+http://localhost:8080/testRequestParamWithValue?name=文轩.卢
 ```
 
 **Response-example:**
@@ -3435,6 +3744,73 @@ http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
 This api return nothing.
 ```
 
+### Test much path
+**URL:** http://localhost:8080/testMuchPath/get/{userId};	http://localhost:8080/testMuchPath/find/{userId}
+
+**Type:** GET
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** giteeissues #I1545A
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+userId|int64|userId|true|-
+
+**Request-example:**
+```
+http://localhost:8080/testMuchPath/get/226;	http://localhost:8080/testMuchPath/find/226
+```
+
+**Response-example:**
+```
+This api return nothing.
+```
+
+### Test much path much parameter
+**URL:** http://localhost:8080/get/{deptId}/{userId};	http://localhost:8080/find/{deptId}/{userId}
+
+**Type:** POST
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Test much path much parameter
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|token(Global)|true|-
+partnerId|string|合作方账号(Global)|true|-
+
+
+**Request-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+userId|int64|userId|true|-
+deptId|int64|deptId|true|-
+
+**Request-example:**
+```
+http://localhost:8080/get/805/313;	http://localhost:8080/find/805/313
+```
+
+**Response-example:**
+```
+This api return nothing.
+```
+
 ## Test ResponseEntity
 ### ResponseEntity return List
 **URL:** http://localhost:8080/responseEntity/list
@@ -3461,9 +3837,12 @@ http://localhost:8080/responseEntity/list
 
 Field | Type|Description|Since
 ---|---|---|---
-userDetails|array|用户详情|-
-└─githubAddress|string|测试|-
-userList|array|用户列表|-
+subUser1|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
+subUser2|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
 userName|string|用户名|-
 nickName|string|昵称|-
 userAddress|string|用户地址|-
@@ -3479,26 +3858,24 @@ telephone|string|固定电话|-
 ```
 [
 	{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":92.25,
-		"money":3.98,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":395
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":880
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":82.46,
+		"money":17.79,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	}
 ]
 ```
@@ -3529,11 +3906,11 @@ http://localhost:8080/simple/str
 
 Field | Type|Description|Since
 ---|---|---|---
-no param name|string|The api directly returns the string type value.|-
+No field|string|The api directly returns the string type value.|-
 
 **Response-example:**
 ```
-p9r1bs
+rhpw1x
 ```
 
 ### 返回普通javabean
@@ -3557,9 +3934,12 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-userDetails|array|用户详情|false|-
-└─githubAddress|string|测试|false|-
-userList|array|用户列表|false|-
+subUser1|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
+subUser2|object|No comments found.|false|-
+└─subUserName|string|用户名称|true|-
+└─numbers|number|bigInteger|false|-
 userName|string|用户名|false|-
 nickName|string|昵称|false|-
 userAddress|string|用户地址|false|-
@@ -3574,35 +3954,36 @@ telephone|string|固定电话|false|-
 **Request-example:**
 ```
 {
-	"userDetails":[
-		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":43.73,
-	"money":44.22,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"subUser1":{
+		"subUserName":"文轩.卢",
+		"numbers":380
+	},
+	"subUser2":{
+		"subUserName":"文轩.卢",
+		"numbers":724
+	},
+	"userName":"文轩.卢",
+	"nickName":"damian.streich",
+	"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+	"userAge":57,
+	"phone":"13099815931",
+	"createTime":1576389375357,
+	"small":18.45,
+	"money":37.87,
+	"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+	"telephone":"13099815931"
 }
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-userDetails|array|用户详情|-
-└─githubAddress|string|测试|-
-userList|array|用户列表|-
+subUser1|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
+subUser2|object|No comments found.|-
+└─subUserName|string|用户名称|-
+└─numbers|number|bigInteger|-
 userName|string|用户名|-
 nickName|string|昵称|-
 userAddress|string|用户地址|-
@@ -3617,26 +3998,24 @@ telephone|string|固定电话|-
 **Response-example:**
 ```
 {
-	"userDetails":[
-		{
-			"githubAddress":"萧路031号， 张家口， 甘 453118"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"煜城.丁",
-	"nickName":"leroy.nicolas",
-	"userAddress":"萧路031号， 张家口， 甘 453118",
-	"userAge":8,
-	"phone":"18076612577",
-	"createTime":1573740361961,
-	"small":29.88,
-	"money":87.75,
-	"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-	"telephone":"18076612577"
+	"subUser1":{
+		"subUserName":"文轩.卢",
+		"numbers":707
+	},
+	"subUser2":{
+		"subUserName":"文轩.卢",
+		"numbers":543
+	},
+	"userName":"文轩.卢",
+	"nickName":"damian.streich",
+	"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+	"userAge":57,
+	"phone":"13099815931",
+	"createTime":1576389375357,
+	"small":89.92,
+	"money":40.36,
+	"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+	"telephone":"13099815931"
 }
 ```
 
@@ -3669,9 +4048,12 @@ stuName|string|姓名|-
 stuAge|boolean|年龄|-
 stuAddress|string|地址|-
 user|object|用户对象|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -3683,9 +4065,12 @@ user|object|用户对象|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 userMap|map|map用户信息|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -3697,9 +4082,12 @@ userMap|map|map用户信息|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 userTreeSet|object|用户列表|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -3711,9 +4099,12 @@ userTreeSet|object|用户列表|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 user1|object|用户对象2|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -3728,81 +4119,92 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 {
-	"stuName":"煜城.丁",
+	"stuName":"文轩.卢",
 	"stuAge":true,
-	"stuAddress":"萧路031号， 张家口， 甘 453118",
+	"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 	"user":{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":23.31,
-		"money":91.19,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":741
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":289
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":66.07,
+		"money":72.27,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	},
 	"userMap":{
 		"mapKey":{
-			
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":621
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":965
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":86.18,
+			"money":20.05,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		}
 	},
 	"userTreeSet":[
 		{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":68.24,
-			"money":54.55,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":320
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":720
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":97.70,
+			"money":96.35,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		}
 	],
 	"user1":{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":25.52,
-		"money":18.68,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":668
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":821
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":15.16,
+		"money":83.44,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	}
 }
 ```
@@ -3834,9 +4236,12 @@ Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3848,9 +4253,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3862,9 +4270,12 @@ data|object|泛型data|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3878,9 +4289,12 @@ data|object|泛型data|-
 └─age|int32|年龄|-
 data1|object|泛型data1|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3892,9 +4306,12 @@ data1|object|泛型data1|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3906,9 +4323,12 @@ data1|object|泛型data1|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3922,9 +4342,12 @@ data1|object|泛型data1|-
 └─age|int32|年龄|-
 data2|object|data2|-
 └─data|object|泛型data|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3936,9 +4359,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data1|object|泛型data1|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3950,9 +4376,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─data2|object|data2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -3971,212 +4400,194 @@ age|int32|年龄|-
 {
 	"data":{
 		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":37.27,
-			"money":44.35,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":676
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":947
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":42.63,
+			"money":80.44,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":21.94,
-			"money":79.85,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":248
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":98
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":5.75,
+			"money":8.96,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":32.14,
-			"money":26.54,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":935
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":798
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":72.47,
+			"money":44.26,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
-		"age":8
+		"age":57
 	},
 	"data1":{
 		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":35.66,
-			"money":72.69,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":756
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":576
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":65.47,
+			"money":7.94,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":13.43,
-			"money":1.18,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":737
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":66
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":37.05,
+			"money":68.29,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":7.09,
-			"money":88.16,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":763
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":190
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":39.66,
+			"money":0.62,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
-		"age":8
+		"age":57
 	},
 	"data2":{
 		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":76.85,
-			"money":93.82,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":410
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":859
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":56.49,
+			"money":58.83,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":38.52,
-			"money":20.13,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":18
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":809
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":60.04,
+			"money":54.66,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":60.52,
-			"money":35.56,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":977
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":9
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":92.09,
+			"money":45.69,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
-		"age":8
+		"age":57
 	},
-	"age":8
+	"age":57
 }
 ```
 
@@ -4206,9 +4617,12 @@ http://localhost:8080/simple/teacher2
 Field | Type|Description|Since
 ---|---|---|---
 data|object|泛型data|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -4220,9 +4634,12 @@ data|object|泛型data|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
 data1|object|泛型data1|-
-└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-└─userList|array|用户列表|-
+└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 └─userName|string|用户名|-
 └─nickName|string|昵称|-
 └─userAddress|string|用户地址|-
@@ -4238,9 +4655,12 @@ data2|object|data2|-
 └─stuAge|boolean|年龄|-
 └─stuAddress|string|地址|-
 └─user|object|用户对象|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -4252,9 +4672,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userMap|map|map用户信息|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -4266,9 +4689,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─userTreeSet|object|用户列表|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -4280,9 +4706,12 @@ data2|object|data2|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
 └─user1|object|用户对象2|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser1|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUser2|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─subUserName|string|用户名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─numbers|number|bigInteger|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
@@ -4300,129 +4729,136 @@ age|int32|年龄|-
 {
 	"data":[
 		{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":99.71,
-			"money":76.78,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":17
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":894
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":36.79,
+			"money":75.23,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		}
 	],
 	"data1":{
-		"userDetails":[
-			{
-				"githubAddress":"萧路031号， 张家口， 甘 453118"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"煜城.丁",
-		"nickName":"leroy.nicolas",
-		"userAddress":"萧路031号， 张家口， 甘 453118",
-		"userAge":8,
-		"phone":"18076612577",
-		"createTime":1573740361961,
-		"small":3.21,
-		"money":58.65,
-		"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-		"telephone":"18076612577"
+		"subUser1":{
+			"subUserName":"文轩.卢",
+			"numbers":785
+		},
+		"subUser2":{
+			"subUserName":"文轩.卢",
+			"numbers":820
+		},
+		"userName":"文轩.卢",
+		"nickName":"damian.streich",
+		"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+		"userAge":57,
+		"phone":"13099815931",
+		"createTime":1576389375357,
+		"small":26.45,
+		"money":84.06,
+		"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+		"telephone":"13099815931"
 	},
 	"data2":{
-		"stuName":"煜城.丁",
+		"stuName":"文轩.卢",
 		"stuAge":true,
-		"stuAddress":"萧路031号， 张家口， 甘 453118",
+		"stuAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
 		"user":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":73.98,
-			"money":6.01,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":207
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":639
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":20.21,
+			"money":98.66,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		},
 		"userMap":{
 			"mapKey":{
-				
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":817
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":561
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":99.11,
+				"money":38.43,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		},
 		"userTreeSet":[
 			{
-				"userDetails":[
-					{
-						"githubAddress":"萧路031号， 张家口， 甘 453118"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"煜城.丁",
-				"nickName":"leroy.nicolas",
-				"userAddress":"萧路031号， 张家口， 甘 453118",
-				"userAge":8,
-				"phone":"18076612577",
-				"createTime":1573740361961,
-				"small":97.03,
-				"money":56.47,
-				"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-				"telephone":"18076612577"
+				"subUser1":{
+					"subUserName":"文轩.卢",
+					"numbers":753
+				},
+				"subUser2":{
+					"subUserName":"文轩.卢",
+					"numbers":542
+				},
+				"userName":"文轩.卢",
+				"nickName":"damian.streich",
+				"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+				"userAge":57,
+				"phone":"13099815931",
+				"createTime":1576389375357,
+				"small":10.27,
+				"money":38.38,
+				"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+				"telephone":"13099815931"
 			}
 		],
 		"user1":{
-			"userDetails":[
-				{
-					"githubAddress":"萧路031号， 张家口， 甘 453118"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"煜城.丁",
-			"nickName":"leroy.nicolas",
-			"userAddress":"萧路031号， 张家口， 甘 453118",
-			"userAge":8,
-			"phone":"18076612577",
-			"createTime":1573740361961,
-			"small":12.61,
-			"money":36.21,
-			"ipv6":"97f0:f74e:56de:4087:fcd9:60ac:0aa9:4f04",
-			"telephone":"18076612577"
+			"subUser1":{
+				"subUserName":"文轩.卢",
+				"numbers":287
+			},
+			"subUser2":{
+				"subUserName":"文轩.卢",
+				"numbers":314
+			},
+			"userName":"文轩.卢",
+			"nickName":"damian.streich",
+			"userAddress":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+			"userAge":57,
+			"phone":"13099815931",
+			"createTime":1576389375357,
+			"small":33.90,
+			"money":40.58,
+			"ipv6":"0227:4ebc:e960:2a36:6cf2:647d:72fc:ae3b",
+			"telephone":"13099815931"
 		}
 	},
-	"age":8
+	"age":57
 }
 ```
 
@@ -4457,8 +4893,8 @@ numbers|number|bigInteger|-
 **Response-example:**
 ```
 {
-	"subUserName":"煜城.丁",
-	"numbers":630
+	"subUserName":"文轩.卢",
+	"numbers":71
 }
 ```
 
@@ -4501,11 +4937,11 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"subUserName":"煜城.丁",
-		"numbers":851
+		"subUserName":"文轩.卢",
+		"numbers":159
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -4546,9 +4982,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"vli68z",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"r8q6vd",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -4596,9 +5032,9 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
+	"name":"文轩.卢",
 	"annyObject":{
-		"name":"煜城.丁",
+		"name":"文轩.卢",
 		"annyObject":{
 			"$ref":"..."
 		},
@@ -4610,7 +5046,7 @@ data|array|泛型数据|-
 	},
 	"data":[
 		{
-			"name":"煜城.丁",
+			"name":"文轩.卢",
 			"annyObject":{
 				"$ref":"..."
 			},
@@ -4656,10 +5092,10 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
-	"annyObject":"00o6m1",
+	"name":"文轩.卢",
+	"annyObject":"5x88tt",
 	"data":[
-		"4abfki"
+		"2xelzt"
 	]
 }
 ```
@@ -4691,8 +5127,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"文轩.卢",
+	"age":57
 }
 ```
 **Response-fields:**
@@ -4705,8 +5141,8 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"文轩.卢",
+	"age":57
 }
 ```
 
@@ -4732,6 +5168,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -4741,11 +5178,12 @@ gender|int32|性别(See: 性别数据字典)|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"g41ph0",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
+	"simpleEnum":"RED",
+	"username":"文轩.卢",
+	"password":"ka87hp",
+	"nickName":"damian.streich",
+	"mobile":"15998214064",
+	"gender":0
 }
 ```
 **Response-fields:**
@@ -4830,60 +5268,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"136",
-	"createBy":"sja6wf",
-	"createTime":2019-11-14,
-	"updateBy":"sa5xik",
-	"updateTime":2019-11-14,
-	"delFlag":4,
-	"username":"煜城.丁",
-	"password":"xu720t",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"email":"浩然.何@hotmail.com",
-	"address":"萧路031号， 张家口， 甘 453118",
-	"sex":0,
-	"avatar":"9sd5kp",
-	"type":569,
-	"status":835,
-	"description":"mrmhvw",
+	"id":"184",
+	"createBy":"vpae2w",
+	"createTime":"2019-12-15",
+	"updateBy":"aqjygh",
+	"updateTime":"2019-12-15",
+	"delFlag":8,
+	"username":"文轩.卢",
+	"password":"fpus8q",
+	"nickName":"damian.streich",
+	"mobile":"15998214064",
+	"email":"峻熙.潘@gmail.com",
+	"address":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+	"sex":1,
+	"avatar":"bbf1l7",
+	"type":394,
+	"status":975,
+	"description":"70b4fm",
 	"roles":[
 		{
-			"id":"136",
-			"createBy":"wayfst",
-			"createTime":2019-11-14,
-			"updateBy":"3mqwjy",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
+			"id":"184",
+			"createBy":"n8838d",
+			"createTime":"2019-12-15",
+			"updateBy":"oe9nlo",
+			"updateTime":"2019-12-15",
+			"delFlag":8,
+			"name":"文轩.卢",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"136",
-					"createBy":"flepk5",
-					"createTime":2019-11-14,
-					"updateBy":"vpsabl",
-					"updateTime":2019-11-14,
-					"delFlag":4,
-					"name":"煜城.丁",
-					"level":658,
-					"type":164,
-					"title":"797n8z",
-					"path":"6nf9wt",
-					"component":"lvbne0",
-					"icon":"4btq91",
-					"buttonType":"3b6u6f",
-					"parentId":"136",
-					"description":"2cp9ka",
-					"sortOrder":761,
-					"status":743,
+					"id":"184",
+					"createBy":"dxirds",
+					"createTime":"2019-12-15",
+					"updateBy":"lsvyzt",
+					"updateTime":"2019-12-15",
+					"delFlag":8,
+					"name":"文轩.卢",
+					"level":323,
+					"type":492,
+					"title":"ws0o5w",
+					"path":"1ioqfa",
+					"component":"blj1qy",
+					"icon":"sejip7",
+					"buttonType":"vdqw09",
+					"parentId":"184",
+					"description":"0l5u2u",
+					"sortOrder":749,
+					"status":334,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"ifgdhr"
+						"942nff"
 					],
 					"expand":true,
 					"checked":true,
@@ -4894,31 +5332,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"136",
-			"createBy":"377duw",
-			"createTime":2019-11-14,
-			"updateBy":"u94rit",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
-			"level":272,
-			"type":77,
-			"title":"n82ohv",
-			"path":"5gh0w7",
-			"component":"ltexv5",
-			"icon":"j02agn",
-			"buttonType":"bngp06",
-			"parentId":"136",
-			"description":"ctnfkm",
-			"sortOrder":380,
-			"status":589,
+			"id":"184",
+			"createBy":"327vi8",
+			"createTime":"2019-12-15",
+			"updateBy":"1vuku8",
+			"updateTime":"2019-12-15",
+			"delFlag":8,
+			"name":"文轩.卢",
+			"level":52,
+			"type":613,
+			"title":"vo01g2",
+			"path":"tovz8m",
+			"component":"vgrj73",
+			"icon":"0mzot0",
+			"buttonType":"j943j9",
+			"parentId":"184",
+			"description":"2e36bq",
+			"sortOrder":231,
+			"status":367,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"66abfr"
+				"hg4ram"
 			],
 			"expand":true,
 			"checked":true,
@@ -4949,6 +5387,7 @@ partnerId|string|合作方账号(Global)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+simpleEnum|string|简单枚举|false|-
 username|string|用户名|true|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
@@ -4958,11 +5397,12 @@ gender|int32|性别(See: 性别数据字典)|false|-
 **Request-example:**
 ```
 {
-	"username":"煜城.丁",
-	"password":"axk9ed",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"gender":2
+	"simpleEnum":"RED",
+	"username":"文轩.卢",
+	"password":"zz2dfz",
+	"nickName":"damian.streich",
+	"mobile":"15998214064",
+	"gender":0
 }
 ```
 **Response-fields:**
@@ -5047,60 +5487,60 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"136",
-	"createBy":"zll2cs",
-	"createTime":2019-11-14,
-	"updateBy":"t975y3",
-	"updateTime":2019-11-14,
-	"delFlag":4,
-	"username":"煜城.丁",
-	"password":"0o2ivy",
-	"nickName":"leroy.nicolas",
-	"mobile":"17538627282",
-	"email":"浩然.何@hotmail.com",
-	"address":"萧路031号， 张家口， 甘 453118",
-	"sex":0,
-	"avatar":"gt6in4",
-	"type":734,
-	"status":760,
-	"description":"qs78uc",
+	"id":"184",
+	"createBy":"ipiigs",
+	"createTime":"2019-12-15",
+	"updateBy":"7b3h8b",
+	"updateTime":"2019-12-15",
+	"delFlag":8,
+	"username":"文轩.卢",
+	"password":"hgepgs",
+	"nickName":"damian.streich",
+	"mobile":"15998214064",
+	"email":"峻熙.潘@gmail.com",
+	"address":"Apt. 079 何中心32号， 拉萨， 黑 580707",
+	"sex":1,
+	"avatar":"33b50d",
+	"type":442,
+	"status":286,
+	"description":"62ztxr",
 	"roles":[
 		{
-			"id":"136",
-			"createBy":"my8qy8",
-			"createTime":2019-11-14,
-			"updateBy":"9ujt84",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
+			"id":"184",
+			"createBy":"8rt0q4",
+			"createTime":"2019-12-15",
+			"updateBy":"xuwz5n",
+			"updateTime":"2019-12-15",
+			"delFlag":8,
+			"name":"文轩.卢",
 			"defaultRole":true,
 			"permissions":[
 				{
-					"id":"136",
-					"createBy":"740yjc",
-					"createTime":2019-11-14,
-					"updateBy":"zfe4nv",
-					"updateTime":2019-11-14,
-					"delFlag":4,
-					"name":"煜城.丁",
-					"level":729,
-					"type":655,
-					"title":"4knr3q",
-					"path":"wiip1i",
-					"component":"fvzajh",
-					"icon":"lahm4k",
-					"buttonType":"4g9hg7",
-					"parentId":"136",
-					"description":"puogw9",
-					"sortOrder":746,
-					"status":377,
+					"id":"184",
+					"createBy":"2fjdpa",
+					"createTime":"2019-12-15",
+					"updateBy":"ei788y",
+					"updateTime":"2019-12-15",
+					"delFlag":8,
+					"name":"文轩.卢",
+					"level":203,
+					"type":193,
+					"title":"b7nvzd",
+					"path":"krquoy",
+					"component":"wx35i3",
+					"icon":"uivbke",
+					"buttonType":"bvz0kp",
+					"parentId":"184",
+					"description":"ncpkhk",
+					"sortOrder":984,
+					"status":394,
 					"children":[
 						{
 							"$ref":".."
 						}
 					],
 					"permTypes":[
-						"tvvva3"
+						"52jj9w"
 					],
 					"expand":true,
 					"checked":true,
@@ -5111,31 +5551,31 @@ permissions|array|用户拥有的权限|-
 	],
 	"permissions":[
 		{
-			"id":"136",
-			"createBy":"f4v1an",
-			"createTime":2019-11-14,
-			"updateBy":"hq0023",
-			"updateTime":2019-11-14,
-			"delFlag":4,
-			"name":"煜城.丁",
-			"level":133,
-			"type":859,
-			"title":"olcm5r",
-			"path":"jph7nm",
-			"component":"yczlki",
-			"icon":"p1foit",
-			"buttonType":"4v7yqn",
-			"parentId":"136",
-			"description":"ron7h2",
-			"sortOrder":952,
-			"status":620,
+			"id":"184",
+			"createBy":"y5cyvd",
+			"createTime":"2019-12-15",
+			"updateBy":"ftefba",
+			"updateTime":"2019-12-15",
+			"delFlag":8,
+			"name":"文轩.卢",
+			"level":366,
+			"type":969,
+			"title":"2pb24n",
+			"path":"3zq7he",
+			"component":"u4ell5",
+			"icon":"0tyodj",
+			"buttonType":"ltzw87",
+			"parentId":"184",
+			"description":"749n6f",
+			"sortOrder":423,
+			"status":934,
 			"children":[
 				{
 					"$ref":".."
 				}
 			],
 			"permTypes":[
-				"0dztet"
+				"yutglz"
 			],
 			"expand":true,
 			"checked":true,
@@ -5171,15 +5611,16 @@ name|string|姓名|true|-
 birthday|string|生日|true|-
 age|int32|年龄|false|-
 subject|object|科目|true|-
+└─subjectName|string|科目名称|true|-
 
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"birthday":"2019-11-14",
-	"age":8,
+	"name":"文轩.卢",
+	"birthday":"2019-12-15",
+	"age":57,
 	"subject":{
-		"subjectName":"煜城.丁"
+		"subjectName":"文轩.卢"
 	}
 }
 ```
@@ -5201,8 +5642,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -5236,11 +5677,11 @@ parameter|object|No comments found.|false|-
 **Request-example:**
 ```
 {
-	"token":"xlny8t",
-	"sequenceNo":"d5kpa4",
+	"token":"0xhr5e",
+	"sequenceNo":"xmbpvz",
 	"parameter":{
-		"subUserName":"煜城.丁",
-		"numbers":388
+		"subUserName":"文轩.卢",
+		"numbers":908
 	}
 }
 ```
@@ -5262,8 +5703,8 @@ timestamp|string|响应时间|-
 	"data":{
 		"waring":"You may have used non-display generics."
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -5294,7 +5735,7 @@ text|string|请求文本|true|-
 **Request-example:**
 ```
 {
-	"text":"tcueps"
+	"text":"x7rg0r"
 }
 ```
 **Response-fields:**
@@ -5312,9 +5753,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"kl05o6",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"fuq99i",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -5343,7 +5784,7 @@ query|string|请求参数|true|-
 
 **Request-example:**
 ```
-http://localhost:8080/xss/query?query=dkzpyf
+http://localhost:8080/xss/query?query=n3ffvi
 ```
 **Response-fields:**
 
@@ -5360,9 +5801,9 @@ timestamp|string|响应时间|-
 {
 	"success":true,
 	"message":"success",
-	"data":"agq366",
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"data":"cjx7xw",
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
@@ -5393,8 +5834,8 @@ age|int32|年龄|false|-
 **Request-example:**
 ```
 {
-	"name":"煜城.丁",
-	"age":8
+	"name":"文轩.卢",
+	"age":57
 }
 ```
 **Response-fields:**
@@ -5415,14 +5856,21 @@ timestamp|string|响应时间|-
 	"success":true,
 	"message":"success",
 	"data":{
-		"name":"煜城.丁",
-		"age":8
+		"name":"文轩.卢",
+		"age":57
 	},
-	"code":"17289",
-	"timestamp":"2019-11-14 22:06:01"
+	"code":"6995",
+	"timestamp":"2019-12-15 13:56:15"
 }
 ```
 
+## 错误码列表
+Error code |Description
+---|---
+0000|success
+1001|必选参数为空
+1002|参数格式错误
+9999|系统繁忙，请稍后再试....
 
 ## 数据字典
 ### 订单状态
