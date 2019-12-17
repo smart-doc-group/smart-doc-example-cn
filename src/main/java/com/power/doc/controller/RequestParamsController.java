@@ -3,6 +3,9 @@ package com.power.doc.controller;
 import com.power.doc.model.User;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import java.util.List;
 import java.util.Map;
 
@@ -22,7 +25,7 @@ public class RequestParamsController {
      * @param age  age
      */
     @GetMapping("testNormalParams/binding")
-    public void testNormalParam(String name, Integer age) {
+    public void testNormalParam(@NotEmpty String name, @Min(value = 0) @Max(value = 130) Integer age) {
 
 
     }
