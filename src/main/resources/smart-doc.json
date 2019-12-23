@@ -10,18 +10,21 @@
   "skipTransientField": true,
   "dataDictionaries": [
     {
-      "title": "title",
+
+      "title": "订单状态",
       "enumClassName": "com.power.doc.enums.OrderEnum",
       "codeField": "code",
       "descField": "desc"
     }
   ],
+
   "errorCodeDictionaries": [{
-    "title": "error",
+    "title": "title",
     "enumClassName": "com.power.doc.enums.ErrorCodeEnum",
-    "codeField": "value",
+    "codeField": "code",
     "descField": "desc"
   }],
+
   "revisionLogs": [
     {
       "version": "1.0",

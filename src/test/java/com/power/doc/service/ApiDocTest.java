@@ -1,7 +1,5 @@
 package com.power.doc.service;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
 import com.power.common.util.DateTimeUtil;
 import com.power.doc.builder.*;
 import com.power.doc.constants.DocGlobalConstants;
@@ -26,15 +24,19 @@ public class ApiDocTest {
     @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
-//        config.setServerUrl("http://localhost:8080");
+        config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
         config.setStrict(true);
         //true会将文档合并导出到一个markdown
         config.setAllInOne(true);
+        config.setShowAuthor(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
 
         config.setCoverOld(true);
+
+        //是否显示接口作者 默认true
+        //config.setShowAuthor(false);
 
 //        config.setProjectName("Smart-doc测试样例");
 
