@@ -10,6 +10,7 @@
   "skipTransientField": true,
   "dataDictionaries": [
     {
+
       "title": "订单状态",
       "enumClassName": "com.power.doc.enums.OrderEnum",
       "codeField": "code",
@@ -29,7 +30,15 @@
       "version": "1.0",
       "status": "use",
       "author": "author",
+      "revisionTime": "2019-10-12",
       "remarks": "desc"
+    }
+  ],
+  "errorCodes": [
+    {
+      "value": "200",
+      "type": "string",
+      "desc": "desc"
     }
   ],
   "customResponseFields": [
@@ -49,7 +58,6 @@
       "since": "-"
     }
   ],
-
   "sourceCodePaths": [
     {
       "path": "src/main/java",

@@ -18,6 +18,7 @@ public class ResponseEntityController {
 
     /**
      * ResponseEntity return List
+     *
      * @return
      */
     @GetMapping("/responseEntity/list")
