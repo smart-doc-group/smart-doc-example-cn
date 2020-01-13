@@ -12,6 +12,10 @@ import javax.validation.constraints.NotNull;
 @Data
 public class SimpleUser {
 
+    private final static int AGE = 100;
+
+    private final int   MAX_SPEED = 120;
+
     /**
      * 简单枚举
      */

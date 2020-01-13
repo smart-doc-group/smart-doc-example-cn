@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>JSR303参数验证规范测试</title>
 </head>
 <body>
@@ -17,6 +17,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> 验证validate</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -31,14 +41,15 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;name&quot;:&quot;聪健.雷&quot;,
-	&quot;birthday&quot;:&quot;2019-11-06&quot;,
-	&quot;age&quot;:18,
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/test --data '{
+	&quot;name&quot;:&quot;明杰.贺&quot;,
+	&quot;birthday&quot;:&quot;2020-01-13&quot;,
+	&quot;age&quot;:26,
 	&quot;subject&quot;:{
-		&quot;subjectName&quot;:&quot;聪健.雷&quot;
+		&quot;subjectName&quot;:&quot;明杰.贺&quot;
 	}
 }
+'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -47,8 +58,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
@@ -60,8 +71,8 @@
 	&quot;data&quot;:{
 		&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
 	},
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 <h2>验证通用参数</h2>
@@ -69,6 +80,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> 验证通用参数</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -78,19 +99,18 @@
 <tr><td>token</td><td>string</td><td>token</td><td>true</td><td>-</td></tr>
 <tr><td>sequenceNo</td><td>string</td><td>序列号</td><td>true</td><td>-</td></tr>
 <tr><td>parameter</td><td>object</td><td>No comments found.</td><td>false</td><td>-</td></tr>
-<tr><td>└─subUserName</td><td>string</td><td>用户名称</td><td>true</td><td>-</td></tr>
 <tr><td>└─numbers</td><td>number</td><td>bigInteger</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;token&quot;:&quot;ytb1lj&quot;,
-	&quot;sequenceNo&quot;:&quot;g25hkl&quot;,
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/valid --data '{
+	&quot;token&quot;:&quot;2zndp5&quot;,
+	&quot;sequenceNo&quot;:&quot;tbkjj9&quot;,
 	&quot;parameter&quot;:{
-		&quot;subUserName&quot;:&quot;聪健.雷&quot;,
-		&quot;numbers&quot;:613
+		&quot;numbers&quot;:347
 	}
 }
+'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -99,8 +119,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
@@ -112,13 +132,13 @@
 	&quot;data&quot;:{
 		&quot;waring&quot;:&quot;You may have used non-display generics.&quot;
 	},
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

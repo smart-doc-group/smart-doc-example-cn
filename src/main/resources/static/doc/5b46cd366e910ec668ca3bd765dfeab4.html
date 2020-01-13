@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>用户信息操作接口</title>
 </head>
 <body>
@@ -17,25 +17,42 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> 添加用户</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
 <tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
 <tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
 <tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;username&quot;:&quot;聪健.雷&quot;,
-	&quot;password&quot;:&quot;jhdi23&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;mobile&quot;:&quot;15390225140&quot;
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/user/add --data '{
+	&quot;MAX_SPEED&quot;:703,
+	&quot;simpleEnum&quot;:&quot;RED&quot;,
+	&quot;username&quot;:&quot;明杰.贺&quot;,
+	&quot;password&quot;:&quot;wra2nz&quot;,
+	&quot;nickName&quot;:&quot;maxima.veum&quot;,
+	&quot;mobile&quot;:&quot;18725509372&quot;,
+	&quot;gender&quot;:0
 }
+'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -121,60 +138,60 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;id&quot;:&quot;4&quot;,
-	&quot;createBy&quot;:&quot;kfwudx&quot;,
-	&quot;createTime&quot;:2019-11-06,
-	&quot;updateBy&quot;:&quot;lg9h0l&quot;,
-	&quot;updateTime&quot;:2019-11-06,
+	&quot;id&quot;:&quot;142&quot;,
+	&quot;createBy&quot;:&quot;aw4lka&quot;,
+	&quot;createTime&quot;:&quot;2020-01-13&quot;,
+	&quot;updateBy&quot;:&quot;i6ox67&quot;,
+	&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 	&quot;delFlag&quot;:5,
-	&quot;username&quot;:&quot;聪健.雷&quot;,
-	&quot;password&quot;:&quot;xtmfy5&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;mobile&quot;:&quot;15390225140&quot;,
-	&quot;email&quot;:&quot;文轩.胡@yahoo.com&quot;,
-	&quot;address&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+	&quot;username&quot;:&quot;明杰.贺&quot;,
+	&quot;password&quot;:&quot;4lxdkw&quot;,
+	&quot;nickName&quot;:&quot;maxima.veum&quot;,
+	&quot;mobile&quot;:&quot;18725509372&quot;,
+	&quot;email&quot;:&quot;文轩.方@yahoo.com&quot;,
+	&quot;address&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
 	&quot;sex&quot;:0,
-	&quot;avatar&quot;:&quot;q6w2gm&quot;,
-	&quot;type&quot;:427,
-	&quot;status&quot;:77,
-	&quot;description&quot;:&quot;ycxo1h&quot;,
+	&quot;avatar&quot;:&quot;bjzt3t&quot;,
+	&quot;type&quot;:226,
+	&quot;status&quot;:89,
+	&quot;description&quot;:&quot;293p2e&quot;,
 	&quot;roles&quot;:[
 		{
-			&quot;id&quot;:&quot;4&quot;,
-			&quot;createBy&quot;:&quot;lt42lj&quot;,
-			&quot;createTime&quot;:2019-11-06,
-			&quot;updateBy&quot;:&quot;o936dd&quot;,
-			&quot;updateTime&quot;:2019-11-06,
+			&quot;id&quot;:&quot;142&quot;,
+			&quot;createBy&quot;:&quot;6yttka&quot;,
+			&quot;createTime&quot;:&quot;2020-01-13&quot;,
+			&quot;updateBy&quot;:&quot;ml97fb&quot;,
+			&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 			&quot;delFlag&quot;:5,
-			&quot;name&quot;:&quot;聪健.雷&quot;,
+			&quot;name&quot;:&quot;明杰.贺&quot;,
 			&quot;defaultRole&quot;:true,
 			&quot;permissions&quot;:[
 				{
-					&quot;id&quot;:&quot;4&quot;,
-					&quot;createBy&quot;:&quot;wbcqmn&quot;,
-					&quot;createTime&quot;:2019-11-06,
-					&quot;updateBy&quot;:&quot;6knl8t&quot;,
-					&quot;updateTime&quot;:2019-11-06,
+					&quot;id&quot;:&quot;142&quot;,
+					&quot;createBy&quot;:&quot;rydqda&quot;,
+					&quot;createTime&quot;:&quot;2020-01-13&quot;,
+					&quot;updateBy&quot;:&quot;iebgug&quot;,
+					&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 					&quot;delFlag&quot;:5,
-					&quot;name&quot;:&quot;聪健.雷&quot;,
-					&quot;level&quot;:458,
-					&quot;type&quot;:842,
-					&quot;title&quot;:&quot;pqcz76&quot;,
-					&quot;path&quot;:&quot;py5nb4&quot;,
-					&quot;component&quot;:&quot;ni93bm&quot;,
-					&quot;icon&quot;:&quot;gpy1qg&quot;,
-					&quot;buttonType&quot;:&quot;tj8om6&quot;,
-					&quot;parentId&quot;:&quot;4&quot;,
-					&quot;description&quot;:&quot;py8jv5&quot;,
-					&quot;sortOrder&quot;:96,
-					&quot;status&quot;:363,
+					&quot;name&quot;:&quot;明杰.贺&quot;,
+					&quot;level&quot;:695,
+					&quot;type&quot;:972,
+					&quot;title&quot;:&quot;cixpff&quot;,
+					&quot;path&quot;:&quot;k6y5d4&quot;,
+					&quot;component&quot;:&quot;p9bgbc&quot;,
+					&quot;icon&quot;:&quot;kj0xqx&quot;,
+					&quot;buttonType&quot;:&quot;vzxbm8&quot;,
+					&quot;parentId&quot;:&quot;142&quot;,
+					&quot;description&quot;:&quot;0au8a0&quot;,
+					&quot;sortOrder&quot;:232,
+					&quot;status&quot;:742,
 					&quot;children&quot;:[
 						{
 							&quot;$ref&quot;:&quot;..&quot;
 						}
 					],
 					&quot;permTypes&quot;:[
-						&quot;7hr6hn&quot;
+						&quot;x0vwrl&quot;
 					],
 					&quot;expand&quot;:true,
 					&quot;checked&quot;:true,
@@ -185,31 +202,31 @@
 	],
 	&quot;permissions&quot;:[
 		{
-			&quot;id&quot;:&quot;4&quot;,
-			&quot;createBy&quot;:&quot;k0y4jf&quot;,
-			&quot;createTime&quot;:2019-11-06,
-			&quot;updateBy&quot;:&quot;jz5ifq&quot;,
-			&quot;updateTime&quot;:2019-11-06,
+			&quot;id&quot;:&quot;142&quot;,
+			&quot;createBy&quot;:&quot;f4z8s6&quot;,
+			&quot;createTime&quot;:&quot;2020-01-13&quot;,
+			&quot;updateBy&quot;:&quot;vcgd4s&quot;,
+			&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 			&quot;delFlag&quot;:5,
-			&quot;name&quot;:&quot;聪健.雷&quot;,
-			&quot;level&quot;:392,
-			&quot;type&quot;:614,
-			&quot;title&quot;:&quot;01k5nt&quot;,
-			&quot;path&quot;:&quot;e6ygs8&quot;,
-			&quot;component&quot;:&quot;cqpyo2&quot;,
-			&quot;icon&quot;:&quot;9puj9p&quot;,
-			&quot;buttonType&quot;:&quot;0dv8k0&quot;,
-			&quot;parentId&quot;:&quot;4&quot;,
-			&quot;description&quot;:&quot;fj8qsd&quot;,
-			&quot;sortOrder&quot;:208,
-			&quot;status&quot;:600,
+			&quot;name&quot;:&quot;明杰.贺&quot;,
+			&quot;level&quot;:332,
+			&quot;type&quot;:91,
+			&quot;title&quot;:&quot;7r7jgs&quot;,
+			&quot;path&quot;:&quot;n6o4sg&quot;,
+			&quot;component&quot;:&quot;doy311&quot;,
+			&quot;icon&quot;:&quot;srvcuc&quot;,
+			&quot;buttonType&quot;:&quot;0w0qij&quot;,
+			&quot;parentId&quot;:&quot;142&quot;,
+			&quot;description&quot;:&quot;gtvshk&quot;,
+			&quot;sortOrder&quot;:711,
+			&quot;status&quot;:28,
 			&quot;children&quot;:[
 				{
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
 			&quot;permTypes&quot;:[
-				&quot;c3q58m&quot;
+				&quot;kuh5nb&quot;
 			],
 			&quot;expand&quot;:true,
 			&quot;checked&quot;:true,
@@ -223,25 +240,33 @@
 <p><strong>Type:</strong> <code>PUT</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> 更新用户</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
 <tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
 <tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
 <tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;username&quot;:&quot;聪健.雷&quot;,
-	&quot;password&quot;:&quot;fqswh7&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;mobile&quot;:&quot;15390225140&quot;
-}
+<pre><code>curl -X GET -i 'http://localhost:8080/user/update'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -327,60 +352,60 @@
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>{
-	&quot;id&quot;:&quot;4&quot;,
-	&quot;createBy&quot;:&quot;w2yecw&quot;,
-	&quot;createTime&quot;:2019-11-06,
-	&quot;updateBy&quot;:&quot;eq2bei&quot;,
-	&quot;updateTime&quot;:2019-11-06,
+	&quot;id&quot;:&quot;142&quot;,
+	&quot;createBy&quot;:&quot;efbj33&quot;,
+	&quot;createTime&quot;:&quot;2020-01-13&quot;,
+	&quot;updateBy&quot;:&quot;0krpu1&quot;,
+	&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 	&quot;delFlag&quot;:5,
-	&quot;username&quot;:&quot;聪健.雷&quot;,
-	&quot;password&quot;:&quot;tbu8d8&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;mobile&quot;:&quot;15390225140&quot;,
-	&quot;email&quot;:&quot;文轩.胡@yahoo.com&quot;,
-	&quot;address&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+	&quot;username&quot;:&quot;明杰.贺&quot;,
+	&quot;password&quot;:&quot;bresmw&quot;,
+	&quot;nickName&quot;:&quot;maxima.veum&quot;,
+	&quot;mobile&quot;:&quot;18725509372&quot;,
+	&quot;email&quot;:&quot;文轩.方@yahoo.com&quot;,
+	&quot;address&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
 	&quot;sex&quot;:0,
-	&quot;avatar&quot;:&quot;7kybd0&quot;,
-	&quot;type&quot;:92,
-	&quot;status&quot;:965,
-	&quot;description&quot;:&quot;w88zan&quot;,
+	&quot;avatar&quot;:&quot;j54fx5&quot;,
+	&quot;type&quot;:306,
+	&quot;status&quot;:173,
+	&quot;description&quot;:&quot;48j56v&quot;,
 	&quot;roles&quot;:[
 		{
-			&quot;id&quot;:&quot;4&quot;,
-			&quot;createBy&quot;:&quot;n49chi&quot;,
-			&quot;createTime&quot;:2019-11-06,
-			&quot;updateBy&quot;:&quot;vz574s&quot;,
-			&quot;updateTime&quot;:2019-11-06,
+			&quot;id&quot;:&quot;142&quot;,
+			&quot;createBy&quot;:&quot;1ittqf&quot;,
+			&quot;createTime&quot;:&quot;2020-01-13&quot;,
+			&quot;updateBy&quot;:&quot;oha7uh&quot;,
+			&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 			&quot;delFlag&quot;:5,
-			&quot;name&quot;:&quot;聪健.雷&quot;,
+			&quot;name&quot;:&quot;明杰.贺&quot;,
 			&quot;defaultRole&quot;:true,
 			&quot;permissions&quot;:[
 				{
-					&quot;id&quot;:&quot;4&quot;,
-					&quot;createBy&quot;:&quot;b93r7p&quot;,
-					&quot;createTime&quot;:2019-11-06,
-					&quot;updateBy&quot;:&quot;hj7u31&quot;,
-					&quot;updateTime&quot;:2019-11-06,
+					&quot;id&quot;:&quot;142&quot;,
+					&quot;createBy&quot;:&quot;qlopng&quot;,
+					&quot;createTime&quot;:&quot;2020-01-13&quot;,
+					&quot;updateBy&quot;:&quot;wp98ax&quot;,
+					&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 					&quot;delFlag&quot;:5,
-					&quot;name&quot;:&quot;聪健.雷&quot;,
-					&quot;level&quot;:789,
-					&quot;type&quot;:265,
-					&quot;title&quot;:&quot;ggcp4i&quot;,
-					&quot;path&quot;:&quot;t9n17u&quot;,
-					&quot;component&quot;:&quot;9hn8uz&quot;,
-					&quot;icon&quot;:&quot;vsrny8&quot;,
-					&quot;buttonType&quot;:&quot;988ji3&quot;,
-					&quot;parentId&quot;:&quot;4&quot;,
-					&quot;description&quot;:&quot;12eihi&quot;,
-					&quot;sortOrder&quot;:373,
-					&quot;status&quot;:305,
+					&quot;name&quot;:&quot;明杰.贺&quot;,
+					&quot;level&quot;:495,
+					&quot;type&quot;:787,
+					&quot;title&quot;:&quot;o98mii&quot;,
+					&quot;path&quot;:&quot;14bsu6&quot;,
+					&quot;component&quot;:&quot;kxmn2b&quot;,
+					&quot;icon&quot;:&quot;y6kyup&quot;,
+					&quot;buttonType&quot;:&quot;zd5t9n&quot;,
+					&quot;parentId&quot;:&quot;142&quot;,
+					&quot;description&quot;:&quot;5ip2t8&quot;,
+					&quot;sortOrder&quot;:87,
+					&quot;status&quot;:970,
 					&quot;children&quot;:[
 						{
 							&quot;$ref&quot;:&quot;..&quot;
 						}
 					],
 					&quot;permTypes&quot;:[
-						&quot;u6lqca&quot;
+						&quot;4iwpqj&quot;
 					],
 					&quot;expand&quot;:true,
 					&quot;checked&quot;:true,
@@ -391,31 +416,31 @@
 	],
 	&quot;permissions&quot;:[
 		{
-			&quot;id&quot;:&quot;4&quot;,
-			&quot;createBy&quot;:&quot;pdr2de&quot;,
-			&quot;createTime&quot;:2019-11-06,
-			&quot;updateBy&quot;:&quot;agave9&quot;,
-			&quot;updateTime&quot;:2019-11-06,
+			&quot;id&quot;:&quot;142&quot;,
+			&quot;createBy&quot;:&quot;fa7y2g&quot;,
+			&quot;createTime&quot;:&quot;2020-01-13&quot;,
+			&quot;updateBy&quot;:&quot;sng5vs&quot;,
+			&quot;updateTime&quot;:&quot;2020-01-13&quot;,
 			&quot;delFlag&quot;:5,
-			&quot;name&quot;:&quot;聪健.雷&quot;,
-			&quot;level&quot;:76,
-			&quot;type&quot;:511,
-			&quot;title&quot;:&quot;lflja0&quot;,
-			&quot;path&quot;:&quot;f3732b&quot;,
-			&quot;component&quot;:&quot;7cbi1a&quot;,
-			&quot;icon&quot;:&quot;3ui9x2&quot;,
-			&quot;buttonType&quot;:&quot;fzn47w&quot;,
-			&quot;parentId&quot;:&quot;4&quot;,
-			&quot;description&quot;:&quot;pcd1kt&quot;,
-			&quot;sortOrder&quot;:851,
-			&quot;status&quot;:7,
+			&quot;name&quot;:&quot;明杰.贺&quot;,
+			&quot;level&quot;:837,
+			&quot;type&quot;:166,
+			&quot;title&quot;:&quot;jqmrki&quot;,
+			&quot;path&quot;:&quot;57hvb5&quot;,
+			&quot;component&quot;:&quot;b3843t&quot;,
+			&quot;icon&quot;:&quot;mapmfb&quot;,
+			&quot;buttonType&quot;:&quot;42dtm8&quot;,
+			&quot;parentId&quot;:&quot;142&quot;,
+			&quot;description&quot;:&quot;kg4rpu&quot;,
+			&quot;sortOrder&quot;:704,
+			&quot;status&quot;:29,
 			&quot;children&quot;:[
 				{
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
 			&quot;permTypes&quot;:[
-				&quot;yil0ru&quot;
+				&quot;nl53k1&quot;
 			],
 			&quot;expand&quot;:true,
 			&quot;checked&quot;:true,
@@ -426,7 +451,7 @@
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

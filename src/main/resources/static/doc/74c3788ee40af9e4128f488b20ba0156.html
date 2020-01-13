@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>Spring boot params test</title>
 </head>
 <body>
@@ -17,6 +17,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Test Normal param binding</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -28,7 +38,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testNormalParams/binding?name=聪健.雷&amp;age=18
+<pre><code>curl -X GET -i 'http://localhost:8080/testNormalParams/binding?name=明杰.贺&amp;age=26'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -38,6 +48,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> Test @RequestBody User</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -60,10 +80,10 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBody --data '{
 	&quot;userDetails&quot;:[
 		{
-			&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+			&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 		}
 	],
 	&quot;userList&quot;:[
@@ -71,17 +91,18 @@
 			&quot;$ref&quot;:&quot;..&quot;
 		}
 	],
-	&quot;userName&quot;:&quot;聪健.雷&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-	&quot;userAge&quot;:18,
-	&quot;phone&quot;:&quot;13616630336&quot;,
-	&quot;createTime&quot;:1573035799477,
-	&quot;small&quot;:71.79,
-	&quot;money&quot;:5.77,
-	&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-	&quot;telephone&quot;:&quot;13616630336&quot;
+	&quot;userName&quot;:&quot;明杰.贺&quot;,
+	&quot;nickName&quot;:&quot;maxima.veum&quot;,
+	&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+	&quot;userAge&quot;:26,
+	&quot;phone&quot;:&quot;15749065731&quot;,
+	&quot;createTime&quot;:1578879027660,
+	&quot;small&quot;:59.85,
+	&quot;money&quot;:6.60,
+	&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+	&quot;telephone&quot;:&quot;15749065731&quot;
 }
+'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -91,6 +112,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> Test @RequestBody Map</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -113,11 +144,11 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBodyMap --data '{
 	&quot;mapKey&quot;:{
 		&quot;userDetails&quot;:[
 			{
-				&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+				&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 			}
 		],
 		&quot;userList&quot;:[
@@ -125,18 +156,19 @@
 				&quot;$ref&quot;:&quot;..&quot;
 			}
 		],
-		&quot;userName&quot;:&quot;聪健.雷&quot;,
-		&quot;nickName&quot;:&quot;hyman.huels&quot;,
-		&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-		&quot;userAge&quot;:18,
-		&quot;phone&quot;:&quot;13616630336&quot;,
-		&quot;createTime&quot;:1573035799477,
-		&quot;small&quot;:39.96,
-		&quot;money&quot;:68.52,
-		&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-		&quot;telephone&quot;:&quot;13616630336&quot;
+		&quot;userName&quot;:&quot;明杰.贺&quot;,
+		&quot;nickName&quot;:&quot;maxima.veum&quot;,
+		&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+		&quot;userAge&quot;:26,
+		&quot;phone&quot;:&quot;15749065731&quot;,
+		&quot;createTime&quot;:1578879027660,
+		&quot;small&quot;:13.86,
+		&quot;money&quot;:23.27,
+		&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+		&quot;telephone&quot;:&quot;15749065731&quot;
 	}
 }
+'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -146,6 +178,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> Test @RequestBody List</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -156,10 +198,11 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>[
-	&quot;tey0eg&quot;,
-	&quot;1iz05e&quot;
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBodyList --data '[
+	&quot;o1y0e1&quot;,
+	&quot;sdsg7f&quot;
 ]
+'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -169,6 +212,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Test @PathVariable</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -180,7 +233,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/test/聪健.雷/0ls4jz/info
+<pre><code>curl -X GET -i 'http://localhost:8080/test/明杰.贺/orntui/info'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -190,6 +243,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Test @RequestParam</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -201,7 +264,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testRequestParam?author=阎昊焱&amp;type=uaglwu
+<pre><code>curl -X GET -i 'http://localhost:8080/testRequestParam?author=李睿渊&amp;type=petpts'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -211,6 +274,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Use@RequestParam binding value is name,but method param name is userName</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -221,7 +294,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testRequestParamWithValue?name=聪健.雷
+<pre><code>curl -X GET -i 'http://localhost:8080/testRequestParamWithValue?name=明杰.贺'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
@@ -231,6 +304,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> Use@RequestParam binding default value Jordan</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -241,14 +324,75 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
+<pre><code>curl -X GET -i 'http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test much path</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testMuchPath/get/{userId}; http://localhost:8080/testMuchPath/find/{userId}</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> giteeissues #I1545A</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>int64</td><td>userId</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X GET -i 'http://localhost:8080/testMuchPath/get/604'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Test much path much parameter</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/get/{deptId}/{userId}; http://localhost:8080/find/{deptId}/{userId}</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> Test much path much parameter</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>int64</td><td>userId</td><td>true</td><td>-</td></tr>
+<tr><td>deptId</td><td>int64</td><td>deptId</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -i http://localhost:8080/get/485/89
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

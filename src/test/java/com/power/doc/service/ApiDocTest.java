@@ -9,6 +9,8 @@ import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.*;
 import org.junit.Test;
 
+import java.net.URL;
+
 /**
  * Description:
  * ApiDoc测试
@@ -26,7 +28,7 @@ public class ApiDocTest {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
-        config.setStrict(true);
+//        config.setStrict(true);
         //true会将文档合并导出到一个markdown
         config.setAllInOne(true);
         config.setShowAuthor(true);
@@ -77,7 +79,7 @@ public class ApiDocTest {
 
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
-        HtmlApiDocBuilder.builderControllersApi(config);
+        HtmlApiDocBuilder.buildApiDoc(config);
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);
 //        PostmanJsonBuilder.buildPostmanApi(config);

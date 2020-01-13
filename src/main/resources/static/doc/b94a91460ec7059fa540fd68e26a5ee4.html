@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>xss拦击测试</title>
 </head>
 <body>
@@ -15,8 +15,18 @@
 <h2>xss过滤普通post请求</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/xss/text</code></p>
 <p><strong>Type:</strong> <code>POST</code></p>
-<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> xss过滤普通post请求</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -27,9 +37,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;text&quot;:&quot;qs6ud1&quot;
-}
+<pre><code>curl -X POST -i http://localhost:8080/xss/text --data 'text=0au26a'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -38,8 +46,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
@@ -48,9 +56,9 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;x9qyde&quot;,
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;data&quot;:&quot;jjfdu3&quot;,
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 <h2>xss过滤get请求</h2>
@@ -58,6 +66,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> xss过滤get请求</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -68,7 +86,7 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>http://localhost:8080/xss/query?query=d3080l
+<pre><code>curl -X GET -i 'http://localhost:8080/xss/query?query=c4wsow'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -77,8 +95,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
 <tr><td>timestamp</td><td>string</td><td>响应时间</td><td>-</td></tr>
 </tbody>
@@ -87,9 +105,9 @@
 <pre><code>{
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
-	&quot;data&quot;:&quot;g1rjse&quot;,
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;data&quot;:&quot;cevurf&quot;,
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 <h2>xss过滤json数据</h2>
@@ -97,6 +115,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> xss过滤json数据</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
@@ -108,10 +136,11 @@
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;name&quot;:&quot;聪健.雷&quot;,
-	&quot;age&quot;:18
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/xss/json --data '{
+	&quot;name&quot;:&quot;明杰.贺&quot;,
+	&quot;age&quot;:26
 }
+'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -120,8 +149,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>└─name</td><td>string</td><td>姓名</td><td>-</td></tr>
 <tr><td>└─age</td><td>int32</td><td>年龄</td><td>-</td></tr>
 <tr><td>code</td><td>string</td><td>错误代码</td><td>-</td></tr>
@@ -133,16 +162,16 @@
 	&quot;success&quot;:true,
 	&quot;message&quot;:&quot;success&quot;,
 	&quot;data&quot;:{
-		&quot;name&quot;:&quot;聪健.雷&quot;,
-		&quot;age&quot;:18
+		&quot;name&quot;:&quot;明杰.贺&quot;,
+		&quot;age&quot;:26
 	},
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

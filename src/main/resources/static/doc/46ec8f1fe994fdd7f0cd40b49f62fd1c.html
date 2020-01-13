@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>apiNote注解测试</title>
 </head>
 <body>
@@ -14,53 +14,48 @@
     <h1>apiNote注解测试</h1>
 <h2>测试apiNote</h2>
 <p><strong>URL:</strong> <code>http://localhost:8080/test</code></p>
-<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Author:</strong> cht</p>
 <p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
 <p><strong>Description:</strong> 用于测试apiNote注释是否有效</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>userDetails</td><td>array</td><td>用户详情</td><td>false</td><td>-</td></tr>
-<tr><td>└─githubAddress</td><td>string</td><td>测试</td><td>false</td><td>-</td></tr>
-<tr><td>userList</td><td>array</td><td>用户列表</td><td>false</td><td>-</td></tr>
-<tr><td>userName</td><td>string</td><td>用户名</td><td>false</td><td>-</td></tr>
-<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>-</td></tr>
-<tr><td>userAddress</td><td>string</td><td>用户地址</td><td>false</td><td>-</td></tr>
-<tr><td>userAge</td><td>int32</td><td>用户年龄</td><td>false</td><td>-</td></tr>
-<tr><td>phone</td><td>string</td><td>手机号</td><td>false</td><td>-</td></tr>
-<tr><td>createTime</td><td>int64</td><td>创建时间</td><td>false</td><td>-</td></tr>
-<tr><td>small</td><td>float</td><td>钱少</td><td>false</td><td>-</td></tr>
-<tr><td>money</td><td>double</td><td>钱太多了</td><td>false</td><td>-</td></tr>
-<tr><td>ipv6</td><td>string</td><td>ipv6</td><td>false</td><td>-</td></tr>
-<tr><td>telephone</td><td>string</td><td>固定电话</td><td>false</td><td>-</td></tr>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>{
-	&quot;userDetails&quot;:[
-		{
-			&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
-		}
-	],
-	&quot;userList&quot;:[
-		{
-			&quot;$ref&quot;:&quot;..&quot;
-		}
-	],
-	&quot;userName&quot;:&quot;聪健.雷&quot;,
-	&quot;nickName&quot;:&quot;hyman.huels&quot;,
-	&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-	&quot;userAge&quot;:18,
-	&quot;phone&quot;:&quot;13616630336&quot;,
-	&quot;createTime&quot;:1573035799477,
-	&quot;small&quot;:9.13,
-	&quot;money&quot;:41.07,
-	&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-	&quot;telephone&quot;:&quot;13616630336&quot;
-}
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/test --data '[
+	{
+		&quot;MAX_SPEED&quot;:620,
+		&quot;simpleEnum&quot;:&quot;RED&quot;,
+		&quot;username&quot;:&quot;明杰.贺&quot;,
+		&quot;password&quot;:&quot;pwzd8j&quot;,
+		&quot;nickName&quot;:&quot;maxima.veum&quot;,
+		&quot;mobile&quot;:&quot;18725509372&quot;,
+		&quot;gender&quot;:0
+	}
+]
+'
 </code></pre>
 <p><strong>Response-fields:</strong></p>
 <table>
@@ -68,15 +63,92 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>no param name</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
+<tr><td>No field</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
-<pre><code>chlujr
+<pre><code>qlu91s
+</code></pre>
+<h2>测试key value对泛型</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/testKeyValue</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/json; charset=utf-8</code></p>
+<p><strong>Description:</strong> 测试key value对泛型</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>key</td><td>object</td><td>key</td><td>false</td><td>-</td></tr>
+<tr><td>└─MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>└─simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>└─username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>└─password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>└─nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>└─mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>└─gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
+<tr><td>test</td><td>object</td><td>托尔斯泰</td><td>false</td><td>-</td></tr>
+<tr><td>└─any object</td><td>object</td><td>any object.</td><td>false</td><td>-</td></tr>
+<tr><td>value</td><td>object</td><td>value</td><td>false</td><td>-</td></tr>
+<tr><td>└─id</td><td>string</td><td>自增编号</td><td>false</td><td>v1.0</td></tr>
+<tr><td>└─createBy</td><td>string</td><td>创建人</td><td>false</td><td>v1.2</td></tr>
+<tr><td>└─createTime</td><td>string</td><td>创建时间</td><td>false</td><td>v1.0</td></tr>
+<tr><td>└─updateBy</td><td>string</td><td>修改人</td><td>false</td><td>v1.1</td></tr>
+<tr><td>└─updateTime</td><td>string</td><td>修改时间</td><td>false</td><td>v1.1</td></tr>
+<tr><td>└─delFlag</td><td>int32</td><td>删除标记[1表示已删除，默认值0]</td><td>false</td><td>v1.1</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testKeyValue --data '{
+	&quot;key&quot;:{
+		&quot;MAX_SPEED&quot;:338,
+		&quot;simpleEnum&quot;:&quot;RED&quot;,
+		&quot;username&quot;:&quot;明杰.贺&quot;,
+		&quot;password&quot;:&quot;84npm0&quot;,
+		&quot;nickName&quot;:&quot;maxima.veum&quot;,
+		&quot;mobile&quot;:&quot;18725509372&quot;,
+		&quot;gender&quot;:0
+	},
+	&quot;test&quot;:{
+		&quot;object&quot;:&quot;any object&quot;
+	},
+	&quot;value&quot;:{
+		&quot;id&quot;:&quot;142&quot;,
+		&quot;createBy&quot;:&quot;y40qtq&quot;,
+		&quot;createTime&quot;:&quot;2020-01-13&quot;,
+		&quot;updateBy&quot;:&quot;5orojw&quot;,
+		&quot;updateTime&quot;:&quot;2020-01-13&quot;,
+		&quot;delFlag&quot;:5
+	}
+}
+'
+</code></pre>
+<p><strong>Response-fields:</strong></p>
+<table>
+<thead>
+<tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>No field</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Response-example:</strong></p>
+<pre><code>2lymxu
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>接收表单参数</title>
 </head>
 <body>
@@ -17,28 +17,287 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> 测试formData</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
 </thead>
 <tbody>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
 <tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
 <tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
 <tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
 <tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Request-example:</strong></p>
-<pre><code>Smart-doc can't support create form-data example,
-It is recommended to use @RequestBody to receive parameters.
+<pre><code>curl -X POST -i http://localhost:8080/formData1 --data 'MAX_SPEED=3&amp;simpleEnum=RED&amp;username=明杰.贺&amp;password=80tlcr&amp;nickName=maxima.veum&amp;mobile=18725509372&amp;gender=WOMAN'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Post请求发表单文件</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData2</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>multipart/form-data</code></p>
+<p><strong>Description:</strong> Post请求发表单文件</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>userData</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>file</td><td>file</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -i http://localhost:8080/formData2 --data 'userId=142&amp;userData=22vj3k'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>Get请求发表单文件 暂不支持完全解析</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData2</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>multipart/form-data</code></p>
+<p><strong>Description:</strong> Get请求发表单文件 暂不支持完全解析</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>userData</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>file</td><td>file</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X GET -i 'http://localhost:8080/formData2?userId=142&amp;userData=sivw89'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>表单 包含复杂对象的Get 暂不支持完全解析</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData4</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> 表单 包含复杂对象的Get 暂不支持完全解析</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>userData</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X GET -i 'http://localhost:8080/formData4?userId=142&amp;userData=va8gnf&amp;MAX_SPEED=65&amp;simpleEnum=RED&amp;username=明杰.贺&amp;password=ep0qyf&amp;nickName=maxima.veum&amp;mobile=18725509372&amp;gender=WOMAN'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>表单 包含复杂对象</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData5</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> 表单 包含复杂对象</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>userData</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -i http://localhost:8080/formData5 --data 'userId=142&amp;userData=itof33&amp;MAX_SPEED=223&amp;simpleEnum=RED&amp;username=明杰.贺&amp;password=dzr1ts&amp;nickName=maxima.veum&amp;mobile=18725509372&amp;gender=WOMAN'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>表单 枚举</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData6</code></p>
+<p><strong>Type:</strong> <code>GET</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> 表单 枚举</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>userId</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>userData</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>simpleUser</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X GET -i 'http://localhost:8080/formData6?userId=142&amp;userData=bf8glg&amp;simpleUser=RED'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>测试formData带路径参数</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData1/{id}</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> 测试formData带路径参数</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -i http://localhost:8080/formData1/142 --data 'MAX_SPEED=797&amp;simpleEnum=RED&amp;username=明杰.贺&amp;password=4pmi7d&amp;nickName=maxima.veum&amp;mobile=18725509372&amp;gender=WOMAN'
+</code></pre>
+<p><strong>Response-example:</strong></p>
+<pre><code>This api return nothing.
+</code></pre>
+<h2>测试formData带路多个路径参数</h2>
+<p><strong>URL:</strong> <code>http://localhost:8080/formData1/{id}/{age}</code></p>
+<p><strong>Type:</strong> <code>POST</code></p>
+<p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
+<p><strong>Description:</strong> 测试formData带路多个路径参数</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Parameter</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>id</td><td>string</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>age</td><td>int32</td><td>No comments found.</td><td>true</td><td>-</td></tr>
+<tr><td>MAX_SPEED</td><td>int32</td><td>No comments found.</td><td>false</td><td>-</td></tr>
+<tr><td>simpleEnum</td><td>string</td><td>简单枚举</td><td>false</td><td>-</td></tr>
+<tr><td>username</td><td>string</td><td>用户名</td><td>true</td><td>v1.0</td></tr>
+<tr><td>password</td><td>string</td><td>密码</td><td>false</td><td>v1.0</td></tr>
+<tr><td>nickName</td><td>string</td><td>昵称</td><td>false</td><td>v1.0</td></tr>
+<tr><td>mobile</td><td>string</td><td>电话</td><td>false</td><td>v1.0</td></tr>
+<tr><td>gender</td><td>int32</td><td>性别(See: 性别数据字典)</td><td>false</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Request-example:</strong></p>
+<pre><code>curl -X POST -i http://localhost:8080/formData1/142/26 --data 'MAX_SPEED=562&amp;simpleEnum=RED&amp;username=明杰.贺&amp;password=vlxvpe&amp;nickName=maxima.veum&amp;mobile=18725509372&amp;gender=WOMAN'
 </code></pre>
 <p><strong>Response-example:</strong></p>
 <pre><code>This api return nothing.
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>

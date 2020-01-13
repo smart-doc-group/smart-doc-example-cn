@@ -70,14 +70,6 @@ public class FormDataController {
         System.out.println("success");
     }
 
-
-    /**
-     *表单 ListObject>
-     */
-    @PostMapping("formData7")
-    public void formData7(String userId, String userData, List<SimpleUser> simpleUser){
-        System.out.println("success");
-    }
     /**
      * 测试formData带路径参数
      * @param simpleUser

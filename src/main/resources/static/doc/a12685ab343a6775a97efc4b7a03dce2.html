@@ -6,7 +6,7 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <link rel="stylesheet" href="markdown.css?v=1573035797085"/>
+    <link rel="stylesheet" href="markdown.css?v=1578879025065"/>
     <title>List返回接口Api文档测试</title>
 </head>
 <body>
@@ -17,6 +17,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;String&gt;结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listString
 </code></pre>
@@ -26,13 +36,13 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>no param name</td><td>array of string</td><td>The api directly returns the array of string type value.</td><td>-</td></tr>
+<tr><td>No field</td><td>array of string</td><td>The api directly returns the array of string type value.</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>[
-	&quot;s5rvmy&quot;,
-	&quot;fcbcs4&quot;
+	&quot;bxegfl&quot;,
+	&quot;yfs6wr&quot;
 ]
 </code></pre>
 <h2>List&lt;Map&lt;String,String&gt;&gt;结构</h2>
@@ -40,6 +50,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;Map&lt;String,String&gt;&gt;结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listMap
 </code></pre>
@@ -49,14 +69,14 @@
 <tr><th>Field</th><th>Type</th><th>Description</th><th>Since</th></tr>
 </thead>
 <tbody>
-<tr><td>no param name</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
+<tr><td>No field</td><td>string</td><td>The api directly returns the string type value.</td><td>-</td></tr>
 </tbody>
 </table>
 <p><strong>Response-example:</strong></p>
 <pre><code>[
 	{
-		&quot;mapKey1&quot;:&quot;nxchbf&quot;,
-		&quot;mapKey2&quot;:&quot;yvja24&quot;
+		&quot;mapKey1&quot;:&quot;991vnq&quot;,
+		&quot;mapKey2&quot;:&quot;or9prt&quot;
 	}
 ]
 </code></pre>
@@ -65,6 +85,16 @@
 <p><strong>Type:</strong> <code>POST</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;自动义对象&gt;</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listObject
 </code></pre>
@@ -94,7 +124,7 @@
 	{
 		&quot;userDetails&quot;:[
 			{
-				&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+				&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 			}
 		],
 		&quot;userList&quot;:[
@@ -102,16 +132,16 @@
 				&quot;$ref&quot;:&quot;..&quot;
 			}
 		],
-		&quot;userName&quot;:&quot;聪健.雷&quot;,
-		&quot;nickName&quot;:&quot;hyman.huels&quot;,
-		&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-		&quot;userAge&quot;:18,
-		&quot;phone&quot;:&quot;13616630336&quot;,
-		&quot;createTime&quot;:1573035799477,
-		&quot;small&quot;:13.45,
-		&quot;money&quot;:74.60,
-		&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-		&quot;telephone&quot;:&quot;13616630336&quot;
+		&quot;userName&quot;:&quot;明杰.贺&quot;,
+		&quot;nickName&quot;:&quot;maxima.veum&quot;,
+		&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+		&quot;userAge&quot;:26,
+		&quot;phone&quot;:&quot;15749065731&quot;,
+		&quot;createTime&quot;:1578879027660,
+		&quot;small&quot;:1.26,
+		&quot;money&quot;:60.84,
+		&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+		&quot;telephone&quot;:&quot;15749065731&quot;
 	}
 ]
 </code></pre>
@@ -120,6 +150,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;Map&lt;String,T&gt;&gt;结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listMap2
 </code></pre>
@@ -194,13 +234,13 @@
 <pre><code>[
 	{
 		&quot;mapKey&quot;:{
-			&quot;stuName&quot;:&quot;聪健.雷&quot;,
+			&quot;stuName&quot;:&quot;明杰.贺&quot;,
 			&quot;stuAge&quot;:true,
-			&quot;stuAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
+			&quot;stuAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
 			&quot;user&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -208,27 +248,22 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:9.06,
-				&quot;money&quot;:83.89,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:42.24,
+				&quot;money&quot;:19.54,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;userMap&quot;:{
 				&quot;mapKey&quot;:{
-					
-				}
-			},
-			&quot;userTreeSet&quot;:[
-				{
 					&quot;userDetails&quot;:[
 						{
-							&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+							&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 						}
 					],
 					&quot;userList&quot;:[
@@ -236,22 +271,46 @@
 							&quot;$ref&quot;:&quot;..&quot;
 						}
 					],
-					&quot;userName&quot;:&quot;聪健.雷&quot;,
-					&quot;nickName&quot;:&quot;hyman.huels&quot;,
-					&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-					&quot;userAge&quot;:18,
-					&quot;phone&quot;:&quot;13616630336&quot;,
-					&quot;createTime&quot;:1573035799477,
-					&quot;small&quot;:87.69,
-					&quot;money&quot;:1.36,
-					&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-					&quot;telephone&quot;:&quot;13616630336&quot;
+					&quot;userName&quot;:&quot;明杰.贺&quot;,
+					&quot;nickName&quot;:&quot;maxima.veum&quot;,
+					&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+					&quot;userAge&quot;:26,
+					&quot;phone&quot;:&quot;15749065731&quot;,
+					&quot;createTime&quot;:1578879027660,
+					&quot;small&quot;:63.76,
+					&quot;money&quot;:46.80,
+					&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+					&quot;telephone&quot;:&quot;15749065731&quot;
+				}
+			},
+			&quot;userTreeSet&quot;:[
+				{
+					&quot;userDetails&quot;:[
+						{
+							&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
+						}
+					],
+					&quot;userList&quot;:[
+						{
+							&quot;$ref&quot;:&quot;..&quot;
+						}
+					],
+					&quot;userName&quot;:&quot;明杰.贺&quot;,
+					&quot;nickName&quot;:&quot;maxima.veum&quot;,
+					&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+					&quot;userAge&quot;:26,
+					&quot;phone&quot;:&quot;15749065731&quot;,
+					&quot;createTime&quot;:1578879027660,
+					&quot;small&quot;:57.21,
+					&quot;money&quot;:65.66,
+					&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+					&quot;telephone&quot;:&quot;15749065731&quot;
 				}
 			],
 			&quot;user1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -259,16 +318,16 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:75.86,
-				&quot;money&quot;:50.77,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:28.45,
+				&quot;money&quot;:98.15,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			}
 		}
 	}
@@ -279,6 +338,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listMap3
 </code></pre>
@@ -340,7 +409,7 @@
 			&quot;data&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -348,21 +417,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:1.64,
-				&quot;money&quot;:63.31,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:79.05,
+				&quot;money&quot;:11.02,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -370,21 +439,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:13.16,
-				&quot;money&quot;:70.38,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:49.29,
+				&quot;money&quot;:90.10,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data2&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -392,18 +461,18 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:71.21,
-				&quot;money&quot;:25.82,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:67.92,
+				&quot;money&quot;:47.20,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
-			&quot;age&quot;:18
+			&quot;age&quot;:26
 		}
 	}
 ]
@@ -413,6 +482,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listTeacher
 </code></pre>
@@ -474,7 +553,7 @@
 			{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -482,23 +561,23 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:67.35,
-				&quot;money&quot;:71.13,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:81.91,
+				&quot;money&quot;:67.73,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			}
 		],
 		&quot;data1&quot;:[
 			{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -506,23 +585,23 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:81.06,
-				&quot;money&quot;:89.33,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:88.65,
+				&quot;money&quot;:64.85,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			}
 		],
 		&quot;data2&quot;:[
 			{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -530,19 +609,19 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:80.56,
-				&quot;money&quot;:98.19,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:52.54,
+				&quot;money&quot;:34.81,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			}
 		],
-		&quot;age&quot;:18
+		&quot;age&quot;:26
 	}
 ]
 </code></pre>
@@ -551,6 +630,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listString1
 </code></pre>
@@ -642,7 +731,7 @@
 			&quot;data&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -650,21 +739,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:22.65,
-				&quot;money&quot;:57.87,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:83.61,
+				&quot;money&quot;:69.89,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -672,21 +761,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:60.18,
-				&quot;money&quot;:79.29,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:68.03,
+				&quot;money&quot;:12.42,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data2&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -694,23 +783,23 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:95.29,
-				&quot;money&quot;:28.66,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:34.40,
+				&quot;money&quot;:53.93,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
-			&quot;age&quot;:18
+			&quot;age&quot;:26
 		},
 		&quot;data1&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+					&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -718,21 +807,21 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;聪健.雷&quot;,
-			&quot;nickName&quot;:&quot;hyman.huels&quot;,
-			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-			&quot;userAge&quot;:18,
-			&quot;phone&quot;:&quot;13616630336&quot;,
-			&quot;createTime&quot;:1573035799477,
-			&quot;small&quot;:52.68,
-			&quot;money&quot;:14.63,
-			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-			&quot;telephone&quot;:&quot;13616630336&quot;
+			&quot;userName&quot;:&quot;明杰.贺&quot;,
+			&quot;nickName&quot;:&quot;maxima.veum&quot;,
+			&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+			&quot;userAge&quot;:26,
+			&quot;phone&quot;:&quot;15749065731&quot;,
+			&quot;createTime&quot;:1578879027660,
+			&quot;small&quot;:87.27,
+			&quot;money&quot;:45.68,
+			&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+			&quot;telephone&quot;:&quot;15749065731&quot;
 		},
 		&quot;data2&quot;:{
 			&quot;userDetails&quot;:[
 				{
-					&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+					&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 				}
 			],
 			&quot;userList&quot;:[
@@ -740,18 +829,18 @@
 					&quot;$ref&quot;:&quot;..&quot;
 				}
 			],
-			&quot;userName&quot;:&quot;聪健.雷&quot;,
-			&quot;nickName&quot;:&quot;hyman.huels&quot;,
-			&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-			&quot;userAge&quot;:18,
-			&quot;phone&quot;:&quot;13616630336&quot;,
-			&quot;createTime&quot;:1573035799477,
-			&quot;small&quot;:6.80,
-			&quot;money&quot;:94.09,
-			&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-			&quot;telephone&quot;:&quot;13616630336&quot;
+			&quot;userName&quot;:&quot;明杰.贺&quot;,
+			&quot;nickName&quot;:&quot;maxima.veum&quot;,
+			&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+			&quot;userAge&quot;:26,
+			&quot;phone&quot;:&quot;15749065731&quot;,
+			&quot;createTime&quot;:1578879027660,
+			&quot;small&quot;:46.81,
+			&quot;money&quot;:83.50,
+			&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+			&quot;telephone&quot;:&quot;15749065731&quot;
 		},
-		&quot;age&quot;:18
+		&quot;age&quot;:26
 	}
 ]
 </code></pre>
@@ -760,6 +849,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listString2
 </code></pre>
@@ -911,7 +1010,7 @@
 			&quot;data&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -919,21 +1018,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:99.82,
-				&quot;money&quot;:39.21,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:62.25,
+				&quot;money&quot;:25.73,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -941,21 +1040,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:90.92,
-				&quot;money&quot;:15.87,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:63.67,
+				&quot;money&quot;:56.69,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data2&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -963,24 +1062,24 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:93.20,
-				&quot;money&quot;:45.23,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:35.68,
+				&quot;money&quot;:98.23,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
-			&quot;age&quot;:18
+			&quot;age&quot;:26
 		},
 		&quot;data1&quot;:{
 			&quot;data&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -988,21 +1087,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:79.13,
-				&quot;money&quot;:65.14,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:22.24,
+				&quot;money&quot;:25.30,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -1010,21 +1109,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:71.98,
-				&quot;money&quot;:6.16,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:51.18,
+				&quot;money&quot;:50.00,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data2&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -1032,24 +1131,24 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:26.22,
-				&quot;money&quot;:22.25,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:24.44,
+				&quot;money&quot;:96.21,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
-			&quot;age&quot;:18
+			&quot;age&quot;:26
 		},
 		&quot;data2&quot;:{
 			&quot;data&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -1057,21 +1156,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:27.45,
-				&quot;money&quot;:14.26,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:91.97,
+				&quot;money&quot;:0.84,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data1&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -1079,21 +1178,21 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:90.75,
-				&quot;money&quot;:94.98,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:81.21,
+				&quot;money&quot;:6.49,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
 			&quot;data2&quot;:{
 				&quot;userDetails&quot;:[
 					{
-						&quot;githubAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;
+						&quot;githubAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;
 					}
 				],
 				&quot;userList&quot;:[
@@ -1101,20 +1200,20 @@
 						&quot;$ref&quot;:&quot;..&quot;
 					}
 				],
-				&quot;userName&quot;:&quot;聪健.雷&quot;,
-				&quot;nickName&quot;:&quot;hyman.huels&quot;,
-				&quot;userAddress&quot;:&quot;Suite 582 万栋2811号， 淄博， 黑 611129&quot;,
-				&quot;userAge&quot;:18,
-				&quot;phone&quot;:&quot;13616630336&quot;,
-				&quot;createTime&quot;:1573035799477,
-				&quot;small&quot;:88.54,
-				&quot;money&quot;:29.09,
-				&quot;ipv6&quot;:&quot;3a31:468c:3fce:8c0c:c7d0:d662:cf56:981c&quot;,
-				&quot;telephone&quot;:&quot;13616630336&quot;
+				&quot;userName&quot;:&quot;明杰.贺&quot;,
+				&quot;nickName&quot;:&quot;maxima.veum&quot;,
+				&quot;userAddress&quot;:&quot;Apt. 418 夏栋04660号， 威海， 新 440255&quot;,
+				&quot;userAge&quot;:26,
+				&quot;phone&quot;:&quot;15749065731&quot;,
+				&quot;createTime&quot;:1578879027660,
+				&quot;small&quot;:14.68,
+				&quot;money&quot;:79.00,
+				&quot;ipv6&quot;:&quot;0578:8121:f88e:0f5e:0b7f:3926:a6c7:3c3b&quot;,
+				&quot;telephone&quot;:&quot;15749065731&quot;
 			},
-			&quot;age&quot;:18
+			&quot;age&quot;:26
 		},
-		&quot;age&quot;:18
+		&quot;age&quot;:26
 	}
 ]
 </code></pre>
@@ -1123,6 +1222,16 @@
 <p><strong>Type:</strong> <code>GET</code></p>
 <p><strong>Content-Type:</strong> <code>application/x-www-form-urlencoded;charset=utf-8</code></p>
 <p><strong>Description:</strong> CommonResult&lt;List&lt;UserDto&gt;&gt;</p>
+<p><strong>Request-headers:</strong></p>
+<table>
+<thead>
+<tr><th>Header</th><th>Type</th><th>Description</th><th>Required</th><th>Since</th></tr>
+</thead>
+<tbody>
+<tr><td>token</td><td>string</td><td>token(Global)</td><td>true</td><td>-</td></tr>
+<tr><td>partnerId</td><td>string</td><td>合作方账号(Global)</td><td>true</td><td>-</td></tr>
+</tbody>
+</table>
 <p><strong>Request-example:</strong></p>
 <pre><code>http://localhost:8080/list/listUserDto
 </code></pre>
@@ -1133,8 +1242,8 @@
 </thead>
 <tbody>
 <tr><td>success</td><td>boolean</td><td>是否成功</td><td>-</td></tr>
-<tr><td>message</td><td>string</td><td>响应信息</td><td>-</td></tr>
-<tr><td>data</td><td>object</td><td>响应数据</td><td>-</td></tr>
+<tr><td>message</td><td>string</td><td>错误提示(成功succeed)</td><td>-</td></tr>
+<tr><td>data</td><td>object</td><td>成功返回的数据</td><td>-</td></tr>
 <tr><td>└─token</td><td>string</td><td>token</td><td>-</td></tr>
 <tr><td>└─LoginList</td><td>array</td><td>UserDto 用户信息列表</td><td>-</td></tr>
 <tr><td>     └─userName</td><td>string</td><td>用户名</td><td>-</td></tr>
@@ -1149,22 +1258,22 @@
 	&quot;message&quot;:&quot;success&quot;,
 	&quot;data&quot;:[
 		{
-			&quot;token&quot;:&quot;mfupk4&quot;,
+			&quot;token&quot;:&quot;jjrxsh&quot;,
 			&quot;LoginList&quot;:[
 				{
-					&quot;userName&quot;:&quot;聪健.雷&quot;,
-					&quot;password&quot;:&quot;ugotil&quot;
+					&quot;userName&quot;:&quot;明杰.贺&quot;,
+					&quot;password&quot;:&quot;r9y8ks&quot;
 				}
 			]
 		}
 	],
-	&quot;code&quot;:&quot;80321&quot;,
-	&quot;timestamp&quot;:&quot;2019-11-06 18:23:19&quot;
+	&quot;code&quot;:&quot;48902&quot;,
+	&quot;timestamp&quot;:&quot;2020-01-13 09:30:27&quot;
 }
 </code></pre>
 
     <footer class="page-footer">
-        <span class="copyright">Generated by smart-doc at 2019-11-06 18:23:17</span>
+        <span class="copyright">Generated by smart-doc at 2020-01-13 09:30:25</span>
         <span class="footer-modification">Suggestions, contact, support and error reporting on
             <a href="https://gitee.com/sunyurepository/smart-doc" target="_blank">Gitee</a> or
             <a href="https://github.com/shalousun/smart-doc" target="_blank">Github</a>
