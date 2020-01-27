@@ -64,7 +64,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //生成Markdown文件
-    ApiDocBuilder.builderControllersApi(config);
+    ApiDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);
@@ -131,7 +131,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //生成HTML5文件
-    HtmlApiDocBuilder.builderControllersApi(config);
+    HtmlApiDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);
@@ -199,7 +199,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //Generating AsciiDoc
-    AdocDocBuilder.builderControllersApi(config);
+    AdocDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);

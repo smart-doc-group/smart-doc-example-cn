@@ -65,7 +65,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //Generating Markdown documentation
-    ApiDocBuilder.builderControllersApi(config);
+    ApiDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);
@@ -131,7 +131,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //Generating HTML documentation
-    HtmlApiDocBuilder.builderControllersApi(config);
+    HtmlApiDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);
@@ -200,7 +200,7 @@ public void testBuilderControllersApi() {
 
     long start = System.currentTimeMillis();
     //Generating AsciiDoc
-    AdocDocBuilder.builderControllersApi(config);
+    AdocDocBuilder.buildApiDoc(config);
     
     long end = System.currentTimeMillis();
     DateTimeUtil.printRunTime(end, start);
