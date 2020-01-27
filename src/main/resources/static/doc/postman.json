@@ -1,0 +1,48 @@
+{
+  "info": {
+    "_postman_id": "3ab77268-feaa-4245-8f17-7a6675a95a12",
+    "name": "smart-doc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "app端接口测试",
+      "item": [
+        {
+          "name": "app测试",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\"gender\":\"WOMAN\",\"simpleEnum\":\"RED\",\"username\":\"gracie.corwin\",\"password\":\"7wgv1i\",\"nickName\":\"yong.skiles\",\"mobile\":\"406-559-7098\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://localhost:8080/admin/test",
+            "description": "app测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": false,
+                "name": "token",
+                "description": "token(Global)"
+              },
+              {
+                "key": "partnerId",
+                "type": "text",
+                "disabled": false,
+                "name": "partnerId",
+                "description": "partner id(Global)"
+              }
+            ]
+          },
+          "description": "app测试"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1107 @@
+= iot-sharding-transfer
+
+
+== ctei分片数据合并任务管理
+=== [line-through]#启动合并任务#
+*URL:* http://172.31.131.144:8080/merge/ctei/start
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/merge/ctei/start
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== [line-through]#停止合并分片数据任务#
+*URL:* http://172.31.131.144:8080/merge/ctei/stop
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/merge/ctei/stop
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 获取合并分片数据任务的信息
+*URL:* http://172.31.131.144:8080/merge/ctei/detail
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/merge/ctei/detail
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|└─name|string|任务名称|-
+|└─uniqueKey|string|任务的唯一标识，一个触发器可能会有有多个人无|-
+|└─className|string|触发器名称|-
+|└─ChineseName|string|任务中文名称|-
+|└─groupName|string|任务所属组|-
+|└─cronExpression|string|时间表达式|-
+|└─status|string|任务状态|-
+|└─desc|string|任务描述|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"name":"浩.丁",
+			"uniqueKey":"jf27py",
+			"className":"浩.丁",
+			"ChineseName":"浩.丁",
+			"groupName":"浩.丁",
+			"cronExpression":"uk7i2q",
+			"status":"iapfug",
+			"desc":"wmtzjy"
+		}
+	],
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 获取任务列表
+*URL:* http://172.31.131.144:8080/merge/ctei/list
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/merge/ctei/list
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|└─name|string|任务名称|-
+|└─uniqueKey|string|任务的唯一标识，一个触发器可能会有有多个人无|-
+|└─className|string|触发器名称|-
+|└─ChineseName|string|任务中文名称|-
+|└─groupName|string|任务所属组|-
+|└─cronExpression|string|时间表达式|-
+|└─status|string|任务状态|-
+|└─desc|string|任务描述|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"name":"浩.丁",
+			"uniqueKey":"ij45h2",
+			"className":"浩.丁",
+			"ChineseName":"浩.丁",
+			"groupName":"浩.丁",
+			"cronExpression":"sl1zcy",
+			"status":"cyyxa2",
+			"desc":"y7cj8v"
+		}
+	],
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+== 表分片任务管理
+=== 根据填入信息启动表分片任务
+*URL:* http://172.31.131.144:8080/sharding/start
+
+*Type:* POST
+
+
+*Content-Type:* application/json; charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|originalTable|string|待分片原始表名|true|-
+|logicTableName|string|分片逻辑表名|true|-
+|shardingSize|int32|分片数量|false|-
+|shardingColumn|string|分片列|true|-
+|====================
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://172.31.131.144:8080/sharding/start --data '{
+	"originalTable":"t_report_device_info",
+	"logicTableName":"t_report_device_info",
+	"shardingSize":16,
+	"shardingColumn":"ctei"
+}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 停止分片任务
+*URL:* http://172.31.131.144:8080/sharding/stop
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/sharding/stop
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 获取分片任务的信息
+*URL:* http://172.31.131.144:8080/sharding/detail
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+
+*Request-example:*
+----
+http://172.31.131.144:8080/sharding/detail
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|响应信息|-
+|data|object|响应数据|-
+|└─name|string|任务名称|-
+|└─uniqueKey|string|任务的唯一标识，一个触发器可能会有有多个人无|-
+|└─className|string|触发器名称|-
+|└─ChineseName|string|任务中文名称|-
+|└─groupName|string|任务所属组|-
+|└─cronExpression|string|时间表达式|-
+|└─status|string|任务状态|-
+|└─desc|string|任务描述|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"name":"浩.丁",
+			"uniqueKey":"058p8m",
+			"className":"浩.丁",
+			"ChineseName":"浩.丁",
+			"groupName":"浩.丁",
+			"cronExpression":"6q4041",
+			"status":"e359cp",
+			"desc":"rmz556"
+		}
+	],
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+== ctei上报测试
+=== 保存ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/add
+
+*Type:* POST
+
+
+*Content-Type:* application/json; charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|No comments found.|false|-
+|platform|string|平台英文名称，用于唯一标识，如mcloud|false|-
+|platformDeviceId|string|设备id|false|-
+|ctei|string|设备CTEI|false|-
+|mac|string|设备mac|false|-
+|firstActiveTime|string|No comments found.|false|-
+|lastActiveTime|string|No comments found.|false|-
+|firstIp|string|首次使用ip|false|-
+|lastIp|string|最后一次设备使用ip|false|-
+|firstPort|string|首次使用端口号|false|-
+|lastPort|string|最后一次使用端口号|false|-
+|version|string|版本号|false|-
+|linkType|string|连接方式 1：直连 2非直连|false|-
+|imei|string|设备IMEI号|false|-
+|netAccount|string|宽带账号|false|-
+|createTime|string|No comments found.|false|-
+|updateTime|string|No comments found.|false|-
+|cteiState|int32|0是无效 1是有效|false|-
+|areaCode|string|No comments found.|false|-
+|areaName|string|No comments found.|false|-
+|imeiState|int32|No comments found.|false|-
+|state|int32|No comments found.|false|-
+|rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|false|-
+|source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|false|-
+|====================
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://172.31.131.144:8080/reportDeviceInfo/add --data '{
+	"id":"28",
+	"platform":"su4359",
+	"platformDeviceId":"28",
+	"ctei":"0zbu79",
+	"mac":"1aysg3",
+	"firstActiveTime":"2020-01-17 17:04:54",
+	"lastActiveTime":"2020-01-17 17:04:54",
+	"firstIp":"99.136.67.30",
+	"lastIp":"99.136.67.30",
+	"firstPort":"o3nhkj",
+	"lastPort":"ieno43",
+	"version":"3.7.4",
+	"linkType":"7uqp7h",
+	"imei":"7uc1xj",
+	"netAccount":"1rqbbt",
+	"createTime":"2020-01-17 17:04:54",
+	"updateTime":"2020-01-17 17:04:54",
+	"cteiState":3,
+	"areaCode":"3309",
+	"areaName":"浩.丁",
+	"imeiState":3,
+	"state":3,
+	"rptType":"h7rs72",
+	"source":"asr147"
+}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 更新ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/update
+
+*Type:* POST
+
+
+*Content-Type:* application/json; charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|No comments found.|false|-
+|platform|string|平台英文名称，用于唯一标识，如mcloud|false|-
+|platformDeviceId|string|设备id|false|-
+|ctei|string|设备CTEI|false|-
+|mac|string|设备mac|false|-
+|firstActiveTime|string|No comments found.|false|-
+|lastActiveTime|string|No comments found.|false|-
+|firstIp|string|首次使用ip|false|-
+|lastIp|string|最后一次设备使用ip|false|-
+|firstPort|string|首次使用端口号|false|-
+|lastPort|string|最后一次使用端口号|false|-
+|version|string|版本号|false|-
+|linkType|string|连接方式 1：直连 2非直连|false|-
+|imei|string|设备IMEI号|false|-
+|netAccount|string|宽带账号|false|-
+|createTime|string|No comments found.|false|-
+|updateTime|string|No comments found.|false|-
+|cteiState|int32|0是无效 1是有效|false|-
+|areaCode|string|No comments found.|false|-
+|areaName|string|No comments found.|false|-
+|imeiState|int32|No comments found.|false|-
+|state|int32|No comments found.|false|-
+|rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|false|-
+|source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|false|-
+|====================
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://172.31.131.144:8080/reportDeviceInfo/update --data '{
+	"id":"28",
+	"platform":"6w43zv",
+	"platformDeviceId":"28",
+	"ctei":"vjz3oz",
+	"mac":"hh532t",
+	"firstActiveTime":"2020-01-17 17:04:54",
+	"lastActiveTime":"2020-01-17 17:04:54",
+	"firstIp":"99.136.67.30",
+	"lastIp":"99.136.67.30",
+	"firstPort":"hvjpio",
+	"lastPort":"kgtxar",
+	"version":"3.7.4",
+	"linkType":"944rl4",
+	"imei":"wpad94",
+	"netAccount":"4qsboo",
+	"createTime":"2020-01-17 17:04:54",
+	"updateTime":"2020-01-17 17:04:54",
+	"cteiState":3,
+	"areaCode":"3309",
+	"areaName":"浩.丁",
+	"imeiState":3,
+	"state":3,
+	"rptType":"wvxr3b",
+	"source":"dqclr0"
+}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/update
+
+*Type:* POST
+
+
+*Content-Type:* application/json; charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|No comments found.|false|-
+|platform|string|平台英文名称，用于唯一标识，如mcloud|false|-
+|platformDeviceId|string|设备id|false|-
+|ctei|string|设备CTEI|false|-
+|mac|string|设备mac|false|-
+|firstActiveTime|string|No comments found.|false|-
+|lastActiveTime|string|No comments found.|false|-
+|firstIp|string|首次使用ip|false|-
+|lastIp|string|最后一次设备使用ip|false|-
+|firstPort|string|首次使用端口号|false|-
+|lastPort|string|最后一次使用端口号|false|-
+|version|string|版本号|false|-
+|linkType|string|连接方式 1：直连 2非直连|false|-
+|imei|string|设备IMEI号|false|-
+|netAccount|string|宽带账号|false|-
+|createTime|string|No comments found.|false|-
+|updateTime|string|No comments found.|false|-
+|cteiState|int32|0是无效 1是有效|false|-
+|areaCode|string|No comments found.|false|-
+|areaName|string|No comments found.|false|-
+|imeiState|int32|No comments found.|false|-
+|state|int32|No comments found.|false|-
+|rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|false|-
+|source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|false|-
+|====================
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://172.31.131.144:8080/reportDeviceInfo/update --data '{
+	"id":"28",
+	"platform":"bajm85",
+	"platformDeviceId":"28",
+	"ctei":"4l4mew",
+	"mac":"90dnwh",
+	"firstActiveTime":"2020-01-17 17:04:54",
+	"lastActiveTime":"2020-01-17 17:04:54",
+	"firstIp":"99.136.67.30",
+	"lastIp":"99.136.67.30",
+	"firstPort":"iriuly",
+	"lastPort":"cvvrpb",
+	"version":"3.7.4",
+	"linkType":"n3v8hr",
+	"imei":"smbynq",
+	"netAccount":"4jy41o",
+	"createTime":"2020-01-17 17:04:54",
+	"updateTime":"2020-01-17 17:04:54",
+	"cteiState":3,
+	"areaCode":"3309",
+	"areaName":"浩.丁",
+	"imeiState":3,
+	"state":3,
+	"rptType":"tc2n2y",
+	"source":"vmn5l6"
+}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据Imei 修改上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/update
+
+*Type:* POST
+
+
+*Content-Type:* application/json; charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|No comments found.|false|-
+|platform|string|平台英文名称，用于唯一标识，如mcloud|false|-
+|platformDeviceId|string|设备id|false|-
+|ctei|string|设备CTEI|false|-
+|mac|string|设备mac|false|-
+|firstActiveTime|string|No comments found.|false|-
+|lastActiveTime|string|No comments found.|false|-
+|firstIp|string|首次使用ip|false|-
+|lastIp|string|最后一次设备使用ip|false|-
+|firstPort|string|首次使用端口号|false|-
+|lastPort|string|最后一次使用端口号|false|-
+|version|string|版本号|false|-
+|linkType|string|连接方式 1：直连 2非直连|false|-
+|imei|string|设备IMEI号|false|-
+|netAccount|string|宽带账号|false|-
+|createTime|string|No comments found.|false|-
+|updateTime|string|No comments found.|false|-
+|cteiState|int32|0是无效 1是有效|false|-
+|areaCode|string|No comments found.|false|-
+|areaName|string|No comments found.|false|-
+|imeiState|int32|No comments found.|false|-
+|state|int32|No comments found.|false|-
+|rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|false|-
+|source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|false|-
+|====================
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://172.31.131.144:8080/reportDeviceInfo/update --data '{
+	"id":"28",
+	"platform":"dip4p8",
+	"platformDeviceId":"28",
+	"ctei":"07qapz",
+	"mac":"6prbux",
+	"firstActiveTime":"2020-01-17 17:04:54",
+	"lastActiveTime":"2020-01-17 17:04:54",
+	"firstIp":"99.136.67.30",
+	"lastIp":"99.136.67.30",
+	"firstPort":"2zt3tg",
+	"lastPort":"1ryonf",
+	"version":"3.7.4",
+	"linkType":"nkd0ix",
+	"imei":"1vofgx",
+	"netAccount":"ik40k4",
+	"createTime":"2020-01-17 17:04:54",
+	"updateTime":"2020-01-17 17:04:54",
+	"cteiState":3,
+	"areaCode":"3309",
+	"areaName":"浩.丁",
+	"imeiState":3,
+	"state":3,
+	"rptType":"gorfru",
+	"source":"f8cwu5"
+}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据id删除ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/delete/{id}
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|reportDeviceInfo id|true|-
+|====================
+
+*Request-example:*
+----
+curl -X GET -i http://172.31.131.144:8080/reportDeviceInfo/delete/28
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"waring":"You may have used non-display generics."
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据id查询ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/query/{id}
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|reportDeviceInfo id|true|-
+|====================
+
+*Request-example:*
+----
+curl -X GET -i http://172.31.131.144:8080/reportDeviceInfo/query/28
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|└─id|string|No comments found.|-
+|└─platform|string|平台英文名称，用于唯一标识，如mcloud|-
+|└─platformDeviceId|string|设备id|-
+|└─ctei|string|设备CTEI|-
+|└─mac|string|设备mac|-
+|└─firstActiveTime|string|No comments found.|-
+|└─lastActiveTime|string|No comments found.|-
+|└─firstIp|string|首次使用ip|-
+|└─lastIp|string|最后一次设备使用ip|-
+|└─firstPort|string|首次使用端口号|-
+|└─lastPort|string|最后一次使用端口号|-
+|└─version|string|版本号|-
+|└─linkType|string|连接方式 1：直连 2非直连|-
+|└─imei|string|设备IMEI号|-
+|└─netAccount|string|宽带账号|-
+|└─createTime|string|No comments found.|-
+|└─updateTime|string|No comments found.|-
+|└─cteiState|int32|0是无效 1是有效|-
+|└─areaCode|string|No comments found.|-
+|└─areaName|string|No comments found.|-
+|└─imeiState|int32|No comments found.|-
+|└─state|int32|No comments found.|-
+|└─rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|-
+|└─source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":{
+		"id":"28",
+		"platform":"kzw8x7",
+		"platformDeviceId":"28",
+		"ctei":"oo08sj",
+		"mac":"ve2de2",
+		"firstActiveTime":"2020-01-17 17:04:54",
+		"lastActiveTime":"2020-01-17 17:04:54",
+		"firstIp":"99.136.67.30",
+		"lastIp":"99.136.67.30",
+		"firstPort":"rhngof",
+		"lastPort":"gtf4hv",
+		"version":"3.7.4",
+		"linkType":"bnno2b",
+		"imei":"pgp7db",
+		"netAccount":"lmb2li",
+		"createTime":"2020-01-17 17:04:54",
+		"updateTime":"2020-01-17 17:04:54",
+		"cteiState":3,
+		"areaCode":"3309",
+		"areaName":"浩.丁",
+		"imeiState":3,
+		"state":3,
+		"rptType":"nfzqwc",
+		"source":"xxu9uv"
+	},
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据mac查询ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/query/{mac}
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|mac|string|mac|true|-
+|====================
+
+*Request-example:*
+----
+curl -X GET -i http://172.31.131.144:8080/reportDeviceInfo/query/5yisb3
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|└─id|string|No comments found.|-
+|└─platform|string|平台英文名称，用于唯一标识，如mcloud|-
+|└─platformDeviceId|string|设备id|-
+|└─ctei|string|设备CTEI|-
+|└─mac|string|设备mac|-
+|└─firstActiveTime|string|No comments found.|-
+|└─lastActiveTime|string|No comments found.|-
+|└─firstIp|string|首次使用ip|-
+|└─lastIp|string|最后一次设备使用ip|-
+|└─firstPort|string|首次使用端口号|-
+|└─lastPort|string|最后一次使用端口号|-
+|└─version|string|版本号|-
+|└─linkType|string|连接方式 1：直连 2非直连|-
+|└─imei|string|设备IMEI号|-
+|└─netAccount|string|宽带账号|-
+|└─createTime|string|No comments found.|-
+|└─updateTime|string|No comments found.|-
+|└─cteiState|int32|0是无效 1是有效|-
+|└─areaCode|string|No comments found.|-
+|└─areaName|string|No comments found.|-
+|└─imeiState|int32|No comments found.|-
+|└─state|int32|No comments found.|-
+|└─rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|-
+|└─source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"id":"28",
+			"platform":"ugtr8d",
+			"platformDeviceId":"28",
+			"ctei":"hcj44x",
+			"mac":"bb38do",
+			"firstActiveTime":"2020-01-17 17:04:54",
+			"lastActiveTime":"2020-01-17 17:04:54",
+			"firstIp":"99.136.67.30",
+			"lastIp":"99.136.67.30",
+			"firstPort":"k3b7lp",
+			"lastPort":"fr7596",
+			"version":"3.7.4",
+			"linkType":"1mrokk",
+			"imei":"hdfw9m",
+			"netAccount":"ujdk3r",
+			"createTime":"2020-01-17 17:04:54",
+			"updateTime":"2020-01-17 17:04:54",
+			"cteiState":3,
+			"areaCode":"3309",
+			"areaName":"浩.丁",
+			"imeiState":3,
+			"state":3,
+			"rptType":"5btq8r",
+			"source":"3dk496"
+		}
+	],
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 根据时间区间查询ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/query/time
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|startTime|string|开始时间|true|-
+|endTime|string|结束时间|true|-
+|====================
+
+*Request-example:*
+----
+curl -X GET -i http://172.31.131.144:8080/reportDeviceInfo/query/time?startTime=2020-01-17 17:04:53&endTime=2020-01-17 17:04:53
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|No comments found.|-
+|message|string|No comments found.|-
+|data|object|No comments found.|-
+|└─id|string|No comments found.|-
+|└─platform|string|平台英文名称，用于唯一标识，如mcloud|-
+|└─platformDeviceId|string|设备id|-
+|└─ctei|string|设备CTEI|-
+|└─mac|string|设备mac|-
+|└─firstActiveTime|string|No comments found.|-
+|└─lastActiveTime|string|No comments found.|-
+|└─firstIp|string|首次使用ip|-
+|└─lastIp|string|最后一次设备使用ip|-
+|└─firstPort|string|首次使用端口号|-
+|└─lastPort|string|最后一次使用端口号|-
+|└─version|string|版本号|-
+|└─linkType|string|连接方式 1：直连 2非直连|-
+|└─imei|string|设备IMEI号|-
+|└─netAccount|string|宽带账号|-
+|└─createTime|string|No comments found.|-
+|└─updateTime|string|No comments found.|-
+|└─cteiState|int32|0是无效 1是有效|-
+|└─areaCode|string|No comments found.|-
+|└─areaName|string|No comments found.|-
+|└─imeiState|int32|No comments found.|-
+|└─state|int32|No comments found.|-
+|└─rptType|string|ctei记录类型：1.设备上报 2.设备绑定 3.开 发者网站批量报备|-
+|└─source|string|数据来源 1表示直连设备建立tcp连接成功后上 报，2表示终端加密上报，3表示自研侧ctei同步上报，4第三方平台设备绑定接口返回 6音箱绑定接口 6开 发者网站批量报备 7终端公司上报的CTEI|-
+|code|string|No comments found.|-
+|timestamp|string|No comments found.|-
+|====================
+
+*Response-example:*
+----
+{
+	"success":true,
+	"message":"success",
+	"data":[
+		{
+			"id":"28",
+			"platform":"mjwzra",
+			"platformDeviceId":"28",
+			"ctei":"0u05k2",
+			"mac":"c00jmd",
+			"firstActiveTime":"2020-01-17 17:04:54",
+			"lastActiveTime":"2020-01-17 17:04:54",
+			"firstIp":"99.136.67.30",
+			"lastIp":"99.136.67.30",
+			"firstPort":"e32ukd",
+			"lastPort":"u4jayn",
+			"version":"3.7.4",
+			"linkType":"m3wm1y",
+			"imei":"mzjux0",
+			"netAccount":"jioxcr",
+			"createTime":"2020-01-17 17:04:54",
+			"updateTime":"2020-01-17 17:04:54",
+			"cteiState":3,
+			"areaCode":"3309",
+			"areaName":"浩.丁",
+			"imeiState":3,
+			"state":3,
+			"rptType":"22p9xa",
+			"source":"9v02ib"
+		}
+	],
+	"code":"3309",
+	"timestamp":"2020-01-17 17:04:53"
+}
+----
+
+=== 分享查询ctei上报信息
+*URL:* http://172.31.131.144:8080/reportDeviceInfo/page/{offset}/{limit}
+
+*Type:* GET
+
+
+*Content-Type:* application/x-www-form-urlencoded;charset=utf-8
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|offset|int32|page offset|true|-
+|limit|int32|page limit|true|-
+|====================
+
+*Request-example:*
+----
+curl -X GET -i http://172.31.131.144:8080/reportDeviceInfo/page/1/10
+----
+
+*Response-example:*
+----
+{
+	
+}
+----
+
+
