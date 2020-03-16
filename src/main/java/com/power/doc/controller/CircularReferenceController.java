@@ -1,6 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.doc.model.MyUser;
+import com.power.doc.model.circular.A;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,7 +20,7 @@ public class CircularReferenceController {
      * @return
      */
     @GetMapping(value = "/circularReference")
-    public String test(@RequestBody MyUser user){
-        return "hello apiNote";
+    public A test(@RequestBody A user){
+        return null;
     }
 }
