@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
  * 请求类型测试
  *
  * @author songhaozhi
+ * @author test
  * @date 2020/1/16
  */
 @RestController
@@ -14,35 +15,40 @@ public class RequestTypeController {
     /**
      * 测试GetMapping 无参数
      *
+     * @author zhangsan
+     * @author wangwu
      */
     @GetMapping("getMapping1")
     public void testGetMapping1() {
 
     }
+
     /**
      * 测试PostMapping 无参数
      *
+     * @author songhaozhi
      */
     @PostMapping("PostMapping1")
     public void PostMapping1() {
 
     }
+
     /**
      * 测试PutMapping 无参数
-     *
      */
     @PutMapping("PutMapping1")
     public void PutMapping1() {
 
     }
+
     /**
      * DeleteMapping 无参数
-     *
      */
     @DeleteMapping("DeleteMapping1")
     public void DeleteMapping1() {
 
     }
+
     /**
      * 测试GetMapping
      *
