@@ -15,7 +15,10 @@ public class ApiNoteController {
     /**
      * 测试apiNote
      * @author cht
-     * @apiNote 用于测试apiNote注释是否有效
+     * @apiNote
+     * This method returns a List instead of a Collection or Stream,
+     * because processing of multiple Wombats usually involves traversing
+     * the list in alternating forward and reverse directions.
      * @return
      */
     @Deprecated

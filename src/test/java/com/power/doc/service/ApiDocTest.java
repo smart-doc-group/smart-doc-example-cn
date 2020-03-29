@@ -36,7 +36,7 @@ public class ApiDocTest {
         config.setCoverOld(true);
 
         //是否显示接口作者 默认true
-        config.setShowAuthor(false);
+        config.setShowAuthor(true);
 
 //        config.setProjectName("Smart-doc测试样例");
 
