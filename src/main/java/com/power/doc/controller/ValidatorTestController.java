@@ -75,4 +75,16 @@ public class ValidatorTestController extends BaseController {
         return CommonResult.ok();
     }
 
+    /**
+     * 分组验证3
+     * @param collect
+     * @return
+     */
+    @PostMapping("/update")
+    public CommonResult login(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
+        return CommonResult.ok();
+    }
+
+
+
 }
