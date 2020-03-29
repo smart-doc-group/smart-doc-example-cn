@@ -80,7 +80,7 @@ public class ValidatorTestController extends BaseController {
      * @param collect
      * @return
      */
-    @PostMapping("/update")
+    @PostMapping("/login")
     public CommonResult login(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
         return CommonResult.ok();
     }
