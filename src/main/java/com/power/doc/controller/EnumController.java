@@ -32,4 +32,13 @@ public class EnumController {
         System.out.println(simpleEnum.name());
         return "hello apiNote";
     }
+
+    /**
+     * 枚举响应
+     * @return
+     */
+    @GetMapping(value = "/enum/resp")
+    public SimpleEnum resp(){
+        return null;
+    }
 }

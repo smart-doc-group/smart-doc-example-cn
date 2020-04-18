@@ -74,7 +74,7 @@ public class RequestParamsController {
     /**
      * Test @RequestParam
      *
-     * @param author author
+     * @param author author|詹姆斯
      * @param type   type
      */
     @GetMapping("testRequestParam")

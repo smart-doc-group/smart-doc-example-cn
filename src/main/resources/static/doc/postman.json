@@ -1,46 +1,3409 @@
 {
   "info": {
-    "_postman_id": "3ab77268-feaa-4245-8f17-7a6675a95a12",
-    "name": "smart-doc",
-    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+    "_postman_id": "264ddf68-8af0-431d-a86a-1eb4232660a9",
+    "name": "smart-doc"
   },
   "item": [
+    {
+      "name": "apiNote注解测试",
+      "item": [
+        {
+          "request": {
+            "method": "PATCH",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          }
+        },
+        {
+          "name": "测试apiNote",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "desc": "",
+                  "value": "24666"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/test",
+            "description": "测试apiNote",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "This method returns a List instead of a Collection or Stream,because processing of multiple Wombats usually involves traversing\u003cbr\u003ethe list in alternating forward and reverse directions."
+        }
+      ]
+    },
     {
       "name": "app端接口测试",
       "item": [
         {
           "name": "app测试",
           "request": {
-            "method": "POST",
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "desc": "姓名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "beginTime",
+                  "type": "text",
+                  "desc": "开始时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "endTime",
+                  "type": "text",
+                  "desc": "结束时间",
+                  "value": "2020-04-17"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/app/test?endTime\u003d2020-04-17\u0026name\u003d智渊.顾\u0026beginTime\u003d2020-04-17",
+            "description": "app测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "app测试"
+        }
+      ]
+    },
+    {
+      "name": "异步返回信息测试",
+      "item": [
+        {
+          "name": "返回Callable\u0026lt;CommonResult\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/testCallable",
+            "description": "返回Callable\u0026lt;CommonResult\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回Callable\u0026lt;CommonResult\u0026gt;"
+        },
+        {
+          "name": "返回DeferredResult\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/async-deferredresult",
+            "description": "返回DeferredResult\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回DeferredResult\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;"
+        },
+        {
+          "name": "返回WebAsyncTask\u0026lt;CommonResult\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/WebAsync/timeout",
+            "description": "返回WebAsyncTask\u0026lt;CommonResult\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回WebAsyncTask\u0026lt;CommonResult\u0026gt;"
+        },
+        {
+          "name": "返回Future\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/future",
+            "description": "返回Future\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回Future\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;"
+        },
+        {
+          "name": "返回CompletableFuture\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/completableFuture",
+            "description": "返回CompletableFuture\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回CompletableFuture\u0026lt;CommonResult\u0026lt;String\u0026gt;\u0026gt;"
+        }
+      ]
+    },
+    {
+      "name": "循环引用依赖测试",
+      "item": [
+        {
+          "name": "循环依赖参数推导",
+          "request": {
+            "method": "GET",
             "body": {
               "mode": "raw",
-              "raw": "{\"gender\":\"WOMAN\",\"simpleEnum\":\"RED\",\"username\":\"gracie.corwin\",\"password\":\"7wgv1i\",\"nickName\":\"yong.skiles\",\"mobile\":\"406-559-7098\"}",
+              "raw": "",
               "options": {
                 "raw": {
                   "language": "json"
                 }
               }
             },
-            "url": "http://localhost:8080/admin/test",
-            "description": "app测试",
+            "url": "http://127.0.0.1/circularReference",
+            "description": "循环依赖参数推导",
             "header": [
               {
                 "key": "token",
                 "type": "text",
-                "disabled": false,
+                "disabled": true,
                 "name": "token",
-                "description": "token(Global)"
-              },
-              {
-                "key": "partnerId",
-                "type": "text",
-                "disabled": false,
-                "name": "partnerId",
-                "description": "partner id(Global)"
+                "description": "desc"
               }
             ]
           },
-          "description": "app测试"
+          "description": "循环依赖参数推导(不建议使用)"
+        }
+      ]
+    },
+    {
+      "name": "自定意义注释tag测试",
+      "item": [
+        {
+          "name": "使用mock获取自定义值",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"numbers\":201\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/mock",
+            "description": "使用mock获取自定义值",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "使用mock获取自定义值"
+        }
+      ]
+    },
+    {
+      "name": "枚举参数测试",
+      "item": [
+        {
+          "name": "获取枚举参数",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/enum?simpleEnum\u003dRED",
+            "description": "获取枚举参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "获取枚举参数"
+        },
+        {
+          "name": "获取枚举参数",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/enum/RED",
+            "description": "获取枚举参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "获取枚举参数"
+        }
+      ]
+    },
+    {
+      "name": "文件上传测试",
+      "item": [
+        {
+          "name": "上传单个文件",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "用户id",
+                  "value": "78"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "desc": "文件",
+                  "value": ""
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/upload",
+            "description": "上传单个文件",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "上传单个文件"
+        },
+        {
+          "name": "批量上传文件",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "desc": "文件",
+                  "value": ""
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/batchUpload",
+            "description": "批量上传文件",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "批量上传文件"
+        }
+      ]
+    },
+    {
+      "name": "接收表单参数",
+      "item": [
+        {
+          "name": "测试formData",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "MAX_SPEED",
+                  "type": "text",
+                  "value": "871"
+                },
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "8zkm42"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "gender",
+                  "type": "text",
+                  "desc": "性别",
+                  "value": "WOMAN"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData1",
+            "description": "测试formData",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试formData"
+        },
+        {
+          "name": "Post请求发表单文件",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "78"
+                },
+                {
+                  "key": "userData",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "nrx02s"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "desc": "No comments found.",
+                  "value": ""
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData2",
+            "description": "Post请求发表单文件",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Post请求发表单文件"
+        },
+        {
+          "name": "Get请求发表单文件 暂不支持完全解析",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "78"
+                },
+                {
+                  "key": "userData",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "clip7b"
+                },
+                {
+                  "key": "file",
+                  "type": "file",
+                  "desc": "No comments found.",
+                  "value": ""
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData2?userData\u003dclip7b\u0026userId\u003d78",
+            "description": "Get请求发表单文件 暂不支持完全解析",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Get请求发表单文件 暂不支持完全解析"
+        },
+        {
+          "name": "表单 包含复杂对象的Get 暂不支持完全解析",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "78"
+                },
+                {
+                  "key": "userData",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "437xj2"
+                },
+                {
+                  "key": "MAX_SPEED",
+                  "type": "text",
+                  "value": "331"
+                },
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "l28xlr"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "gender",
+                  "type": "text",
+                  "desc": "性别",
+                  "value": "WOMAN"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData4?userData\u003d437xj2\u0026gender\u003dWOMAN\u0026MAX_SPEED\u003d331\u0026userId\u003d78\u0026username\u003d智渊.顾\u0026simpleEnum\u003dRED\u0026nickName\u003dbernadette.franecki\u0026mobile\u003d17835596482\u0026password\u003dl28xlr",
+            "description": "表单 包含复杂对象的Get 暂不支持完全解析",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "表单 包含复杂对象的Get 暂不支持完全解析"
+        },
+        {
+          "name": "表单 包含复杂对象",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "78"
+                },
+                {
+                  "key": "userData",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "d3zgzb"
+                },
+                {
+                  "key": "MAX_SPEED",
+                  "type": "text",
+                  "value": "244"
+                },
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "tl1hnz"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "gender",
+                  "type": "text",
+                  "desc": "性别",
+                  "value": "WOMAN"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData5",
+            "description": "表单 包含复杂对象",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "表单 包含复杂对象"
+        },
+        {
+          "name": "表单 枚举",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "78"
+                },
+                {
+                  "key": "userData",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "yoj1uq"
+                },
+                {
+                  "key": "simpleUser",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "RED"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData6?userId\u003d78\u0026userData\u003dyoj1uq\u0026simpleUser\u003dRED",
+            "description": "表单 枚举",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "表单 枚举"
+        },
+        {
+          "name": "测试formData带路径参数",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "MAX_SPEED",
+                  "type": "text",
+                  "value": "948"
+                },
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "ij0epa"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "gender",
+                  "type": "text",
+                  "desc": "性别",
+                  "value": "WOMAN"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData1/78",
+            "description": "测试formData带路径参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试formData带路径参数"
+        },
+        {
+          "name": "测试formData带路多个路径参数",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "MAX_SPEED",
+                  "type": "text",
+                  "value": "78"
+                },
+                {
+                  "key": "simpleEnum",
+                  "type": "text",
+                  "desc": "简单枚举",
+                  "value": "RED"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "2quzwj"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "gender",
+                  "type": "text",
+                  "desc": "性别",
+                  "value": "WOMAN"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/formData1/78/9",
+            "description": "测试formData带路多个路径参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试formData带路多个路径参数"
+        }
+      ]
+    },
+    {
+      "name": "https测试",
+      "item": [
+        {
+          "name": "测试https",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/testHttps",
+            "description": "测试https",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试https"
+        },
+        {
+          "name": "测试http",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/testHttp",
+            "description": "测试http",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试http"
+        }
+      ]
+    },
+    {
+      "name": "Test inner class",
+      "item": [
+        {
+          "name": "Return A object contains Inner class",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/inner/class",
+            "description": "Return A object contains Inner class",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Return A object contains Inner class"
+        }
+      ]
+    },
+    {
+      "name": "JDK8的时间测试",
+      "item": [
+        {
+          "name": "LocalDate和LocalDateTime测试",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"localDate\":\"2020-04-17\",\n\t\"localDateTime\":\"2020-04-17 23:25:02\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/dateEntity",
+            "description": "LocalDate和LocalDateTime测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "LocalDate和LocalDateTime测试"
+        }
+      ]
+    },
+    {
+      "name": "FastJson和Jackson注解支持测试",
+      "item": [
+        {
+          "name": "Jackson注解支持测试",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/json/jacksonTest",
+            "description": "Jackson注解支持测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Jackson注解支持测试"
+        },
+        {
+          "name": "FastJson注解支持测试",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/json/fastJsonTest",
+            "description": "FastJson注解支持测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "FastJson注解支持测试"
+        }
+      ]
+    },
+    {
+      "name": "List返回接口Api文档测试",
+      "item": [
+        {
+          "name": "List\u0026lt;String\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listString",
+            "description": "List\u0026lt;String\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;String\u0026gt;结构"
+        },
+        {
+          "name": "List\u0026lt;Map\u0026lt;String,String\u0026gt;\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listMap",
+            "description": "List\u0026lt;Map\u0026lt;String,String\u0026gt;\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;Map\u0026lt;String,String\u0026gt;\u0026gt;结构"
+        },
+        {
+          "name": "List\u0026lt;自动义对象\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listObject",
+            "description": "List\u0026lt;自动义对象\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;自动义对象\u0026gt;"
+        },
+        {
+          "name": "List\u0026lt;Map\u0026lt;String,T\u0026gt;\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listMap2",
+            "description": "List\u0026lt;Map\u0026lt;String,T\u0026gt;\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;Map\u0026lt;String,T\u0026gt;\u0026gt;结构"
+        },
+        {
+          "name": "List\u0026lt;Map\u0026lt;M,N\u0026lt;P,k\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listMap3",
+            "description": "List\u0026lt;Map\u0026lt;M,N\u0026lt;P,k\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;Map\u0026lt;M,N\u0026lt;P,k\u0026gt;\u0026gt;\u0026gt;超复杂结构"
+        },
+        {
+          "name": "List\u0026lt;T\u0026lt;List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listTeacher",
+            "description": "List\u0026lt;T\u0026lt;List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;T\u0026lt;List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;,List\u0026lt;M\u0026gt;\u0026gt;\u0026gt;超复杂结构"
+        },
+        {
+          "name": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,User,User\u0026gt;\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listString1",
+            "description": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,User,User\u0026gt;\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,User,User\u0026gt;\u0026gt;结构"
+        },
+        {
+          "name": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listString2",
+            "description": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "List\u0026lt;Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;\u0026gt;"
+        },
+        {
+          "name": "CommonResult\u0026lt;List\u0026lt;UserDto\u0026gt;\u0026gt;",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/list/listUserDto",
+            "description": "CommonResult\u0026lt;List\u0026lt;UserDto\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "CommonResult\u0026lt;List\u0026lt;UserDto\u0026gt;\u0026gt;"
+        }
+      ]
+    },
+    {
+      "name": "Map返回型接口api文档测试",
+      "item": [
+        {
+          "name": "Map\u0026lt;String,Integer\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/primitive",
+            "description": "Map\u0026lt;String,Integer\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,Integer\u0026gt;结构"
+        },
+        {
+          "name": "Map\u0026lt;String,Object\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/objectValue",
+            "description": "Map\u0026lt;String,Object\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,Object\u0026gt;结构"
+        },
+        {
+          "name": "Map\u0026lt;String,User\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/object",
+            "description": "Map\u0026lt;String,User\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,User\u0026gt;结构"
+        },
+        {
+          "name": "Map\u0026lt;String,Student\u0026gt;结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/test1",
+            "description": "Map\u0026lt;String,Student\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,Student\u0026gt;结构"
+        },
+        {
+          "name": "Map\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/test2",
+            "description": "Map\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构"
+        },
+        {
+          "name": "TreeMap\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/test3",
+            "description": "TreeMap\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "TreeMap\u0026lt;String,Teacher\u0026lt;List\u0026lt;User\u0026gt;,User,Student\u0026gt;\u0026gt;超复杂结构"
+        },
+        {
+          "name": "Map\u0026lt;String,Teacher\u0026lt;Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/map/test4",
+            "description": "Map\u0026lt;String,Teacher\u0026lt;Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;\u0026gt;\u0026gt;超复杂结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Map\u0026lt;String,Teacher\u0026lt;Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;,Map\u0026lt;String,User\u0026gt;\u0026gt;\u0026gt;超复杂结构"
+        }
+      ]
+    },
+    {
+      "name": "数组类型pathVariable",
+      "item": [
+        {
+          "name": "接收数组类型pathVariable",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/pathVariable/test/",
+            "description": "接收数组类型pathVariable",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "接收数组类型pathVariable"
+        }
+      ]
+    },
+    {
+      "name": "RequestHeader注解测试",
+      "item": [
+        {
+          "name": "测试RequestHeader常规使用",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "age",
+                  "type": "text",
+                  "desc": "  年龄",
+                  "value": "9"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testRequestHeader?age\u003d9",
+            "description": "测试RequestHeader常规使用",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              },
+              {
+                "key": "name",
+                "type": "text",
+                "disabled": false,
+                "name": "name",
+                "description": "请求头(name)"
+              }
+            ]
+          },
+          "description": "测试RequestHeader常规使用"
+        },
+        {
+          "name": "测试RequestHeader绑定参数名",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/testRequestHeader/value",
+            "description": "测试RequestHeader绑定参数名",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              },
+              {
+                "key": "age",
+                "type": "text",
+                "disabled": false,
+                "name": "age",
+                "description": "  年龄"
+              }
+            ]
+          },
+          "description": "测试RequestHeader绑定参数名"
+        },
+        {
+          "name": "测试RequestHeader绑定默认值",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "age",
+                  "type": "text",
+                  "desc": "  年龄",
+                  "value": "9"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testRequestHeader/DefaultVal?age\u003d9",
+            "description": "测试RequestHeader绑定默认值",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试RequestHeader绑定默认值"
+        }
+      ]
+    },
+    {
+      "name": "Spring boot params test",
+      "item": [
+        {
+          "name": "Test Normal param binding",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "desc": "name",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "age",
+                  "type": "text",
+                  "desc": " age",
+                  "value": "9"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testNormalParams/binding?age\u003d9\u0026name\u003d智渊.顾",
+            "description": "Test Normal param binding",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test Normal param binding"
+        },
+        {
+          "name": "Test @RequestBody User",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"智渊.顾\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"userAge\":9,\n\t\"phone\":\"17234412234\",\n\t\"createTime\":1587137090384,\n\t\"small\":5.43,\n\t\"money\":81.95,\n\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\"telephone\":\"17234412234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/testRequestBody",
+            "description": "Test @RequestBody User",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test @RequestBody User"
+        },
+        {
+          "name": "Test @RequestBody Map",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"智渊.顾\",\n\t\t\"nickName\":\"bernadette.franecki\",\n\t\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\t\"userAge\":9,\n\t\t\"phone\":\"17234412234\",\n\t\t\"createTime\":1587137090384,\n\t\t\"small\":25.57,\n\t\t\"money\":69.48,\n\t\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\t\"telephone\":\"17234412234\"\n\t}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/testRequestBodyMap",
+            "description": "Test @RequestBody Map",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test @RequestBody Map"
+        },
+        {
+          "name": "Test @RequestBody List",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n\t\"6lvkzo\",\n\t\"k7nof0\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/testRequestBodyList",
+            "description": "Test @RequestBody List",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test @RequestBody List"
+        },
+        {
+          "name": "Test @PathVariable",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/test/智渊.顾/o6zzwt/info",
+            "description": "Test @PathVariable",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test @PathVariable"
+        },
+        {
+          "name": "Test @RequestParam",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "author",
+                  "type": "text",
+                  "desc": "author",
+                  "value": "邱博文"
+                },
+                {
+                  "key": "type",
+                  "type": "text",
+                  "desc": "  type",
+                  "value": "psm7q9"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testRequestParam?type\u003dpsm7q9\u0026author\u003d邱博文",
+            "description": "Test @RequestParam",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test @RequestParam"
+        },
+        {
+          "name": "Test @RequestParam with value",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "desc": "user name",
+                  "value": "智渊.顾"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testRequestParamWithValue?name\u003d智渊.顾",
+            "description": "Test @RequestParam with value",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Use@RequestParam binding value is name,but method param name is userName"
+        },
+        {
+          "name": "Test @RequestParam with default value",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userName",
+                  "type": "text",
+                  "desc": "user name",
+                  "value": "Jordan"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testRequestParamWithDefaultVal?userName\u003dJordan",
+            "description": "Test @RequestParam with default value",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Use@RequestParam binding default value Jordan"
+        },
+        {
+          "name": "Test much path",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/testMuchPath/get/356",
+            "description": "Test much path",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "giteeissues #I1545A"
+        },
+        {
+          "name": "Test much path much parameter",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/get/956/596",
+            "description": "Test much path much parameter",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test much path much parameter"
+        }
+      ]
+    },
+    {
+      "name": "请求类型测试",
+      "item": [
+        {
+          "name": "测试GetMapping 无参数",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/getMapping1",
+            "description": "测试GetMapping 无参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试GetMapping 无参数"
+        },
+        {
+          "name": "测试PostMapping 无参数",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/PostMapping1",
+            "description": "测试PostMapping 无参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PostMapping 无参数"
+        },
+        {
+          "name": "测试PutMapping 无参数",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/PutMapping1",
+            "description": "测试PutMapping 无参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PutMapping 无参数"
+        },
+        {
+          "name": "DeleteMapping 无参数",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/DeleteMapping1",
+            "description": "DeleteMapping 无参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "DeleteMapping 无参数"
+        },
+        {
+          "name": "测试GetMapping",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "userId",
+                  "value": "472"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/getMapping?userId\u003d472",
+            "description": "测试GetMapping",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试GetMapping"
+        },
+        {
+          "name": "测试PostMapping json",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":\"78\",\n\t\"createBy\":\"df106q\",\n\t\"createTime\":\"2020-04-17\",\n\t\"updateBy\":\"retceg\",\n\t\"updateTime\":\"2020-04-17\",\n\t\"delFlag\":9,\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"zecxgw\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"email\":\"致远.杜@yahoo.com\",\n\t\"address\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"sex\":1,\n\t\"avatar\":\"w8h32n\",\n\t\"type\":404,\n\t\"status\":646,\n\t\"description\":\"ztb90n\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"7pueyn\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"234033\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"78\",\n\t\t\t\t\t\"createBy\":\"bbpiu3\",\n\t\t\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\t\t\"updateBy\":\"6cosoo\",\n\t\t\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\t\t\"delFlag\":9,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":758,\n\t\t\t\t\t\"type\":600,\n\t\t\t\t\t\"title\":\"6hnsgh\",\n\t\t\t\t\t\"path\":\"o5ik15\",\n\t\t\t\t\t\"component\":\"oj7ys8\",\n\t\t\t\t\t\"icon\":\"7e5b0p\",\n\t\t\t\t\t\"buttonType\":\"oydh39\",\n\t\t\t\t\t\"parentId\":\"78\",\n\t\t\t\t\t\"description\":\"0m9gpn\",\n\t\t\t\t\t\"sortOrder\":807,\n\t\t\t\t\t\"status\":300,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"dr3o0g\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"1f1043\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"xehhvh\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":273,\n\t\t\t\"type\":497,\n\t\t\t\"title\":\"7or72s\",\n\t\t\t\"path\":\"3jia1l\",\n\t\t\t\"component\":\"scromx\",\n\t\t\t\"icon\":\"px82v3\",\n\t\t\t\"buttonType\":\"q5lmvo\",\n\t\t\t\"parentId\":\"78\",\n\t\t\t\"description\":\"tru67z\",\n\t\t\t\"sortOrder\":888,\n\t\t\t\"status\":176,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"x5utui\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/postMapping",
+            "description": "测试PostMapping json",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PostMapping json"
+        },
+        {
+          "name": "测试PostMapping表单",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "uflggt"
+                },
+                {
+                  "key": "createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "73jz5g"
+                },
+                {
+                  "key": "updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "0tlop0"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "email",
+                  "type": "text",
+                  "desc": "邮箱",
+                  "value": "致远.杜@yahoo.com"
+                },
+                {
+                  "key": "address",
+                  "type": "text",
+                  "desc": "地址",
+                  "value": "Apt. 751 徐栋40208号， 湛江， 豫 140734"
+                },
+                {
+                  "key": "sex",
+                  "type": "text",
+                  "desc": "性别(男1 女 2)",
+                  "value": "1"
+                },
+                {
+                  "key": "avatar",
+                  "type": "text",
+                  "value": "8dnjk0"
+                },
+                {
+                  "key": "type",
+                  "type": "text",
+                  "desc": "类型",
+                  "value": "115"
+                },
+                {
+                  "key": "status",
+                  "type": "text",
+                  "desc": "状态",
+                  "value": "161"
+                },
+                {
+                  "key": "description",
+                  "type": "text",
+                  "desc": "描述",
+                  "value": "kjkwlt"
+                },
+                {
+                  "key": "roles[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "ohm9l3"
+                },
+                {
+                  "key": "roles[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "g45nzw"
+                },
+                {
+                  "key": "roles[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "roles[0].name",
+                  "type": "text",
+                  "desc": "角色名 以ROLE_开头",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "roles[0].defaultRole",
+                  "type": "text",
+                  "desc": "是否为注册默认角色",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].permissions[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "fzca7k"
+                },
+                {
+                  "key": "roles[0].permissions[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].permissions[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "r6pai6"
+                },
+                {
+                  "key": "roles[0].permissions[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].permissions[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "roles[0].permissions[0].name",
+                  "type": "text",
+                  "desc": "菜单/权限名称",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "roles[0].permissions[0].level",
+                  "type": "text",
+                  "desc": "层级",
+                  "value": "951"
+                },
+                {
+                  "key": "roles[0].permissions[0].type",
+                  "type": "text",
+                  "desc": "类型 0页面 1具体操作",
+                  "value": "222"
+                },
+                {
+                  "key": "roles[0].permissions[0].title",
+                  "type": "text",
+                  "desc": "菜单标题",
+                  "value": "h9ge6z"
+                },
+                {
+                  "key": "roles[0].permissions[0].path",
+                  "type": "text",
+                  "desc": "页面路径/资源链接url",
+                  "value": "wthb2i"
+                },
+                {
+                  "key": "roles[0].permissions[0].component",
+                  "type": "text",
+                  "desc": "前端组件",
+                  "value": "ss4roh"
+                },
+                {
+                  "key": "roles[0].permissions[0].icon",
+                  "type": "text",
+                  "desc": "图标",
+                  "value": "f3vcz9"
+                },
+                {
+                  "key": "roles[0].permissions[0].buttonType",
+                  "type": "text",
+                  "desc": "按钮权限类型",
+                  "value": "fimhxp"
+                },
+                {
+                  "key": "roles[0].permissions[0].parentId",
+                  "type": "text",
+                  "desc": "父id",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].permissions[0].description",
+                  "type": "text",
+                  "desc": "说明备注",
+                  "value": "zrbynp"
+                },
+                {
+                  "key": "roles[0].permissions[0].sortOrder",
+                  "type": "text",
+                  "desc": "排序值",
+                  "value": "846"
+                },
+                {
+                  "key": "roles[0].permissions[0].status",
+                  "type": "text",
+                  "desc": "是否启用 0启用 -1禁用",
+                  "value": "712"
+                },
+                {
+                  "key": "roles[0].permissions[0].expand",
+                  "type": "text",
+                  "desc": "节点展开 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].checked",
+                  "type": "text",
+                  "desc": "是否勾选 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].selected",
+                  "type": "text",
+                  "desc": "是否选中 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "permissions[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "bj29y2"
+                },
+                {
+                  "key": "permissions[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "permissions[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "r7raok"
+                },
+                {
+                  "key": "permissions[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "permissions[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "permissions[0].name",
+                  "type": "text",
+                  "desc": "菜单/权限名称",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "permissions[0].level",
+                  "type": "text",
+                  "desc": "层级",
+                  "value": "540"
+                },
+                {
+                  "key": "permissions[0].type",
+                  "type": "text",
+                  "desc": "类型 0页面 1具体操作",
+                  "value": "739"
+                },
+                {
+                  "key": "permissions[0].title",
+                  "type": "text",
+                  "desc": "菜单标题",
+                  "value": "me3ijo"
+                },
+                {
+                  "key": "permissions[0].path",
+                  "type": "text",
+                  "desc": "页面路径/资源链接url",
+                  "value": "zzphrs"
+                },
+                {
+                  "key": "permissions[0].component",
+                  "type": "text",
+                  "desc": "前端组件",
+                  "value": "zktrtg"
+                },
+                {
+                  "key": "permissions[0].icon",
+                  "type": "text",
+                  "desc": "图标",
+                  "value": "2g116i"
+                },
+                {
+                  "key": "permissions[0].buttonType",
+                  "type": "text",
+                  "desc": "按钮权限类型",
+                  "value": "ku2dww"
+                },
+                {
+                  "key": "permissions[0].parentId",
+                  "type": "text",
+                  "desc": "父id",
+                  "value": "78"
+                },
+                {
+                  "key": "permissions[0].description",
+                  "type": "text",
+                  "desc": "说明备注",
+                  "value": "bxdgo8"
+                },
+                {
+                  "key": "permissions[0].sortOrder",
+                  "type": "text",
+                  "desc": "排序值",
+                  "value": "525"
+                },
+                {
+                  "key": "permissions[0].status",
+                  "type": "text",
+                  "desc": "是否启用 0启用 -1禁用",
+                  "value": "171"
+                },
+                {
+                  "key": "permissions[0].expand",
+                  "type": "text",
+                  "desc": "节点展开 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].checked",
+                  "type": "text",
+                  "desc": "是否勾选 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].selected",
+                  "type": "text",
+                  "desc": "是否选中 前端所需",
+                  "value": "true"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/postMapping2",
+            "description": "测试PostMapping表单",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PostMapping表单"
+        },
+        {
+          "name": "测试PutMapping json",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":\"78\",\n\t\"createBy\":\"mnlrqp\",\n\t\"createTime\":\"2020-04-17\",\n\t\"updateBy\":\"4gt6vo\",\n\t\"updateTime\":\"2020-04-17\",\n\t\"delFlag\":9,\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"bwjct8\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"email\":\"致远.杜@yahoo.com\",\n\t\"address\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"sex\":1,\n\t\"avatar\":\"krsf32\",\n\t\"type\":46,\n\t\"status\":549,\n\t\"description\":\"wqzifd\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"nb2hq1\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"edrwjq\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"78\",\n\t\t\t\t\t\"createBy\":\"wxz90a\",\n\t\t\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\t\t\"updateBy\":\"zcj05i\",\n\t\t\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\t\t\"delFlag\":9,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":823,\n\t\t\t\t\t\"type\":37,\n\t\t\t\t\t\"title\":\"ape8nr\",\n\t\t\t\t\t\"path\":\"htkp51\",\n\t\t\t\t\t\"component\":\"xt9e9q\",\n\t\t\t\t\t\"icon\":\"3tdqee\",\n\t\t\t\t\t\"buttonType\":\"t4mxyv\",\n\t\t\t\t\t\"parentId\":\"78\",\n\t\t\t\t\t\"description\":\"nw0wj3\",\n\t\t\t\t\t\"sortOrder\":710,\n\t\t\t\t\t\"status\":362,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"tu7ylb\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"90sgg8\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"yceose\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":864,\n\t\t\t\"type\":917,\n\t\t\t\"title\":\"ttfux0\",\n\t\t\t\"path\":\"e75q9o\",\n\t\t\t\"component\":\"uaugrb\",\n\t\t\t\"icon\":\"ncval5\",\n\t\t\t\"buttonType\":\"vx0u2v\",\n\t\t\t\"parentId\":\"78\",\n\t\t\t\"description\":\"5tkhzj\",\n\t\t\t\"sortOrder\":414,\n\t\t\t\"status\":928,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"wyvyfm\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/putMapping",
+            "description": "测试PutMapping json",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PutMapping json"
+        },
+        {
+          "name": "测试PutMapping表单",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "xaaz4z"
+                },
+                {
+                  "key": "createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "yfv018"
+                },
+                {
+                  "key": "updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "username",
+                  "type": "text",
+                  "desc": "用户名",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "password",
+                  "type": "text",
+                  "desc": "密码",
+                  "value": "c0hhj1"
+                },
+                {
+                  "key": "nickName",
+                  "type": "text",
+                  "desc": "昵称",
+                  "value": "bernadette.franecki"
+                },
+                {
+                  "key": "mobile",
+                  "type": "text",
+                  "desc": "电话",
+                  "value": "17835596482"
+                },
+                {
+                  "key": "email",
+                  "type": "text",
+                  "desc": "邮箱",
+                  "value": "致远.杜@yahoo.com"
+                },
+                {
+                  "key": "address",
+                  "type": "text",
+                  "desc": "地址",
+                  "value": "Apt. 751 徐栋40208号， 湛江， 豫 140734"
+                },
+                {
+                  "key": "sex",
+                  "type": "text",
+                  "desc": "性别(男1 女 2)",
+                  "value": "1"
+                },
+                {
+                  "key": "avatar",
+                  "type": "text",
+                  "value": "b6vcih"
+                },
+                {
+                  "key": "type",
+                  "type": "text",
+                  "desc": "类型",
+                  "value": "122"
+                },
+                {
+                  "key": "status",
+                  "type": "text",
+                  "desc": "状态",
+                  "value": "167"
+                },
+                {
+                  "key": "description",
+                  "type": "text",
+                  "desc": "描述",
+                  "value": "5l3elr"
+                },
+                {
+                  "key": "roles[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "trvw26"
+                },
+                {
+                  "key": "roles[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "7mra94"
+                },
+                {
+                  "key": "roles[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "roles[0].name",
+                  "type": "text",
+                  "desc": "角色名 以ROLE_开头",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "roles[0].defaultRole",
+                  "type": "text",
+                  "desc": "是否为注册默认角色",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].permissions[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "w2xpcc"
+                },
+                {
+                  "key": "roles[0].permissions[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].permissions[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "gbuzld"
+                },
+                {
+                  "key": "roles[0].permissions[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "roles[0].permissions[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "roles[0].permissions[0].name",
+                  "type": "text",
+                  "desc": "菜单/权限名称",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "roles[0].permissions[0].level",
+                  "type": "text",
+                  "desc": "层级",
+                  "value": "374"
+                },
+                {
+                  "key": "roles[0].permissions[0].type",
+                  "type": "text",
+                  "desc": "类型 0页面 1具体操作",
+                  "value": "200"
+                },
+                {
+                  "key": "roles[0].permissions[0].title",
+                  "type": "text",
+                  "desc": "菜单标题",
+                  "value": "uojef2"
+                },
+                {
+                  "key": "roles[0].permissions[0].path",
+                  "type": "text",
+                  "desc": "页面路径/资源链接url",
+                  "value": "rs5prd"
+                },
+                {
+                  "key": "roles[0].permissions[0].component",
+                  "type": "text",
+                  "desc": "前端组件",
+                  "value": "p8t40b"
+                },
+                {
+                  "key": "roles[0].permissions[0].icon",
+                  "type": "text",
+                  "desc": "图标",
+                  "value": "auipso"
+                },
+                {
+                  "key": "roles[0].permissions[0].buttonType",
+                  "type": "text",
+                  "desc": "按钮权限类型",
+                  "value": "se5cvf"
+                },
+                {
+                  "key": "roles[0].permissions[0].parentId",
+                  "type": "text",
+                  "desc": "父id",
+                  "value": "78"
+                },
+                {
+                  "key": "roles[0].permissions[0].description",
+                  "type": "text",
+                  "desc": "说明备注",
+                  "value": "ltbw9r"
+                },
+                {
+                  "key": "roles[0].permissions[0].sortOrder",
+                  "type": "text",
+                  "desc": "排序值",
+                  "value": "127"
+                },
+                {
+                  "key": "roles[0].permissions[0].status",
+                  "type": "text",
+                  "desc": "是否启用 0启用 -1禁用",
+                  "value": "962"
+                },
+                {
+                  "key": "roles[0].permissions[0].expand",
+                  "type": "text",
+                  "desc": "节点展开 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].checked",
+                  "type": "text",
+                  "desc": "是否勾选 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "roles[0].permissions[0].selected",
+                  "type": "text",
+                  "desc": "是否选中 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].id",
+                  "type": "text",
+                  "desc": "自增编号",
+                  "value": "78"
+                },
+                {
+                  "key": "permissions[0].createBy",
+                  "type": "text",
+                  "desc": "创建人",
+                  "value": "e0cge6"
+                },
+                {
+                  "key": "permissions[0].createTime",
+                  "type": "text",
+                  "desc": "创建时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "permissions[0].updateBy",
+                  "type": "text",
+                  "desc": "修改人",
+                  "value": "nyxxck"
+                },
+                {
+                  "key": "permissions[0].updateTime",
+                  "type": "text",
+                  "desc": "修改时间",
+                  "value": "2020-04-17"
+                },
+                {
+                  "key": "permissions[0].delFlag",
+                  "type": "text",
+                  "desc": "删除标记[1表示已删除，默认值0]",
+                  "value": "9"
+                },
+                {
+                  "key": "permissions[0].name",
+                  "type": "text",
+                  "desc": "菜单/权限名称",
+                  "value": "智渊.顾"
+                },
+                {
+                  "key": "permissions[0].level",
+                  "type": "text",
+                  "desc": "层级",
+                  "value": "218"
+                },
+                {
+                  "key": "permissions[0].type",
+                  "type": "text",
+                  "desc": "类型 0页面 1具体操作",
+                  "value": "338"
+                },
+                {
+                  "key": "permissions[0].title",
+                  "type": "text",
+                  "desc": "菜单标题",
+                  "value": "6enwil"
+                },
+                {
+                  "key": "permissions[0].path",
+                  "type": "text",
+                  "desc": "页面路径/资源链接url",
+                  "value": "kig2um"
+                },
+                {
+                  "key": "permissions[0].component",
+                  "type": "text",
+                  "desc": "前端组件",
+                  "value": "8r04fd"
+                },
+                {
+                  "key": "permissions[0].icon",
+                  "type": "text",
+                  "desc": "图标",
+                  "value": "nz3869"
+                },
+                {
+                  "key": "permissions[0].buttonType",
+                  "type": "text",
+                  "desc": "按钮权限类型",
+                  "value": "08s33o"
+                },
+                {
+                  "key": "permissions[0].parentId",
+                  "type": "text",
+                  "desc": "父id",
+                  "value": "78"
+                },
+                {
+                  "key": "permissions[0].description",
+                  "type": "text",
+                  "desc": "说明备注",
+                  "value": "15xcie"
+                },
+                {
+                  "key": "permissions[0].sortOrder",
+                  "type": "text",
+                  "desc": "排序值",
+                  "value": "685"
+                },
+                {
+                  "key": "permissions[0].status",
+                  "type": "text",
+                  "desc": "是否启用 0启用 -1禁用",
+                  "value": "637"
+                },
+                {
+                  "key": "permissions[0].expand",
+                  "type": "text",
+                  "desc": "节点展开 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].checked",
+                  "type": "text",
+                  "desc": "是否勾选 前端所需",
+                  "value": "true"
+                },
+                {
+                  "key": "permissions[0].selected",
+                  "type": "text",
+                  "desc": "是否选中 前端所需",
+                  "value": "true"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/putMapping2",
+            "description": "测试PutMapping表单",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试PutMapping表单"
+        },
+        {
+          "name": "测试DeleteMapping",
+          "request": {
+            "method": "DELETE",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "userId",
+                  "type": "text",
+                  "desc": "userId",
+                  "value": "870"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/deleteMapping?userId\u003d870",
+            "description": "测试DeleteMapping",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试DeleteMapping"
+        }
+      ]
+    },
+    {
+      "name": "Test ResponseEntity",
+      "item": [
+        {
+          "name": "ResponseEntity return List",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/responseEntity/list",
+            "description": "ResponseEntity return List",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "ResponseEntity return List"
+        }
+      ]
+    },
+    {
+      "name": "普通java对象api文档测试",
+      "item": [
+        {
+          "name": "返回普通String测试",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/str",
+            "description": "返回普通String测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回普通String测试"
+        },
+        {
+          "name": "返回普通javabean",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"智渊.顾\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"userAge\":9,\n\t\"phone\":\"17234412234\",\n\t\"createTime\":1587137090384,\n\t\"small\":73.30,\n\t\"money\":99.37,\n\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\"telephone\":\"17234412234\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/simple/user",
+            "description": "返回普通javabean",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回普通javabean"
+        },
+        {
+          "name": "返回复杂实体数据",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/stu",
+            "description": "返回复杂实体数据",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回复杂实体数据"
+        },
+        {
+          "name": "Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;结构",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/teacher",
+            "description": "Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;结构",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Teacher\u0026lt;Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;,Teacher\u0026lt;User,User,User\u0026gt;\u0026gt;结构"
+        },
+        {
+          "name": "Teacher\u0026lt;List\u0026lt;User\u0026gt;, User, Student\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/teacher2",
+            "description": "Teacher\u0026lt;List\u0026lt;User\u0026gt;, User, Student\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Teacher\u0026lt;List\u0026lt;User\u0026gt;, User, Student\u0026gt;"
+        },
+        {
+          "name": "测试SubUser",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/subUser",
+            "description": "测试SubUser",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试SubUser"
+        },
+        {
+          "name": "返回CommonResult\u0026lt;SubUser\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/simple/subUser/result",
+            "description": "返回CommonResult\u0026lt;SubUser\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回CommonResult\u0026lt;SubUser\u0026gt;"
+        }
+      ]
+    },
+    {
+      "name": "简单对象测试2",
+      "item": [
+        {
+          "name": "CommonResult\u0026lt;String\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/stringCommonResult",
+            "description": "CommonResult\u0026lt;String\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "CommonResult\u0026lt;String\u0026gt;"
+        },
+        {
+          "name": "返回Staff\u0026lt;Staff\u0026lt;Staff\u0026gt;\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/staff",
+            "description": "返回Staff\u0026lt;Staff\u0026lt;Staff\u0026gt;\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回Staff\u0026lt;Staff\u0026lt;Staff\u0026gt;\u0026gt;"
+        },
+        {
+          "name": "返回Staff\u0026lt;String\u0026gt;",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/staffStr",
+            "description": "返回Staff\u0026lt;String\u0026gt;",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "返回Staff\u0026lt;String\u0026gt;"
+        },
+        {
+          "name": "JAVA继承测试",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\":\"value\",\n\t\"age\":9\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/children",
+            "description": "JAVA继承测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "JAVA继承测试"
+        }
+      ]
+    },
+    {
+      "name": "用户信息操作接口",
+      "item": [
+        {
+          "name": "添加用户",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"MAX_SPEED\":297,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"lcp66h\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"gender\":0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/user/add",
+            "description": "添加用户",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "添加用户"
+        },
+        {
+          "name": "更新用户",
+          "request": {
+            "method": "PUT",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"MAX_SPEED\":797,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"ty64y9\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"gender\":0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/user/update",
+            "description": "更新用户",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "更新用户"
+        }
+      ]
+    },
+    {
+      "name": "JSR303参数验证规范测试",
+      "item": [
+        {
+          "name": "验证validate",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\":\"value\",\n\t\"birthday\":\"2020-04-17\",\n\t\"age\":9,\n\t\"subject\":{\n\t\t\"subjectName\":\"智渊.顾\"\n\t}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/validator/test",
+            "description": "验证validate",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "验证validate"
+        },
+        {
+          "name": "验证通用参数",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"token\":\"habfcy\",\n\t\"sequenceNo\":\"6psclk\",\n\t\"parameter\":{\n\t\t\"numbers\":938\n\t}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/validator/valid",
+            "description": "验证通用参数",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "验证通用参数"
+        },
+        {
+          "name": "分组验证1",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":406,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/validator/save",
+            "description": "分组验证1",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "分组验证1"
+        },
+        {
+          "name": "分组验证2",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":806,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/validator/update",
+            "description": "分组验证2",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "分组验证2"
+        },
+        {
+          "name": "分组验证3",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"id\":761,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/validator/login",
+            "description": "分组验证3",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "分组验证3"
+        }
+      ]
+    },
+    {
+      "name": "xss拦击测试",
+      "item": [
+        {
+          "name": "xss过滤普通post请求",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "text",
+                  "type": "text",
+                  "desc": "请求文本",
+                  "value": "j1vfzd"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/xss/text",
+            "description": "xss过滤普通post请求",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "xss过滤普通post请求"
+        },
+        {
+          "name": "xss过滤get请求",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "query",
+                  "type": "text",
+                  "desc": "请求参数",
+                  "value": "jcjyhs"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/xss/query?query\u003djcjyhs",
+            "description": "xss过滤get请求",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "xss过滤get请求"
+        },
+        {
+          "name": "xss过滤json数据",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"name\":\"value\",\n\t\"age\":9\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/xss/json",
+            "description": "xss过滤json数据",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "xss过滤json数据"
         }
       ]
     }

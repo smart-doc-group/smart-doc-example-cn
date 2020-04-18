@@ -8,12 +8,16 @@ package com.power.doc.model;
 public class LoginDto {
 
     /**
+     *
+     *
      * 用户名
      */
     private String userName;
 
     /**
      * 密码
+     *
      */
     private String password;
+
 }

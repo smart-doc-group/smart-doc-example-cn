@@ -1,5 +1,6 @@
 package com.power.doc.service;
 
+import com.alibaba.fastjson.JSON;
 import com.power.common.util.DateTimeUtil;
 import com.power.doc.builder.*;
 import com.power.doc.constants.DocGlobalConstants;
@@ -70,8 +71,15 @@ public class ApiDocTest {
                         .setCodeField("code") //错误码值字段名
                         .setDescField("desc")//错误码描述
         );
+        //1.8.5，使用自定义对象替换指定对象做文档渲染，必须使用全类名
+        //泛型书写例子com.power.doc.model.LoginDto<com.power.doc.User>
+        config.setApiObjectReplacements(
+                ApiObjectReplacement.builder().setClassName("org.springframework.data.domain.Pageable")
+                        .setReplacementClassName("com.power.doc.model.LoginDto")
+        );
 
-//        String json = JSON.toJSONString(config);
+        String json = JSON.toJSONString(config);
+        System.out.println(json);
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 
