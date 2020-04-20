@@ -1,6 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.2.6.RELEASE'
+        smartDocVersion = '1.0.35'
     }
     repositories {
         maven {url 'http://localhost:8081/nexus/content/groups/public/'}
@@ -11,6 +12,7 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath('se.transmode.gradle:gradle-docker:1.2')
+        classpath("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
     }
 }
 group 'com.power.doc'
@@ -21,8 +23,11 @@ apply plugin: 'maven'
 apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'smart-doc'
 
-sourceCompatibility = '1.8'
+smartdoc{
+    configFile = file("src/main/resources/smart-doc.json")
+}
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
