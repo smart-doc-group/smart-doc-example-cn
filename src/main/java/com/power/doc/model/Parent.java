@@ -6,7 +6,7 @@ package com.power.doc.model;
  *
  * @author yu 2018/07/09.
  */
-public class Parent {
+public class Parent implements IParent{
 
     /**
      * 姓名
@@ -20,5 +20,10 @@ public class Parent {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int getAge() {
+        return 0;
     }
 }
