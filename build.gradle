@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.2.6.RELEASE'
-        smartDocVersion = '1.0.67'
+        smartDocVersion = '1.8.8'
     }
     repositories {
         maven { url 'http://localhost:8081/nexus/content/groups/public/' }
@@ -60,7 +60,7 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-log4j2')
     compile 'com.lmax:disruptor:3.4.2'
     compile('org.springframework.boot:spring-boot-starter-aop')
-    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.68'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.71'
     compile 'org.apache.commons:commons-lang3:3.9'
     compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
     compile 'org.apache.commons:commons-text:1.8'
@@ -68,7 +68,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.0'
     compile("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile 'com.github.shalousun:smart-doc:1.8.6'
+    testCompile 'com.github.shalousun:smart-doc:1.8.8'
 
 }
 
