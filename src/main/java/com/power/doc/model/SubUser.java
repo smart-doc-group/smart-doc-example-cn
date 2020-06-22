@@ -13,7 +13,7 @@ public class SubUser {
 
     /**
      * 用户名称
-     * @ignore
+     *
      * @mock 张三
      */
     @NotBlank(message = "subUserName不能为空")

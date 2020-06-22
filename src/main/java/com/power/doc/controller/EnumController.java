@@ -1,8 +1,11 @@
 package com.power.doc.controller;
 
-import com.power.doc.entity.SimpleUser;
+import com.power.doc.entity.Order;
+import com.power.doc.enums.OrderEnum;
 import com.power.doc.enums.SimpleEnum;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 枚举参数测试
@@ -12,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class EnumController {
 
     /**
-     * 获取枚举参数
+     * 获取枚举参数1
      * @param simpleEnum 简单枚举
      * @return
      */
@@ -23,13 +26,35 @@ public class EnumController {
     }
 
     /**
-     * 获取枚举参数
+     * 获取枚举参数2
+     * @param orderEnum 简单枚举
+     * @return
+     */
+    @GetMapping(value = "/enum/{orderEnum}")
+    public String testEnumPathVal0(@PathVariable OrderEnum orderEnum){
+        System.out.println(orderEnum.name());
+        return "hello apiNote";
+    }
+
+
+    /**
+     * 获取枚举参数3
      * @param simpleEnum 简单枚举
      * @return
      */
     @GetMapping(value = "/enum/{simpleEnum}")
     public String testEnumPathVal(@PathVariable SimpleEnum simpleEnum){
         System.out.println(simpleEnum.name());
+        return "hello apiNote";
+    }
+
+    /**
+     * 获取枚举参数4
+     * @param order 简单枚举
+     * @return
+     */
+    @GetMapping(value = "/enum/test1")
+    public String testEnum2(@PathVariable Order order){
         return "hello apiNote";
     }
 

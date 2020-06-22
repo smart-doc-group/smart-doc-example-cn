@@ -1,0 +1,110 @@
+= dubbo-api文档生成测试
+
+
+== Add dependency
+
+----
+<dependency>
+    <groupId>com.demo</groupId>
+    <artifactId>SpringBoot2-Dubbo-Api</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.demo</groupId>
+    <artifactId>SpringBoot2-Dubbo-Api</artifactId>
+    <version>1.0.0</version>
+</dependency>
+
+----
+
+
+== 用户操作
+
+*URI:* dubbo://localhost:20880/com.iflytek.demo.dubbo.api.interfaces.UserService
+
+*Service:* com.iflytek.demo.dubbo.api.interfaces.UserService
+
+*Protocol:* dubbo
+
+*Author:* yu 2019/4/22.,zhangsan 2019/4/22.
+
+*Version:* 1.0.0
+
+=== 根据用户id查询
+
+*Definition：* com.iflytek.demo.dubbo.api.entity.User getById(java.lang.String userId)
+
+
+*Description:* 根据用户id查询
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userId|java.lang.String|No comments found.|true|-
+|====================
+
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|uid|string|用户id|-
+|name|string|用户名称|-
+|address|string|地址|-
+|====================
+
+
+
+=== 查询所有用户
+
+*Definition：* java.util.List<com.iflytek.demo.dubbo.api.entity.User> listOfUser()
+
+
+*Description:* 查询所有用户
+
+
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|uid|string|用户id|-
+|name|string|用户名称|-
+|address|string|地址|-
+|====================
+
+
+
+=== 根据用户id和版本号查询
+
+*Definition：* java.lang.String testUser(java.lang.Long userId,java.lang.String version)
+
+
+*Description:* Dubbo灰度测试
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userId|java.lang.Long|用户id|true|-
+|version|java.lang.String|版本号|true|-
+|====================
+
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|No field|string|The api directly returns the string type value.|-
+|====================
+
+

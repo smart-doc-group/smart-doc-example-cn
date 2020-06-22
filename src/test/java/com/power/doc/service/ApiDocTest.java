@@ -2,12 +2,14 @@ package com.power.doc.service;
 
 import com.alibaba.fastjson.JSON;
 import com.power.common.util.DateTimeUtil;
+import com.power.common.util.JsonFormatUtil;
 import com.power.doc.builder.*;
 import com.power.doc.constants.DocGlobalConstants;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.*;
+import com.power.doc.model.rpc.RpcApiDependency;
 import org.junit.Test;
 
 /**
@@ -33,11 +35,20 @@ public class ApiDocTest {
         config.setShowAuthor(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
+        config.setRecursionLimit(3);
 
         config.setCoverOld(true);
 
         //是否显示接口作者 默认true
         config.setShowAuthor(true);
+
+        //自动将驼峰入参字段在文档中转为下划线格式,//@since 1.8.7 版本开始
+        config.setRequestFieldToUnderline(false);
+
+        //自动将驼峰入参字段在文档中转为下划线格式,//@since 1.8.7 版本开始
+        config.setResponseFieldToUnderline(false);
+
+        config.setInlineEnum(true);
 
 //        config.setProjectName("Smart-doc测试样例");
 
@@ -77,9 +88,14 @@ public class ApiDocTest {
                 ApiObjectReplacement.builder().setClassName("org.springframework.data.domain.Pageable")
                         .setReplacementClassName("com.power.doc.model.LoginDto")
         );
+        // 添加dubbo api模块的依赖，方便smart-doc将依赖写入文档中，方便他人集成。
+        config.setRpcApiDependencies(
+                RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0"),
+                RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0")
+        );
 
-        String json = JSON.toJSONString(config);
-        System.out.println(json);
+//        String json = JSON.toJSONString(config);
+//        System.out.println(JsonFormatUtil.formatJson(json));
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 
