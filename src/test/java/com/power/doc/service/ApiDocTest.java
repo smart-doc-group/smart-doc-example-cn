@@ -35,6 +35,7 @@ public class ApiDocTest {
         config.setShowAuthor(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
+        config.setRecursionLimit(3);
 
         config.setCoverOld(true);
 
@@ -46,6 +47,8 @@ public class ApiDocTest {
 
         //自动将驼峰入参字段在文档中转为下划线格式,//@since 1.8.7 版本开始
         config.setResponseFieldToUnderline(false);
+
+        config.setInlineEnum(true);
 
 //        config.setProjectName("Smart-doc测试样例");
 
@@ -91,8 +94,8 @@ public class ApiDocTest {
                 RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0")
         );
 
-        String json = JSON.toJSONString(config);
-        System.out.println(JsonFormatUtil.formatJson(json));
+//        String json = JSON.toJSONString(config);
+//        System.out.println(JsonFormatUtil.formatJson(json));
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 

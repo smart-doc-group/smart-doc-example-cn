@@ -12,13 +12,13 @@ public class FastJson {
     /**
      * 用户名
      */
-    @JSONField(name = "name")
+//    @JSONField(name = "name")
     private String username;
 
 
     /**
      * 身份证号
      */
-    @JSONField(serialize = false)
+//    @JSONField(serialize = false)
     private String idCard;
 }
