@@ -1,5 +1,7 @@
 package com.power.doc.controller;
 
+import com.power.doc.entity.Pager;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +24,8 @@ public class ApiNoteController {
      * @return
      */
     @Deprecated
-    @PostMapping(value = "/test")
-    public String test(List<String> user){
+    @GetMapping(value = "/test")
+    public String test(Pager pager){
         return "hello apiNote";
     }
 }
