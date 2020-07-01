@@ -1,5 +1,7 @@
 package com.power.doc.controller;
 
+import com.power.doc.entity.Pager;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
