@@ -24,8 +24,8 @@ public class ApiNoteController {
      * @return
      */
     @Deprecated
-    @GetMapping(value = "/test")
-    public String test(Pager pager){
+    @PostMapping(value = "/test")
+    public String test(List<String> user){
         return "hello apiNote";
     }
 }
