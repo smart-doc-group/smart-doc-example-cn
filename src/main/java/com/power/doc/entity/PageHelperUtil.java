@@ -4,6 +4,8 @@ package com.power.doc.entity;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 /**
  * author: hcy
  * version: 1.0.0V
@@ -12,13 +14,23 @@ import lombok.Data;
  **/
 @Data
 @Builder
-public class PageHelperUtil<T> {
+public class PageHelperUtil<T, O> {
+
+
+
     /**
      * 总条数
      */
-    private Long total;
+    private int total;
+
     /**
-     * 集合
+     * 其他信息
      */
-    private T list;
+    private O other;
+
+    /**
+     *
+     * 数据列表
+     */
+    private List<T> rows;
 }

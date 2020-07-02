@@ -1,6 +1,8 @@
 package com.power.doc.controller;
 
 import com.power.doc.entity.Pager;
+import com.power.doc.entity.RoleDTO;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,17 +17,15 @@ import java.util.List;
 public class ApiNoteController {
 
     /**
-     * 测试apiNote
+     * Jpa Page
      * @author cht
      * @apiNote
-     * This method returns a List instead of a Collection or Stream,
-     * because processing of multiple Wombats usually involves traversing
-     * the list in alternating forward and reverse directions.
+     * 用于测试Jpa的分页查询
      * @return
      */
     @Deprecated
     @PostMapping(value = "/test")
-    public String test(List<String> user){
-        return "hello apiNote";
+    public Page<RoleDTO> test(){
+        return null;
     }
 }
