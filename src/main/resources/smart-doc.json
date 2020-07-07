@@ -10,21 +10,20 @@
   "skipTransientField": true,
   "dataDictionaries": [
     {
-
       "title": "订单状态",
       "enumClassName": "com.power.doc.enums.OrderEnum",
       "codeField": "code",
       "descField": "desc"
     }
   ],
-
-  "errorCodeDictionaries": [{
-    "title": "title",
-    "enumClassName": "com.power.doc.enums.ErrorCodeEnum",
-    "codeField": "code",
-    "descField": "desc"
-  }],
-
+  "errorCodeDictionaries": [
+    {
+      "title": "title",
+      "enumClassName": "com.power.doc.enums.ErrorCodeEnum",
+      "codeField": "code",
+      "descField": "desc"
+    }
+  ],
   "revisionLogs": [
     {
       "version": "1.0",
@@ -56,6 +55,17 @@
       "desc": "desc",
       "required": false,
       "since": "-"
+    }
+  ],
+  "apiConstants": [
+    {
+      "constantsClassName": "com.power.doc.constants.RequestParamConstant"
+    },
+    {
+      "constantsClassName": "com.power.doc.constants.RequestValueConstant"
+    },
+    {
+      "constantsClassName": "com.power.doc.constants.ApiVersion"
     }
   ]
 }

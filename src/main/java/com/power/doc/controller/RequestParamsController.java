@@ -1,5 +1,7 @@
 package com.power.doc.controller;
 
+import com.power.doc.constants.RequestParamConstant;
+import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.model.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -123,6 +125,15 @@ public class RequestParamsController {
      */
     @PostMapping(value = {"/get/{deptId}/{userId}", "/find/{deptId}/{userId}"})
     public void testMuchPathMuchParameter(@PathVariable Long userId, @PathVariable Long deptId) {
+
+    }
+
+    /**
+     * Test Constants
+     * @param page 页码
+     */
+    @GetMapping(value = "testConstants")
+    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page){
 
     }
 

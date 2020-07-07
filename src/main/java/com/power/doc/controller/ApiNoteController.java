@@ -1,31 +1,27 @@
 package com.power.doc.controller;
 
-import com.power.doc.entity.Pager;
-import com.power.doc.entity.RoleDTO;
-import org.springframework.data.domain.Page;
+import com.power.doc.constants.ApiVersion;
+import com.power.doc.constants.RequestParamConstant;
+import com.power.doc.constants.RequestValueConstant;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 /**
- * apiNote注解测试
- * @author cht 2019/10/16.
+ * @author boxer
+ * @description
+ * @since 2020/6/19 9:55
  */
 @RestController
 public class ApiNoteController {
 
     /**
-     * Jpa Page
-     * @author cht
-     * @apiNote
-     * 用于测试Jpa的分页查询
-     * @return
+     * Test Constants
+     *
+     * @param page 页码
      */
-    @Deprecated
-    @PostMapping(value = "/test")
-    public Page<RoleDTO> test(){
-        return null;
+    @GetMapping(value = "testConstants/" + ApiVersion.VERSION)
+    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
+
     }
 }

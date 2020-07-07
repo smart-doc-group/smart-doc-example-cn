@@ -4,7 +4,10 @@ import com.alibaba.fastjson.JSON;
 import com.power.common.util.DateTimeUtil;
 import com.power.common.util.JsonFormatUtil;
 import com.power.doc.builder.*;
+import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.DocGlobalConstants;
+import com.power.doc.constants.RequestParamConstant;
+import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
@@ -65,6 +68,12 @@ public class ApiDocTest {
                 ApiReqHeader.header().setName("token").setRequired(true).setType("string").setDesc("token"),
                 ApiReqHeader.header().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
         );
+        //Configure your own constant class, smart-doc automatically replaces with a specific value when parsing to a constant
+        config.setApiConstants(
+                ApiConstant.builder().setConstantsClass(RequestParamConstant.class),
+                ApiConstant.builder().setConstantsClass(RequestValueConstant.class),
+                ApiConstant.builder().setConstantsClass(ApiVersion.class)
+        );
 
         //添加数据字典
         config.setDataDictionaries(
@@ -94,8 +103,8 @@ public class ApiDocTest {
                 RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0")
         );
 
-//        String json = JSON.toJSONString(config);
-//        System.out.println(JsonFormatUtil.formatJson(json));
+        String json = JSON.toJSONString(config);
+        System.out.println(JsonFormatUtil.formatJson(json));
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 
