@@ -1,14 +1,12 @@
 package com.power.doc.entity;
 
-import lombok.Data;
-
 /**
- * @author yu 2019/12/18.
+ * @author yu 2020/7/1.
  */
-@Data
-public class Pager {
+public class Pager extends BasePager {
 
-    private int concurrentPage;
-
-    private int pageSize;
+    /**
+     * 记录总数
+     */
+    private int total;
 }

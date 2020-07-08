@@ -1,29 +1,27 @@
 package com.power.doc.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
+import com.power.doc.constants.ApiVersion;
+import com.power.doc.constants.RequestParamConstant;
+import com.power.doc.constants.RequestValueConstant;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 /**
- * apiNote注解测试
- * @author cht 2019/10/16.
+ * @author boxer
+ * @description
+ * @since 2020/6/19 9:55
  */
 @RestController
 public class ApiNoteController {
 
     /**
-     * 测试apiNote
-     * @author cht
-     * @apiNote
-     * This method returns a List instead of a Collection or Stream,
-     * because processing of multiple Wombats usually involves traversing
-     * the list in alternating forward and reverse directions.
-     * @return
+     * Test Constants
+     *
+     * @param page 页码
      */
-    @Deprecated
-    @PostMapping(value = "/test")
-    public String test(List<String> user){
-        return "hello apiNote";
+    @GetMapping(value = "testConstants/" + ApiVersion.VERSION)
+    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
+
     }
 }

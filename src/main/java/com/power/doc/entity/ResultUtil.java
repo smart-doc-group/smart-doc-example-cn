@@ -10,7 +10,7 @@ import lombok.Data;
  **/
 
 @Data
-public class ResultUtil<T> {
+public class ResultUtil<T, O> {
     /**
      * ok: 接口业务成功返回
      * 其他返回表示相应的错误提示
@@ -26,91 +26,5 @@ public class ResultUtil<T> {
      */
     private T data;
 
-    /**
-     * 无参返回结果
-     *
-     * @return
-     */
-    public static ResultUtil<Boolean> success() {
-        ResultUtil<Boolean> result = new ResultUtil<>();
-        result.setData(true);
-        return result;
-    }
 
-    /**
-     * 有参返回结果
-     *
-     * @param data
-     * @return
-     */
-    public static <T> ResultUtil<T> success(T data) {
-        ResultUtil<T> result = new ResultUtil<>();
-        result.setData(data);
-        return result;
-    }
-
-    /**
-     * 无参错误返回结果
-     *
-     * @return
-     */
-    public static ResultUtil<Boolean> error() {
-        ResultUtil<Boolean> result = new ResultUtil<>();
-        result.setData(false);
-        return result;
-    }
-
-    /**
-     * 有参,错误代码,错误信息返回
-     *
-     * @param code
-     * @param msg
-     * @param data
-     * @return
-     */
-    public static <T> ResultUtil<T> error(String code, String msg, T data) {
-        ResultUtil<T> result = new ResultUtil<>();
-        result.setCode(code);
-        result.setMsg(msg);
-        result.setData(data);
-        return result;
-    }
-
-    /**
-     * 有参数, 错误代码返回
-     *
-     * @param code
-     * @param data
-     * @return
-     */
-    public static <T> ResultUtil<T> error(String code, T data) {
-        ResultUtil<T> result = new ResultUtil<>();
-        result.setCode(code);
-        result.setData(data);
-        return result;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
 }
