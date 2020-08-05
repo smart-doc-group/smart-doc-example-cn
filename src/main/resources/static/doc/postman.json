@@ -1,48 +1,28 @@
 {
   "info": {
     "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-    "_postman_id": "264ddf68-8af0-431d-a86a-1eb4232660a9",
+    "_postman_id": "83055d97-baa3-4af2-968c-727cf3e780da",
     "name": "smart-doc"
   },
   "item": [
     {
-      "name": "apiNote注解测试",
+      "name": "",
       "item": [
         {
-          "request": {
-            "method": "PATCH",
-            "body": {
-              "mode": "formdata"
-            },
-            "url": "http://127.0.0.1/",
-            "header": [
-              {
-                "key": "token",
-                "type": "text",
-                "disabled": true,
-                "name": "token",
-                "description": "desc"
-              }
-            ]
-          }
-        },
-        {
-          "name": "测试apiNote",
+          "name": "Test Constants",
           "request": {
             "method": "POST",
             "body": {
-              "mode": "formdata",
-              "formdata": [
-                {
-                  "key": "name",
-                  "type": "text",
-                  "desc": "",
-                  "value": "24666"
+              "mode": "raw",
+              "raw": "{\n\t\"page\":1,\n\t\"size\":10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
                 }
-              ]
+              }
             },
-            "url": "http://127.0.0.1/test",
-            "description": "测试apiNote",
+            "url": "http://127.0.0.1/testConstants/1.0",
+            "description": "Test Constants",
             "header": [
               {
                 "key": "token",
@@ -53,7 +33,7 @@
               }
             ]
           },
-          "description": "This method returns a List instead of a Collection or Stream,because processing of multiple Wombats usually involves traversing\u003cbr\u003ethe list in alternating forward and reverse directions."
+          "description": "Test Constants"
         }
       ]
     },
@@ -71,23 +51,23 @@
                   "key": "name",
                   "type": "text",
                   "desc": "姓名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "beginTime",
                   "type": "text",
                   "desc": "开始时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "endTime",
                   "type": "text",
                   "desc": "结束时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 }
               ]
             },
-            "url": "http://127.0.0.1/app/test?endTime\u003d2020-04-17\u0026name\u003d智渊.顾\u0026beginTime\u003d2020-04-17",
+            "url": "http://127.0.0.1/app/test?name\u003d嘉懿.史\u0026endTime\u003d2020-07-19\u0026beginTime\u003d2020-07-19",
             "description": "app测试",
             "header": [
               {
@@ -246,42 +226,10 @@
       ]
     },
     {
-      "name": "自定意义注释tag测试",
-      "item": [
-        {
-          "name": "使用mock获取自定义值",
-          "request": {
-            "method": "POST",
-            "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"numbers\":201\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            },
-            "url": "http://127.0.0.1/mock",
-            "description": "使用mock获取自定义值",
-            "header": [
-              {
-                "key": "token",
-                "type": "text",
-                "disabled": true,
-                "name": "token",
-                "description": "desc"
-              }
-            ]
-          },
-          "description": "使用mock获取自定义值"
-        }
-      ]
-    },
-    {
       "name": "枚举参数测试",
       "item": [
         {
-          "name": "获取枚举参数",
+          "name": "获取枚举参数1",
           "request": {
             "method": "GET",
             "body": {
@@ -296,7 +244,7 @@
               ]
             },
             "url": "http://127.0.0.1/enum?simpleEnum\u003dRED",
-            "description": "获取枚举参数",
+            "description": "获取枚举参数1",
             "header": [
               {
                 "key": "token",
@@ -307,10 +255,32 @@
               }
             ]
           },
-          "description": "获取枚举参数"
+          "description": "获取枚举参数1"
         },
         {
-          "name": "获取枚举参数",
+          "name": "获取枚举参数2",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/enum/0",
+            "description": "获取枚举参数2",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "获取枚举参数2"
+        },
+        {
+          "name": "获取枚举参数3",
           "request": {
             "method": "GET",
             "body": {
@@ -318,7 +288,7 @@
               "formdata": []
             },
             "url": "http://127.0.0.1/enum/RED",
-            "description": "获取枚举参数",
+            "description": "获取枚举参数3",
             "header": [
               {
                 "key": "token",
@@ -329,7 +299,50 @@
               }
             ]
           },
-          "description": "获取枚举参数"
+          "description": "获取枚举参数3"
+        },
+        {
+          "name": "获取枚举参数4",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": "http://127.0.0.1/enum/test1?order\u003d",
+            "description": "获取枚举参数4",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "获取枚举参数4"
+        },
+        {
+          "name": "枚举响应",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/enum/resp",
+            "description": "枚举响应",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "枚举响应"
         }
       ]
     },
@@ -347,7 +360,7 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "用户id",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "file",
@@ -415,7 +428,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "871"
+                  "value": "758"
                 },
                 {
                   "key": "simpleEnum",
@@ -427,31 +440,31 @@
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "8zkm42"
+                  "value": "r51rj6"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "desc": "性别",
-                  "value": "WOMAN"
+                  "value": "0"
                 }
               ]
             },
@@ -480,13 +493,13 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "nrx02s"
+                  "value": "kav9cz"
                 },
                 {
                   "key": "file",
@@ -521,13 +534,13 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "clip7b"
+                  "value": "kgihot"
                 },
                 {
                   "key": "file",
@@ -537,7 +550,7 @@
                 }
               ]
             },
-            "url": "http://127.0.0.1/formData2?userData\u003dclip7b\u0026userId\u003d78",
+            "url": "http://127.0.0.1/formData2?userData\u003dkgihot\u0026userId\u003d71",
             "description": "Get请求发表单文件 暂不支持完全解析",
             "header": [
               {
@@ -562,18 +575,18 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "437xj2"
+                  "value": "ut6bcp"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "331"
+                  "value": "830"
                 },
                 {
                   "key": "simpleEnum",
@@ -585,35 +598,35 @@
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "l28xlr"
+                  "value": "no0r92"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "desc": "性别",
-                  "value": "WOMAN"
+                  "value": "0"
                 }
               ]
             },
-            "url": "http://127.0.0.1/formData4?userData\u003d437xj2\u0026gender\u003dWOMAN\u0026MAX_SPEED\u003d331\u0026userId\u003d78\u0026username\u003d智渊.顾\u0026simpleEnum\u003dRED\u0026nickName\u003dbernadette.franecki\u0026mobile\u003d17835596482\u0026password\u003dl28xlr",
+            "url": "http://127.0.0.1/formData4?userData\u003dut6bcp\u0026nickName\u003ddavis.bins\u0026simpleEnum\u003dRED\u0026userId\u003d71\u0026username\u003d嘉懿.史\u0026password\u003dno0r92\u0026MAX_SPEED\u003d830\u0026mobile\u003d17381897930\u0026gender\u003d0",
             "description": "表单 包含复杂对象的Get 暂不支持完全解析",
             "header": [
               {
@@ -638,18 +651,18 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "d3zgzb"
+                  "value": "h3htae"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "244"
+                  "value": "747"
                 },
                 {
                   "key": "simpleEnum",
@@ -661,31 +674,31 @@
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "tl1hnz"
+                  "value": "4l6th2"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "desc": "性别",
-                  "value": "WOMAN"
+                  "value": "0"
                 }
               ]
             },
@@ -714,13 +727,13 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "desc": "No comments found.",
-                  "value": "yoj1uq"
+                  "value": "3iyrzk"
                 },
                 {
                   "key": "simpleUser",
@@ -730,7 +743,7 @@
                 }
               ]
             },
-            "url": "http://127.0.0.1/formData6?userId\u003d78\u0026userData\u003dyoj1uq\u0026simpleUser\u003dRED",
+            "url": "http://127.0.0.1/formData6?userData\u003d3iyrzk\u0026userId\u003d71\u0026simpleUser\u003dRED",
             "description": "表单 枚举",
             "header": [
               {
@@ -754,7 +767,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "948"
+                  "value": "369"
                 },
                 {
                   "key": "simpleEnum",
@@ -766,35 +779,35 @@
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "ij0epa"
+                  "value": "9meykn"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "desc": "性别",
-                  "value": "WOMAN"
+                  "value": "0"
                 }
               ]
             },
-            "url": "http://127.0.0.1/formData1/78",
+            "url": "http://127.0.0.1/formData1/71",
             "description": "测试formData带路径参数",
             "header": [
               {
@@ -818,7 +831,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "78"
+                  "value": "638"
                 },
                 {
                   "key": "simpleEnum",
@@ -830,35 +843,35 @@
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "2quzwj"
+                  "value": "4b4x4t"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "desc": "性别",
-                  "value": "WOMAN"
+                  "value": "0"
                 }
               ]
             },
-            "url": "http://127.0.0.1/formData1/78/9",
+            "url": "http://127.0.0.1/formData1/71/15",
             "description": "测试formData带路多个路径参数",
             "header": [
               {
@@ -871,6 +884,74 @@
             ]
           },
           "description": "测试formData带路多个路径参数"
+        }
+      ]
+    },
+    {
+      "name": "java泛型解析测试",
+      "item": [
+        {
+          "name": "测试多泛型1",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/generics/test1",
+            "description": "测试多泛型1",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试多泛型1"
+        },
+        {
+          "name": "测试多泛型2",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/generics/test2",
+            "description": "测试多泛型2",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试多泛型2"
+        },
+        {
+          "name": "测试单泛型嵌套",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/generics/test3",
+            "description": "测试单泛型嵌套",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试单泛型嵌套"
         }
       ]
     },
@@ -956,7 +1037,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"localDate\":\"2020-04-17\",\n\t\"localDateTime\":\"2020-04-17 23:25:02\"\n}",
+              "raw": "{\n\t\"localDate\":\"2020-07-19\",\n\t\"localDateTime\":\"2020-07-19 16:50:48\",\n\t\"localTime\":2020-07-19 16:50:34\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -976,6 +1057,59 @@
             ]
           },
           "description": "LocalDate和LocalDateTime测试"
+        }
+      ]
+    },
+    {
+      "name": "Jpa代码测试",
+      "item": [
+        {
+          "name": "Jpa Page",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/test",
+            "description": "Jpa Page",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "用于测试Jpa的分页查询"
+        },
+        {
+          "name": "Jpa Pageable查询参数重渲染",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"page\":1,\n\t\"size\":10\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/pageableParam",
+            "description": "Jpa Pageable查询参数重渲染",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试让smart-doc使用自定义对象来渲染生成文档"
         }
       ]
     },
@@ -1385,6 +1519,64 @@
       ]
     },
     {
+      "name": "多泛型测试",
+      "item": [
+        {
+          "name": "数组",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"data\":{\n\t\t\"roleId\":413,\n\t\t\"roleName\":\"嘉懿.史\"\n\t},\n\t\"data1\":[\n\t\t{\n\t\t\t\"total\":617\n\t\t}\n\t],\n\t\"data2\":[\n\t\t{\n\t\t\t\"roleId\":760,\n\t\t\t\"roleName\":\"嘉懿.史\"\n\t\t}\n\t],\n\t\"data3\":{\n\t\t\"total\":331\n\t}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/mulGenric/test/",
+            "description": "数组",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "数组"
+        }
+      ]
+    },
+    {
+      "name": "mybatis-plus测试",
+      "item": [
+        {
+          "name": "mybatis-plus分页类测试",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": "http://127.0.0.1/mybatis/plus/page",
+            "description": "mybatis-plus分页类测试",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "mybatis-plus分页类测试"
+        }
+      ]
+    },
+    {
       "name": "数组类型pathVariable",
       "item": [
         {
@@ -1425,11 +1617,11 @@
                   "key": "age",
                   "type": "text",
                   "desc": "  年龄",
-                  "value": "9"
+                  "value": "15"
                 }
               ]
             },
-            "url": "http://127.0.0.1/testRequestHeader?age\u003d9",
+            "url": "http://127.0.0.1/testRequestHeader?age\u003d15",
             "description": "测试RequestHeader常规使用",
             "header": [
               {
@@ -1490,11 +1682,11 @@
                   "key": "age",
                   "type": "text",
                   "desc": "  年龄",
-                  "value": "9"
+                  "value": "15"
                 }
               ]
             },
-            "url": "http://127.0.0.1/testRequestHeader/DefaultVal?age\u003d9",
+            "url": "http://127.0.0.1/testRequestHeader/DefaultVal?age\u003d15",
             "description": "测试RequestHeader绑定默认值",
             "header": [
               {
@@ -1524,17 +1716,17 @@
                   "key": "name",
                   "type": "text",
                   "desc": "name",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "age",
                   "type": "text",
                   "desc": " age",
-                  "value": "9"
+                  "value": "15"
                 }
               ]
             },
-            "url": "http://127.0.0.1/testNormalParams/binding?age\u003d9\u0026name\u003d智渊.顾",
+            "url": "http://127.0.0.1/testNormalParams/binding?name\u003d嘉懿.史\u0026age\u003d15",
             "description": "Test Normal param binding",
             "header": [
               {
@@ -1554,7 +1746,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"智渊.顾\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"userAge\":9,\n\t\"phone\":\"17234412234\",\n\t\"createTime\":1587137090384,\n\t\"small\":5.43,\n\t\"money\":81.95,\n\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\"telephone\":\"17234412234\"\n}",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"嘉懿.史\",\n\t\"nickName\":\"davis.bins\",\n\t\"userAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\",\n\t\"userAge\":15,\n\t\"phone\":\"17857842670\",\n\t\"createTime\":1595148634891,\n\t\"small\":54.96,\n\t\"money\":51.91,\n\t\"ipv6\":\"b233:05a1:e61f:22fa:2613:3226:8dcb:3b39\",\n\t\"telephone\":\"17857842670\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1581,7 +1773,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"智渊.顾\",\n\t\t\"nickName\":\"bernadette.franecki\",\n\t\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\t\"userAge\":9,\n\t\t\"phone\":\"17234412234\",\n\t\t\"createTime\":1587137090384,\n\t\t\"small\":25.57,\n\t\t\"money\":69.48,\n\t\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\t\"telephone\":\"17234412234\"\n\t}\n}",
+              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"嘉懿.史\",\n\t\t\"nickName\":\"davis.bins\",\n\t\t\"userAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\",\n\t\t\"userAge\":15,\n\t\t\"phone\":\"17857842670\",\n\t\t\"createTime\":1595148634891,\n\t\t\"small\":63.51,\n\t\t\"money\":36.25,\n\t\t\"ipv6\":\"b233:05a1:e61f:22fa:2613:3226:8dcb:3b39\",\n\t\t\"telephone\":\"17857842670\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1608,7 +1800,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "[\n\t\"6lvkzo\",\n\t\"k7nof0\"\n]",
+              "raw": "[\n\t\"pdg4vz\",\n\t\"b90vd8\"\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1637,7 +1829,7 @@
               "mode": "formdata",
               "formdata": []
             },
-            "url": "http://127.0.0.1/test/智渊.顾/o6zzwt/info",
+            "url": "http://127.0.0.1/test/嘉懿.史/gxibhj/info",
             "description": "Test @PathVariable",
             "header": [
               {
@@ -1662,17 +1854,17 @@
                   "key": "author",
                   "type": "text",
                   "desc": "author",
-                  "value": "邱博文"
+                  "value": "詹姆斯"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "desc": "  type",
-                  "value": "psm7q9"
+                  "value": "2tltlo"
                 }
               ]
             },
-            "url": "http://127.0.0.1/testRequestParam?type\u003dpsm7q9\u0026author\u003d邱博文",
+            "url": "http://127.0.0.1/testRequestParam?author\u003d詹姆斯\u0026type\u003d2tltlo",
             "description": "Test @RequestParam",
             "header": [
               {
@@ -1697,11 +1889,11 @@
                   "key": "name",
                   "type": "text",
                   "desc": "user name",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 }
               ]
             },
-            "url": "http://127.0.0.1/testRequestParamWithValue?name\u003d智渊.顾",
+            "url": "http://127.0.0.1/testRequestParamWithValue?name\u003d嘉懿.史",
             "description": "Test @RequestParam with value",
             "header": [
               {
@@ -1752,7 +1944,7 @@
               "mode": "formdata",
               "formdata": []
             },
-            "url": "http://127.0.0.1/testMuchPath/get/356",
+            "url": "http://127.0.0.1/testMuchPath/get/69",
             "description": "Test much path",
             "header": [
               {
@@ -1774,7 +1966,7 @@
               "mode": "formdata",
               "formdata": []
             },
-            "url": "http://127.0.0.1/get/956/596",
+            "url": "http://127.0.0.1/get/501/113",
             "description": "Test much path much parameter",
             "header": [
               {
@@ -1787,6 +1979,35 @@
             ]
           },
           "description": "Test much path much parameter"
+        },
+        {
+          "name": "Test Constants",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "desc": "页码",
+                  "value": "0"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/testConstants?page\u003d0",
+            "description": "Test Constants",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "Test Constants"
         }
       ]
     },
@@ -1888,11 +2109,11 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "userId",
-                  "value": "472"
+                  "value": "537"
                 }
               ]
             },
-            "url": "http://127.0.0.1/getMapping?userId\u003d472",
+            "url": "http://127.0.0.1/getMapping?userId\u003d537",
             "description": "测试GetMapping",
             "header": [
               {
@@ -1912,7 +2133,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"78\",\n\t\"createBy\":\"df106q\",\n\t\"createTime\":\"2020-04-17\",\n\t\"updateBy\":\"retceg\",\n\t\"updateTime\":\"2020-04-17\",\n\t\"delFlag\":9,\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"zecxgw\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"email\":\"致远.杜@yahoo.com\",\n\t\"address\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"sex\":1,\n\t\"avatar\":\"w8h32n\",\n\t\"type\":404,\n\t\"status\":646,\n\t\"description\":\"ztb90n\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"7pueyn\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"234033\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"78\",\n\t\t\t\t\t\"createBy\":\"bbpiu3\",\n\t\t\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\t\t\"updateBy\":\"6cosoo\",\n\t\t\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\t\t\"delFlag\":9,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":758,\n\t\t\t\t\t\"type\":600,\n\t\t\t\t\t\"title\":\"6hnsgh\",\n\t\t\t\t\t\"path\":\"o5ik15\",\n\t\t\t\t\t\"component\":\"oj7ys8\",\n\t\t\t\t\t\"icon\":\"7e5b0p\",\n\t\t\t\t\t\"buttonType\":\"oydh39\",\n\t\t\t\t\t\"parentId\":\"78\",\n\t\t\t\t\t\"description\":\"0m9gpn\",\n\t\t\t\t\t\"sortOrder\":807,\n\t\t\t\t\t\"status\":300,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"dr3o0g\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"1f1043\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"xehhvh\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":273,\n\t\t\t\"type\":497,\n\t\t\t\"title\":\"7or72s\",\n\t\t\t\"path\":\"3jia1l\",\n\t\t\t\"component\":\"scromx\",\n\t\t\t\"icon\":\"px82v3\",\n\t\t\t\"buttonType\":\"q5lmvo\",\n\t\t\t\"parentId\":\"78\",\n\t\t\t\"description\":\"tru67z\",\n\t\t\t\"sortOrder\":888,\n\t\t\t\"status\":176,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"x5utui\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\":\"71\",\n\t\"createBy\":\"5sae84\",\n\t\"createTime\":\"2020-07-19\",\n\t\"updateBy\":\"iaow5u\",\n\t\"updateTime\":\"2020-07-19\",\n\t\"delFlag\":4,\n\t\"username\":\"嘉懿.史\",\n\t\"password\":\"vvwkh5\",\n\t\"nickName\":\"davis.bins\",\n\t\"mobile\":\"17381897930\",\n\t\"email\":\"鹏.武@yahoo.com\",\n\t\"address\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\",\n\t\"sex\":0,\n\t\"avatar\":\"impyww\",\n\t\"type\":309,\n\t\"status\":567,\n\t\"description\":\"dq1ntr\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"71\",\n\t\t\t\"createBy\":\"5f2eyd\",\n\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\"updateBy\":\"m6fbs9\",\n\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"71\",\n\t\t\t\t\t\"createBy\":\"6o9mc3\",\n\t\t\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\t\t\"updateBy\":\"jbe5ai\",\n\t\t\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":818,\n\t\t\t\t\t\"type\":969,\n\t\t\t\t\t\"title\":\"34ai6l\",\n\t\t\t\t\t\"path\":\"lywnjy\",\n\t\t\t\t\t\"component\":\"ronaq3\",\n\t\t\t\t\t\"icon\":\"4v4f2o\",\n\t\t\t\t\t\"buttonType\":\"gps23t\",\n\t\t\t\t\t\"parentId\":\"71\",\n\t\t\t\t\t\"description\":\"ctjvgq\",\n\t\t\t\t\t\"sortOrder\":614,\n\t\t\t\t\t\"status\":89,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"hp5hjs\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"71\",\n\t\t\t\"createBy\":\"1t5zwc\",\n\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\"updateBy\":\"joiw6n\",\n\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":952,\n\t\t\t\"type\":479,\n\t\t\t\"title\":\"7m788m\",\n\t\t\t\"path\":\"o60h66\",\n\t\t\t\"component\":\"ql55mf\",\n\t\t\t\"icon\":\"4r09tz\",\n\t\t\t\"buttonType\":\"am9zgs\",\n\t\t\t\"parentId\":\"71\",\n\t\t\t\"description\":\"g2r4u3\",\n\t\t\t\"sortOrder\":357,\n\t\t\t\"status\":676,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"bmas8z\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1944,144 +2165,144 @@
                   "key": "id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "uflggt"
+                  "value": "74nnfm"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "73jz5g"
+                  "value": "kbo9aw"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "0tlop0"
+                  "value": "0bzah3"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "desc": "邮箱",
-                  "value": "致远.杜@yahoo.com"
+                  "value": "鹏.武@yahoo.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "desc": "地址",
-                  "value": "Apt. 751 徐栋40208号， 湛江， 豫 140734"
+                  "value": "Apt. 857 吴巷96326号， 韶关， 宁 992304"
                 },
                 {
                   "key": "sex",
                   "type": "text",
                   "desc": "性别(男1 女 2)",
-                  "value": "1"
+                  "value": "0"
                 },
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "8dnjk0"
+                  "value": "7lrag1"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "desc": "类型",
-                  "value": "115"
+                  "value": "640"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "desc": "状态",
-                  "value": "161"
+                  "value": "388"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "desc": "描述",
-                  "value": "kjkwlt"
+                  "value": "nqenbc"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "ohm9l3"
+                  "value": "hk8y8b"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "g45nzw"
+                  "value": "l6adb1"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "desc": "角色名 以ROLE_开头",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -2093,109 +2314,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "fzca7k"
+                  "value": "25fv41"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "r6pai6"
+                  "value": "3ph62w"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "desc": "菜单/权限名称",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "desc": "层级",
-                  "value": "951"
+                  "value": "566"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "desc": "类型 0页面 1具体操作",
-                  "value": "222"
+                  "value": "790"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "desc": "菜单标题",
-                  "value": "h9ge6z"
+                  "value": "lbsdp7"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "desc": "页面路径/资源链接url",
-                  "value": "wthb2i"
+                  "value": "r5473s"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "desc": "前端组件",
-                  "value": "ss4roh"
+                  "value": "0mxnfv"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "desc": "图标",
-                  "value": "f3vcz9"
+                  "value": "p1l0u9"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "desc": "按钮权限类型",
-                  "value": "fimhxp"
+                  "value": "8c3pff"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "desc": "父id",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "desc": "说明备注",
-                  "value": "zrbynp"
+                  "value": "pvxx4w"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "desc": "排序值",
-                  "value": "846"
+                  "value": "958"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "desc": "是否启用 0启用 -1禁用",
-                  "value": "712"
+                  "value": "656"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -2219,109 +2440,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "bj29y2"
+                  "value": "dpmx2u"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "r7raok"
+                  "value": "c8ef7k"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "desc": "菜单/权限名称",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "desc": "层级",
-                  "value": "540"
+                  "value": "549"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "desc": "类型 0页面 1具体操作",
-                  "value": "739"
+                  "value": "948"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "desc": "菜单标题",
-                  "value": "me3ijo"
+                  "value": "xnyrtq"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "desc": "页面路径/资源链接url",
-                  "value": "zzphrs"
+                  "value": "ejiaq8"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "desc": "前端组件",
-                  "value": "zktrtg"
+                  "value": "ijlquj"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "desc": "图标",
-                  "value": "2g116i"
+                  "value": "4qzo3c"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "desc": "按钮权限类型",
-                  "value": "ku2dww"
+                  "value": "dxoj3o"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "desc": "父id",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "desc": "说明备注",
-                  "value": "bxdgo8"
+                  "value": "pubuxz"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "desc": "排序值",
-                  "value": "525"
+                  "value": "164"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "desc": "是否启用 0启用 -1禁用",
-                  "value": "171"
+                  "value": "982"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -2363,7 +2584,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"78\",\n\t\"createBy\":\"mnlrqp\",\n\t\"createTime\":\"2020-04-17\",\n\t\"updateBy\":\"4gt6vo\",\n\t\"updateTime\":\"2020-04-17\",\n\t\"delFlag\":9,\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"bwjct8\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"email\":\"致远.杜@yahoo.com\",\n\t\"address\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"sex\":1,\n\t\"avatar\":\"krsf32\",\n\t\"type\":46,\n\t\"status\":549,\n\t\"description\":\"wqzifd\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"nb2hq1\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"edrwjq\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"78\",\n\t\t\t\t\t\"createBy\":\"wxz90a\",\n\t\t\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\t\t\"updateBy\":\"zcj05i\",\n\t\t\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\t\t\"delFlag\":9,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":823,\n\t\t\t\t\t\"type\":37,\n\t\t\t\t\t\"title\":\"ape8nr\",\n\t\t\t\t\t\"path\":\"htkp51\",\n\t\t\t\t\t\"component\":\"xt9e9q\",\n\t\t\t\t\t\"icon\":\"3tdqee\",\n\t\t\t\t\t\"buttonType\":\"t4mxyv\",\n\t\t\t\t\t\"parentId\":\"78\",\n\t\t\t\t\t\"description\":\"nw0wj3\",\n\t\t\t\t\t\"sortOrder\":710,\n\t\t\t\t\t\"status\":362,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"tu7ylb\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"78\",\n\t\t\t\"createBy\":\"90sgg8\",\n\t\t\t\"createTime\":\"2020-04-17\",\n\t\t\t\"updateBy\":\"yceose\",\n\t\t\t\"updateTime\":\"2020-04-17\",\n\t\t\t\"delFlag\":9,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":864,\n\t\t\t\"type\":917,\n\t\t\t\"title\":\"ttfux0\",\n\t\t\t\"path\":\"e75q9o\",\n\t\t\t\"component\":\"uaugrb\",\n\t\t\t\"icon\":\"ncval5\",\n\t\t\t\"buttonType\":\"vx0u2v\",\n\t\t\t\"parentId\":\"78\",\n\t\t\t\"description\":\"5tkhzj\",\n\t\t\t\"sortOrder\":414,\n\t\t\t\"status\":928,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"wyvyfm\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\":\"71\",\n\t\"createBy\":\"njpxeh\",\n\t\"createTime\":\"2020-07-19\",\n\t\"updateBy\":\"pdpkl4\",\n\t\"updateTime\":\"2020-07-19\",\n\t\"delFlag\":4,\n\t\"username\":\"嘉懿.史\",\n\t\"password\":\"nnymz0\",\n\t\"nickName\":\"davis.bins\",\n\t\"mobile\":\"17381897930\",\n\t\"email\":\"鹏.武@yahoo.com\",\n\t\"address\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\",\n\t\"sex\":0,\n\t\"avatar\":\"rvn1vy\",\n\t\"type\":673,\n\t\"status\":313,\n\t\"description\":\"c3uuhq\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"71\",\n\t\t\t\"createBy\":\"wbkoel\",\n\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\"updateBy\":\"u0ydwf\",\n\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"value\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"71\",\n\t\t\t\t\t\"createBy\":\"v990ek\",\n\t\t\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\t\t\"updateBy\":\"ekw8ur\",\n\t\t\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"value\",\n\t\t\t\t\t\"level\":455,\n\t\t\t\t\t\"type\":304,\n\t\t\t\t\t\"title\":\"yodjkn\",\n\t\t\t\t\t\"path\":\"2dhjt4\",\n\t\t\t\t\t\"component\":\"kw2rcz\",\n\t\t\t\t\t\"icon\":\"fmld81\",\n\t\t\t\t\t\"buttonType\":\"e6udoy\",\n\t\t\t\t\t\"parentId\":\"71\",\n\t\t\t\t\t\"description\":\"nnzfz3\",\n\t\t\t\t\t\"sortOrder\":290,\n\t\t\t\t\t\"status\":445,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"tu5ev3\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"71\",\n\t\t\t\"createBy\":\"ksz0nz\",\n\t\t\t\"createTime\":\"2020-07-19\",\n\t\t\t\"updateBy\":\"rw1bp3\",\n\t\t\t\"updateTime\":\"2020-07-19\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"value\",\n\t\t\t\"level\":526,\n\t\t\t\"type\":137,\n\t\t\t\"title\":\"uqr89u\",\n\t\t\t\"path\":\"yub003\",\n\t\t\t\"component\":\"oxh5x0\",\n\t\t\t\"icon\":\"64e9fp\",\n\t\t\t\"buttonType\":\"wfzil6\",\n\t\t\t\"parentId\":\"71\",\n\t\t\t\"description\":\"rhrdh5\",\n\t\t\t\"sortOrder\":120,\n\t\t\t\"status\":304,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"n4lc97\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2395,144 +2616,144 @@
                   "key": "id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "xaaz4z"
+                  "value": "lc44ah"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "yfv018"
+                  "value": "pmryuc"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "desc": "用户名",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "desc": "密码",
-                  "value": "c0hhj1"
+                  "value": "x1gvcx"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "desc": "昵称",
-                  "value": "bernadette.franecki"
+                  "value": "davis.bins"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "desc": "电话",
-                  "value": "17835596482"
+                  "value": "17381897930"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "desc": "邮箱",
-                  "value": "致远.杜@yahoo.com"
+                  "value": "鹏.武@yahoo.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "desc": "地址",
-                  "value": "Apt. 751 徐栋40208号， 湛江， 豫 140734"
+                  "value": "Apt. 857 吴巷96326号， 韶关， 宁 992304"
                 },
                 {
                   "key": "sex",
                   "type": "text",
                   "desc": "性别(男1 女 2)",
-                  "value": "1"
+                  "value": "0"
                 },
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "b6vcih"
+                  "value": "vq65qc"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "desc": "类型",
-                  "value": "122"
+                  "value": "774"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "desc": "状态",
-                  "value": "167"
+                  "value": "286"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "desc": "描述",
-                  "value": "5l3elr"
+                  "value": "edue7e"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "trvw26"
+                  "value": "75a7z6"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "7mra94"
+                  "value": "6zaemr"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "desc": "角色名 以ROLE_开头",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -2544,109 +2765,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "w2xpcc"
+                  "value": "7csxd5"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "gbuzld"
+                  "value": "sp1fgp"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "desc": "菜单/权限名称",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "desc": "层级",
-                  "value": "374"
+                  "value": "371"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "desc": "类型 0页面 1具体操作",
-                  "value": "200"
+                  "value": "26"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "desc": "菜单标题",
-                  "value": "uojef2"
+                  "value": "08dvxd"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "desc": "页面路径/资源链接url",
-                  "value": "rs5prd"
+                  "value": "5dvqva"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "desc": "前端组件",
-                  "value": "p8t40b"
+                  "value": "5hjjyg"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "desc": "图标",
-                  "value": "auipso"
+                  "value": "xrqh22"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "desc": "按钮权限类型",
-                  "value": "se5cvf"
+                  "value": "mxbmdd"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "desc": "父id",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "desc": "说明备注",
-                  "value": "ltbw9r"
+                  "value": "f6z3zi"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "desc": "排序值",
-                  "value": "127"
+                  "value": "266"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "desc": "是否启用 0启用 -1禁用",
-                  "value": "962"
+                  "value": "989"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -2670,109 +2891,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "desc": "自增编号",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "desc": "创建人",
-                  "value": "e0cge6"
+                  "value": "pw3634"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "desc": "创建时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "desc": "修改人",
-                  "value": "nyxxck"
+                  "value": "dcuzeq"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "desc": "修改时间",
-                  "value": "2020-04-17"
+                  "value": "2020-07-19"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "desc": "删除标记[1表示已删除，默认值0]",
-                  "value": "9"
+                  "value": "4"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "desc": "菜单/权限名称",
-                  "value": "智渊.顾"
+                  "value": "嘉懿.史"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "desc": "层级",
-                  "value": "218"
+                  "value": "341"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "desc": "类型 0页面 1具体操作",
-                  "value": "338"
+                  "value": "777"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "desc": "菜单标题",
-                  "value": "6enwil"
+                  "value": "zv5c5s"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "desc": "页面路径/资源链接url",
-                  "value": "kig2um"
+                  "value": "te9b0i"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "desc": "前端组件",
-                  "value": "8r04fd"
+                  "value": "ttrbwh"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "desc": "图标",
-                  "value": "nz3869"
+                  "value": "566hm7"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "desc": "按钮权限类型",
-                  "value": "08s33o"
+                  "value": "b7nbzd"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "desc": "父id",
-                  "value": "78"
+                  "value": "71"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "desc": "说明备注",
-                  "value": "15xcie"
+                  "value": "26yane"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "desc": "排序值",
-                  "value": "685"
+                  "value": "571"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "desc": "是否启用 0启用 -1禁用",
-                  "value": "637"
+                  "value": "15"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -2819,11 +3040,11 @@
                   "key": "userId",
                   "type": "text",
                   "desc": "userId",
-                  "value": "870"
+                  "value": "356"
                 }
               ]
             },
-            "url": "http://127.0.0.1/deleteMapping?userId\u003d870",
+            "url": "http://127.0.0.1/deleteMapping?userId\u003d356",
             "description": "测试DeleteMapping",
             "header": [
               {
@@ -2895,7 +3116,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"智渊.顾\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"userAddress\":\"Apt. 751 徐栋40208号， 湛江， 豫 140734\",\n\t\"userAge\":9,\n\t\"phone\":\"17234412234\",\n\t\"createTime\":1587137090384,\n\t\"small\":73.30,\n\t\"money\":99.37,\n\t\"ipv6\":\"c701:5458:c67f:f5d8:6586:a38d:c35e:76f5\",\n\t\"telephone\":\"17234412234\"\n}",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"嘉懿.史\",\n\t\"nickName\":\"davis.bins\",\n\t\"userAddress\":\"Apt. 857 吴巷96326号， 韶关， 宁 992304\",\n\t\"userAge\":15,\n\t\"phone\":\"17857842670\",\n\t\"createTime\":1595148634891,\n\t\"small\":45.73,\n\t\"money\":34.28,\n\t\"ipv6\":\"b233:05a1:e61f:22fa:2613:3226:8dcb:3b39\",\n\t\"telephone\":\"17857842670\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3095,7 +3316,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"value\",\n\t\"age\":9\n}",
+              "raw": "{\n\t\"age\":15,\n\t\"name\":\"value\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3119,6 +3340,96 @@
       ]
     },
     {
+      "name": "注释tag用例",
+      "item": [
+        {
+          "name": "测试apiNote tag",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "user[]",
+                  "type": "text",
+                  "desc": "No comments found.",
+                  "value": "id49fq"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/tags/apiNote",
+            "description": "测试apiNote tag",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "This method returns a List instead of a Collection or Stream,because processing of multiple Wombats usually involves traversing\u003cbr\u003ethe list in alternating forward and reverse directions."
+        },
+        {
+          "name": "自定义mock tag获取mock值",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"subUserName\":\"张三\",\n\t\"numbers\":990\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "http://127.0.0.1/tags/mock",
+            "description": "自定义mock tag获取mock值",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "自定义mock tag获取mock值"
+        },
+        {
+          "name": "测试@ignore tag",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "total",
+                  "type": "text",
+                  "desc": "记录总数",
+                  "value": "810"
+                }
+              ]
+            },
+            "url": "http://127.0.0.1/tags/ignore?total\u003d810",
+            "description": "测试@ignore tag",
+            "header": [
+              {
+                "key": "token",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "测试@ignore tag"
+        }
+      ]
+    },
+    {
       "name": "用户信息操作接口",
       "item": [
         {
@@ -3127,7 +3438,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":297,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"lcp66h\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\":173,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"嘉懿.史\",\n\t\"password\":\"9br6w7\",\n\t\"nickName\":\"davis.bins\",\n\t\"mobile\":\"17381897930\",\n\t\"gender\":0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3154,7 +3465,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":797,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"智渊.顾\",\n\t\"password\":\"ty64y9\",\n\t\"nickName\":\"bernadette.franecki\",\n\t\"mobile\":\"17835596482\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\":508,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"嘉懿.史\",\n\t\"password\":\"uqhfb4\",\n\t\"nickName\":\"davis.bins\",\n\t\"mobile\":\"17381897930\",\n\t\"gender\":0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3186,7 +3497,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"value\",\n\t\"birthday\":\"2020-04-17\",\n\t\"age\":9,\n\t\"subject\":{\n\t\t\"subjectName\":\"智渊.顾\"\n\t}\n}",
+              "raw": "{\n\t\"name\":\"value\",\n\t\"birthday\":\"2020-07-19\",\n\t\"age\":15,\n\t\"subject\":{\n\t\t\"subjectName\":\"嘉懿.史\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3213,7 +3524,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"token\":\"habfcy\",\n\t\"sequenceNo\":\"6psclk\",\n\t\"parameter\":{\n\t\t\"numbers\":938\n\t}\n}",
+              "raw": "{\n\t\"token\":\"3pbgky\",\n\t\"sequenceNo\":\"0c702j\",\n\t\"parameter\":{\n\t\t\"subUserName\":\"张三\",\n\t\t\"numbers\":43\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3240,7 +3551,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":406,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "raw": "{\n\t\"id\":339,\n\t\"name\":\"value\",\n\t\"mobile\":\"17381897930\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3267,7 +3578,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":806,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "raw": "{\n\t\"id\":370,\n\t\"name\":\"value\",\n\t\"mobile\":\"17381897930\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3294,7 +3605,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":761,\n\t\"name\":\"value\",\n\t\"mobile\":\"17835596482\"\n}",
+              "raw": "{\n\t\"id\":403,\n\t\"name\":\"value\",\n\t\"mobile\":\"17381897930\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3331,7 +3642,7 @@
                   "key": "text",
                   "type": "text",
                   "desc": "请求文本",
-                  "value": "j1vfzd"
+                  "value": "iue13x"
                 }
               ]
             },
@@ -3360,11 +3671,11 @@
                   "key": "query",
                   "type": "text",
                   "desc": "请求参数",
-                  "value": "jcjyhs"
+                  "value": "vnfycw"
                 }
               ]
             },
-            "url": "http://127.0.0.1/xss/query?query\u003djcjyhs",
+            "url": "http://127.0.0.1/xss/query?query\u003dvnfycw",
             "description": "xss过滤get请求",
             "header": [
               {
@@ -3384,7 +3695,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"value\",\n\t\"age\":9\n}",
+              "raw": "{\n\t\"age\":15,\n\t\"name\":\"value\"\n}",
               "options": {
                 "raw": {
                   "language": "json"

@@ -1,5 +1,6 @@
 package com.power.doc.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
@@ -16,5 +17,6 @@ public class PageRequestDto {
     /**
      * 页面大小
      */
+    @JsonIgnore
     private Integer size;
 }

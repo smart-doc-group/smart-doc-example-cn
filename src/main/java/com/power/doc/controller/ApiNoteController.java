@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author boxer
- * @description
  * @since 2020/6/19 9:55
  */
 @RestController

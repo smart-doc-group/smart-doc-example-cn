@@ -15,6 +15,9 @@ import com.power.doc.model.*;
 import com.power.doc.model.rpc.RpcApiDependency;
 import org.junit.Test;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Description:
  * ApiDoc测试
@@ -22,6 +25,12 @@ import org.junit.Test;
  * @author yu 2018/06/11.
  */
 public class ApiDocTest {
+
+    @Test
+    public void test(){
+        Path path = Paths.get("D:\\test");
+        System.out.println(path.isAbsolute());
+    }
 
     /**
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
