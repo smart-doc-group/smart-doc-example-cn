@@ -10,8 +10,8 @@ import java.util.List;
 @Data
 public class Result<T,K> {
 
-    private T data;
+    private T page;
     private List<K>  data1;
-    private List<T> data2;
-    private K data3;
+//    private List<T> data2;
+//    private K data3;
 }
