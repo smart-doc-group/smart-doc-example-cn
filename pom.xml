@@ -136,7 +136,7 @@
             <plugin>
                 <groupId>com.github.shalousun</groupId>
                 <artifactId>smart-doc-maven-plugin</artifactId>
-                <version>1.1.7</version>
+                <version>1.1.8</version>
                 <configuration>
                     <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>

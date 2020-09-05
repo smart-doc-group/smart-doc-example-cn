@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * smart-doc调试入口
  * @author boxer
  * @since 2020/6/19 9:55
  */
