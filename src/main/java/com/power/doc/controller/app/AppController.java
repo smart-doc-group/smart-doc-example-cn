@@ -22,7 +22,7 @@ public class AppController {
      * @return
      */
     @GetMapping(value = "/test")
-    public String test(String name,Date beginTime, Date endTime){
+    public String test(String name,String beginTime, String endTime){
         return "hello app";
     }
 }
