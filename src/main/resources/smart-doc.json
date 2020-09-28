@@ -1,71 +1,19 @@
 {
   "serverUrl": "http://127.0.0.1",
   "isStrict": false,
-  "allInOne": true,
+  "allInOne": true,add
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
-  "packageFilters": "",
+  "packageFilters": "com.power.doc.controller.app.*",
   "md5EncryptedHtmlName": false,
   "projectName": "smart-doc",
   "skipTransientField": true,
-  "dataDictionaries": [
+  "dataDictionaries": [ //配置数据字典，没有需求可以不设置
     {
-      "title": "订单状态",
-      "enumClassName": "com.power.doc.enums.OrderEnum",
-      "codeField": "code",
-      "descField": "desc"
-    }
-  ],
-  "errorCodeDictionaries": [
-    {
-      "title": "title",
-      "enumClassName": "com.power.doc.enums.ErrorCodeEnum",
-      "codeField": "code",
-      "descField": "desc"
-    }
-  ],
-  "revisionLogs": [
-    {
-      "version": "1.0",
-      "status": "use",
-      "author": "author",
-      "revisionTime": "2019-10-12",
-      "remarks": "desc"
-    }
-  ],
-  "errorCodes": [
-    {
-      "value": "200",
-      "type": "string",
-      "desc": "desc"
-    }
-  ],
-  "customResponseFields": [
-    {
-      "name": "name",
-      "desc": "desc",
-      "ownerClassName": "ownerClassName",
-      "value": "value"
-    }
-  ],
-  "requestHeaders": [
-    {
-      "name": "token",
-      "type": "string",
-      "desc": "desc",
-      "required": false,
-      "since": "-"
-    }
-  ],
-  "apiConstants": [
-    {
-      "constantsClassName": "com.power.doc.constants.RequestParamConstant"
-    },
-    {
-      "constantsClassName": "com.power.doc.constants.RequestValueConstant"
-    },
-    {
-      "constantsClassName": "com.power.doc.constants.ApiVersion"
+      "title": "http状态码字典", //数据字典的名称
+      "enumClassName": "com.power.doc.enums.CommodityStatusEnum", //数据字典枚举类名称
+      "codeField": "name",//数据字典字典码对应的字段名称
+      "descField": "desc"//数据字典对象的描述信息字典
     }
   ]
 }
