@@ -111,7 +111,7 @@
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>smart-doc</artifactId>
-            <version>1.9.5</version>
+            <version>1.9.6</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -136,7 +136,7 @@
             <plugin>
                 <groupId>com.github.shalousun</groupId>
                 <artifactId>smart-doc-maven-plugin</artifactId>
-                <version>1.1.9</version>
+                <version>1.2.0</version>
                 <configuration>
                     <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
