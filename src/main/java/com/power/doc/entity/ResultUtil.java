@@ -10,21 +10,32 @@ import lombok.Data;
  **/
 
 @Data
-public class ResultUtil<T, O> {
-    /**
-     * ok: 接口业务成功返回
-     * 其他返回表示相应的错误提示
-     */
-    private String msg;
-    /**
-     * 0: 表示业务正常返回
-     * 非0: 则表示业务异常, msg会有相应的异常信息
-     */
-    private String code;
+public class ResultUtil<T> extends  BaseResult implements IApiResult<T> {
+
     /**
      * 返回数据
      */
     private T data;
 
 
+    @Override
+    public String getMessage() {
+        return super.getMessage();
+    }
+
+
+
+    @Override
+    public String getCode() {
+        return super.getCode();
+    }
+
+    @Override
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
 }

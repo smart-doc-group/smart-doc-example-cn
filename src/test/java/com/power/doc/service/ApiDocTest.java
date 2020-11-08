@@ -71,7 +71,7 @@ public class ApiDocTest {
 //        config.setOutPath("E:\\chen\\test-smart");
         // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
         // 如果需要配置有多个controller可以使用逗号隔开
-//        config.setPackageFilters("com.power.doc.controller.app");
+        config.setPackageFilters("com.power.doc.controller.app");
 
         config.setRequestHeaders(
                 ApiReqHeader.header().setName("token").setRequired(true).setType("string").setDesc("token"),
@@ -111,9 +111,11 @@ public class ApiDocTest {
                 RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0"),
                 RpcApiDependency.builder().setGroupId("com.demo").setArtifactId("SpringBoot2-Dubbo-Api").setVersion("1.0.0")
         );
+//        config.setResponseBodyAdvice(
+//                ResponseBodyAdvice.builder().setClassName("com.power.common.model.CommonResult")
+//        );
 
-        String json = JSON.toJSONString(config);
-        System.out.println(JsonFormatUtil.formatJson(json));
+        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 
