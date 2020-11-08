@@ -1,7 +1,10 @@
 package com.power.doc.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.power.common.model.CommonResult;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
+import com.power.doc.model.FastJson;
 import com.power.doc.model.User;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,6 +63,16 @@ public class RequestParamsController {
     @PostMapping("testRequestBodyList")
     public void testRequestBodyList(@RequestBody List<String> ids) {
 
+    }
+
+    /**
+     * Test Array Params
+     * @param fastJsons
+     * @return
+     */
+    @PostMapping(value = "/testArray")
+    public String test(@RequestBody CommonResult<FastJson>[] fastJsons){
+        return JSON.toJSONString(fastJsons);
     }
 
     /**

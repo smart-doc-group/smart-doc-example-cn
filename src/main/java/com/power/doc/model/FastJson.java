@@ -3,10 +3,12 @@ package com.power.doc.model;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 /**
  * @author yu 2018/7/10.
  */
+@Data
 public class FastJson {
 
     /**
