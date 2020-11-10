@@ -35,6 +35,8 @@ public class FormDataController {
 
     /**
      * Post请求发表单文件
+     * @param userId
+     * @param userData
      */
     @PostMapping("formData2")
     public void formData2(String userId, String userData, MultipartFile file){
@@ -43,6 +45,9 @@ public class FormDataController {
 
     /**
      * Get请求发表单文件 暂不支持完全解析
+     * @param userId
+     * @param userData
+     * @param file
      */
     @GetMapping("formData2")
     public void formData3(String userId, String userData, MultipartFile file){
@@ -51,6 +56,9 @@ public class FormDataController {
 
     /**
      * 表单 包含复杂对象的Get 暂不支持完全解析
+     * @param userId
+     * @param userData
+     * @param simpleUser
      */
     @GetMapping("formData4")
     public void formData4(String userId, String userData, SimpleUser simpleUser){
@@ -58,6 +66,9 @@ public class FormDataController {
     }
     /**
      * 表单 包含复杂对象
+     * @param userId
+     * @param userData
+     * @param simpleUser
      */
     @PostMapping("formData5")
     public void formData5(String userId, String userData, SimpleUser simpleUser){
@@ -66,6 +77,9 @@ public class FormDataController {
 
     /**
      * 表单 枚举
+     * @param userId
+     * @param userData
+     * @param simpleUser
      */
     @GetMapping("formData6")
     public void formData6(String userId, String userData, SimpleEnum simpleUser){
@@ -74,6 +88,7 @@ public class FormDataController {
 
     /**
      * 测试formData带路径参数
+     * @param id
      * @param simpleUser
      */
     @PostMapping("formData1/{id}")
@@ -83,6 +98,8 @@ public class FormDataController {
 
     /**
      * 测试formData带路多个路径参数
+     * @param id
+     * @param age
      * @param simpleUser
      */
     @PostMapping("formData1/{id}/{age}")

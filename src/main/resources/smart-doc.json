@@ -1,6 +1,6 @@
 {
   "serverUrl": "http://127.0.0.1",
-  "isStrict": false,
+  "isStrict": true,
   "allInOne": true,
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
