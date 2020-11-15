@@ -1,8 +1,10 @@
 package com.power.doc.controller.app;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.alibaba.fastjson.JSON;
+import com.power.common.model.CommonResult;
+import com.power.doc.model.FastJson;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -10,6 +12,7 @@ import java.util.Date;
  * app端接口测试
  * @author yu 2018/9/4.
  */
+@Slf4j
 @RestController
 @RequestMapping("app")
 public class AppController {
@@ -21,9 +24,10 @@ public class AppController {
      * @param endTime 结束时间
      * @return
      */
-    @GetMapping(value = "/test")
-    public String test(String name,String beginTime, String endTime){
-        return "hello app";
+    @PostMapping(value = "/test")
+    public CommonResult test(@RequestBody CommonResult result){
+        System.out.println(JSON.toJSONString(result));
+        return CommonResult.ok().setResult(new FastJson().setUsername("yusun").setIdCard("530"));
     }
 
     /**
@@ -34,7 +38,7 @@ public class AppController {
      * @param endTime 结束时间
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test2")
     public String test2(String name,String beginTime, String endTime){
         return "hello app";
     }
@@ -46,7 +50,7 @@ public class AppController {
      * @param endTime 结束时间
      * @return
      */
-    @GetMapping(value = "/test")
+    @GetMapping(value = "/test3")
     public String test3(String name,String beginTime, String endTime){
         return "hello app";
     }

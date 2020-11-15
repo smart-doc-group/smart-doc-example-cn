@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="smart-doc">
+    <title>API Reference</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
+    <link rel="stylesheet" href="AllInOne.css?v=1605429493455"/>
+    <style>
+        .send-button {
+            color: #fff;
+            background-color: #5cb85c;
+            border-color: #4cae4c;
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            outline-color: transparent;
+        }
+
+        textarea {
+            width: 100%;
+            background-color: #f7f7f8;
+            border: 1px solid #dedede;
+            border-radius: 4px;
+            font-size: 1em;
+            padding: 1em;
+            font-family: "Droid Sans Mono", "DejaVu Sans Mono", monospace;
+            outline-color: #dedede;
+        }
+
+        input {
+            border: 0;
+            background-color: transparent;
+            outline-color: transparent;
+            outline-style: dotted;
+            max-width: 100%;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+    <div id="toc" class="toc2">
+        <div id="toctitle"><span>API Reference</span></div>
+        <ul id="accordion" class="sectlevel1">
+            <li class="open"><a class="dd" href="#_app端接口测试">1.&nbsp;app端接口测试</a>
+                <ul class="sectlevel2" style="display: block">
+                    <li><a href="#_1_1_app测试">1.1.&nbsp;app测试</a></li>
+                    <li><a href="#_1_2_app测试3">1.2.&nbsp;app测试3</a></li>
+                </ul>
+            </li>
+            <li><a href="#_error_code_list">2.错误码列表</a></li>
+            <li><a class="dd" href="#_dict_list">3.&nbsp;数据字典</a>
+                <ul class="sectlevel2">
+                    <li><a href="#_3_1_订单状态">3.1.&nbsp;订单状态</a></li>
+                    <li><a href="#_3_2_订单状态1">3.2.&nbsp;订单状态1</a></li>
+                    <li><a href="#_3_3_性别字典">3.3.&nbsp;性别字典</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>
+<div id="content">
+    <div class="sect1"><h2 id="_app端接口测试"><a class="anchor" href="#_app端接口测试"></a><a class="link" href="#_app端接口测试">1.&nbsp;app端接口测试</a>
+    </h2>
+        <div class="sectionbody">
+            <div class="sect2"><h3 id="_1_1_app测试"><a class="anchor" href="#_1_1_app测试"></a><a class="link"
+                                                                                               href="#_1_1_app测试">1.1.&nbsp;app测试</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://localhost:8080/app/test" class="bare">&nbsp;http://localhost:8080/app/test</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Author:</strong>&nbsp;yu 2018/9/4.</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8
+                </p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;app测试</p></div>
+                <div class="paragraph"><p><strong>Request-headers:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Header</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Value</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody id="aaa-tbody">
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="token"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">partnerId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="partnerId"
+                                                                                                   type="text"
+                                                                                                   value="bbb"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">合作方账号(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">姓名</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">beginTime</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">开始时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">结束时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <textarea id="aaa-body">{
+	"success":true,
+	"message":"success",
+	"data":"cqf4a1",
+	"code":"00000",
+	"timestamp":"2020-11-14 16:17:27"
+}</textarea>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Return string.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph">
+                    <p><strong>
+                        <button class="send-button" data-id="aaa">Send Request</button>
+                    </strong></p>
+                </div>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content" id="aaa-response">
+                        <pre>{
+	"success":true,
+	"message":"success",
+	"data":"cqf4a1",
+	"code":"00000",
+	"timestamp":"2020-11-14 16:17:27"
+}</pre>
+                    </div>
+                </div>
+            </div>
+            <div class="sect2"><h3 id="_1_2_app测试3"><a class="anchor" href="#_1_2_app测试3"></a><a class="link"
+                                                                                                 href="#_1_2_app测试3">1.2.&nbsp;app测试3</a>
+            </h3>
+                <div class="paragraph"><p><strong>URL:</strong><a href="http://localhost:8080/app/test" class="bare">&nbsp;http://localhost:8080/app/test</a>
+                </p></div>
+                <div class="paragraph"><p><strong>Type:</strong>&nbsp;GET</p></div>
+                <div class="paragraph"><p><strong>Author:</strong>&nbsp;yu 2018/9/4.</p></div>
+                <div class="paragraph"><p><strong>Content-Type:</strong>&nbsp;application/x-www-form-urlencoded;charset=utf-8
+                </p></div>
+                <div class="paragraph"><p><strong>Description:</strong>&nbsp;app测试3</p></div>
+                <div class="paragraph"><p><strong>Request-headers:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Header</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">partnerId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">合作方账号(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                        <col style="width: 20%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">姓名</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">beginTime</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">开始时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">结束时间</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre>curl -X GET  -H 'token:null' -H 'partnerId:null' -i http://localhost:8080/app/test?beginTime=2020-11-15 16:38:16&endTime=2020-11-15 16:38:16&name=文.赵</pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Response-fields:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                        <col style="width: 25%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Field</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">Return string.</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Response-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
+                        <pre>j98us6</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sect1"><h2 id="_error_code_list"><a class="anchor" href="#_error_code_list"></a><a class="link"
+                                                                                                   href="#_error_code_list">2.&nbsp;错误码列表</a>
+    </h2>
+        <div class="sectionbody">
+            <table class="tableblock frame-all grid-all spread">
+                <colgroup>
+                    <col style="width: 50%;">
+                    <col style="width: 50%;">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th class="tableblock halign-left valign-top">Error code</th>
+                    <th class="tableblock halign-left valign-top">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">0000</p></td>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">success</p></td>
+                </tr>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">1001</p></td>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">必选参数为空</p></td>
+                </tr>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">1002</p></td>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">参数格式错误</p></td>
+                </tr>
+                <tr>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">9999</p></td>
+                    <td class="tableblock halign-left valign-top"><p class="tableblock">系统繁忙，请稍后再试....</p></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="sect1"><h2 id="_dict_list"><a class="anchor" href="#_dict_list"></a><a class="link" href="#_dict_list">3.&nbsp;数据字典</a>
+    </h2>
+        <div class="sectionbody">
+            <div class="sect2"><h3 id="_3_1_订单状态"><a class="anchor" href="#_3_1_订单状态"></a><a class="link"
+                                                                                             href="#_3_1_订单状态">3.1.&nbsp;订单状态</a>
+            </h3>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Code</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已支付</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已支付</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已经失效</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sect2"><h3 id="_3_2_订单状态1"><a class="anchor" href="#_3_2_订单状态1"></a><a class="link"
+                                                                                               href="#_3_2_订单状态1">3.2.&nbsp;订单状态1</a>
+            </h3>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Code</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已支付</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已支付</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">已经失效</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="sect2"><h3 id="_3_3_性别字典"><a class="anchor" href="#_3_3_性别字典"></a><a class="link"
+                                                                                             href="#_3_3_性别字典">3.3.&nbsp;性别字典</a>
+            </h3>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                        <col style="width: 33%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Code</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">女人</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">int32</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">男人</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer"><span class="copyright">Generated by smart-doc at 2020-11-15 16:38:13</span><span
+            class="footer-modification">Suggestions,contact,support and error reporting on<a
+            href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
+            href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
+</div>
+<script>    $(function () {
+    const Accordion = function (el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+        const links = this.el.find('.dd');
+        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown);
+    };
+    Accordion.prototype.dropdown = function (e) {
+        const $el = e.data.el;
+        const $this = $(this), $next = $this.next();
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+        if (!e.data.multiple) {
+            $el.find('.submenu').not($next).slideUp("20").parent().removeClass('open');
+        }
+    };
+    new Accordion($('#accordion'), false);
+});
+$('textarea').each(function () {
+    console.log(this.scrollHeight)
+    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+}).on('input', function () {
+    this.style.height = '80px';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+$("button").on("click", function () {
+    const id = $(this).data("id");
+    console.log(id);
+    const body = $("#" + id + "-body").val();
+    console.log(body);
+    const formData = new FormData();
+    $("#"+id+"-tbody").find("tr").each(function (i) {
+        const input = $(this).find('td:eq(2) input');
+        const val = $(input).val();
+        const name = $(input).attr("name");
+        console.log(name + ":" + val)
+        formData.append(name, val);
+    });
+    const headersData = {};
+    formData.forEach((value, key) => headersData[key] = value);
+    console.log(JSON.stringify(headersData))
+    const ajaxOptions = {};
+    ajaxOptions.headers = headersData
+    ajaxOptions.url = "http://localhost:8080/app/test"
+    ajaxOptions.type = "post"
+    ajaxOptions.data = body;
+    ajaxOptions.contentType = "application/json";
+    $.ajax(ajaxOptions).done(function (result) {
+        $("#"+id+"-response").find("pre").text(JSON.stringify(result, null, 4));
+    }).fail(function (result) {
+        $("#"+id+"-response").find("pre").text(JSON.stringify(result, null, 4));
+    }).always(function () {
+
+    });
+})
+</script>
+</body>
+</html>
