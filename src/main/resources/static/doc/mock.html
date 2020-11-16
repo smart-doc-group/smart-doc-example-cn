@@ -112,7 +112,7 @@
                         <th class="tableblock halign-left valign-top">Since</th>
                     </tr>
                     </thead>
-                    <tbody id="aaa-tbody">
+                    <tbody id="aaa-header">
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
@@ -140,25 +140,30 @@
                 <div class="paragraph"><p><strong>Request-parameters:</strong></p></div>
                 <table class="tableblock frame-all grid-all spread">
                     <colgroup>
-                        <col style="width: 20%;">
-                        <col style="width: 20%;">
-                        <col style="width: 20%;">
-                        <col style="width: 20%;">
-                        <col style="width: 20%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
                     </colgroup>
                     <thead>
                     <tr>
                         <th class="tableblock halign-left valign-top">Parameter</th>
                         <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Value</th>
                         <th class="tableblock halign-left valign-top">Description</th>
                         <th class="tableblock halign-left valign-top">Required</th>
                         <th class="tableblock halign-left valign-top">Since</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="aaa-param">
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="name"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">姓名</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -166,6 +171,10 @@
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">beginTime</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="beginTime"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">开始时间</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -173,6 +182,10 @@
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">endTime</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="endTime"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">结束时间</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
@@ -537,17 +550,24 @@ $("button").on("click", function () {
     console.log(id);
     const body = $("#" + id + "-body").val();
     console.log(body);
-    const formData = new FormData();
-    $("#"+id+"-tbody").find("tr").each(function (i) {
-        const input = $(this).find('td:eq(2) input');
-        const val = $(input).val();
-        const name = $(input).attr("name");
-        console.log(name + ":" + val)
-        formData.append(name, val);
-    });
-    const headersData = {};
-    formData.forEach((value, key) => headersData[key] = value);
+    const headerFormData = new FormData();
+    const $headerElement = $("#"+id+"-header");
+
+    // $("#"+id+"-header-tbody").find("tr").each(function (i) {
+    //     const input = $(this).find('td:eq(2) input');
+    //     const val = $(input).val();
+    //     const name = $(input).attr("name");
+    //     console.log(name + ":" + val)
+    //     headerFormData.append(name, val);
+    // });
+    const headersData = getInputData($headerElement);
+    headerFormData.forEach((value, key) => headersData[key] = value);
+
+    const $paramElement = $("#"+id+"-param");
+    const paramData = getInputData($paramElement)
+    const url = "http://localhost:8080/app/test"
     console.log(JSON.stringify(headersData))
+    console.log("url=>"+castToGetUri(url,paramData))
     const ajaxOptions = {};
     ajaxOptions.headers = headersData
     ajaxOptions.url = "http://localhost:8080/app/test"
@@ -562,6 +582,40 @@ $("button").on("click", function () {
 
     });
 })
+function castToGetUri(url,params){
+    if (params instanceof Object && !(params instanceof Array)) {
+        const pm = params || {};
+        const arr = [];
+        arr.push(url);
+        let j = 0;
+        for (const i in pm) {
+            if (j === 0) {
+                arr.push("?");
+                arr.push(i + "=" + pm[i]);
+            } else {
+                arr.push("&" + i + "=" + pm[i]);
+            }
+            j++;
+        }
+        return arr.join("");
+    } else {
+        throw "param is not plain Object"
+    }
+}
+
+function getInputData(element){
+    const formData = new FormData();
+    $(element).find("tr").each(function (i) {
+        const input = $(this).find('td:eq(2) input');
+        const val = $(input).val();
+        const name = $(input).attr("name");
+        console.log(name + ":" + val)
+        formData.append(name, val);
+    });
+    const headersData = {};
+    formData.forEach((value, key) => headersData[key] = value);
+    return headersData;
+}
 </script>
 </body>
 </html>
