@@ -7,7 +7,7 @@
     <title>API Reference</title>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
-    <link rel="stylesheet" href="AllInOne.css?v=1605429493455"/>
+    <link rel="stylesheet" href="AllInOne.css?v=1605429493459"/>
     <style>
         .send-button {
             color: #fff;
@@ -38,7 +38,7 @@
         textarea {
             width: 100%;
             background-color: #f7f7f8;
-            border: 1px solid #dedede;
+            border: 1px solid #f7f7f8;
             border-radius: 4px;
             font-size: 1em;
             padding: 1em;
@@ -54,7 +54,7 @@
             max-width: 100%;
         }
     </style>
-    <script src="https://cdn.bootcss.com/jquery/1.12.2/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.5.1/jquery.js"></script>
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
@@ -157,7 +157,7 @@
                         <th class="tableblock halign-left valign-top">Since</th>
                     </tr>
                     </thead>
-                    <tbody id="aaa-header">
+                    <tbody id="aaa-path-params">
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
@@ -202,7 +202,7 @@
                         <th class="tableblock halign-left valign-top">Since</th>
                     </tr>
                     </thead>
-                    <tbody id="aaa-header">
+                    <tbody id="aaa-query-params">
                     <tr>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
                         <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
@@ -282,7 +282,7 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="paragraph"><p><strong>Request-example:</strong></p></div>
+                <div class="paragraph"><p><strong>Request-body:</strong></p></div>
                 <div class="listingblock">
                     <div class="content">
                         <textarea id="aaa-body">{
@@ -327,6 +327,18 @@
                 <div class="paragraph"><p><strong>Response-example:</strong></p></div>
                 <div class="listingblock">
                     <div class="content" id="aaa-response">
+                        <pre>{
+	"success":true,
+	"message":"success",
+	"data":"cqf4a1",
+	"code":"00000",
+	"timestamp":"2020-11-14 16:17:27"
+}</pre>
+                    </div>
+                </div>
+                <div class="paragraph"><p><strong>Curl-example:</strong></p></div>
+                <div class="listingblock">
+                    <div class="content">
                         <pre>{
 	"success":true,
 	"message":"success",
@@ -630,51 +642,62 @@
         new Accordion($('#accordion'), false);
     });
     $('textarea').each(function () {
-        console.log(this.scrollHeight)
         this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
     }).on('input', function () {
         this.style.height = '80px';
         this.style.height = (this.scrollHeight) + 'px';
     });
     $("button").on("click", function () {
-        const id = $(this).data("id");
-        console.log(id);
+        const $this = $(this);
+        const id = $this.data("id");
+        console.log("method-id=>" + id);
+
         const body = $("#" + id + "-body").val();
-        console.log(body);
-        const headerFormData = new FormData();
+
+        // header
         const $headerElement = $("#" + id + "-header");
-
-        // $("#"+id+"-header-tbody").find("tr").each(function (i) {
-        //     const input = $(this).find('td:eq(2) input');
-        //     const val = $(input).val();
-        //     const name = $(input).attr("name");
-        //     console.log(name + ":" + val)
-        //     headerFormData.append(name, val);
-        // });
         const headersData = getInputData($headerElement);
-        headerFormData.forEach((value, key) => headersData[key] = value);
 
+        // body param
         const $paramElement = $("#" + id + "-param");
-        const paramData = getInputData($paramElement)
-        const url = "http://localhost:8080/app/test"
-        console.log(JSON.stringify(headersData))
-        console.log("url=>" + castToGetUri(url, paramData))
+        const bodyParamData = getInputData($paramElement)
+
+        // path param
+        const $pathElement = $("#" + id + "-path-params")
+        const pathParamData = getInputData($pathElement)
+
+        // query param
+        const $queryElement = $("#" + id + "-query-params")
+        const queryParamData = getInputData($queryElement)
+
+        const url = "http://localhost:8080/app/test/"
+        console.log("request-headers=>" + JSON.stringify(headersData))
+        console.log("path-params=>" + JSON.stringify(pathParamData))
+        console.log("query-params=>" + JSON.stringify(queryParamData));
+        console.log("body-params=>" + JSON.stringify(bodyParamData))
+        console.log("json-body=>" + body);
+        console.log("url=>" + castToGetUri(url, pathParamData, queryParamData))
         const ajaxOptions = {};
         ajaxOptions.headers = headersData
-        ajaxOptions.url = "http://localhost:8080/app/test"
+        ajaxOptions.url = url
         ajaxOptions.type = "post"
         ajaxOptions.data = body;
         ajaxOptions.contentType = "application/json";
         $.ajax(ajaxOptions).done(function (result) {
+            $this.css("background", "#5cb85c");
             $("#" + id + "-response").find("pre").text(JSON.stringify(result, null, 4));
         }).fail(function (result) {
-            $("#" + id + "-response").find("pre").text(JSON.stringify(result, null, 4));
+            $this.css("background", "#D44B47");
+            $("#" + id + "-response").find("pre").text(JSON.stringify(result.responseJSON || result, null, 4));
         }).always(function () {
 
         });
     })
 
-    function castToGetUri(url, params) {
+    function castToGetUri(url, pathParams, params) {
+        if (pathParams instanceof Object && !(pathParams instanceof Array)) {
+            url = url.format(pathParams)
+        }
         if (params instanceof Object && !(params instanceof Array)) {
             const pm = params || {};
             const arr = [];
@@ -691,7 +714,7 @@
             }
             return arr.join("");
         } else {
-            throw "param is not plain Object"
+            return url;
         }
     }
 
@@ -701,12 +724,36 @@
             const input = $(this).find('td:eq(2) input');
             const val = $(input).val();
             const name = $(input).attr("name");
-            console.log(name + ":" + val)
             formData.append(name, val);
         });
         const headersData = {};
         formData.forEach((value, key) => headersData[key] = value);
         return headersData;
+    }
+
+    String.prototype.format = function (args) {
+        let reg;
+        if (arguments.length > 0) {
+            let result = this;
+            if (arguments.length == 1 && typeof (args) == "object") {
+                for (const key in args) {
+                    reg = new RegExp("({" + key + "})", "g");
+                    result = result.replace(reg, args[key]);
+                }
+            } else {
+                for (let i = 0; i < arguments.length; i++) {
+                    if (arguments[i] == undefined) {
+                        return "";
+                    } else {
+                        reg = new RegExp("({[" + i + "]})", "g");
+                        result = result.replace(reg, arguments[i]);
+                    }
+                }
+            }
+            return result;
+        } else {
+            return this;
+        }
     }
 </script>
 </body>
