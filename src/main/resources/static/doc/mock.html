@@ -137,7 +137,97 @@
                     </tr>
                     </tbody>
                 </table>
-                <div class="paragraph"><p><strong>Request-parameters:</strong></p></div>
+                <div class="paragraph"><p><strong>Path-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Value</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody id="aaa-header">
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="token"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">partnerId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="partnerId"
+                                                                                                   type="text"
+                                                                                                   value="bbb"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">合作方账号(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Query-parameters:</strong></p></div>
+                <table class="tableblock frame-all grid-all spread">
+                    <colgroup>
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                        <col style="width: 16.66%;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th class="tableblock halign-left valign-top">Parameter</th>
+                        <th class="tableblock halign-left valign-top">Type</th>
+                        <th class="tableblock halign-left valign-top">Value</th>
+                        <th class="tableblock halign-left valign-top">Description</th>
+                        <th class="tableblock halign-left valign-top">Required</th>
+                        <th class="tableblock halign-left valign-top">Since</th>
+                    </tr>
+                    </thead>
+                    <tbody id="aaa-header">
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="token"
+                                                                                                   type="text"
+                                                                                                   value="cccc"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">token(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    <tr>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">partnerId</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock"><input name="partnerId"
+                                                                                                   type="text"
+                                                                                                   value="bbb"/></p>
+                        </td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">合作方账号(Global)</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+                        <td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="paragraph"><p><strong>Body-parameters:</strong></p></div>
                 <table class="tableblock frame-all grid-all spread">
                     <colgroup>
                         <col style="width: 16.66%;">
@@ -520,102 +610,104 @@
             href="https://gitee.com/smart-doc-team/smart-doc" target="_blank">&nbsp;Gitee</a>&nbsp;or<a
             href="https://github.com/smart-doc-group/smart-doc.git" target="_blank">&nbsp;Github</a></span></footer>
 </div>
-<script>    $(function () {
-    const Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-        const links = this.el.find('.dd');
-        links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown);
-    };
-    Accordion.prototype.dropdown = function (e) {
-        const $el = e.data.el;
-        const $this = $(this), $next = $this.next();
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-        if (!e.data.multiple) {
-            $el.find('.submenu').not($next).slideUp("20").parent().removeClass('open');
-        }
-    };
-    new Accordion($('#accordion'), false);
-});
-$('textarea').each(function () {
-    console.log(this.scrollHeight)
-    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-}).on('input', function () {
-    this.style.height = '80px';
-    this.style.height = (this.scrollHeight) + 'px';
-});
-$("button").on("click", function () {
-    const id = $(this).data("id");
-    console.log(id);
-    const body = $("#" + id + "-body").val();
-    console.log(body);
-    const headerFormData = new FormData();
-    const $headerElement = $("#"+id+"-header");
-
-    // $("#"+id+"-header-tbody").find("tr").each(function (i) {
-    //     const input = $(this).find('td:eq(2) input');
-    //     const val = $(input).val();
-    //     const name = $(input).attr("name");
-    //     console.log(name + ":" + val)
-    //     headerFormData.append(name, val);
-    // });
-    const headersData = getInputData($headerElement);
-    headerFormData.forEach((value, key) => headersData[key] = value);
-
-    const $paramElement = $("#"+id+"-param");
-    const paramData = getInputData($paramElement)
-    const url = "http://localhost:8080/app/test"
-    console.log(JSON.stringify(headersData))
-    console.log("url=>"+castToGetUri(url,paramData))
-    const ajaxOptions = {};
-    ajaxOptions.headers = headersData
-    ajaxOptions.url = "http://localhost:8080/app/test"
-    ajaxOptions.type = "post"
-    ajaxOptions.data = body;
-    ajaxOptions.contentType = "application/json";
-    $.ajax(ajaxOptions).done(function (result) {
-        $("#"+id+"-response").find("pre").text(JSON.stringify(result, null, 4));
-    }).fail(function (result) {
-        $("#"+id+"-response").find("pre").text(JSON.stringify(result, null, 4));
-    }).always(function () {
-
-    });
-})
-function castToGetUri(url,params){
-    if (params instanceof Object && !(params instanceof Array)) {
-        const pm = params || {};
-        const arr = [];
-        arr.push(url);
-        let j = 0;
-        for (const i in pm) {
-            if (j === 0) {
-                arr.push("?");
-                arr.push(i + "=" + pm[i]);
-            } else {
-                arr.push("&" + i + "=" + pm[i]);
+<script>
+    $(function () {
+        const Accordion = function (el, multiple) {
+            this.el = el || {};
+            this.multiple = multiple || false;
+            const links = this.el.find('.dd');
+            links.on('click', {el: this.el, multiple: this.multiple}, this.dropdown);
+        };
+        Accordion.prototype.dropdown = function (e) {
+            const $el = e.data.el;
+            const $this = $(this), $next = $this.next();
+            $next.slideToggle();
+            $this.parent().toggleClass('open');
+            if (!e.data.multiple) {
+                $el.find('.submenu').not($next).slideUp("20").parent().removeClass('open');
             }
-            j++;
-        }
-        return arr.join("");
-    } else {
-        throw "param is not plain Object"
-    }
-}
-
-function getInputData(element){
-    const formData = new FormData();
-    $(element).find("tr").each(function (i) {
-        const input = $(this).find('td:eq(2) input');
-        const val = $(input).val();
-        const name = $(input).attr("name");
-        console.log(name + ":" + val)
-        formData.append(name, val);
+        };
+        new Accordion($('#accordion'), false);
     });
-    const headersData = {};
-    formData.forEach((value, key) => headersData[key] = value);
-    return headersData;
-}
+    $('textarea').each(function () {
+        console.log(this.scrollHeight)
+        this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+    }).on('input', function () {
+        this.style.height = '80px';
+        this.style.height = (this.scrollHeight) + 'px';
+    });
+    $("button").on("click", function () {
+        const id = $(this).data("id");
+        console.log(id);
+        const body = $("#" + id + "-body").val();
+        console.log(body);
+        const headerFormData = new FormData();
+        const $headerElement = $("#" + id + "-header");
+
+        // $("#"+id+"-header-tbody").find("tr").each(function (i) {
+        //     const input = $(this).find('td:eq(2) input');
+        //     const val = $(input).val();
+        //     const name = $(input).attr("name");
+        //     console.log(name + ":" + val)
+        //     headerFormData.append(name, val);
+        // });
+        const headersData = getInputData($headerElement);
+        headerFormData.forEach((value, key) => headersData[key] = value);
+
+        const $paramElement = $("#" + id + "-param");
+        const paramData = getInputData($paramElement)
+        const url = "http://localhost:8080/app/test"
+        console.log(JSON.stringify(headersData))
+        console.log("url=>" + castToGetUri(url, paramData))
+        const ajaxOptions = {};
+        ajaxOptions.headers = headersData
+        ajaxOptions.url = "http://localhost:8080/app/test"
+        ajaxOptions.type = "post"
+        ajaxOptions.data = body;
+        ajaxOptions.contentType = "application/json";
+        $.ajax(ajaxOptions).done(function (result) {
+            $("#" + id + "-response").find("pre").text(JSON.stringify(result, null, 4));
+        }).fail(function (result) {
+            $("#" + id + "-response").find("pre").text(JSON.stringify(result, null, 4));
+        }).always(function () {
+
+        });
+    })
+
+    function castToGetUri(url, params) {
+        if (params instanceof Object && !(params instanceof Array)) {
+            const pm = params || {};
+            const arr = [];
+            arr.push(url);
+            let j = 0;
+            for (const i in pm) {
+                if (j === 0) {
+                    arr.push("?");
+                    arr.push(i + "=" + pm[i]);
+                } else {
+                    arr.push("&" + i + "=" + pm[i]);
+                }
+                j++;
+            }
+            return arr.join("");
+        } else {
+            throw "param is not plain Object"
+        }
+    }
+
+    function getInputData(element) {
+        const formData = new FormData();
+        $(element).find("tr").each(function (i) {
+            const input = $(this).find('td:eq(2) input');
+            const val = $(input).val();
+            const name = $(input).attr("name");
+            console.log(name + ":" + val)
+            formData.append(name, val);
+        });
+        const headersData = {};
+        formData.forEach((value, key) => headersData[key] = value);
+        return headersData;
+    }
 </script>
 </body>
 </html>
