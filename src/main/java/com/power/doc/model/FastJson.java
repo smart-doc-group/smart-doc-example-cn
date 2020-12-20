@@ -3,8 +3,13 @@ package com.power.doc.model;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.power.doc.enums.DeviceDataExpressionEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author yu 2018/7/10.
@@ -13,6 +18,22 @@ import lombok.experimental.Accessors;
 @Accessors(chain=true)
 public class FastJson {
 
+    /**
+     * 枚举
+     */
+    private DeviceDataExpressionEnum dataExpressionEnum;
+
+    /**
+     * 菜单/权限编码
+     * @mock ["2015421521","2014545545"]
+     */
+    private Set menuPermissionCodes;
+
+    /**
+     * 学好
+     * @mock 2019-01-01
+     */
+    private Date date;
     /**
      * 用户名
      */
@@ -25,6 +46,12 @@ public class FastJson {
      */
 //    @JSONField(serialize = false)
     private String idCard;
+
+    private int age;
+
+    private Integer age2;
+
+
 
     public String getUsername() {
         return username;

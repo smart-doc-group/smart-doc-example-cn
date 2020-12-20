@@ -1,6 +1,7 @@
 package com.power.doc.service;
 
 import com.alibaba.fastjson.JSON;
+import com.power.common.util.ClassUtil;
 import com.power.common.util.DateTimeUtil;
 import com.power.common.util.JsonFormatUtil;
 import com.power.doc.builder.*;
@@ -8,13 +9,17 @@ import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.DocGlobalConstants;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
+import com.power.doc.enums.DeviceDataExpressionEnum;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.*;
 import com.power.doc.model.rpc.RpcApiDependency;
+import com.thoughtworks.qdox.JavaProjectBuilder;
 import org.junit.Test;
 
+import java.io.FileReader;
+import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -27,9 +32,20 @@ import java.nio.file.Paths;
 public class ApiDocTest {
 
     @Test
-    public void test(){
-        Path path = Paths.get("D:\\test");
-        System.out.println(path.isAbsolute());
+    public void test() throws Exception{
+        Class clazz = DeviceDataExpressionEnum.class;
+        Class<Enum> enumClass = (Class<Enum>) clazz;
+        Enum[] objects = enumClass.getEnumConstants();
+        Method valueMethod = clazz.getMethod("getKeyWords");
+        for (Enum enumType : objects) {
+            Object val = valueMethod.invoke(enumType);
+            String type = ClassUtil.getSimpleTypeName(val);
+            String value = String.valueOf(val);
+            System.out.println(value);
+        }
+//        JavaProjectBuilder builder = new JavaProjectBuilder();
+//        builder.addSource(new FileReader("D:\\workstation\\api-doc-test-maven\\src\\main\\java\\com\\power\\doc\\enums\\DeviceDataExpressionEnum.java"));
+
     }
 
     /**
@@ -42,6 +58,7 @@ public class ApiDocTest {
         config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
         config.setStrict(false);
+        config.setStyle("xt256");
         //true会将文档合并导出到一个markdown
         config.setAllInOne(true);
         config.setShowAuthor(true);
@@ -86,12 +103,12 @@ public class ApiDocTest {
 
         //添加数据字典
         config.setDataDictionaries(
-                ApiDataDictionary.dict().setTitle("订单状态").setEnumClass(OrderEnum.class)
+                ApiDataDictionary.builder().setTitle("订单状态").setEnumClass(OrderEnum.class)
                         .setCodeField("code") //字典码值字段名
                         .setDescField("desc"), //字段码
-                ApiDataDictionary.dict().setTitle("订单状态1").setEnumClass(OrderEnum.class)
+                ApiDataDictionary.builder().setTitle("订单状态1").setEnumClass(OrderEnum.class)
                         .setCodeField("code").setDescField("desc"),
-                ApiDataDictionary.dict().setTitle("性别字典").setEnumClass(GenderEnum.class)
+                ApiDataDictionary.builder().setTitle("性别字典").setEnumClass(GenderEnum.class)
                         .setCodeField("code").setDescField("desc")
         );
         //1.7.9 添加错误码处理，用于替代遍历代码
@@ -115,7 +132,7 @@ public class ApiDocTest {
 //                ResponseBodyAdvice.builder().setClassName("com.power.common.model.CommonResult")
 //        );
 
-        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
+//        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        ApiConfig config1 = JSON.parseObject(json,ApiConfig.class);
 //        System.out.println(JSON.toJSONString(config1));
 

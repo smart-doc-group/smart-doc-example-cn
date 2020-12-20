@@ -19,14 +19,13 @@ public class AppController {
 
     /**
      * app测试
-     * @param name 姓名
+     * @param name 姓名|zhangsan
      * @param beginTime 开始时间
      * @param endTime 结束时间
      * @return
      */
     @PostMapping(value = "/test")
-    public CommonResult test(@RequestBody CommonResult result){
-        System.out.println(JSON.toJSONString(result));
+    public CommonResult test(String name,String beginTime, String endTime){
         return CommonResult.ok().setResult(new FastJson().setUsername("yusun").setIdCard("530"));
     }
 

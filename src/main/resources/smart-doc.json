@@ -1,13 +1,24 @@
 {
-  "serverUrl": "http://127.0.0.1",
+  "serverUrl": "http://127.0.0.1:8080",
   "isStrict": true,
-  "allInOne": true,
+  "allInOne": false,
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
-  "packageFilters": "",
-  "md5EncryptedHtmlName": false,
+  "createDebugPage": true,
+  "packageFilters": "com.power.doc.controller.app",
+  "md5EncryptedHtmlName": true,
   "projectName": "smart-doc",
   "skipTransientField": true,
+  "requestHeaders": [ //设置请求头，没有需求可以不设置
+    {
+      "name": "token",//请求头名称
+      "type": "string",//请求头类型
+      "desc": "desc",//请求头描述信息
+      "value":"kk",//不设置默认null
+      "required": false,//是否必须
+      "since": "-"//什么版本添加的改请求头
+    }
+  ],
   "rpcApiDependencies":[{ // 项目开放的dubbo api接口模块依赖，配置后输出到文档方便使用者集成
     "artifactId":"SpringBoot2-Dubbo-Api",
     "groupId":"com.demo",
