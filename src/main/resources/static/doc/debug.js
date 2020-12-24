@@ -45,6 +45,7 @@ $("button").on("click", function () {
     const $queryElement = $("#" + id + "-query-params")
     const url = $("#" + id + "-url").data("url");
     const isDownload = $("#" + id + "-url").data("download");
+    const page = $("#" + id + "-url").data("page");
     const method = $("#" + id + "-method").data("method");
     const contentType = $("#" + id + "-content-type").data("content-type");
     console.log("request-headers=>" + JSON.stringify(headersData))
@@ -52,15 +53,21 @@ $("button").on("click", function () {
 
     console.log("body-params=>" + JSON.stringify(bodyParamData))
     console.log("json-body=>" + body);
-
+    let finalUrl = "";
     let queryParamData = "";
+    if (!isEmpty(page)) {
+        queryParamData = getInputData($queryElement)
+        finalUrl = castToGetUri(page, pathParamData, queryParamData)
+        window.open(finalUrl, "_blank");
+        return;
+    }
     if (isDownload) {
         queryParamData = getInputData($queryElement);
         download(url, headersData, pathParamData, queryParamData, bodyParamData, method, contentType);
         return;
     }
     const ajaxOptions = {};
-    let finalUrl = "";
+
     if ("multipart/form-data" == contentType) {
         finalUrl = castToGetUri(url, pathParamData);
         queryParamData = getInputData($queryElement, true)
@@ -93,6 +100,8 @@ $("button").on("click", function () {
     }).always(function () {
 
     });
+    const curlCmd = toCurl(ajaxOptions);
+    $("#" + id + "-curl").find("pre").text(curlCmd);
 })
 $(".check-all").on("click", function () {
     const checkboxName = $(this).prop("name");
@@ -195,8 +204,16 @@ function download(url, headersData, pathParamData, queryParamData, bodyParamData
     xmlRequest.responseType = "blob";
     xmlRequest.onload = function () {
         if (this.status === 200) {
-            let fileName = decodeURI(xmlRequest.getResponseHeader('filename'));
-            console.log(fileName);
+            let fileName = "";
+            const disposition = xmlRequest.getResponseHeader('Content-Disposition');
+            if (disposition && disposition.indexOf('attachment') !== -1) {
+                const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
+                const matches = filenameRegex.exec(disposition);
+                if (matches != null && matches[1]) {
+                    fileName = decodeURI(matches[1].replace(/['"]/g, ''));
+                }
+            }
+            console.log("download filename:" + fileName);
             const blob = this.response;
             if (navigator.msSaveBlob) {
                 // IE10 can't do a[download], only Blobs:
@@ -222,4 +239,63 @@ function download(url, headersData, pathParamData, queryParamData, bodyParamData
     } catch (e) {
         console.error("Failed to send data", e);
     }
+}
+
+function toCurl(request) {
+    if (typeof request !== 'object') {
+        throw "Request is not an object";
+    }
+    // default is a GET request
+    const cmd = ["curl", "-X", request.type || "GET"];
+
+    if (request.url.indexOf('https') == 0) {
+        cmd.push("-k");
+    }
+
+    if (request.data && request.data.length > 0) {
+        cmd.push("-H");
+        cmd.push("'Content-Type: application/json; charset=utf-8'");
+    }
+    // append request headers
+    let headerValue;
+    if (typeof request.headers == 'object') {
+        for (let key in request.headers) {
+            if (Object.prototype.hasOwnProperty.call(request.headers, key)) {
+                cmd.push("H");
+                headerValue = request.headers[key];
+                if (headerValue.value == '') {
+                    cmd.push("'" + key + "'");
+                } else {
+                    cmd.push("'" + key + ':' + headerValue + "'");
+                }
+            }
+        }
+    }
+
+    // display the response headers
+    cmd.push("-i");
+    // append request url
+    let url = request.url;
+    if (!url.startsWith("http")) {
+        const protocol = window.document.location.protocol;
+        const domain = window.document.location.hostname;
+        const port = window.document.location.port;
+        url = protocol + "//" + domain + ":" + port + url;
+    }
+    cmd.push(url);
+    // append data
+    if (request.data && request.data.length > 0) {
+        cmd.push("--data");
+        cmd.push("'" + request.data + "'");
+    }
+    let curlCmd = "";
+    cmd.forEach(function (item) {
+        curlCmd += item + " ";
+    });
+    console.log(curlCmd);
+    return curlCmd;
+}
+
+function isEmpty(obj){
+    return obj === undefined || obj === null || new String(obj).trim() === '';
 }

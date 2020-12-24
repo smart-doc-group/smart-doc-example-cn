@@ -1,13 +1,14 @@
 {
   "serverUrl": "http://127.0.0.1:8080",
   "isStrict": true,
-  "allInOne": false,
+  "allInOne": true,
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
   "createDebugPage": true,
   "packageFilters": "com.power.doc.controller.app",
   "md5EncryptedHtmlName": true,
   "projectName": "smart-doc",
+  "inlineEnum": true,
   "skipTransientField": true,
   "requestHeaders": [ //设置请求头，没有需求可以不设置
     {
@@ -23,6 +24,12 @@
     "artifactId":"SpringBoot2-Dubbo-Api",
     "groupId":"com.demo",
     "version":"1.0.0"
+  }],
+  "apiConstants":[{
+      "constantsClassName":"com.power.doc.constants.RequestParamConstant"
+    }, {
+      "constantsClassName":"com.power.doc.constants.RequestValueConstant"
+    }, {
+      "constantsClassName":"com.power.doc.constants.ApiVersion"
   }]
-
 }

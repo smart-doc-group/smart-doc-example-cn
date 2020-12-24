@@ -64,6 +64,8 @@ public class ApiDocTest {
         config.setShowAuthor(true);
         //生成html时加密文档名不暴露controller的名称
         config.setMd5EncryptedHtmlName(true);
+        //@since 2.0.0 开启生成debug调试页面
+        config.setCreateDebugPage(true);
         config.setRecursionLimit(3);
 
         config.setCoverOld(true);
@@ -91,8 +93,8 @@ public class ApiDocTest {
         config.setPackageFilters("com.power.doc.controller.app");
 
         config.setRequestHeaders(
-                ApiReqHeader.header().setName("token").setRequired(true).setType("string").setDesc("token"),
-                ApiReqHeader.header().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
+                ApiReqHeader.builder().setName("token").setRequired(true).setType("string").setDesc("token"),
+                ApiReqHeader.builder().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
         );
         //Configure your own constant class, smart-doc automatically replaces with a specific value when parsing to a constant
         config.setApiConstants(
@@ -113,7 +115,7 @@ public class ApiDocTest {
         );
         //1.7.9 添加错误码处理，用于替代遍历代码
         config.setErrorCodeDictionaries(
-                ApiErrorCodeDictionary.dict().setEnumClass(ErrorCodeEnum.class)
+                ApiErrorCodeDictionary.builder().setEnumClass(ErrorCodeEnum.class)
                         .setCodeField("code") //错误码值字段名
                         .setDescField("desc")//错误码描述
         );
@@ -139,6 +141,7 @@ public class ApiDocTest {
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
         HtmlApiDocBuilder.buildApiDoc(config);
+//        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);
 //        PostmanJsonBuilder.buildPostmanApi(config);
