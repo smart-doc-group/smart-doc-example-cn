@@ -5,7 +5,7 @@
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
   "createDebugPage": true,
-  "packageFilters": "com.power.doc.controller.app",
+  "packageFilters": "",
   "md5EncryptedHtmlName": true,
   "projectName": "smart-doc",
   "inlineEnum": true,
