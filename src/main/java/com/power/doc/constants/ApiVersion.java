@@ -5,5 +5,7 @@ package com.power.doc.constants;
  */
 public interface ApiVersion {
 
+    String ADMIN_ROOT = "/admin";
+
     String VERSION = "1.0";
 }

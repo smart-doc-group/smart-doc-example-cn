@@ -1,7 +1,7 @@
 buildscript {
     ext {
-        springBootVersion = '2.2.9.RELEASE'
-        smartDocVersion = '1.2.0'
+        springBootVersion = '2.3.4.RELEASE'
+        smartDocVersion = '2.0.4'
     }
     repositories {
         maven { url 'http://localhost:8081/nexus/content/groups/public/' }
@@ -47,28 +47,28 @@ configurations.compile {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.13'
+    testCompile group: 'junit', name: 'junit', version: '4.13.1'
     compile('org.springframework.boot:spring-boot-starter') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
     compile('org.springframework.boot:spring-boot-starter-web') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.0'
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
     compile 'com.alibaba:druid-spring-boot-starter:1.1.23'
     compile 'mysql:mysql-connector-java:8.0.15'
     compile('org.springframework.boot:spring-boot-starter-log4j2')
     compile 'com.lmax:disruptor:3.4.2'
     compile('org.springframework.boot:spring-boot-starter-aop')
-    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.73'
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.74'
     compile 'org.apache.commons:commons-lang3:3.9'
     compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
     compile 'org.apache.commons:commons-text:1.8'
-    compile 'com.github.shalousun:common-util:1.9.8'
+    compile 'com.github.shalousun:common-util:2.0.4'
     compileOnly 'org.projectlombok:lombok:1.18.0'
     compile("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile 'com.github.shalousun:smart-doc:1.9.6'
+    testCompile 'com.github.shalousun:smart-doc:2.0.4'
 
 }
 

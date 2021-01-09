@@ -1,7 +1,7 @@
 {
   "info": {
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "a5aebd06-2463-4b52-927d-27ec9f1ceeb3",
+    "_postman_id": "1cd7e295-5324-46b4-ba96-b46133cb0b1e",
     "name": "smart-doc"
   },
   "item": [
@@ -16,18 +16,18 @@
               "mode": "formdata",
               "formdata": [
                 {
-                  "key": "RequestParamConstant.PAGE",
+                  "key": "page",
                   "type": "text",
                   "description": "页码",
-                  "value": "RequestValueConstant.PAGE_DEFAULT_NONE"
+                  "value": "0"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testConstants/+ApiVersion.VERSION?RequestParamConstant.PAGE\u003dRequestValueConstant.PAGE_DEFAULT_NONE",
+              "raw": "http://127.0.0.1:8080/testConstants/1.0?page\u003d0",
               "path": [
                 "testConstants",
-                "+ApiVersion.VERSION"
+                "1.0"
               ],
               "host": [
                 "127.0.0.1"
@@ -35,8 +35,8 @@
               "port": "8080",
               "query": [
                 {
-                  "key": "RequestParamConstant.PAGE",
-                  "value": "1",
+                  "key": "page",
+                  "value": "0",
                   "description": "页码"
                 }
               ],
@@ -62,17 +62,113 @@
       "name": "app端接口测试",
       "item": [
         {
+          "name": "RequestParam+json",
+          "request": {
+            "method": "POST",
+            "body": {
+              "mode": "formdata"
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/app/getUserJson",
+              "path": [
+                "app",
+                "getUserJson"
+              ],
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": []
+            },
+            "description": "RequestParam+json",
+            "header": [
+              {
+                "key": "token",
+                "value": "kk",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "RequestParam+json"
+        },
+        {
+          "name": "分页查询订单信息",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": []
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/app/page/526/10",
+              "path": [
+                "app",
+                "page",
+                ":pageIndex",
+                ":pageSize"
+              ],
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8080",
+              "query": [],
+              "variable": [
+                {
+                  "key": "pageIndex",
+                  "value": "47",
+                  "description": "当前页码"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "10",
+                  "description": "页面大小"
+                }
+              ]
+            },
+            "description": "分页查询订单信息",
+            "header": [
+              {
+                "key": "token",
+                "value": "kk",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "分页查询订单信息"
+        },
+        {
           "name": "app测试",
           "request": {
             "method": "POST",
             "body": {
-              "mode": "raw",
-              "raw": "{\n\t\"total\":914\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "description": "姓名",
+                  "value": "zhangsan"
+                },
+                {
+                  "key": "beginTime",
+                  "type": "text",
+                  "description": "开始时间",
+                  "value": "2020-12-27 01:07:35"
+                },
+                {
+                  "key": "endTime",
+                  "type": "text",
+                  "description": "结束时间",
+                  "value": "2020-12-27 01:07:35"
                 }
-              }
+              ]
             },
             "url": {
               "raw": "http://127.0.0.1:8080/app/test",
@@ -84,7 +180,23 @@
                 "127.0.0.1"
               ],
               "port": "8080",
-              "query": [],
+              "query": [
+                {
+                  "key": "name",
+                  "value": "zhangsan",
+                  "description": "姓名"
+                },
+                {
+                  "key": "beginTime",
+                  "value": "2020-12-27 01:07:35",
+                  "description": "开始时间"
+                },
+                {
+                  "key": "endTime",
+                  "value": "2020-12-27 01:07:35",
+                  "description": "结束时间"
+                }
+              ],
               "variable": []
             },
             "description": "app测试",
@@ -102,6 +214,76 @@
           "description": "app测试"
         },
         {
+          "name": "app测试2",
+          "request": {
+            "method": "GET",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "type": "text",
+                  "description": "姓名",
+                  "value": "子轩.刘"
+                },
+                {
+                  "key": "beginTime",
+                  "type": "text",
+                  "description": "开始时间",
+                  "value": "2020-12-27 01:07:35"
+                },
+                {
+                  "key": "endTime",
+                  "type": "text",
+                  "description": "结束时间",
+                  "value": "2020-12-27 01:07:35"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8080/app/test2?name\u003d子轩.刘\u0026beginTime\u003d2020-12-27 01:07:35\u0026endTime\u003d2020-12-27 01:07:35",
+              "path": [
+                "app",
+                "test2"
+              ],
+              "host": [
+                "127.0.0.1"
+              ],
+              "port": "8080",
+              "query": [
+                {
+                  "key": "name",
+                  "value": "子轩.刘",
+                  "description": "姓名"
+                },
+                {
+                  "key": "beginTime",
+                  "value": "2020-12-27 01:07:35",
+                  "description": "开始时间"
+                },
+                {
+                  "key": "endTime",
+                  "value": "2020-12-27 01:07:35",
+                  "description": "结束时间"
+                }
+              ],
+              "variable": []
+            },
+            "description": "app测试2",
+            "header": [
+              {
+                "key": "token",
+                "value": "kk",
+                "type": "text",
+                "disabled": true,
+                "name": "token",
+                "description": "desc"
+              }
+            ]
+          },
+          "description": "app测试2"
+        },
+        {
           "name": "app测试3",
           "request": {
             "method": "GET",
@@ -112,24 +294,24 @@
                   "key": "name",
                   "type": "text",
                   "description": "姓名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "beginTime",
                   "type": "text",
                   "description": "开始时间",
-                  "value": "2020-12-20 15:47:38"
+                  "value": "2020-12-27 01:07:35"
                 },
                 {
                   "key": "endTime",
                   "type": "text",
                   "description": "结束时间",
-                  "value": "2020-12-20 15:47:38"
+                  "value": "2020-12-27 01:07:35"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/test3?beginTime\u003d2020-12-20 15:47:38\u0026name\u003d潇然.于\u0026endTime\u003d2020-12-20 15:47:38",
+              "raw": "http://127.0.0.1:8080/app/test3?endTime\u003d2020-12-27 01:07:35\u0026name\u003d子轩.刘\u0026beginTime\u003d2020-12-27 01:07:35",
               "path": [
                 "app",
                 "test3"
@@ -141,17 +323,17 @@
               "query": [
                 {
                   "key": "name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "姓名"
                 },
                 {
                   "key": "beginTime",
-                  "value": "2020-12-20 15:47:38",
+                  "value": "2020-12-27 01:07:35",
                   "description": "开始时间"
                 },
                 {
                   "key": "endTime",
-                  "value": "2020-12-20 15:47:38",
+                  "value": "2020-12-27 01:07:35",
                   "description": "结束时间"
                 }
               ],
@@ -447,7 +629,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum/0",
+              "raw": "http://127.0.0.1:8080/enum/WAIT_PAY",
               "path": [
                 "enum",
                 ":orderEnum"
@@ -460,7 +642,7 @@
               "variable": [
                 {
                   "key": "orderEnum",
-                  "value": "0",
+                  "value": "WAIT_PAY",
                   "description": "WAIT_PAY -(0,已支付)\u003cbr/\u003ePAID -(1,已支付)\u003cbr/\u003eEXPIRED -(2,已经失效)\u003cbr/\u003e"
                 }
               ]
@@ -541,13 +723,13 @@
               "query": [
                 {
                   "key": "orderId",
-                  "value": "477",
+                  "value": "765",
                   "description": "订单id"
                 },
                 {
                   "key": "orderType",
-                  "value": "0",
-                  "description": "订单类型\u003cbr/\u003eWAIT_PAY -(0,已支付)\u003cbr/\u003ePAID -(1,已支付)\u003cbr/\u003eEXPIRED -(2,已经失效)\u003cbr/\u003e\u003cbr/\u003e(See: 订单状态)"
+                  "value": "WAIT_PAY",
+                  "description": "订单类型\u003cbr/\u003eWAIT_PAY -(\"0\",\"已支付\")\u003cbr/\u003ePAID -(\"1\",\"已支付\")\u003cbr/\u003eEXPIRED -(\"2\",\"已经失效\")\u003cbr/\u003e"
                 }
               ],
               "variable": []
@@ -616,7 +798,7 @@
                   "key": "userId",
                   "type": "text",
                   "description": "用户id",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "file",
@@ -638,7 +820,7 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "用户id"
                 },
                 {
@@ -724,7 +906,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "463"
+                  "value": "871"
                 },
                 {
                   "key": "simpleEnum",
@@ -736,31 +918,31 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "fkvj5c"
+                  "value": "fzhg6t"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "description": "性别",
-                  "value": "0"
+                  "value": "WOMAN"
                 }
               ]
             },
@@ -776,38 +958,38 @@
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "397",
+                  "value": "39",
                   "description": "No comments found."
                 },
                 {
                   "key": "simpleEnum",
                   "value": "RED",
-                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e\u003cbr/\u003e"
+                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "j7uhu3",
+                  "value": "nzq12x",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "gender",
                   "value": "0",
-                  "description": "性别\u003cbr/\u003eWOMAN -(0,女人)\u003cbr/\u003eMAN -(2,男人)\u003cbr/\u003e\u003cbr/\u003e(See: 性别数据字典)"
+                  "description": "性别\u003cbr/\u003eWOMAN -(0,\"女人\")\u003cbr/\u003eMAN -(2,\"男人\")\u003cbr/\u003e"
                 }
               ],
               "variable": []
@@ -837,13 +1019,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "fwrqhy"
+                  "value": "apw0c5"
                 },
                 {
                   "key": "file",
@@ -865,12 +1047,12 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "m2j4jh",
+                  "value": "podi2l",
                   "description": "No comments found."
                 },
                 {
@@ -905,13 +1087,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "3z5g1h"
+                  "value": "c2rjf4"
                 },
                 {
                   "key": "file",
@@ -922,7 +1104,7 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData2?userData\u003d3z5g1h\u0026userId\u003d167",
+              "raw": "http://127.0.0.1:8080/formData2?userId\u003d114\u0026userData\u003dc2rjf4",
               "path": [
                 "formData2"
               ],
@@ -933,12 +1115,12 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "ao1zs5",
+                  "value": "8iw59u",
                   "description": "No comments found."
                 },
                 {
@@ -973,18 +1155,18 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "zfwn4e"
+                  "value": "7qefo9"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "254"
+                  "value": "568"
                 },
                 {
                   "key": "simpleEnum",
@@ -996,36 +1178,36 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "118tf8"
+                  "value": "juhh6y"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "description": "性别",
-                  "value": "0"
+                  "value": "WOMAN"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData4?mobile\u003d17022747164\u0026gender\u003d0\u0026userData\u003dzfwn4e\u0026simpleEnum\u003dRED\u0026nickName\u003dbrande.schaefer\u0026MAX_SPEED\u003d254\u0026userId\u003d167\u0026username\u003d潇然.于\u0026password\u003d118tf8",
+              "raw": "http://127.0.0.1:8080/formData4?password\u003djuhh6y\u0026nickName\u003dlorenza.schamberger\u0026userId\u003d114\u0026username\u003d子轩.刘\u0026userData\u003d7qefo9\u0026simpleEnum\u003dRED\u0026MAX_SPEED\u003d568\u0026mobile\u003d17734678036\u0026gender\u003dWOMAN",
               "path": [
                 "formData4"
               ],
@@ -1036,48 +1218,48 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "zvun3s",
+                  "value": "jfqxw8",
                   "description": "No comments found."
                 },
                 {
                   "key": "MAX_SPEED",
-                  "value": "708",
+                  "value": "322",
                   "description": "No comments found."
                 },
                 {
                   "key": "simpleEnum",
                   "value": "RED",
-                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e\u003cbr/\u003e"
+                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "2puxhc",
+                  "value": "rffmtp",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "gender",
                   "value": "0",
-                  "description": "性别\u003cbr/\u003eWOMAN -(0,女人)\u003cbr/\u003eMAN -(2,男人)\u003cbr/\u003e\u003cbr/\u003e(See: 性别数据字典)"
+                  "description": "性别\u003cbr/\u003eWOMAN -(0,\"女人\")\u003cbr/\u003eMAN -(2,\"男人\")\u003cbr/\u003e"
                 }
               ],
               "variable": []
@@ -1107,18 +1289,18 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "twc6yu"
+                  "value": "yboqmm"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "268"
+                  "value": "220"
                 },
                 {
                   "key": "simpleEnum",
@@ -1130,31 +1312,31 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "bzg28v"
+                  "value": "ujl2fm"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "description": "性别",
-                  "value": "0"
+                  "value": "WOMAN"
                 }
               ]
             },
@@ -1170,48 +1352,48 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "b99x2s",
+                  "value": "sayn7t",
                   "description": "No comments found."
                 },
                 {
                   "key": "MAX_SPEED",
-                  "value": "105",
+                  "value": "11",
                   "description": "No comments found."
                 },
                 {
                   "key": "simpleEnum",
                   "value": "RED",
-                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e\u003cbr/\u003e"
+                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "v3l81b",
+                  "value": "lr9dg9",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "gender",
                   "value": "0",
-                  "description": "性别\u003cbr/\u003eWOMAN -(0,女人)\u003cbr/\u003eMAN -(2,男人)\u003cbr/\u003e\u003cbr/\u003e(See: 性别数据字典)"
+                  "description": "性别\u003cbr/\u003eWOMAN -(0,\"女人\")\u003cbr/\u003eMAN -(2,\"男人\")\u003cbr/\u003e"
                 }
               ],
               "variable": []
@@ -1241,13 +1423,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "q6p364"
+                  "value": "h2m6oc"
                 },
                 {
                   "key": "simpleUser",
@@ -1258,7 +1440,7 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData6?userId\u003d167\u0026userData\u003dq6p364\u0026simpleUser\u003dRED",
+              "raw": "http://127.0.0.1:8080/formData6?userId\u003d114\u0026simpleUser\u003dRED\u0026userData\u003dh2m6oc",
               "path": [
                 "formData6"
               ],
@@ -1269,12 +1451,12 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "z4gvoy",
+                  "value": "5fa361",
                   "description": "No comments found."
                 },
                 {
@@ -1309,7 +1491,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "488"
+                  "value": "2"
                 },
                 {
                   "key": "simpleEnum",
@@ -1321,36 +1503,36 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "n4kfsy"
+                  "value": "c7py66"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "description": "性别",
-                  "value": "0"
+                  "value": "WOMAN"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData1/167",
+              "raw": "http://127.0.0.1:8080/formData1/114",
               "path": [
                 "formData1",
                 ":id"
@@ -1362,44 +1544,44 @@
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "724",
+                  "value": "201",
                   "description": "No comments found."
                 },
                 {
                   "key": "simpleEnum",
                   "value": "RED",
-                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e\u003cbr/\u003e"
+                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "jmvomj",
+                  "value": "p6aajg",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "gender",
                   "value": "0",
-                  "description": "性别\u003cbr/\u003eWOMAN -(0,女人)\u003cbr/\u003eMAN -(2,男人)\u003cbr/\u003e\u003cbr/\u003e(See: 性别数据字典)"
+                  "description": "性别\u003cbr/\u003eWOMAN -(0,\"女人\")\u003cbr/\u003eMAN -(2,\"男人\")\u003cbr/\u003e"
                 }
               ],
               "variable": [
                 {
                   "key": "id",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 }
               ]
@@ -1428,7 +1610,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "589"
+                  "value": "4"
                 },
                 {
                   "key": "simpleEnum",
@@ -1440,36 +1622,36 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "dtzwrp"
+                  "value": "oby5bm"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "gender",
                   "type": "text",
                   "description": "性别",
-                  "value": "0"
+                  "value": "WOMAN"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData1/167/17",
+              "raw": "http://127.0.0.1:8080/formData1/114/21",
               "path": [
                 "formData1",
                 ":id",
@@ -1482,49 +1664,49 @@
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "469",
+                  "value": "200",
                   "description": "No comments found."
                 },
                 {
                   "key": "simpleEnum",
                   "value": "RED",
-                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e\u003cbr/\u003e"
+                  "description": "简单枚举\u003cbr/\u003eRED\u003cbr/\u003eBLUE\u003cbr/\u003e"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "h6qvfr",
+                  "value": "qpc8xj",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "gender",
                   "value": "0",
-                  "description": "性别\u003cbr/\u003eWOMAN -(0,女人)\u003cbr/\u003eMAN -(2,男人)\u003cbr/\u003e\u003cbr/\u003e(See: 性别数据字典)"
+                  "description": "性别\u003cbr/\u003eWOMAN -(0,\"女人\")\u003cbr/\u003eMAN -(2,\"男人\")\u003cbr/\u003e"
                 }
               ],
               "variable": [
                 {
                   "key": "id",
-                  "value": "167",
+                  "value": "114",
                   "description": "No comments found."
                 },
                 {
                   "key": "age",
-                  "value": "17",
+                  "value": "21",
                   "description": "No comments found."
                 }
               ]
@@ -1771,7 +1953,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"localDate\":\"2020-12-20\",\n\t\"localDateTime\":\"2020-12-20 15:47:39\",\n\t\"localTime\":\"2020-12-20 15:47:38\"\n}",
+              "raw": "{\n\t\"localDate\":\"2020-12-27\",\n\t\"localDateTime\":\"2020-12-27 01:07:36\",\n\t\"localTime\":\"2020-12-27 01:07:35\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1779,7 +1961,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/dateEntity",
+              "raw": "http://127.0.0.1:8080/dateEntity?",
               "path": [
                 "dateEntity"
               ],
@@ -1856,7 +2038,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/pageableParam",
+              "raw": "http://127.0.0.1:8080/pageableParam?",
               "path": [
                 "pageableParam"
               ],
@@ -1892,7 +2074,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\"menuPermissionCodes\":[\n\t\t\"2015421521\",\n\t\t\"2014545545\"\n\t],\n\t\"date\":\"2019-01-01\",\n\t\"username\":\"潇然.于\",\n\t\"idCard\":\"131612197904141424\",\n\t\"age\":17,\n\t\"age2\":732\n}",
+              "raw": "{\n\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\"menuPermissionCodes\":[\n\t\t\"WAIT_PAY\"\n\t],\n\t\"date\":\"2019-01-01\",\n\t\"username\":\"子轩.刘\",\n\t\"idCard\":\"510902199411191382\",\n\t\"age\":21,\n\t\"age2\":353\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1900,7 +2082,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/getUserJson",
+              "raw": "http://127.0.0.1:8080/getUserJson?name\u003d子轩.刘",
               "path": [
                 "getUserJson"
               ],
@@ -1911,7 +2093,7 @@
               "query": [
                 {
                   "key": "name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "No comments found."
                 }
               ],
@@ -2581,7 +2763,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"page\":{\n\t\t\"roleId\":877,\n\t\t\"roleName\":\"潇然.于\"\n\t},\n\t\"data1\":[\n\t\t{\n\t\t\t\"total\":247\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"page\":{\n\t\t\"roleId\":194,\n\t\t\"roleName\":\"子轩.刘\"\n\t},\n\t\"data1\":[\n\t\t{\n\t\t\t\"total\":392\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2589,7 +2771,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/mulGenric/test/",
+              "raw": "http://127.0.0.1:8080/mulGenric/test/?",
               "path": [
                 "mulGenric",
                 "test",
@@ -2753,12 +2935,12 @@
                   "key": "age",
                   "type": "text",
                   "description": "  年龄",
-                  "value": "17"
+                  "value": "21"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestHeader?age\u003d17",
+              "raw": "http://127.0.0.1:8080/testRequestHeader?age\u003d21",
               "path": [
                 "testRequestHeader"
               ],
@@ -2769,7 +2951,7 @@
               "query": [
                 {
                   "key": "age",
-                  "value": "17",
+                  "value": "21",
                   "description": "  年龄"
                 }
               ],
@@ -2849,12 +3031,12 @@
                   "key": "age",
                   "type": "text",
                   "description": "  年龄",
-                  "value": "17"
+                  "value": "21"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestHeader/DefaultVal?age\u003d17",
+              "raw": "http://127.0.0.1:8080/testRequestHeader/DefaultVal?age\u003d21",
               "path": [
                 "testRequestHeader",
                 "DefaultVal"
@@ -2866,7 +3048,7 @@
               "query": [
                 {
                   "key": "age",
-                  "value": "17",
+                  "value": "21",
                   "description": "  年龄"
                 }
               ],
@@ -2902,18 +3084,18 @@
                   "key": "name",
                   "type": "text",
                   "description": "name",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "age",
                   "type": "text",
                   "description": " age",
-                  "value": "17"
+                  "value": "21"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testNormalParams/binding?name\u003d潇然.于\u0026age\u003d17",
+              "raw": "http://127.0.0.1:8080/testNormalParams/binding?age\u003d21\u0026name\u003d子轩.刘",
               "path": [
                 "testNormalParams",
                 "binding"
@@ -2925,12 +3107,12 @@
               "query": [
                 {
                   "key": "name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "name"
                 },
                 {
                   "key": "age",
-                  "value": "17",
+                  "value": "21",
                   "description": " age"
                 }
               ],
@@ -2956,7 +3138,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"朱巷0号， 北京， 黑 316956\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"潇然.于\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"userAddress\":\"朱巷0号， 北京， 黑 316956\",\n\t\"userAge\":17,\n\t\"phone\":\"17034383246\",\n\t\"createTime\":1608450458588,\n\t\"small\":82.54,\n\t\"money\":81.10,\n\t\"ipv6\":\"5cc2:482d:7951:7bfb:e15f:0058:b19b:cc8b\",\n\t\"telephone\":\"17034383246\"\n}",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"子轩.刘\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"userAge\":21,\n\t\"phone\":\"15391999163\",\n\t\"createTime\":1609002455678,\n\t\"small\":55.65,\n\t\"money\":23.20,\n\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\"telephone\":\"15391999163\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2964,7 +3146,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBody",
+              "raw": "http://127.0.0.1:8080/testRequestBody?",
               "path": [
                 "testRequestBody"
               ],
@@ -2995,7 +3177,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"朱巷0号， 北京， 黑 316956\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"潇然.于\",\n\t\t\"nickName\":\"brande.schaefer\",\n\t\t\"userAddress\":\"朱巷0号， 北京， 黑 316956\",\n\t\t\"userAge\":17,\n\t\t\"phone\":\"17034383246\",\n\t\t\"createTime\":1608450458588,\n\t\t\"small\":21.05,\n\t\t\"money\":90.80,\n\t\t\"ipv6\":\"5cc2:482d:7951:7bfb:e15f:0058:b19b:cc8b\",\n\t\t\"telephone\":\"17034383246\"\n\t}\n}",
+              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"子轩.刘\",\n\t\t\"nickName\":\"lorenza.schamberger\",\n\t\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\t\"userAge\":21,\n\t\t\"phone\":\"15391999163\",\n\t\t\"createTime\":1609002455678,\n\t\t\"small\":57.18,\n\t\t\"money\":98.22,\n\t\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\t\"telephone\":\"15391999163\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3003,7 +3185,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBodyMap",
+              "raw": "http://127.0.0.1:8080/testRequestBodyMap?",
               "path": [
                 "testRequestBodyMap"
               ],
@@ -3034,7 +3216,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "[\n\t\"8gjxgo\",\n\t\"4omjky\"\n]",
+              "raw": "[\n\t\"iqg79h\",\n\t\"a7h0yy\"\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3042,7 +3224,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBodyList",
+              "raw": "http://127.0.0.1:8080/testRequestBodyList?",
               "path": [
                 "testRequestBodyList"
               ],
@@ -3073,7 +3255,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "[\n\t{\n\t\t\"success\":true,\n\t\t\"message\":\"success\",\n\t\t\"data\":{\n\t\t\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\t\t\"menuPermissionCodes\":[\n\t\t\t\t\"2015421521\",\n\t\t\t\t\"2014545545\"\n\t\t\t],\n\t\t\t\"date\":\"2019-01-01\",\n\t\t\t\"username\":\"潇然.于\",\n\t\t\t\"idCard\":\"131612197904141424\",\n\t\t\t\"age\":17,\n\t\t\t\"age2\":168\n\t\t},\n\t\t\"code\":\"57697\",\n\t\t\"timestamp\":\"2020-12-20 15:47:38\"\n\t}\n]",
+              "raw": "[\n\t{\n\t\t\"success\":true,\n\t\t\"message\":\"success\",\n\t\t\"data\":{\n\t\t\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\t\t\"menuPermissionCodes\":[\n\t\t\t\t\"WAIT_PAY\"\n\t\t\t],\n\t\t\t\"date\":\"2019-01-01\",\n\t\t\t\"username\":\"子轩.刘\",\n\t\t\t\"idCard\":\"510902199411191382\",\n\t\t\t\"age\":21,\n\t\t\t\"age2\":781\n\t\t},\n\t\t\"code\":\"53204\",\n\t\t\"timestamp\":\"2020-12-27 01:07:35\"\n\t}\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3081,7 +3263,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testArray",
+              "raw": "http://127.0.0.1:8080/testArray?",
               "path": [
                 "testArray"
               ],
@@ -3115,7 +3297,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/test/潇然.于/5xiodj/info",
+              "raw": "http://127.0.0.1:8080/test/子轩.刘/cmo4f3/info",
               "path": [
                 "test",
                 ":name",
@@ -3130,12 +3312,12 @@
               "variable": [
                 {
                   "key": "name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "name"
                 },
                 {
                   "key": "no",
-                  "value": "0rzflo",
+                  "value": "eul7nl",
                   "description": "  no"
                 }
               ]
@@ -3171,12 +3353,12 @@
                   "key": "type",
                   "type": "text",
                   "description": "  type",
-                  "value": "rbbr98"
+                  "value": "441cur"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestParam?author\u003d詹姆斯\u0026type\u003drbbr98",
+              "raw": "http://127.0.0.1:8080/testRequestParam?author\u003d詹姆斯\u0026type\u003d441cur",
               "path": [
                 "testRequestParam"
               ],
@@ -3187,12 +3369,12 @@
               "query": [
                 {
                   "key": "author",
-                  "value": "钟熠彤",
+                  "value": "詹姆斯",
                   "description": "author"
                 },
                 {
                   "key": "type",
-                  "value": "75djc2",
+                  "value": "tt7xvg",
                   "description": "  type"
                 }
               ],
@@ -3223,12 +3405,12 @@
                   "key": "name",
                   "type": "text",
                   "description": "user name",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestParamWithValue?name\u003d潇然.于",
+              "raw": "http://127.0.0.1:8080/testRequestParamWithValue?name\u003d子轩.刘",
               "path": [
                 "testRequestParamWithValue"
               ],
@@ -3239,7 +3421,7 @@
               "query": [
                 {
                   "key": "name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "user name"
                 }
               ],
@@ -3286,7 +3468,7 @@
               "query": [
                 {
                   "key": "userName",
-                  "value": "潇然.于",
+                  "value": "Jordan",
                   "description": "user name"
                 }
               ],
@@ -3315,7 +3497,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testMuchPath/get/579",
+              "raw": "http://127.0.0.1:8080/testMuchPath/get/910",
               "path": [
                 "testMuchPath",
                 "get",
@@ -3332,7 +3514,7 @@
               "variable": [
                 {
                   "key": "userId",
-                  "value": "411",
+                  "value": "946",
                   "description": "userId"
                 }
               ]
@@ -3360,7 +3542,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/get/895/246",
+              "raw": "http://127.0.0.1:8080/get/43/682",
               "path": [
                 "get",
                 ":deptId",
@@ -3377,12 +3559,12 @@
               "variable": [
                 {
                   "key": "userId",
-                  "value": "30",
+                  "value": "965",
                   "description": "userId"
                 },
                 {
                   "key": "deptId",
-                  "value": "86",
+                  "value": "686",
                   "description": "deptId"
                 }
               ]
@@ -3409,15 +3591,15 @@
               "mode": "formdata",
               "formdata": [
                 {
-                  "key": "RequestParamConstant.PAGE",
+                  "key": "page",
                   "type": "text",
                   "description": "页码",
-                  "value": "RequestValueConstant.PAGE_DEFAULT_NONE"
+                  "value": "0"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testConstants?RequestParamConstant.PAGE\u003dRequestValueConstant.PAGE_DEFAULT_NONE",
+              "raw": "http://127.0.0.1:8080/testConstants?page\u003d0",
               "path": [
                 "testConstants"
               ],
@@ -3427,8 +3609,8 @@
               "port": "8080",
               "query": [
                 {
-                  "key": "RequestParamConstant.PAGE",
-                  "value": "1",
+                  "key": "page",
+                  "value": "0",
                   "description": "页码"
                 }
               ],
@@ -3596,12 +3778,12 @@
                   "key": "userId",
                   "type": "text",
                   "description": "userId",
-                  "value": "608"
+                  "value": "999"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/getMapping?userId\u003d608",
+              "raw": "http://127.0.0.1:8080/getMapping?userId\u003d999",
               "path": [
                 "getMapping"
               ],
@@ -3612,7 +3794,7 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "549",
+                  "value": "352",
                   "description": "userId"
                 }
               ],
@@ -3638,7 +3820,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"167\",\n\t\"createBy\":\"eleb4g\",\n\t\"createTime\":\"2020-12-20\",\n\t\"updateBy\":\"clshb6\",\n\t\"updateTime\":\"2020-12-20\",\n\t\"delFlag\":0,\n\t\"username\":\"潇然.于\",\n\t\"password\":\"qbymo1\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"mobile\":\"17022747164\",\n\t\"email\":\"彬.江@yahoo.com\",\n\t\"address\":\"朱巷0号， 北京， 黑 316956\",\n\t\"sex\":0,\n\t\"avatar\":\"wi7fpr\",\n\t\"type\":747,\n\t\"status\":49,\n\t\"description\":\"5tq4ff\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"167\",\n\t\t\t\"createBy\":\"omsu9h\",\n\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\"updateBy\":\"9ov72k\",\n\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\"delFlag\":0,\n\t\t\t\"name\":\"潇然.于\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"167\",\n\t\t\t\t\t\"createBy\":\"6uw0au\",\n\t\t\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\t\t\"updateBy\":\"9ldhtj\",\n\t\t\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\t\t\"delFlag\":0,\n\t\t\t\t\t\"name\":\"潇然.于\",\n\t\t\t\t\t\"level\":79,\n\t\t\t\t\t\"type\":730,\n\t\t\t\t\t\"title\":\"11rm09\",\n\t\t\t\t\t\"path\":\"bl1iks\",\n\t\t\t\t\t\"component\":\"8mo12j\",\n\t\t\t\t\t\"icon\":\"5n1ywo\",\n\t\t\t\t\t\"buttonType\":\"9o6e8c\",\n\t\t\t\t\t\"parentId\":\"167\",\n\t\t\t\t\t\"description\":\"dcs114\",\n\t\t\t\t\t\"sortOrder\":88,\n\t\t\t\t\t\"status\":27,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"string\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"167\",\n\t\t\t\"createBy\":\"07ocdx\",\n\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\"updateBy\":\"80cjt9\",\n\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\"delFlag\":0,\n\t\t\t\"name\":\"潇然.于\",\n\t\t\t\"level\":734,\n\t\t\t\"type\":177,\n\t\t\t\"title\":\"wttrzp\",\n\t\t\t\"path\":\"svan25\",\n\t\t\t\"component\":\"nm12v3\",\n\t\t\t\"icon\":\"asrvsu\",\n\t\t\t\"buttonType\":\"mpf5x9\",\n\t\t\t\"parentId\":\"167\",\n\t\t\t\"description\":\"lttw1r\",\n\t\t\t\"sortOrder\":595,\n\t\t\t\"status\":552,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"string\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\":\"114\",\n\t\"createBy\":\"l05m38\",\n\t\"createTime\":\"2020-12-27\",\n\t\"updateBy\":\"hx9bo1\",\n\t\"updateTime\":\"2020-12-27\",\n\t\"delFlag\":4,\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"ffav2a\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"email\":\"子骞.尹@yahoo.com\",\n\t\"address\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"sex\":1,\n\t\"avatar\":\"mpwx7m\",\n\t\"type\":243,\n\t\"status\":484,\n\t\"description\":\"84qwr4\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"0hctxg\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"8u75m6\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"114\",\n\t\t\t\t\t\"createBy\":\"ea76ff\",\n\t\t\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\t\t\"updateBy\":\"i6aef4\",\n\t\t\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\t\t\"level\":140,\n\t\t\t\t\t\"type\":304,\n\t\t\t\t\t\"title\":\"r663in\",\n\t\t\t\t\t\"path\":\"cnhm5z\",\n\t\t\t\t\t\"component\":\"veg4gu\",\n\t\t\t\t\t\"icon\":\"3p95wf\",\n\t\t\t\t\t\"buttonType\":\"j6uoh3\",\n\t\t\t\t\t\"parentId\":\"114\",\n\t\t\t\t\t\"description\":\"g168bj\",\n\t\t\t\t\t\"sortOrder\":302,\n\t\t\t\t\t\"status\":198,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"35bfs9\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"qikokv\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"1cr19h\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"level\":512,\n\t\t\t\"type\":911,\n\t\t\t\"title\":\"ygykno\",\n\t\t\t\"path\":\"iiymwn\",\n\t\t\t\"component\":\"kcclza\",\n\t\t\t\"icon\":\"ltvzzf\",\n\t\t\t\"buttonType\":\"fz313a\",\n\t\t\t\"parentId\":\"114\",\n\t\t\t\"description\":\"qvzsoi\",\n\t\t\t\"sortOrder\":413,\n\t\t\t\"status\":673,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"awjn05\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3646,7 +3828,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/postMapping",
+              "raw": "http://127.0.0.1:8080/postMapping?",
               "path": [
                 "postMapping"
               ],
@@ -3682,144 +3864,144 @@
                   "key": "id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "dp1mhs"
+                  "value": "czwbdz"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "5fyl5x"
+                  "value": "sserwp"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "3mk512"
+                  "value": "m5k0et"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "description": "邮箱",
-                  "value": "彬.江@yahoo.com"
+                  "value": "子骞.尹@yahoo.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "description": "地址",
-                  "value": "朱巷0号， 北京， 黑 316956"
+                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529"
                 },
                 {
                   "key": "sex",
                   "type": "text",
                   "description": "性别(男1 女 2)",
-                  "value": "0"
+                  "value": "1"
                 },
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "j4aq3z"
+                  "value": "cj747b"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "description": "类型",
-                  "value": "643"
+                  "value": "417"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "description": "状态",
-                  "value": "29"
+                  "value": "768"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "description": "描述",
-                  "value": "sbazg7"
+                  "value": "qlj7cc"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "jq8v4p"
+                  "value": "enm1ls"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "87sq7x"
+                  "value": "nh59pt"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "description": "角色名 以ROLE_开头",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -3831,109 +4013,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "9m5geo"
+                  "value": "joegbo"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "lysk6d"
+                  "value": "f6em70"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "372"
+                  "value": "537"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "238"
+                  "value": "52"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "luninq"
+                  "value": "l4r7rj"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "3v9qj0"
+                  "value": "cbr2as"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "mv5wg4"
+                  "value": "gqvd2k"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "f26wf1"
+                  "value": "7lbxwq"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "in8ded"
+                  "value": "yg7tb6"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "hp7xvr"
+                  "value": "an1vbl"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "476"
+                  "value": "486"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "819"
+                  "value": "814"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -3957,109 +4139,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "qw78g6"
+                  "value": "bpqz9c"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "tom0je"
+                  "value": "nfe36d"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "763"
+                  "value": "606"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "727"
+                  "value": "944"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "te8sj5"
+                  "value": "gk302u"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "lcjjl4"
+                  "value": "s7zvqv"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "qbs2n3"
+                  "value": "ifbies"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "f54n5i"
+                  "value": "7v36hc"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "rlnka7"
+                  "value": "p037dk"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "rk0iic"
+                  "value": "kz1bt9"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "109"
+                  "value": "223"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "621"
+                  "value": "213"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -4093,87 +4275,87 @@
               "query": [
                 {
                   "key": "id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "createBy",
-                  "value": "m7fk3g",
+                  "value": "r45c4r",
                   "description": "创建人"
                 },
                 {
                   "key": "createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "updateBy",
-                  "value": "l2h5t9",
+                  "value": "oftnj4",
                   "description": "修改人"
                 },
                 {
                   "key": "updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "m0oa1q",
+                  "value": "ozk1l2",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "email",
-                  "value": "彬.江@yahoo.com",
+                  "value": "子骞.尹@yahoo.com",
                   "description": "邮箱"
                 },
                 {
                   "key": "address",
-                  "value": "朱巷0号， 北京， 黑 316956",
+                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529",
                   "description": "地址"
                 },
                 {
                   "key": "sex",
-                  "value": "0",
+                  "value": "1",
                   "description": "性别(男1 女 2)"
                 },
                 {
                   "key": "avatar",
-                  "value": "wbkjn0",
+                  "value": "kg561i",
                   "description": "No comments found."
                 },
                 {
                   "key": "type",
-                  "value": "391",
+                  "value": "579",
                   "description": "类型"
                 },
                 {
                   "key": "status",
-                  "value": "756",
+                  "value": "123",
                   "description": "状态"
                 },
                 {
                   "key": "description",
-                  "value": "9k6spi",
+                  "value": "8meuq9",
                   "description": "描述"
                 },
                 {
@@ -4183,37 +4365,37 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "86s7ha",
+                  "value": "pdl3na",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "s7y9vt",
+                  "value": "7lfkkv",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "角色名 以ROLE_开头"
                 },
                 {
@@ -4228,92 +4410,92 @@
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createBy",
-                  "value": "wjx3du",
+                  "value": "pu9mro",
                   "description": "创建人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateBy",
-                  "value": "w3fg7o",
+                  "value": "j8zs4b",
                   "description": "修改人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─level",
-                  "value": "243",
+                  "value": "714",
                   "description": "层级"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─type",
-                  "value": "367",
+                  "value": "273",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─title",
-                  "value": "yde2wd",
+                  "value": "sfyzo7",
                   "description": "菜单标题"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─path",
-                  "value": "lxs33t",
+                  "value": "deg4m5",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─component",
-                  "value": "ikxwiz",
+                  "value": "6zo05w",
                   "description": "前端组件"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─icon",
-                  "value": "fse1yc",
+                  "value": "2a0rmd",
                   "description": "图标"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─buttonType",
-                  "value": "dw5ylj",
+                  "value": "wz38ky",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─parentId",
-                  "value": "167",
+                  "value": "114",
                   "description": "父id"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─description",
-                  "value": "veuvdh",
+                  "value": "odj98y",
                   "description": "说明备注"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─sortOrder",
-                  "value": "211",
+                  "value": "495",
                   "description": "排序值"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─status",
-                  "value": "857",
+                  "value": "826",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -4348,92 +4530,92 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "z7c926",
+                  "value": "3jze3z",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "khkpxh",
+                  "value": "anpxn7",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "└─level",
-                  "value": "726",
+                  "value": "596",
                   "description": "层级"
                 },
                 {
                   "key": "└─type",
-                  "value": "519",
+                  "value": "220",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "└─title",
-                  "value": "1p1g0s",
+                  "value": "klh47w",
                   "description": "菜单标题"
                 },
                 {
                   "key": "└─path",
-                  "value": "ynorwa",
+                  "value": "7tnayu",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "└─component",
-                  "value": "ldskm5",
+                  "value": "4egf18",
                   "description": "前端组件"
                 },
                 {
                   "key": "└─icon",
-                  "value": "99ywdd",
+                  "value": "gmmsbs",
                   "description": "图标"
                 },
                 {
                   "key": "└─buttonType",
-                  "value": "azopwx",
+                  "value": "pnovlw",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "└─parentId",
-                  "value": "167",
+                  "value": "114",
                   "description": "父id"
                 },
                 {
                   "key": "└─description",
-                  "value": "y841j8",
+                  "value": "fm47oi",
                   "description": "说明备注"
                 },
                 {
                   "key": "└─sortOrder",
-                  "value": "349",
+                  "value": "817",
                   "description": "排序值"
                 },
                 {
                   "key": "└─status",
-                  "value": "366",
+                  "value": "979",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -4484,7 +4666,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"167\",\n\t\"createBy\":\"mm3kts\",\n\t\"createTime\":\"2020-12-20\",\n\t\"updateBy\":\"wlozvk\",\n\t\"updateTime\":\"2020-12-20\",\n\t\"delFlag\":0,\n\t\"username\":\"潇然.于\",\n\t\"password\":\"mtdmno\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"mobile\":\"17022747164\",\n\t\"email\":\"彬.江@yahoo.com\",\n\t\"address\":\"朱巷0号， 北京， 黑 316956\",\n\t\"sex\":0,\n\t\"avatar\":\"p9guv6\",\n\t\"type\":453,\n\t\"status\":771,\n\t\"description\":\"vpooe3\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"167\",\n\t\t\t\"createBy\":\"gny0vb\",\n\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\"updateBy\":\"fn9f7n\",\n\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\"delFlag\":0,\n\t\t\t\"name\":\"潇然.于\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"167\",\n\t\t\t\t\t\"createBy\":\"i2bwm3\",\n\t\t\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\t\t\"updateBy\":\"5mvu96\",\n\t\t\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\t\t\"delFlag\":0,\n\t\t\t\t\t\"name\":\"潇然.于\",\n\t\t\t\t\t\"level\":544,\n\t\t\t\t\t\"type\":428,\n\t\t\t\t\t\"title\":\"08ewzp\",\n\t\t\t\t\t\"path\":\"d6cv9m\",\n\t\t\t\t\t\"component\":\"567pii\",\n\t\t\t\t\t\"icon\":\"ikmvqi\",\n\t\t\t\t\t\"buttonType\":\"1tho0i\",\n\t\t\t\t\t\"parentId\":\"167\",\n\t\t\t\t\t\"description\":\"wim5fc\",\n\t\t\t\t\t\"sortOrder\":297,\n\t\t\t\t\t\"status\":170,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"string\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"167\",\n\t\t\t\"createBy\":\"itpmvf\",\n\t\t\t\"createTime\":\"2020-12-20\",\n\t\t\t\"updateBy\":\"ab90lp\",\n\t\t\t\"updateTime\":\"2020-12-20\",\n\t\t\t\"delFlag\":0,\n\t\t\t\"name\":\"潇然.于\",\n\t\t\t\"level\":566,\n\t\t\t\"type\":632,\n\t\t\t\"title\":\"d6k3vw\",\n\t\t\t\"path\":\"5fclcy\",\n\t\t\t\"component\":\"6bn9yn\",\n\t\t\t\"icon\":\"ax47ud\",\n\t\t\t\"buttonType\":\"fq4yrx\",\n\t\t\t\"parentId\":\"167\",\n\t\t\t\"description\":\"3w7z4v\",\n\t\t\t\"sortOrder\":955,\n\t\t\t\"status\":791,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"string\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\":\"114\",\n\t\"createBy\":\"u8xdit\",\n\t\"createTime\":\"2020-12-27\",\n\t\"updateBy\":\"z80xe3\",\n\t\"updateTime\":\"2020-12-27\",\n\t\"delFlag\":4,\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"mdo2au\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"email\":\"子骞.尹@yahoo.com\",\n\t\"address\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"sex\":1,\n\t\"avatar\":\"5ij662\",\n\t\"type\":346,\n\t\"status\":958,\n\t\"description\":\"e57ijk\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"dhi7vz\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"tgblyt\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"114\",\n\t\t\t\t\t\"createBy\":\"tusc0o\",\n\t\t\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\t\t\"updateBy\":\"5w96r2\",\n\t\t\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\t\t\"level\":368,\n\t\t\t\t\t\"type\":281,\n\t\t\t\t\t\"title\":\"t2cnvs\",\n\t\t\t\t\t\"path\":\"ndb7bd\",\n\t\t\t\t\t\"component\":\"mi4z1a\",\n\t\t\t\t\t\"icon\":\"8o50yu\",\n\t\t\t\t\t\"buttonType\":\"evjwdi\",\n\t\t\t\t\t\"parentId\":\"114\",\n\t\t\t\t\t\"description\":\"svu86s\",\n\t\t\t\t\t\"sortOrder\":803,\n\t\t\t\t\t\"status\":63,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"ayq61g\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"yol6li\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"v0qd3s\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"level\":523,\n\t\t\t\"type\":528,\n\t\t\t\"title\":\"iotozt\",\n\t\t\t\"path\":\"t7iged\",\n\t\t\t\"component\":\"raobif\",\n\t\t\t\"icon\":\"nvwzom\",\n\t\t\t\"buttonType\":\"wy3phm\",\n\t\t\t\"parentId\":\"114\",\n\t\t\t\"description\":\"sitonp\",\n\t\t\t\"sortOrder\":117,\n\t\t\t\"status\":361,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"m4v8ud\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4492,7 +4674,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/putMapping",
+              "raw": "http://127.0.0.1:8080/putMapping?",
               "path": [
                 "putMapping"
               ],
@@ -4528,144 +4710,144 @@
                   "key": "id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "ufeph1"
+                  "value": "1wp7y8"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "6l98wh"
+                  "value": "uaashw"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "e7d9d9"
+                  "value": "qt1g8y"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "brande.schaefer"
+                  "value": "lorenza.schamberger"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17022747164"
+                  "value": "17734678036"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "description": "邮箱",
-                  "value": "彬.江@yahoo.com"
+                  "value": "子骞.尹@yahoo.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "description": "地址",
-                  "value": "朱巷0号， 北京， 黑 316956"
+                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529"
                 },
                 {
                   "key": "sex",
                   "type": "text",
                   "description": "性别(男1 女 2)",
-                  "value": "0"
+                  "value": "1"
                 },
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "uielgp"
+                  "value": "eiw9jk"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "description": "类型",
-                  "value": "740"
+                  "value": "493"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "description": "状态",
-                  "value": "480"
+                  "value": "94"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "description": "描述",
-                  "value": "vno4zw"
+                  "value": "gvg615"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "ws3lim"
+                  "value": "lc31j5"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "vm1ir1"
+                  "value": "so2yzr"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "description": "角色名 以ROLE_开头",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -4677,109 +4859,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "k83mfd"
+                  "value": "778yhv"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "a83na5"
+                  "value": "uzykuw"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "565"
+                  "value": "685"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "167"
+                  "value": "539"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "6ae56a"
+                  "value": "arsab0"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "zvcucv"
+                  "value": "u67zos"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "kh0m3y"
+                  "value": "b2co06"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "4m1jvo"
+                  "value": "ygj2fb"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "t4nkep"
+                  "value": "zeora3"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "40n592"
+                  "value": "7sj6rl"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "615"
+                  "value": "273"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "124"
+                  "value": "485"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -4803,109 +4985,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "ucp6bx"
+                  "value": "oqxbm7"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "l48y8r"
+                  "value": "c7jx42"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-20"
+                  "value": "2020-12-27"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "0"
+                  "value": "4"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "潇然.于"
+                  "value": "子轩.刘"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "444"
+                  "value": "981"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "508"
+                  "value": "529"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "d3yrhe"
+                  "value": "c9cprh"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "2ftncx"
+                  "value": "cs692p"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "cnruv0"
+                  "value": "an7hfe"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "xiifsn"
+                  "value": "xxgfl4"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "rtd8df"
+                  "value": "oo3imx"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "167"
+                  "value": "114"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "ybzvn3"
+                  "value": "modiv7"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "333"
+                  "value": "332"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "477"
+                  "value": "600"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -4939,87 +5121,87 @@
               "query": [
                 {
                   "key": "id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "createBy",
-                  "value": "rjisum",
+                  "value": "m3xyto",
                   "description": "创建人"
                 },
                 {
                   "key": "createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "updateBy",
-                  "value": "wkapyb",
+                  "value": "qfhz8h",
                   "description": "修改人"
                 },
                 {
                   "key": "updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "username",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "mvuwkh",
+                  "value": "9qpumo",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "brande.schaefer",
+                  "value": "lorenza.schamberger",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17022747164",
+                  "value": "17734678036",
                   "description": "电话"
                 },
                 {
                   "key": "email",
-                  "value": "彬.江@yahoo.com",
+                  "value": "子骞.尹@yahoo.com",
                   "description": "邮箱"
                 },
                 {
                   "key": "address",
-                  "value": "朱巷0号， 北京， 黑 316956",
+                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529",
                   "description": "地址"
                 },
                 {
                   "key": "sex",
-                  "value": "0",
+                  "value": "1",
                   "description": "性别(男1 女 2)"
                 },
                 {
                   "key": "avatar",
-                  "value": "fqjya1",
+                  "value": "omce6d",
                   "description": "No comments found."
                 },
                 {
                   "key": "type",
-                  "value": "989",
+                  "value": "22",
                   "description": "类型"
                 },
                 {
                   "key": "status",
-                  "value": "933",
+                  "value": "784",
                   "description": "状态"
                 },
                 {
                   "key": "description",
-                  "value": "nf9iwr",
+                  "value": "1bpobl",
                   "description": "描述"
                 },
                 {
@@ -5029,37 +5211,37 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "qdl7we",
+                  "value": "avlgy8",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "8okf5o",
+                  "value": "l0mjk8",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "角色名 以ROLE_开头"
                 },
                 {
@@ -5074,92 +5256,92 @@
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createBy",
-                  "value": "9tz0ql",
+                  "value": "lf0e7z",
                   "description": "创建人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateBy",
-                  "value": "i8rbgk",
+                  "value": "tb022k",
                   "description": "修改人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─level",
-                  "value": "950",
+                  "value": "847",
                   "description": "层级"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─type",
-                  "value": "936",
+                  "value": "949",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─title",
-                  "value": "qlc806",
+                  "value": "na4kk5",
                   "description": "菜单标题"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─path",
-                  "value": "0plhby",
+                  "value": "4ltpti",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─component",
-                  "value": "axl06l",
+                  "value": "0udqny",
                   "description": "前端组件"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─icon",
-                  "value": "kovvtd",
+                  "value": "te3bfq",
                   "description": "图标"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─buttonType",
-                  "value": "w38yac",
+                  "value": "k0susy",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─parentId",
-                  "value": "167",
+                  "value": "114",
                   "description": "父id"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─description",
-                  "value": "a5eysh",
+                  "value": "7lacc7",
                   "description": "说明备注"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─sortOrder",
-                  "value": "343",
+                  "value": "845",
                   "description": "排序值"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─status",
-                  "value": "128",
+                  "value": "758",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -5194,92 +5376,92 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "167",
+                  "value": "114",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "ghbjlm",
+                  "value": "oer36k",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "1dl3ib",
+                  "value": "upn0rr",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-20",
+                  "value": "2020-12-27",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "0",
+                  "value": "4",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "潇然.于",
+                  "value": "子轩.刘",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "└─level",
-                  "value": "245",
+                  "value": "726",
                   "description": "层级"
                 },
                 {
                   "key": "└─type",
-                  "value": "934",
+                  "value": "948",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "└─title",
-                  "value": "y1z4ih",
+                  "value": "r24gb1",
                   "description": "菜单标题"
                 },
                 {
                   "key": "└─path",
-                  "value": "dsss19",
+                  "value": "4csfag",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "└─component",
-                  "value": "quqxiz",
+                  "value": "zuaic0",
                   "description": "前端组件"
                 },
                 {
                   "key": "└─icon",
-                  "value": "un5suu",
+                  "value": "604km3",
                   "description": "图标"
                 },
                 {
                   "key": "└─buttonType",
-                  "value": "nacl0i",
+                  "value": "wpwxbs",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "└─parentId",
-                  "value": "167",
+                  "value": "114",
                   "description": "父id"
                 },
                 {
                   "key": "└─description",
-                  "value": "xgfihy",
+                  "value": "usj00v",
                   "description": "说明备注"
                 },
                 {
                   "key": "└─sortOrder",
-                  "value": "501",
+                  "value": "34",
                   "description": "排序值"
                 },
                 {
                   "key": "└─status",
-                  "value": "462",
+                  "value": "177",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -5335,12 +5517,12 @@
                   "key": "userId",
                   "type": "text",
                   "description": "userId",
-                  "value": "667"
+                  "value": "619"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/deleteMapping?userId\u003d667",
+              "raw": "http://127.0.0.1:8080/deleteMapping?userId\u003d619",
               "path": [
                 "deleteMapping"
               ],
@@ -5351,7 +5533,7 @@
               "query": [
                 {
                   "key": "userId",
-                  "value": "218",
+                  "value": "844",
                   "description": "userId"
                 }
               ],
@@ -5455,7 +5637,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"朱巷0号， 北京， 黑 316956\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"潇然.于\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"userAddress\":\"朱巷0号， 北京， 黑 316956\",\n\t\"userAge\":17,\n\t\"phone\":\"17034383246\",\n\t\"createTime\":1608450458588,\n\t\"small\":20.15,\n\t\"money\":5.24,\n\t\"ipv6\":\"5cc2:482d:7951:7bfb:e15f:0058:b19b:cc8b\",\n\t\"telephone\":\"17034383246\"\n}",
+              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"子轩.刘\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"userAge\":21,\n\t\"phone\":\"15391999163\",\n\t\"createTime\":1609002455678,\n\t\"small\":42.44,\n\t\"money\":74.96,\n\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\"telephone\":\"15391999163\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5463,7 +5645,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/user",
+              "raw": "http://127.0.0.1:8080/simple/user?",
               "path": [
                 "simple",
                 "user"
@@ -5770,7 +5952,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"age\":17,\n\t\"name\":\"潇然.于\"\n}",
+              "raw": "{\n\t\"age\":21,\n\t\"name\":\"子轩.刘\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5778,7 +5960,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/children",
+              "raw": "http://127.0.0.1:8080/children?",
               "path": [
                 "children"
               ],
@@ -5819,7 +6001,7 @@
                   "key": "user[]",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "l6nd5l"
+                  "value": "gq01sr"
                 }
               ]
             },
@@ -5862,7 +6044,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"subUserName\":\"张三\",\n\t\"numbers\":883\n}",
+              "raw": "{\n\t\"subUserName\":\"张三\",\n\t\"numbers\":405\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5870,7 +6052,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/tags/mock",
+              "raw": "http://127.0.0.1:8080/tags/mock?",
               "path": [
                 "tags",
                 "mock"
@@ -5907,12 +6089,12 @@
                   "key": "total",
                   "type": "text",
                   "description": "记录总数",
-                  "value": "141"
+                  "value": "779"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/tags/ignore?total\u003d141",
+              "raw": "http://127.0.0.1:8080/tags/ignore?total\u003d779",
               "path": [
                 "tags",
                 "ignore"
@@ -5924,7 +6106,7 @@
               "query": [
                 {
                   "key": "total",
-                  "value": "373",
+                  "value": "263",
                   "description": "记录总数"
                 }
               ],
@@ -5955,7 +6137,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":702,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"潇然.于\",\n\t\"password\":\"283p3o\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"mobile\":\"17022747164\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\":572,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"xndg4n\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"gender\":0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5963,7 +6145,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/user/add",
+              "raw": "http://127.0.0.1:8080/user/add?",
               "path": [
                 "user",
                 "add"
@@ -5995,7 +6177,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":781,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"潇然.于\",\n\t\"password\":\"u63kd7\",\n\t\"nickName\":\"brande.schaefer\",\n\t\"mobile\":\"17022747164\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\":214,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"9l6en0\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"gender\":0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6003,7 +6185,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/user/update",
+              "raw": "http://127.0.0.1:8080/user/update?",
               "path": [
                 "user",
                 "update"
@@ -6040,7 +6222,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"潇然.于\",\n\t\"birthday\":\"2020-12-20\",\n\t\"age\":17,\n\t\"subject\":{\n\t\t\"subjectName\":\"潇然.于\"\n\t}\n}",
+              "raw": "{\n\t\"name\":\"子轩.刘\",\n\t\"birthday\":\"2020-12-27\",\n\t\"age\":21,\n\t\"subject\":{\n\t\t\"subjectName\":\"子轩.刘\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6048,7 +6230,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/test",
+              "raw": "http://127.0.0.1:8080/validator/test?",
               "path": [
                 "validator",
                 "test"
@@ -6080,7 +6262,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"token\":\"5oj7i3\",\n\t\"sequenceNo\":\"ij5gri\",\n\t\"parameter\":{\n\t\t\"subUserName\":\"张三\",\n\t\t\"numbers\":16\n\t}\n}",
+              "raw": "{\n\t\"token\":\"f0wjo7\",\n\t\"sequenceNo\":\"09pa14\",\n\t\"parameter\":{\n\t\t\"subUserName\":\"张三\",\n\t\t\"numbers\":50\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6088,7 +6270,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/valid",
+              "raw": "http://127.0.0.1:8080/validator/valid?",
               "path": [
                 "validator",
                 "valid"
@@ -6120,7 +6302,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":289,\n\t\"name\":\"潇然.于\",\n\t\"mobile\":\"17022747164\"\n}",
+              "raw": "{\n\t\"id\":504,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6128,7 +6310,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/save",
+              "raw": "http://127.0.0.1:8080/validator/save?",
               "path": [
                 "validator",
                 "save"
@@ -6160,7 +6342,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":597,\n\t\"name\":\"潇然.于\",\n\t\"mobile\":\"17022747164\"\n}",
+              "raw": "{\n\t\"id\":188,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6168,7 +6350,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/update",
+              "raw": "http://127.0.0.1:8080/validator/update?",
               "path": [
                 "validator",
                 "update"
@@ -6200,7 +6382,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":863,\n\t\"name\":\"潇然.于\",\n\t\"mobile\":\"17022747164\"\n}",
+              "raw": "{\n\t\"id\":139,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6208,7 +6390,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/login",
+              "raw": "http://127.0.0.1:8080/validator/login?",
               "path": [
                 "validator",
                 "login"
@@ -6248,7 +6430,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/list",
+              "raw": "http://127.0.0.1:8080/validator/list?",
               "path": [
                 "validator",
                 "list"
@@ -6290,7 +6472,7 @@
                   "key": "text",
                   "type": "text",
                   "description": "请求文本",
-                  "value": "9mu7r1"
+                  "value": "f9ugu0"
                 }
               ]
             },
@@ -6307,7 +6489,7 @@
               "query": [
                 {
                   "key": "text",
-                  "value": "1rbj96",
+                  "value": "tf36w5",
                   "description": "请求文本"
                 }
               ],
@@ -6338,12 +6520,12 @@
                   "key": "query",
                   "type": "text",
                   "description": "请求参数",
-                  "value": "uv8osc"
+                  "value": "1haxl6"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/xss/query?query\u003duv8osc",
+              "raw": "http://127.0.0.1:8080/xss/query?query\u003d1haxl6",
               "path": [
                 "xss",
                 "query"
@@ -6355,7 +6537,7 @@
               "query": [
                 {
                   "key": "query",
-                  "value": "o6sb1f",
+                  "value": "upo4vs",
                   "description": "请求参数"
                 }
               ],
@@ -6381,7 +6563,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"age\":17,\n\t\"name\":\"潇然.于\"\n}",
+              "raw": "{\n\t\"age\":21,\n\t\"name\":\"子轩.刘\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6389,7 +6571,7 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/xss/json",
+              "raw": "http://127.0.0.1:8080/xss/json?",
               "path": [
                 "xss",
                 "json"

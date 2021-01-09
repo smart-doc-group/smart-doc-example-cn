@@ -1,10 +1,11 @@
 {
-  "serverUrl": "http://127.0.0.1:8080",
-  "isStrict": true,
+  "serverUrl": "",
+  "isStrict": false,
   "allInOne": true,
   "outPath": "src/main/resources/static/doc",
   "coverOld": true,
   "createDebugPage": true,
+  "style":"xt256",
   "packageFilters": "",
   "md5EncryptedHtmlName": true,
   "projectName": "smart-doc",

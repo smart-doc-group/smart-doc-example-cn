@@ -4,6 +4,7 @@ import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.power.doc.enums.DeviceDataExpressionEnum;
+import com.power.doc.enums.OrderEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -20,14 +21,15 @@ public class FastJson {
 
     /**
      * 枚举
+     * @mock ["2015421521","2014545545"]
      */
     private DeviceDataExpressionEnum dataExpressionEnum;
 
     /**
      * 菜单/权限编码
-     * @mock ["2015421521","2014545545"]
+     *
      */
-    private Set menuPermissionCodes;
+    private List<OrderEnum> menuPermissionCodes;
 
     /**
      * 学好
@@ -50,7 +52,6 @@ public class FastJson {
     private int age;
 
     private Integer age2;
-
 
 
     public String getUsername() {
