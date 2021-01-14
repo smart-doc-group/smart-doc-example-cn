@@ -27,7 +27,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("validator")
-public class ValidatorTestController extends BaseController {
+public class ValidatorTestController extends BaseController<Leader> {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ValidatorTestController.class);
 
