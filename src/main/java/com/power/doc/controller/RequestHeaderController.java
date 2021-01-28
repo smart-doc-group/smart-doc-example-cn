@@ -1,11 +1,14 @@
 package com.power.doc.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
+
 /**
  * RequestHeader注解测试
  * @author xingzi
  * @date 2019 10 11  22:35
  */
+@Slf4j
 @RestController
 public class RequestHeaderController {
 
@@ -37,6 +40,16 @@ public class RequestHeaderController {
     @GetMapping("testRequestHeader/DefaultVal")
     public void testRequestHeaderAnnotationWithDefaultVal(@RequestHeader(value = "token",defaultValue = "da",required = false)String name, Integer age) {
 
+    }
+
+    /**
+     * 测试Mapping中的headers属性
+     * @return
+     */
+    @GetMapping(value = "testRequestHeader/foos", headers = { "key1=val1", "key2=val2" })
+    @ResponseBody
+    public String getFoosWithHeaders() {
+        return "Get some Foos with Header";
     }
 
 

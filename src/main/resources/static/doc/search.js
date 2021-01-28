@@ -387,6 +387,10 @@ api[19].list.push({
     order: '3',
     desc: '测试RequestHeader绑定默认值',
 });
+api[19].list.push({
+    order: '4',
+    desc: '测试Mapping中的headers属性',
+});
 api.push({
     alias: '74c3788ee40af9e4128f488b20ba0156',
     order: '21',
@@ -441,6 +445,14 @@ api[20].list.push({
 api[20].list.push({
     order: '12',
     desc: 'Test Constants',
+});
+api[20].list.push({
+    order: '13',
+    desc: '测试mapping中的',
+});
+api[20].list.push({
+    order: '14',
+    desc: '测试mapping中的2',
 });
 api.push({
     alias: 'f340529f8762e58ffcb731de6eebb3bd',

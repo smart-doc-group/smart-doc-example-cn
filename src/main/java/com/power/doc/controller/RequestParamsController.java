@@ -150,4 +150,27 @@ public class RequestParamsController {
 
     }
 
+    /**
+     * 测试mapping中的
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/ex/bars", params = "id")
+    @ResponseBody
+    public String getBarBySimplePathWithExplicitRequestParam(@RequestParam("id") long id) {
+        return "Get a specific Bar with id=" + id;
+    }
+
+    /**
+     * 测试mapping中的2
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/ex/bars", params = { "id", "second" })
+    @ResponseBody
+    public String getBarBySimplePathWithExplicitRequestParams(
+            @RequestParam("id") long id) {
+        return "Narrow Get a specific Bar with id=" + id;
+    }
+
 }

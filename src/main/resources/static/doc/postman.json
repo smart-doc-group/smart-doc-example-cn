@@ -1,7 +1,7 @@
 {
   "info": {
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_postman_id": "1cd7e295-5324-46b4-ba96-b46133cb0b1e",
+    "_postman_id": "ae3fa5fb-c286-431b-94cd-b68a8b185cc3",
     "name": "smart-doc"
   },
   "item": [
@@ -24,15 +24,11 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testConstants/1.0?page\u003d0",
+              "raw": "/testConstants/1.0?page\u003d0",
               "path": [
                 "testConstants",
                 "1.0"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "page",
@@ -62,26 +58,38 @@
       "name": "app端接口测试",
       "item": [
         {
-          "name": "RequestParam+json",
+          "name": "Test Constants",
           "request": {
-            "method": "POST",
+            "method": "GET",
             "body": {
-              "mode": "formdata"
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "page",
+                  "type": "text",
+                  "description": "页码",
+                  "value": "0"
+                }
+              ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/getUserJson",
+              "raw": "/app/admin/testConstants/1.0?page\u003d0",
               "path": [
                 "app",
-                "getUserJson"
+                "admin",
+                "testConstants",
+                "1.0"
               ],
-              "host": [
-                "127.0.0.1"
+              "query": [
+                {
+                  "key": "page",
+                  "value": "0",
+                  "description": "页码"
+                }
               ],
-              "port": "8080",
-              "query": [],
               "variable": []
             },
-            "description": "RequestParam+json",
+            "description": "Test Constants",
             "header": [
               {
                 "key": "token",
@@ -93,7 +101,7 @@
               }
             ]
           },
-          "description": "RequestParam+json"
+          "description": "Test Constants"
         },
         {
           "name": "分页查询订单信息",
@@ -104,27 +112,23 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/page/526/10",
+              "raw": "/app/detail/:id:[a-zA-Z0-9]:3/:name:[a-zA-Z0-9]:3?id\u003d807\u0026name\u003d凯瑞.尹",
               "path": [
                 "app",
-                "page",
-                ":pageIndex",
-                ":pageSize"
+                "detail",
+                ":id:[a-zA-Z0-9]:3",
+                ":name:[a-zA-Z0-9]:3"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
-                  "key": "pageIndex",
-                  "value": "47",
+                  "key": "id",
+                  "value": "681",
                   "description": "当前页码"
                 },
                 {
-                  "key": "pageSize",
-                  "value": "10",
+                  "key": "name",
+                  "value": "凯瑞.尹",
                   "description": "页面大小"
                 }
               ]
@@ -160,26 +164,22 @@
                   "key": "beginTime",
                   "type": "text",
                   "description": "开始时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 },
                 {
                   "key": "endTime",
                   "type": "text",
                   "description": "结束时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/test",
+              "raw": "/app/test",
               "path": [
                 "app",
                 "test"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
@@ -188,12 +188,12 @@
                 },
                 {
                   "key": "beginTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "开始时间"
                 },
                 {
                   "key": "endTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "结束时间"
                 }
               ],
@@ -224,46 +224,42 @@
                   "key": "name",
                   "type": "text",
                   "description": "姓名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "beginTime",
                   "type": "text",
                   "description": "开始时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 },
                 {
                   "key": "endTime",
                   "type": "text",
                   "description": "结束时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/test2?name\u003d子轩.刘\u0026beginTime\u003d2020-12-27 01:07:35\u0026endTime\u003d2020-12-27 01:07:35",
+              "raw": "/app/test2?name\u003d凯瑞.尹\u0026endTime\u003d2021-01-15 20:55:19\u0026beginTime\u003d2021-01-15 20:55:19",
               "path": [
                 "app",
                 "test2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "姓名"
                 },
                 {
                   "key": "beginTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "开始时间"
                 },
                 {
                   "key": "endTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "结束时间"
                 }
               ],
@@ -294,46 +290,42 @@
                   "key": "name",
                   "type": "text",
                   "description": "姓名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "beginTime",
                   "type": "text",
                   "description": "开始时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 },
                 {
                   "key": "endTime",
                   "type": "text",
                   "description": "结束时间",
-                  "value": "2020-12-27 01:07:35"
+                  "value": "2021-01-15 20:55:19"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/app/test3?endTime\u003d2020-12-27 01:07:35\u0026name\u003d子轩.刘\u0026beginTime\u003d2020-12-27 01:07:35",
+              "raw": "/app/test3?endTime\u003d2021-01-15 20:55:19\u0026name\u003d凯瑞.尹\u0026beginTime\u003d2021-01-15 20:55:19",
               "path": [
                 "app",
                 "test3"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "姓名"
                 },
                 {
                   "key": "beginTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "开始时间"
                 },
                 {
                   "key": "endTime",
-                  "value": "2020-12-27 01:07:35",
+                  "value": "2021-01-15 20:55:19",
                   "description": "结束时间"
                 }
               ],
@@ -366,14 +358,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testCallable",
+              "raw": "/testCallable",
               "path": [
                 "testCallable"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -399,14 +387,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/async-deferredresult",
+              "raw": "/async-deferredresult",
               "path": [
                 "async-deferredresult"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -432,15 +416,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/WebAsync/timeout",
+              "raw": "/WebAsync/timeout",
               "path": [
                 "WebAsync",
                 "timeout"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -466,14 +446,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/future",
+              "raw": "/future",
               "path": [
                 "future"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -499,14 +475,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/completableFuture",
+              "raw": "/completableFuture",
               "path": [
                 "completableFuture"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -543,14 +515,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/circularReference",
+              "raw": "/circularReference",
               "path": [
                 "circularReference"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -589,14 +557,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum?simpleEnum\u003dRED",
+              "raw": "/enum?simpleEnum\u003dRED",
               "path": [
                 "enum"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "simpleEnum",
@@ -629,15 +593,11 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum/WAIT_PAY",
+              "raw": "/enum/WAIT_PAY",
               "path": [
                 "enum",
                 ":orderEnum"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -670,15 +630,11 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum/RED",
+              "raw": "/enum/RED",
               "path": [
                 "enum",
                 ":simpleEnum"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -711,19 +667,15 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum/test1?order\u003d",
+              "raw": "/enum/test1?order\u003d",
               "path": [
                 "enum",
                 "test1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "orderId",
-                  "value": "765",
+                  "value": "873",
                   "description": "订单id"
                 },
                 {
@@ -756,15 +708,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/enum/resp",
+              "raw": "/enum/resp",
               "path": [
                 "enum",
                 "resp"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -798,7 +746,7 @@
                   "key": "userId",
                   "type": "text",
                   "description": "用户id",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "file",
@@ -809,18 +757,14 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/upload",
+              "raw": "/upload",
               "path": [
                 "upload"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "用户id"
                 },
                 {
@@ -860,14 +804,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/batchUpload",
+              "raw": "/batchUpload",
               "path": [
                 "batchUpload"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "file",
@@ -906,7 +846,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "871"
+                  "value": "454"
                 },
                 {
                   "key": "simpleEnum",
@@ -918,25 +858,25 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "fzhg6t"
+                  "value": "xhy818"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "gender",
@@ -947,18 +887,14 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData1",
+              "raw": "/formData1",
               "path": [
                 "formData1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "39",
+                  "value": "721",
                   "description": "No comments found."
                 },
                 {
@@ -968,22 +904,22 @@
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "nzq12x",
+                  "value": "9m6goh",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
@@ -1019,13 +955,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "apw0c5"
+                  "value": "3wkf35"
                 },
                 {
                   "key": "file",
@@ -1036,23 +972,19 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData2",
+              "raw": "/formData2",
               "path": [
                 "formData2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "podi2l",
+                  "value": "bahkk0",
                   "description": "No comments found."
                 },
                 {
@@ -1087,13 +1019,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "c2rjf4"
+                  "value": "47j20j"
                 },
                 {
                   "key": "file",
@@ -1104,23 +1036,19 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData2?userId\u003d114\u0026userData\u003dc2rjf4",
+              "raw": "/formData2?userData\u003d47j20j\u0026userId\u003d63",
               "path": [
                 "formData2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "8iw59u",
+                  "value": "a2ttge",
                   "description": "No comments found."
                 },
                 {
@@ -1155,18 +1083,18 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "7qefo9"
+                  "value": "rtgss8"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "568"
+                  "value": "495"
                 },
                 {
                   "key": "simpleEnum",
@@ -1178,25 +1106,25 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "juhh6y"
+                  "value": "jv57ow"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "gender",
@@ -1207,28 +1135,24 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData4?password\u003djuhh6y\u0026nickName\u003dlorenza.schamberger\u0026userId\u003d114\u0026username\u003d子轩.刘\u0026userData\u003d7qefo9\u0026simpleEnum\u003dRED\u0026MAX_SPEED\u003d568\u0026mobile\u003d17734678036\u0026gender\u003dWOMAN",
+              "raw": "/formData4?gender\u003dWOMAN\u0026userId\u003d63\u0026userData\u003drtgss8\u0026simpleEnum\u003dRED\u0026nickName\u003dzenaida.bauch\u0026MAX_SPEED\u003d495\u0026mobile\u003d15110006033\u0026username\u003d凯瑞.尹\u0026password\u003djv57ow",
               "path": [
                 "formData4"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "jfqxw8",
+                  "value": "kyw9vw",
                   "description": "No comments found."
                 },
                 {
                   "key": "MAX_SPEED",
-                  "value": "322",
+                  "value": "969",
                   "description": "No comments found."
                 },
                 {
@@ -1238,22 +1162,22 @@
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "rffmtp",
+                  "value": "al68gd",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
@@ -1289,18 +1213,18 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "yboqmm"
+                  "value": "453xkz"
                 },
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "220"
+                  "value": "812"
                 },
                 {
                   "key": "simpleEnum",
@@ -1312,25 +1236,25 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "ujl2fm"
+                  "value": "9z24cj"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "gender",
@@ -1341,28 +1265,24 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData5",
+              "raw": "/formData5",
               "path": [
                 "formData5"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "sayn7t",
+                  "value": "ht81dg",
                   "description": "No comments found."
                 },
                 {
                   "key": "MAX_SPEED",
-                  "value": "11",
+                  "value": "332",
                   "description": "No comments found."
                 },
                 {
@@ -1372,22 +1292,22 @@
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "lr9dg9",
+                  "value": "sgeh32",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
@@ -1423,13 +1343,13 @@
                   "key": "userId",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "userData",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "h2m6oc"
+                  "value": "myol67"
                 },
                 {
                   "key": "simpleUser",
@@ -1440,23 +1360,19 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData6?userId\u003d114\u0026simpleUser\u003dRED\u0026userData\u003dh2m6oc",
+              "raw": "/formData6?userId\u003d63\u0026simpleUser\u003dRED\u0026userData\u003dmyol67",
               "path": [
                 "formData6"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "userData",
-                  "value": "5fa361",
+                  "value": "edxpoq",
                   "description": "No comments found."
                 },
                 {
@@ -1491,7 +1407,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "2"
+                  "value": "174"
                 },
                 {
                   "key": "simpleEnum",
@@ -1503,25 +1419,25 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "c7py66"
+                  "value": "qirb28"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "gender",
@@ -1532,19 +1448,15 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData1/114",
+              "raw": "/formData1/63",
               "path": [
                 "formData1",
                 ":id"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "201",
+                  "value": "422",
                   "description": "No comments found."
                 },
                 {
@@ -1554,22 +1466,22 @@
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "p6aajg",
+                  "value": "mlne47",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
@@ -1581,7 +1493,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 }
               ]
@@ -1610,7 +1522,7 @@
                 {
                   "key": "MAX_SPEED",
                   "type": "text",
-                  "value": "4"
+                  "value": "37"
                 },
                 {
                   "key": "simpleEnum",
@@ -1622,25 +1534,25 @@
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "oby5bm"
+                  "value": "882aky"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "gender",
@@ -1651,20 +1563,16 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/formData1/114/21",
+              "raw": "/formData1/63/47",
               "path": [
                 "formData1",
                 ":id",
                 ":age"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "MAX_SPEED",
-                  "value": "200",
+                  "value": "246",
                   "description": "No comments found."
                 },
                 {
@@ -1674,22 +1582,22 @@
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "qpc8xj",
+                  "value": "yh6nfb",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
@@ -1701,12 +1609,12 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": "114",
+                  "value": "63",
                   "description": "No comments found."
                 },
                 {
                   "key": "age",
-                  "value": "21",
+                  "value": "47",
                   "description": "No comments found."
                 }
               ]
@@ -1738,15 +1646,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/generics/test1",
+              "raw": "/generics/test1",
               "path": [
                 "generics",
                 "test1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1772,15 +1676,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/generics/test2",
+              "raw": "/generics/test2",
               "path": [
                 "generics",
                 "test2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1806,15 +1706,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/generics/test3",
+              "raw": "/generics/test3",
               "path": [
                 "generics",
                 "test3"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1845,14 +1741,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testHttps",
+              "raw": "/testHttps",
               "path": [
                 "testHttps"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1878,14 +1770,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testHttp",
+              "raw": "/testHttp",
               "path": [
                 "testHttp"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1916,15 +1804,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/inner/class",
+              "raw": "/inner/class",
               "path": [
                 "inner",
                 "class"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1953,7 +1837,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"localDate\":\"2020-12-27\",\n\t\"localDateTime\":\"2020-12-27 01:07:36\",\n\t\"localTime\":\"2020-12-27 01:07:35\"\n}",
+              "raw": "{\n\t\"localDate\": \"2021-01-15\",\n\t\"localDateTime\": \"2021-01-15 20:55:20\",\n\t\"localTime\": \"2021-01-15 20:55:19\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -1961,14 +1845,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/dateEntity?",
+              "raw": "/dateEntity?",
               "path": [
                 "dateEntity"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -1999,14 +1879,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/test",
+              "raw": "/test",
               "path": [
                 "test"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2030,7 +1906,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"page\":1\n}",
+              "raw": "{\n\t\"page\": 1\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2038,14 +1914,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/pageableParam?",
+              "raw": "/pageableParam?",
               "path": [
                 "pageableParam"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2074,7 +1946,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\"menuPermissionCodes\":[\n\t\t\"WAIT_PAY\"\n\t],\n\t\"date\":\"2019-01-01\",\n\t\"username\":\"子轩.刘\",\n\t\"idCard\":\"510902199411191382\",\n\t\"age\":21,\n\t\"age2\":353\n}",
+              "raw": "{\n\t\"dataExpressionEnum\": \"SENSIRION\",\n\t\"menuPermissionCodes\": [\n\t\t\"WAIT_PAY\"\n\t],\n\t\"date\": \"2019-01-01\",\n\t\"username\": \"凯瑞.尹\",\n\t\"idCard\": \"110218199910274999\",\n\t\"age\": 47,\n\t\"age2\": 871\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2082,18 +1954,14 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/getUserJson?name\u003d子轩.刘",
+              "raw": "/getUserJson?name\u003d凯瑞.尹",
               "path": [
                 "getUserJson"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "No comments found."
                 }
               ],
@@ -2132,15 +2000,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/json/jacksonTest",
+              "raw": "/json/jacksonTest",
               "path": [
                 "json",
                 "jacksonTest"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2172,15 +2036,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/json/fastJsonTest",
+              "raw": "/json/fastJsonTest",
               "path": [
                 "json",
                 "fastJsonTest"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2211,15 +2071,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listString",
+              "raw": "/list/listString",
               "path": [
                 "list",
                 "listString"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2245,15 +2101,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listMap",
+              "raw": "/list/listMap",
               "path": [
                 "list",
                 "listMap"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2279,15 +2131,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listObject",
+              "raw": "/list/listObject",
               "path": [
                 "list",
                 "listObject"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2313,15 +2161,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listMap2",
+              "raw": "/list/listMap2",
               "path": [
                 "list",
                 "listMap2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2347,15 +2191,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listMap3",
+              "raw": "/list/listMap3",
               "path": [
                 "list",
                 "listMap3"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2381,15 +2221,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listTeacher",
+              "raw": "/list/listTeacher",
               "path": [
                 "list",
                 "listTeacher"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2415,15 +2251,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listString1",
+              "raw": "/list/listString1",
               "path": [
                 "list",
                 "listString1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2449,15 +2281,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listString2",
+              "raw": "/list/listString2",
               "path": [
                 "list",
                 "listString2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2483,15 +2311,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/list/listUserDto",
+              "raw": "/list/listUserDto",
               "path": [
                 "list",
                 "listUserDto"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2522,15 +2346,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/primitive",
+              "raw": "/map/primitive",
               "path": [
                 "map",
                 "primitive"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2556,15 +2376,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/objectValue",
+              "raw": "/map/objectValue",
               "path": [
                 "map",
                 "objectValue"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2590,15 +2406,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/object",
+              "raw": "/map/object",
               "path": [
                 "map",
                 "object"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2624,15 +2436,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/test1",
+              "raw": "/map/test1",
               "path": [
                 "map",
                 "test1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2658,15 +2466,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/test2",
+              "raw": "/map/test2",
               "path": [
                 "map",
                 "test2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2692,15 +2496,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/test3",
+              "raw": "/map/test3",
               "path": [
                 "map",
                 "test3"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2726,15 +2526,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/map/test4",
+              "raw": "/map/test4",
               "path": [
                 "map",
                 "test4"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2763,7 +2559,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"page\":{\n\t\t\"roleId\":194,\n\t\t\"roleName\":\"子轩.刘\"\n\t},\n\t\"data1\":[\n\t\t{\n\t\t\t\"total\":392\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"page\": {\n\t\t\"roleId\": 107,\n\t\t\"roleName\": \"凯瑞.尹\"\n\t},\n\t\"data1\": [\n\t\t{\n\t\t\t\"total\": 319\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -2771,16 +2567,12 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/mulGenric/test/?",
+              "raw": "/mulGenric/test/?",
               "path": [
                 "mulGenric",
                 "test",
                 ""
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2806,15 +2598,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/mulGenric/test2",
+              "raw": "/mulGenric/test2",
               "path": [
                 "mulGenric",
                 "test2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2845,16 +2633,12 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/mybatis/plus/page",
+              "raw": "/mybatis/plus/page",
               "path": [
                 "mybatis",
                 "plus",
                 "page"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -2886,16 +2670,12 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/pathVariable/test/",
+              "raw": "/pathVariable/test/",
               "path": [
                 "pathVariable",
                 "test",
                 ":id"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
@@ -2935,23 +2715,19 @@
                   "key": "age",
                   "type": "text",
                   "description": "  年龄",
-                  "value": "21"
+                  "value": "47"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestHeader?age\u003d21",
+              "raw": "/testRequestHeader?age\u003d47",
               "path": [
                 "testRequestHeader"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "age",
-                  "value": "21",
+                  "value": "47",
                   "description": "  年龄"
                 }
               ],
@@ -2987,15 +2763,11 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestHeader/value",
+              "raw": "/testRequestHeader/value",
               "path": [
                 "testRequestHeader",
                 "value"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3031,24 +2803,20 @@
                   "key": "age",
                   "type": "text",
                   "description": "  年龄",
-                  "value": "21"
+                  "value": "47"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestHeader/DefaultVal?age\u003d21",
+              "raw": "/testRequestHeader/DefaultVal?age\u003d47",
               "path": [
                 "testRequestHeader",
                 "DefaultVal"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "age",
-                  "value": "21",
+                  "value": "47",
                   "description": "  年龄"
                 }
               ],
@@ -3084,35 +2852,31 @@
                   "key": "name",
                   "type": "text",
                   "description": "name",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "age",
                   "type": "text",
                   "description": " age",
-                  "value": "21"
+                  "value": "47"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testNormalParams/binding?age\u003d21\u0026name\u003d子轩.刘",
+              "raw": "/testNormalParams/binding?age\u003d47\u0026name\u003d凯瑞.尹",
               "path": [
                 "testNormalParams",
                 "binding"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "name"
                 },
                 {
                   "key": "age",
-                  "value": "21",
+                  "value": "47",
                   "description": " age"
                 }
               ],
@@ -3138,7 +2902,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"子轩.刘\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"userAge\":21,\n\t\"phone\":\"15391999163\",\n\t\"createTime\":1609002455678,\n\t\"small\":55.65,\n\t\"money\":23.20,\n\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\"telephone\":\"15391999163\"\n}",
+              "raw": "{\n\t\"userDetails\": [\n\t\t{\n\t\t\t\"githubAddress\": \"周栋52352号， 张家口， 冀 807938\"\n\t\t}\n\t],\n\t\"userList\": [\n\t\t{\n\t\t\t\"$ref\": \"..\"\n\t\t}\n\t],\n\t\"userName\": \"凯瑞.尹\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"userAddress\": \"周栋52352号， 张家口， 冀 807938\",\n\t\"userAge\": 47,\n\t\"phone\": \"13616082620\",\n\t\"createTime\": 1610715319459,\n\t\"small\": 8.51,\n\t\"money\": 79.23,\n\t\"ipv6\": \"4ecc:5551:e84a:1746:667a:13bd:b23a:4d78\",\n\t\"telephone\": \"13616082620\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3146,14 +2910,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBody?",
+              "raw": "/testRequestBody?",
               "path": [
                 "testRequestBody"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3177,7 +2937,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"mapKey\":{\n\t\t\"userDetails\":[\n\t\t\t{\n\t\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t\t}\n\t\t],\n\t\t\"userList\":[\n\t\t\t{\n\t\t\t\t\"$ref\":\"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\":\"子轩.刘\",\n\t\t\"nickName\":\"lorenza.schamberger\",\n\t\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\t\"userAge\":21,\n\t\t\"phone\":\"15391999163\",\n\t\t\"createTime\":1609002455678,\n\t\t\"small\":57.18,\n\t\t\"money\":98.22,\n\t\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\t\"telephone\":\"15391999163\"\n\t}\n}",
+              "raw": "{\n\t\"mapKey\": {\n\t\t\"userDetails\": [\n\t\t\t{\n\t\t\t\t\"githubAddress\": \"周栋52352号， 张家口， 冀 807938\"\n\t\t\t}\n\t\t],\n\t\t\"userList\": [\n\t\t\t{\n\t\t\t\t\"$ref\": \"..\"\n\t\t\t}\n\t\t],\n\t\t\"userName\": \"凯瑞.尹\",\n\t\t\"nickName\": \"zenaida.bauch\",\n\t\t\"userAddress\": \"周栋52352号， 张家口， 冀 807938\",\n\t\t\"userAge\": 47,\n\t\t\"phone\": \"13616082620\",\n\t\t\"createTime\": 1610715319459,\n\t\t\"small\": 96.98,\n\t\t\"money\": 66.40,\n\t\t\"ipv6\": \"4ecc:5551:e84a:1746:667a:13bd:b23a:4d78\",\n\t\t\"telephone\": \"13616082620\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3185,14 +2945,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBodyMap?",
+              "raw": "/testRequestBodyMap?",
               "path": [
                 "testRequestBodyMap"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3216,7 +2972,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "[\n\t\"iqg79h\",\n\t\"a7h0yy\"\n]",
+              "raw": "[\n\t\"5wosb5\",\n\t\"3weccx\"\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3224,14 +2980,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestBodyList?",
+              "raw": "/testRequestBodyList?",
               "path": [
                 "testRequestBodyList"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3255,7 +3007,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "[\n\t{\n\t\t\"success\":true,\n\t\t\"message\":\"success\",\n\t\t\"data\":{\n\t\t\t\"dataExpressionEnum\":\"SENSIRION\",\n\t\t\t\"menuPermissionCodes\":[\n\t\t\t\t\"WAIT_PAY\"\n\t\t\t],\n\t\t\t\"date\":\"2019-01-01\",\n\t\t\t\"username\":\"子轩.刘\",\n\t\t\t\"idCard\":\"510902199411191382\",\n\t\t\t\"age\":21,\n\t\t\t\"age2\":781\n\t\t},\n\t\t\"code\":\"53204\",\n\t\t\"timestamp\":\"2020-12-27 01:07:35\"\n\t}\n]",
+              "raw": "[\n\t{\n\t\t\"success\": true,\n\t\t\"message\": \"success\",\n\t\t\"data\": {\n\t\t\t\"dataExpressionEnum\": \"SENSIRION\",\n\t\t\t\"menuPermissionCodes\": [\n\t\t\t\t\"WAIT_PAY\"\n\t\t\t],\n\t\t\t\"date\": \"2019-01-01\",\n\t\t\t\"username\": \"凯瑞.尹\",\n\t\t\t\"idCard\": \"110218199910274999\",\n\t\t\t\"age\": 47,\n\t\t\t\"age2\": 750\n\t\t},\n\t\t\"code\": \"48479\",\n\t\t\"timestamp\": \"2021-01-15 20:55:19\"\n\t}\n]",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3263,14 +3015,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testArray?",
+              "raw": "/testArray?",
               "path": [
                 "testArray"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3297,27 +3045,23 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/test/子轩.刘/cmo4f3/info",
+              "raw": "/test/凯瑞.尹/mgs2fh/info",
               "path": [
                 "test",
                 ":name",
                 ":no",
                 "info"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "name"
                 },
                 {
                   "key": "no",
-                  "value": "eul7nl",
+                  "value": "2ejpxv",
                   "description": "  no"
                 }
               ]
@@ -3353,19 +3097,15 @@
                   "key": "type",
                   "type": "text",
                   "description": "  type",
-                  "value": "441cur"
+                  "value": "jxp55l"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestParam?author\u003d詹姆斯\u0026type\u003d441cur",
+              "raw": "/testRequestParam?author\u003d詹姆斯\u0026type\u003djxp55l",
               "path": [
                 "testRequestParam"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "author",
@@ -3374,7 +3114,7 @@
                 },
                 {
                   "key": "type",
-                  "value": "tt7xvg",
+                  "value": "3epj2g",
                   "description": "  type"
                 }
               ],
@@ -3405,23 +3145,19 @@
                   "key": "name",
                   "type": "text",
                   "description": "user name",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestParamWithValue?name\u003d子轩.刘",
+              "raw": "/testRequestParamWithValue?name\u003d凯瑞.尹",
               "path": [
                 "testRequestParamWithValue"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "user name"
                 }
               ],
@@ -3457,14 +3193,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testRequestParamWithDefaultVal?userName\u003dJordan",
+              "raw": "/testRequestParamWithDefaultVal?userName\u003dJordan",
               "path": [
                 "testRequestParamWithDefaultVal"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userName",
@@ -3497,7 +3229,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testMuchPath/get/910",
+              "raw": "/testMuchPath/get/439",
               "path": [
                 "testMuchPath",
                 "get",
@@ -3506,15 +3238,11 @@
                 "find",
                 ":userId"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
                   "key": "userId",
-                  "value": "946",
+                  "value": "926",
                   "description": "userId"
                 }
               ]
@@ -3542,7 +3270,7 @@
               "formdata": []
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/get/43/682",
+              "raw": "/get/751/72",
               "path": [
                 "get",
                 ":deptId",
@@ -3551,20 +3279,16 @@
                 ":deptId",
                 ":userId"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": [
                 {
                   "key": "userId",
-                  "value": "965",
+                  "value": "137",
                   "description": "userId"
                 },
                 {
                   "key": "deptId",
-                  "value": "686",
+                  "value": "924",
                   "description": "deptId"
                 }
               ]
@@ -3599,14 +3323,10 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/testConstants?page\u003d0",
+              "raw": "/testConstants?page\u003d0",
               "path": [
                 "testConstants"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "page",
@@ -3643,14 +3363,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/getMapping1",
+              "raw": "/getMapping1",
               "path": [
                 "getMapping1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3676,14 +3392,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/PostMapping1",
+              "raw": "/PostMapping1",
               "path": [
                 "PostMapping1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3709,14 +3421,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/PutMapping1",
+              "raw": "/PutMapping1",
               "path": [
                 "PutMapping1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3742,14 +3450,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/DeleteMapping1",
+              "raw": "/DeleteMapping1",
               "path": [
                 "DeleteMapping1"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3778,23 +3482,19 @@
                   "key": "userId",
                   "type": "text",
                   "description": "userId",
-                  "value": "999"
+                  "value": "829"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/getMapping?userId\u003d999",
+              "raw": "/getMapping?userId\u003d829",
               "path": [
                 "getMapping"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "352",
+                  "value": "925",
                   "description": "userId"
                 }
               ],
@@ -3820,7 +3520,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"114\",\n\t\"createBy\":\"l05m38\",\n\t\"createTime\":\"2020-12-27\",\n\t\"updateBy\":\"hx9bo1\",\n\t\"updateTime\":\"2020-12-27\",\n\t\"delFlag\":4,\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"ffav2a\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"email\":\"子骞.尹@yahoo.com\",\n\t\"address\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"sex\":1,\n\t\"avatar\":\"mpwx7m\",\n\t\"type\":243,\n\t\"status\":484,\n\t\"description\":\"84qwr4\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"0hctxg\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"8u75m6\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"114\",\n\t\t\t\t\t\"createBy\":\"ea76ff\",\n\t\t\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\t\t\"updateBy\":\"i6aef4\",\n\t\t\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\t\t\"level\":140,\n\t\t\t\t\t\"type\":304,\n\t\t\t\t\t\"title\":\"r663in\",\n\t\t\t\t\t\"path\":\"cnhm5z\",\n\t\t\t\t\t\"component\":\"veg4gu\",\n\t\t\t\t\t\"icon\":\"3p95wf\",\n\t\t\t\t\t\"buttonType\":\"j6uoh3\",\n\t\t\t\t\t\"parentId\":\"114\",\n\t\t\t\t\t\"description\":\"g168bj\",\n\t\t\t\t\t\"sortOrder\":302,\n\t\t\t\t\t\"status\":198,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"35bfs9\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"qikokv\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"1cr19h\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"level\":512,\n\t\t\t\"type\":911,\n\t\t\t\"title\":\"ygykno\",\n\t\t\t\"path\":\"iiymwn\",\n\t\t\t\"component\":\"kcclza\",\n\t\t\t\"icon\":\"ltvzzf\",\n\t\t\t\"buttonType\":\"fz313a\",\n\t\t\t\"parentId\":\"114\",\n\t\t\t\"description\":\"qvzsoi\",\n\t\t\t\"sortOrder\":413,\n\t\t\t\"status\":673,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"awjn05\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\": \"63\",\n\t\"createBy\": \"boztmo\",\n\t\"createTime\": \"2021-01-15\",\n\t\"updateBy\": \"masbdh\",\n\t\"updateTime\": \"2021-01-15\",\n\t\"delFlag\": 5,\n\t\"username\": \"凯瑞.尹\",\n\t\"password\": \"5barz9\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"mobile\": \"15110006033\",\n\t\"email\": \"晓博.朱@hotmail.com\",\n\t\"address\": \"周栋52352号， 张家口， 冀 807938\",\n\t\"sex\": 1,\n\t\"avatar\": \"1mocjm\",\n\t\"type\": 319,\n\t\"status\": 138,\n\t\"description\": \"eyp6lk\",\n\t\"roles\": [\n\t\t{\n\t\t\t\"id\": \"63\",\n\t\t\t\"createBy\": \"o70ki7\",\n\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\"updateBy\": \"ivcrz5\",\n\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\"delFlag\": 5,\n\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\"defaultRole\": true,\n\t\t\t\"permissions\": [\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"63\",\n\t\t\t\t\t\"createBy\": \"4y54u1\",\n\t\t\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\t\t\"updateBy\": \"24g2vt\",\n\t\t\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\t\t\"delFlag\": 5,\n\t\t\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\t\t\"level\": 538,\n\t\t\t\t\t\"type\": 234,\n\t\t\t\t\t\"title\": \"h8h657\",\n\t\t\t\t\t\"path\": \"a5srvc\",\n\t\t\t\t\t\"component\": \"4vi7dy\",\n\t\t\t\t\t\"icon\": \"vgnt9v\",\n\t\t\t\t\t\"buttonType\": \"558j9p\",\n\t\t\t\t\t\"parentId\": \"63\",\n\t\t\t\t\t\"description\": \"rue5qa\",\n\t\t\t\t\t\"sortOrder\": 133,\n\t\t\t\t\t\"status\": 921,\n\t\t\t\t\t\"children\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\": \"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\": [\n\t\t\t\t\t\t\"u7ytub\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\": true,\n\t\t\t\t\t\"checked\": true,\n\t\t\t\t\t\"selected\": true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\": [\n\t\t{\n\t\t\t\"id\": \"63\",\n\t\t\t\"createBy\": \"9kqkuo\",\n\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\"updateBy\": \"klamiy\",\n\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\"delFlag\": 5,\n\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\"level\": 449,\n\t\t\t\"type\": 117,\n\t\t\t\"title\": \"n53mav\",\n\t\t\t\"path\": \"1p4s4g\",\n\t\t\t\"component\": \"z9yw3c\",\n\t\t\t\"icon\": \"yc9qr7\",\n\t\t\t\"buttonType\": \"c5dijj\",\n\t\t\t\"parentId\": \"63\",\n\t\t\t\"description\": \"vzqv22\",\n\t\t\t\"sortOrder\": 339,\n\t\t\t\"status\": 569,\n\t\t\t\"children\": [\n\t\t\t\t{\n\t\t\t\t\t\"$ref\": \"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\": [\n\t\t\t\t\"xsvwe3\"\n\t\t\t],\n\t\t\t\"expand\": true,\n\t\t\t\"checked\": true,\n\t\t\t\"selected\": true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -3828,14 +3528,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/postMapping?",
+              "raw": "/postMapping?",
               "path": [
                 "postMapping"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -3864,73 +3560,73 @@
                   "key": "id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "czwbdz"
+                  "value": "bvbsnt"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "sserwp"
+                  "value": "od994o"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "m5k0et"
+                  "value": "7pvy9i"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "description": "邮箱",
-                  "value": "子骞.尹@yahoo.com"
+                  "value": "晓博.朱@hotmail.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "description": "地址",
-                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529"
+                  "value": "周栋52352号， 张家口， 冀 807938"
                 },
                 {
                   "key": "sex",
@@ -3941,67 +3637,67 @@
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "cj747b"
+                  "value": "wbunaz"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "description": "类型",
-                  "value": "417"
+                  "value": "376"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "description": "状态",
-                  "value": "768"
+                  "value": "585"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "description": "描述",
-                  "value": "qlj7cc"
+                  "value": "q8q5i4"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "enm1ls"
+                  "value": "p288o1"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "nh59pt"
+                  "value": "dxgfqz"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "description": "角色名 以ROLE_开头",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -4013,109 +3709,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "joegbo"
+                  "value": "tgdc6u"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "f6em70"
+                  "value": "5sx9fc"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "537"
+                  "value": "683"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "52"
+                  "value": "783"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "l4r7rj"
+                  "value": "17ix1l"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "cbr2as"
+                  "value": "v1jfpj"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "gqvd2k"
+                  "value": "8w0u70"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "7lbxwq"
+                  "value": "8vuiy5"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "yg7tb6"
+                  "value": "y7qwoa"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "an1vbl"
+                  "value": "3jwiu4"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "486"
+                  "value": "498"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "814"
+                  "value": "903"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -4139,109 +3835,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "bpqz9c"
+                  "value": "gcmvns"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "nfe36d"
+                  "value": "8q929a"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "606"
+                  "value": "518"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "944"
+                  "value": "532"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "gk302u"
+                  "value": "p8m65t"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "s7zvqv"
+                  "value": "9cdh47"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "ifbies"
+                  "value": "rxg40i"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "7v36hc"
+                  "value": "h8vop3"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "p037dk"
+                  "value": "avrg6m"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "kz1bt9"
+                  "value": "uwbult"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "223"
+                  "value": "134"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "213"
+                  "value": "419"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -4264,73 +3960,69 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/postMapping2",
+              "raw": "/postMapping2",
               "path": [
                 "postMapping2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "createBy",
-                  "value": "r45c4r",
+                  "value": "pn5v9s",
                   "description": "创建人"
                 },
                 {
                   "key": "createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "updateBy",
-                  "value": "oftnj4",
+                  "value": "9vmt7b",
                   "description": "修改人"
                 },
                 {
                   "key": "updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "ozk1l2",
+                  "value": "600pku",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
                   "key": "email",
-                  "value": "子骞.尹@yahoo.com",
+                  "value": "晓博.朱@hotmail.com",
                   "description": "邮箱"
                 },
                 {
                   "key": "address",
-                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529",
+                  "value": "周栋52352号， 张家口， 冀 807938",
                   "description": "地址"
                 },
                 {
@@ -4340,22 +4032,22 @@
                 },
                 {
                   "key": "avatar",
-                  "value": "kg561i",
+                  "value": "vtdpfk",
                   "description": "No comments found."
                 },
                 {
                   "key": "type",
-                  "value": "579",
+                  "value": "479",
                   "description": "类型"
                 },
                 {
                   "key": "status",
-                  "value": "123",
+                  "value": "523",
                   "description": "状态"
                 },
                 {
                   "key": "description",
-                  "value": "8meuq9",
+                  "value": "qur424",
                   "description": "描述"
                 },
                 {
@@ -4365,37 +4057,37 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "pdl3na",
+                  "value": "4gz5a2",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "7lfkkv",
+                  "value": "8sms77",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "角色名 以ROLE_开头"
                 },
                 {
@@ -4410,92 +4102,92 @@
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createBy",
-                  "value": "pu9mro",
+                  "value": "4qub7a",
                   "description": "创建人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateBy",
-                  "value": "j8zs4b",
+                  "value": "bp4w0d",
                   "description": "修改人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─level",
-                  "value": "714",
+                  "value": "691",
                   "description": "层级"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─type",
-                  "value": "273",
+                  "value": "468",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─title",
-                  "value": "sfyzo7",
+                  "value": "hu7pke",
                   "description": "菜单标题"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─path",
-                  "value": "deg4m5",
+                  "value": "5wr48l",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─component",
-                  "value": "6zo05w",
+                  "value": "d3b3ax",
                   "description": "前端组件"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─icon",
-                  "value": "2a0rmd",
+                  "value": "kcdliw",
                   "description": "图标"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─buttonType",
-                  "value": "wz38ky",
+                  "value": "s7qyn3",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─parentId",
-                  "value": "114",
+                  "value": "63",
                   "description": "父id"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─description",
-                  "value": "odj98y",
+                  "value": "hmqms4",
                   "description": "说明备注"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─sortOrder",
-                  "value": "495",
+                  "value": "379",
                   "description": "排序值"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─status",
-                  "value": "826",
+                  "value": "879",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -4530,92 +4222,92 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "3jze3z",
+                  "value": "jl6i4b",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "anpxn7",
+                  "value": "5hzo17",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "└─level",
-                  "value": "596",
+                  "value": "929",
                   "description": "层级"
                 },
                 {
                   "key": "└─type",
-                  "value": "220",
+                  "value": "370",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "└─title",
-                  "value": "klh47w",
+                  "value": "svso5j",
                   "description": "菜单标题"
                 },
                 {
                   "key": "└─path",
-                  "value": "7tnayu",
+                  "value": "dheu2k",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "└─component",
-                  "value": "4egf18",
+                  "value": "kwmczt",
                   "description": "前端组件"
                 },
                 {
                   "key": "└─icon",
-                  "value": "gmmsbs",
+                  "value": "ilf8m0",
                   "description": "图标"
                 },
                 {
                   "key": "└─buttonType",
-                  "value": "pnovlw",
+                  "value": "h9q5su",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "└─parentId",
-                  "value": "114",
+                  "value": "63",
                   "description": "父id"
                 },
                 {
                   "key": "└─description",
-                  "value": "fm47oi",
+                  "value": "5cfwe9",
                   "description": "说明备注"
                 },
                 {
                   "key": "└─sortOrder",
-                  "value": "817",
+                  "value": "293",
                   "description": "排序值"
                 },
                 {
                   "key": "└─status",
-                  "value": "979",
+                  "value": "722",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -4666,7 +4358,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":\"114\",\n\t\"createBy\":\"u8xdit\",\n\t\"createTime\":\"2020-12-27\",\n\t\"updateBy\":\"z80xe3\",\n\t\"updateTime\":\"2020-12-27\",\n\t\"delFlag\":4,\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"mdo2au\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"email\":\"子骞.尹@yahoo.com\",\n\t\"address\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"sex\":1,\n\t\"avatar\":\"5ij662\",\n\t\"type\":346,\n\t\"status\":958,\n\t\"description\":\"e57ijk\",\n\t\"roles\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"dhi7vz\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"tgblyt\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"defaultRole\":true,\n\t\t\t\"permissions\":[\n\t\t\t\t{\n\t\t\t\t\t\"id\":\"114\",\n\t\t\t\t\t\"createBy\":\"tusc0o\",\n\t\t\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\t\t\"updateBy\":\"5w96r2\",\n\t\t\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\t\t\"delFlag\":4,\n\t\t\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\t\t\"level\":368,\n\t\t\t\t\t\"type\":281,\n\t\t\t\t\t\"title\":\"t2cnvs\",\n\t\t\t\t\t\"path\":\"ndb7bd\",\n\t\t\t\t\t\"component\":\"mi4z1a\",\n\t\t\t\t\t\"icon\":\"8o50yu\",\n\t\t\t\t\t\"buttonType\":\"evjwdi\",\n\t\t\t\t\t\"parentId\":\"114\",\n\t\t\t\t\t\"description\":\"svu86s\",\n\t\t\t\t\t\"sortOrder\":803,\n\t\t\t\t\t\"status\":63,\n\t\t\t\t\t\"children\":[\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\":[\n\t\t\t\t\t\t\"ayq61g\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\":true,\n\t\t\t\t\t\"checked\":true,\n\t\t\t\t\t\"selected\":true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\":[\n\t\t{\n\t\t\t\"id\":\"114\",\n\t\t\t\"createBy\":\"yol6li\",\n\t\t\t\"createTime\":\"2020-12-27\",\n\t\t\t\"updateBy\":\"v0qd3s\",\n\t\t\t\"updateTime\":\"2020-12-27\",\n\t\t\t\"delFlag\":4,\n\t\t\t\"name\":\"子轩.刘\",\n\t\t\t\"level\":523,\n\t\t\t\"type\":528,\n\t\t\t\"title\":\"iotozt\",\n\t\t\t\"path\":\"t7iged\",\n\t\t\t\"component\":\"raobif\",\n\t\t\t\"icon\":\"nvwzom\",\n\t\t\t\"buttonType\":\"wy3phm\",\n\t\t\t\"parentId\":\"114\",\n\t\t\t\"description\":\"sitonp\",\n\t\t\t\"sortOrder\":117,\n\t\t\t\"status\":361,\n\t\t\t\"children\":[\n\t\t\t\t{\n\t\t\t\t\t\"$ref\":\"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\":[\n\t\t\t\t\"m4v8ud\"\n\t\t\t],\n\t\t\t\"expand\":true,\n\t\t\t\"checked\":true,\n\t\t\t\"selected\":true\n\t\t}\n\t]\n}",
+              "raw": "{\n\t\"id\": \"63\",\n\t\"createBy\": \"shb1my\",\n\t\"createTime\": \"2021-01-15\",\n\t\"updateBy\": \"udlkjy\",\n\t\"updateTime\": \"2021-01-15\",\n\t\"delFlag\": 5,\n\t\"username\": \"凯瑞.尹\",\n\t\"password\": \"5wipo8\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"mobile\": \"15110006033\",\n\t\"email\": \"晓博.朱@hotmail.com\",\n\t\"address\": \"周栋52352号， 张家口， 冀 807938\",\n\t\"sex\": 1,\n\t\"avatar\": \"in4yga\",\n\t\"type\": 826,\n\t\"status\": 837,\n\t\"description\": \"5n3odi\",\n\t\"roles\": [\n\t\t{\n\t\t\t\"id\": \"63\",\n\t\t\t\"createBy\": \"id8p7f\",\n\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\"updateBy\": \"v6ucg9\",\n\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\"delFlag\": 5,\n\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\"defaultRole\": true,\n\t\t\t\"permissions\": [\n\t\t\t\t{\n\t\t\t\t\t\"id\": \"63\",\n\t\t\t\t\t\"createBy\": \"1okjc3\",\n\t\t\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\t\t\"updateBy\": \"d5mq4c\",\n\t\t\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\t\t\"delFlag\": 5,\n\t\t\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\t\t\"level\": 610,\n\t\t\t\t\t\"type\": 642,\n\t\t\t\t\t\"title\": \"puf7y3\",\n\t\t\t\t\t\"path\": \"mz6jm7\",\n\t\t\t\t\t\"component\": \"fbxaky\",\n\t\t\t\t\t\"icon\": \"e90p70\",\n\t\t\t\t\t\"buttonType\": \"0nn7ol\",\n\t\t\t\t\t\"parentId\": \"63\",\n\t\t\t\t\t\"description\": \"b8a6z7\",\n\t\t\t\t\t\"sortOrder\": 22,\n\t\t\t\t\t\"status\": 41,\n\t\t\t\t\t\"children\": [\n\t\t\t\t\t\t{\n\t\t\t\t\t\t\t\"$ref\": \"..\"\n\t\t\t\t\t\t}\n\t\t\t\t\t],\n\t\t\t\t\t\"permTypes\": [\n\t\t\t\t\t\t\"au7ty6\"\n\t\t\t\t\t],\n\t\t\t\t\t\"expand\": true,\n\t\t\t\t\t\"checked\": true,\n\t\t\t\t\t\"selected\": true\n\t\t\t\t}\n\t\t\t]\n\t\t}\n\t],\n\t\"permissions\": [\n\t\t{\n\t\t\t\"id\": \"63\",\n\t\t\t\"createBy\": \"h86ebl\",\n\t\t\t\"createTime\": \"2021-01-15\",\n\t\t\t\"updateBy\": \"6b5oxl\",\n\t\t\t\"updateTime\": \"2021-01-15\",\n\t\t\t\"delFlag\": 5,\n\t\t\t\"name\": \"凯瑞.尹\",\n\t\t\t\"level\": 690,\n\t\t\t\"type\": 534,\n\t\t\t\"title\": \"nulvj5\",\n\t\t\t\"path\": \"8u8v36\",\n\t\t\t\"component\": \"niui3a\",\n\t\t\t\"icon\": \"xhhgp7\",\n\t\t\t\"buttonType\": \"091429\",\n\t\t\t\"parentId\": \"63\",\n\t\t\t\"description\": \"bpm368\",\n\t\t\t\"sortOrder\": 32,\n\t\t\t\"status\": 56,\n\t\t\t\"children\": [\n\t\t\t\t{\n\t\t\t\t\t\"$ref\": \"..\"\n\t\t\t\t}\n\t\t\t],\n\t\t\t\"permTypes\": [\n\t\t\t\t\"3ucpd4\"\n\t\t\t],\n\t\t\t\"expand\": true,\n\t\t\t\"checked\": true,\n\t\t\t\"selected\": true\n\t\t}\n\t]\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -4674,14 +4366,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/putMapping?",
+              "raw": "/putMapping?",
               "path": [
                 "putMapping"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -4710,73 +4398,73 @@
                   "key": "id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "1wp7y8"
+                  "value": "o69yup"
                 },
                 {
                   "key": "createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "uaashw"
+                  "value": "hbpn5h"
                 },
                 {
                   "key": "updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "username",
                   "type": "text",
                   "description": "用户名",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "password",
                   "type": "text",
                   "description": "密码",
-                  "value": "qt1g8y"
+                  "value": "k6qh1q"
                 },
                 {
                   "key": "nickName",
                   "type": "text",
                   "description": "昵称",
-                  "value": "lorenza.schamberger"
+                  "value": "zenaida.bauch"
                 },
                 {
                   "key": "mobile",
                   "type": "text",
                   "description": "电话",
-                  "value": "17734678036"
+                  "value": "15110006033"
                 },
                 {
                   "key": "email",
                   "type": "text",
                   "description": "邮箱",
-                  "value": "子骞.尹@yahoo.com"
+                  "value": "晓博.朱@hotmail.com"
                 },
                 {
                   "key": "address",
                   "type": "text",
                   "description": "地址",
-                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529"
+                  "value": "周栋52352号， 张家口， 冀 807938"
                 },
                 {
                   "key": "sex",
@@ -4787,67 +4475,67 @@
                 {
                   "key": "avatar",
                   "type": "text",
-                  "value": "eiw9jk"
+                  "value": "ek68kk"
                 },
                 {
                   "key": "type",
                   "type": "text",
                   "description": "类型",
-                  "value": "493"
+                  "value": "787"
                 },
                 {
                   "key": "status",
                   "type": "text",
                   "description": "状态",
-                  "value": "94"
+                  "value": "291"
                 },
                 {
                   "key": "description",
                   "type": "text",
                   "description": "描述",
-                  "value": "gvg615"
+                  "value": "mrds0r"
                 },
                 {
                   "key": "roles[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "lc31j5"
+                  "value": "v5yibj"
                 },
                 {
                   "key": "roles[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "so2yzr"
+                  "value": "eyv9ol"
                 },
                 {
                   "key": "roles[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "roles[0].name",
                   "type": "text",
                   "description": "角色名 以ROLE_开头",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "roles[0].defaultRole",
@@ -4859,109 +4547,109 @@
                   "key": "roles[0].permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "778yhv"
+                  "value": "e6rnff"
                 },
                 {
                   "key": "roles[0].permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "uzykuw"
+                  "value": "4dx9nj"
                 },
                 {
                   "key": "roles[0].permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "roles[0].permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "roles[0].permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "roles[0].permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "685"
+                  "value": "577"
                 },
                 {
                   "key": "roles[0].permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "539"
+                  "value": "338"
                 },
                 {
                   "key": "roles[0].permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "arsab0"
+                  "value": "719uzo"
                 },
                 {
                   "key": "roles[0].permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "u67zos"
+                  "value": "e13v99"
                 },
                 {
                   "key": "roles[0].permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "b2co06"
+                  "value": "s12ejn"
                 },
                 {
                   "key": "roles[0].permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "ygj2fb"
+                  "value": "xjyrbr"
                 },
                 {
                   "key": "roles[0].permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "zeora3"
+                  "value": "lpe1ec"
                 },
                 {
                   "key": "roles[0].permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "roles[0].permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "7sj6rl"
+                  "value": "0bn443"
                 },
                 {
                   "key": "roles[0].permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "273"
+                  "value": "285"
                 },
                 {
                   "key": "roles[0].permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "485"
+                  "value": "349"
                 },
                 {
                   "key": "roles[0].permissions[0].expand",
@@ -4985,109 +4673,109 @@
                   "key": "permissions[0].id",
                   "type": "text",
                   "description": "自增编号",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "permissions[0].createBy",
                   "type": "text",
                   "description": "创建人",
-                  "value": "oqxbm7"
+                  "value": "frov6b"
                 },
                 {
                   "key": "permissions[0].createTime",
                   "type": "text",
                   "description": "创建时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "permissions[0].updateBy",
                   "type": "text",
                   "description": "修改人",
-                  "value": "c7jx42"
+                  "value": "whxp5s"
                 },
                 {
                   "key": "permissions[0].updateTime",
                   "type": "text",
                   "description": "修改时间",
-                  "value": "2020-12-27"
+                  "value": "2021-01-15"
                 },
                 {
                   "key": "permissions[0].delFlag",
                   "type": "text",
                   "description": "删除标记[1表示已删除，默认值0]",
-                  "value": "4"
+                  "value": "5"
                 },
                 {
                   "key": "permissions[0].name",
                   "type": "text",
                   "description": "菜单/权限名称",
-                  "value": "子轩.刘"
+                  "value": "凯瑞.尹"
                 },
                 {
                   "key": "permissions[0].level",
                   "type": "text",
                   "description": "层级",
-                  "value": "981"
+                  "value": "595"
                 },
                 {
                   "key": "permissions[0].type",
                   "type": "text",
                   "description": "类型 0页面 1具体操作",
-                  "value": "529"
+                  "value": "851"
                 },
                 {
                   "key": "permissions[0].title",
                   "type": "text",
                   "description": "菜单标题",
-                  "value": "c9cprh"
+                  "value": "fs3fph"
                 },
                 {
                   "key": "permissions[0].path",
                   "type": "text",
                   "description": "页面路径/资源链接url",
-                  "value": "cs692p"
+                  "value": "9v7naz"
                 },
                 {
                   "key": "permissions[0].component",
                   "type": "text",
                   "description": "前端组件",
-                  "value": "an7hfe"
+                  "value": "q4a4bb"
                 },
                 {
                   "key": "permissions[0].icon",
                   "type": "text",
                   "description": "图标",
-                  "value": "xxgfl4"
+                  "value": "4u7g3u"
                 },
                 {
                   "key": "permissions[0].buttonType",
                   "type": "text",
                   "description": "按钮权限类型",
-                  "value": "oo3imx"
+                  "value": "gx8bss"
                 },
                 {
                   "key": "permissions[0].parentId",
                   "type": "text",
                   "description": "父id",
-                  "value": "114"
+                  "value": "63"
                 },
                 {
                   "key": "permissions[0].description",
                   "type": "text",
                   "description": "说明备注",
-                  "value": "modiv7"
+                  "value": "axe6t7"
                 },
                 {
                   "key": "permissions[0].sortOrder",
                   "type": "text",
                   "description": "排序值",
-                  "value": "332"
+                  "value": "181"
                 },
                 {
                   "key": "permissions[0].status",
                   "type": "text",
                   "description": "是否启用 0启用 -1禁用",
-                  "value": "600"
+                  "value": "675"
                 },
                 {
                   "key": "permissions[0].expand",
@@ -5110,73 +4798,69 @@
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/putMapping2",
+              "raw": "/putMapping2",
               "path": [
                 "putMapping2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "createBy",
-                  "value": "m3xyto",
+                  "value": "0bbwl4",
                   "description": "创建人"
                 },
                 {
                   "key": "createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "updateBy",
-                  "value": "qfhz8h",
+                  "value": "smttez",
                   "description": "修改人"
                 },
                 {
                   "key": "updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "username",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "用户名"
                 },
                 {
                   "key": "password",
-                  "value": "9qpumo",
+                  "value": "50wtqp",
                   "description": "密码"
                 },
                 {
                   "key": "nickName",
-                  "value": "lorenza.schamberger",
+                  "value": "zenaida.bauch",
                   "description": "昵称"
                 },
                 {
                   "key": "mobile",
-                  "value": "17734678036",
+                  "value": "15110006033",
                   "description": "电话"
                 },
                 {
                   "key": "email",
-                  "value": "子骞.尹@yahoo.com",
+                  "value": "晓博.朱@hotmail.com",
                   "description": "邮箱"
                 },
                 {
                   "key": "address",
-                  "value": "Suite 242 邱桥22454号， 渭南， 沪 917529",
+                  "value": "周栋52352号， 张家口， 冀 807938",
                   "description": "地址"
                 },
                 {
@@ -5186,22 +4870,22 @@
                 },
                 {
                   "key": "avatar",
-                  "value": "omce6d",
+                  "value": "6hddsm",
                   "description": "No comments found."
                 },
                 {
                   "key": "type",
-                  "value": "22",
+                  "value": "598",
                   "description": "类型"
                 },
                 {
                   "key": "status",
-                  "value": "784",
+                  "value": "157",
                   "description": "状态"
                 },
                 {
                   "key": "description",
-                  "value": "1bpobl",
+                  "value": "rzq6b1",
                   "description": "描述"
                 },
                 {
@@ -5211,37 +4895,37 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "avlgy8",
+                  "value": "rpmnpj",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "l0mjk8",
+                  "value": "amfwml",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "角色名 以ROLE_开头"
                 },
                 {
@@ -5256,92 +4940,92 @@
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createBy",
-                  "value": "lf0e7z",
+                  "value": "rszugb",
                   "description": "创建人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateBy",
-                  "value": "tb022k",
+                  "value": "ewjdn2",
                   "description": "修改人"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─level",
-                  "value": "847",
+                  "value": "621",
                   "description": "层级"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─type",
-                  "value": "949",
+                  "value": "139",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─title",
-                  "value": "na4kk5",
+                  "value": "88zd7g",
                   "description": "菜单标题"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─path",
-                  "value": "4ltpti",
+                  "value": "ecbnap",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─component",
-                  "value": "0udqny",
+                  "value": "az3gte",
                   "description": "前端组件"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─icon",
-                  "value": "te3bfq",
+                  "value": "s05phw",
                   "description": "图标"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─buttonType",
-                  "value": "k0susy",
+                  "value": "57s2yo",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─parentId",
-                  "value": "114",
+                  "value": "63",
                   "description": "父id"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─description",
-                  "value": "7lacc7",
+                  "value": "limi5r",
                   "description": "说明备注"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─sortOrder",
-                  "value": "845",
+                  "value": "255",
                   "description": "排序值"
                 },
                 {
                   "key": "\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;\u0026nbsp;└─status",
-                  "value": "758",
+                  "value": "237",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -5376,92 +5060,92 @@
                 },
                 {
                   "key": "└─id",
-                  "value": "114",
+                  "value": "63",
                   "description": "自增编号"
                 },
                 {
                   "key": "└─createBy",
-                  "value": "oer36k",
+                  "value": "2ti9tf",
                   "description": "创建人"
                 },
                 {
                   "key": "└─createTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "创建时间"
                 },
                 {
                   "key": "└─updateBy",
-                  "value": "upn0rr",
+                  "value": "dsl3nq",
                   "description": "修改人"
                 },
                 {
                   "key": "└─updateTime",
-                  "value": "2020-12-27",
+                  "value": "2021-01-15",
                   "description": "修改时间"
                 },
                 {
                   "key": "└─delFlag",
-                  "value": "4",
+                  "value": "5",
                   "description": "删除标记[1表示已删除，默认值0]"
                 },
                 {
                   "key": "└─name",
-                  "value": "子轩.刘",
+                  "value": "凯瑞.尹",
                   "description": "菜单/权限名称"
                 },
                 {
                   "key": "└─level",
-                  "value": "726",
+                  "value": "78",
                   "description": "层级"
                 },
                 {
                   "key": "└─type",
-                  "value": "948",
+                  "value": "879",
                   "description": "类型 0页面 1具体操作"
                 },
                 {
                   "key": "└─title",
-                  "value": "r24gb1",
+                  "value": "3d99xt",
                   "description": "菜单标题"
                 },
                 {
                   "key": "└─path",
-                  "value": "4csfag",
+                  "value": "k65ww4",
                   "description": "页面路径/资源链接url"
                 },
                 {
                   "key": "└─component",
-                  "value": "zuaic0",
+                  "value": "hkrgol",
                   "description": "前端组件"
                 },
                 {
                   "key": "└─icon",
-                  "value": "604km3",
+                  "value": "jzjgkp",
                   "description": "图标"
                 },
                 {
                   "key": "└─buttonType",
-                  "value": "wpwxbs",
+                  "value": "mo1x0w",
                   "description": "按钮权限类型"
                 },
                 {
                   "key": "└─parentId",
-                  "value": "114",
+                  "value": "63",
                   "description": "父id"
                 },
                 {
                   "key": "└─description",
-                  "value": "usj00v",
+                  "value": "hzhtfd",
                   "description": "说明备注"
                 },
                 {
                   "key": "└─sortOrder",
-                  "value": "34",
+                  "value": "762",
                   "description": "排序值"
                 },
                 {
                   "key": "└─status",
-                  "value": "177",
+                  "value": "800",
                   "description": "是否启用 0启用 -1禁用"
                 },
                 {
@@ -5517,23 +5201,19 @@
                   "key": "userId",
                   "type": "text",
                   "description": "userId",
-                  "value": "619"
+                  "value": "245"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/deleteMapping?userId\u003d619",
+              "raw": "/deleteMapping?userId\u003d245",
               "path": [
                 "deleteMapping"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "userId",
-                  "value": "844",
+                  "value": "767",
                   "description": "userId"
                 }
               ],
@@ -5566,15 +5246,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/responseEntity/list",
+              "raw": "/responseEntity/list",
               "path": [
                 "responseEntity",
                 "list"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5605,15 +5281,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/str",
+              "raw": "/simple/str",
               "path": [
                 "simple",
                 "str"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5637,7 +5309,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"userDetails\":[\n\t\t{\n\t\t\t\"githubAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\"\n\t\t}\n\t],\n\t\"userList\":[\n\t\t{\n\t\t\t\"$ref\":\"..\"\n\t\t}\n\t],\n\t\"userName\":\"子轩.刘\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"userAddress\":\"Suite 242 邱桥22454号， 渭南， 沪 917529\",\n\t\"userAge\":21,\n\t\"phone\":\"15391999163\",\n\t\"createTime\":1609002455678,\n\t\"small\":42.44,\n\t\"money\":74.96,\n\t\"ipv6\":\"0172:4d12:e5eb:43c8:1d3e:1872:e4ee:203a\",\n\t\"telephone\":\"15391999163\"\n}",
+              "raw": "{\n\t\"userDetails\": [\n\t\t{\n\t\t\t\"githubAddress\": \"周栋52352号， 张家口， 冀 807938\"\n\t\t}\n\t],\n\t\"userList\": [\n\t\t{\n\t\t\t\"$ref\": \"..\"\n\t\t}\n\t],\n\t\"userName\": \"凯瑞.尹\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"userAddress\": \"周栋52352号， 张家口， 冀 807938\",\n\t\"userAge\": 47,\n\t\"phone\": \"13616082620\",\n\t\"createTime\": 1610715319459,\n\t\"small\": 96.72,\n\t\"money\": 38.55,\n\t\"ipv6\": \"4ecc:5551:e84a:1746:667a:13bd:b23a:4d78\",\n\t\"telephone\": \"13616082620\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5645,15 +5317,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/user?",
+              "raw": "/simple/user?",
               "path": [
                 "simple",
                 "user"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5679,15 +5347,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/stu",
+              "raw": "/simple/stu",
               "path": [
                 "simple",
                 "stu"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5713,15 +5377,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/teacher",
+              "raw": "/simple/teacher",
               "path": [
                 "simple",
                 "teacher"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5747,15 +5407,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/teacher2",
+              "raw": "/simple/teacher2",
               "path": [
                 "simple",
                 "teacher2"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5781,15 +5437,11 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/subUser",
+              "raw": "/simple/subUser",
               "path": [
                 "simple",
                 "subUser"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5815,16 +5467,12 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/simple/subUser/result",
+              "raw": "/simple/subUser/result",
               "path": [
                 "simple",
                 "subUser",
                 "result"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5855,14 +5503,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/stringCommonResult",
+              "raw": "/stringCommonResult",
               "path": [
                 "stringCommonResult"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5888,14 +5532,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/staff",
+              "raw": "/staff",
               "path": [
                 "staff"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5921,14 +5561,10 @@
               "mode": "formdata"
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/staffStr",
+              "raw": "/staffStr",
               "path": [
                 "staffStr"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -5952,7 +5588,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"age\":21,\n\t\"name\":\"子轩.刘\"\n}",
+              "raw": "{\n\t\"age\": 47,\n\t\"name\": \"凯瑞.尹\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -5960,14 +5596,10 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/children?",
+              "raw": "/children?",
               "path": [
                 "children"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6001,20 +5633,16 @@
                   "key": "user[]",
                   "type": "text",
                   "description": "No comments found.",
-                  "value": "gq01sr"
+                  "value": "gr1oep"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/tags/apiNote",
+              "raw": "/tags/apiNote",
               "path": [
                 "tags",
                 "apiNote"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "user",
@@ -6044,7 +5672,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"subUserName\":\"张三\",\n\t\"numbers\":405\n}",
+              "raw": "{\n\t\"subUserName\": \"张三\",\n\t\"numbers\": 578\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6052,15 +5680,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/tags/mock?",
+              "raw": "/tags/mock?",
               "path": [
                 "tags",
                 "mock"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6089,24 +5713,20 @@
                   "key": "total",
                   "type": "text",
                   "description": "记录总数",
-                  "value": "779"
+                  "value": "280"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/tags/ignore?total\u003d779",
+              "raw": "/tags/ignore?total\u003d280",
               "path": [
                 "tags",
                 "ignore"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "total",
-                  "value": "263",
+                  "value": "489",
                   "description": "记录总数"
                 }
               ],
@@ -6137,7 +5757,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":572,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"xndg4n\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\": 696,\n\t\"simpleEnum\": \"RED\",\n\t\"username\": \"凯瑞.尹\",\n\t\"password\": \"cplf9u\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"mobile\": \"15110006033\",\n\t\"gender\": 0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6145,15 +5765,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/user/add?",
+              "raw": "/user/add?",
               "path": [
                 "user",
                 "add"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6177,7 +5793,7 @@
             "method": "PUT",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"MAX_SPEED\":214,\n\t\"simpleEnum\":\"RED\",\n\t\"username\":\"子轩.刘\",\n\t\"password\":\"9l6en0\",\n\t\"nickName\":\"lorenza.schamberger\",\n\t\"mobile\":\"17734678036\",\n\t\"gender\":0\n}",
+              "raw": "{\n\t\"MAX_SPEED\": 293,\n\t\"simpleEnum\": \"RED\",\n\t\"username\": \"凯瑞.尹\",\n\t\"password\": \"5epwc9\",\n\t\"nickName\": \"zenaida.bauch\",\n\t\"mobile\": \"15110006033\",\n\t\"gender\": 0\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6185,15 +5801,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/user/update?",
+              "raw": "/user/update?",
               "path": [
                 "user",
                 "update"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6222,7 +5834,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"name\":\"子轩.刘\",\n\t\"birthday\":\"2020-12-27\",\n\t\"age\":21,\n\t\"subject\":{\n\t\t\"subjectName\":\"子轩.刘\"\n\t}\n}",
+              "raw": "{\n\t\"name\": \"凯瑞.尹\",\n\t\"birthday\": \"2021-01-15\",\n\t\"age\": 47,\n\t\"subject\": {\n\t\t\"subjectName\": \"凯瑞.尹\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6230,15 +5842,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/test?",
+              "raw": "/validator/test?",
               "path": [
                 "validator",
                 "test"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6262,7 +5870,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"token\":\"f0wjo7\",\n\t\"sequenceNo\":\"09pa14\",\n\t\"parameter\":{\n\t\t\"subUserName\":\"张三\",\n\t\t\"numbers\":50\n\t}\n}",
+              "raw": "{\n\t\"token\": \"z62ouz\",\n\t\"sequenceNo\": \"jtgbf7\",\n\t\"parameter\": {\n\t\t\"subUserName\": \"张三\",\n\t\t\"numbers\": 464\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6270,15 +5878,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/valid?",
+              "raw": "/validator/valid?",
               "path": [
                 "validator",
                 "valid"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6302,7 +5906,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":504,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
+              "raw": "{\n\t\"id\": 411,\n\t\"name\": \"凯瑞.尹\",\n\t\"mobile\": \"15110006033\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6310,15 +5914,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/save?",
+              "raw": "/validator/save?",
               "path": [
                 "validator",
                 "save"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6342,7 +5942,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":188,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
+              "raw": "{\n\t\"id\": 550,\n\t\"name\": \"凯瑞.尹\",\n\t\"mobile\": \"15110006033\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6350,15 +5950,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/update?",
+              "raw": "/validator/update?",
               "path": [
                 "validator",
                 "update"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6382,7 +5978,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"id\":139,\n\t\"name\":\"子轩.刘\",\n\t\"mobile\":\"17734678036\"\n}",
+              "raw": "{\n\t\"id\": 759,\n\t\"name\": \"凯瑞.尹\",\n\t\"mobile\": \"15110006033\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6390,15 +5986,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/login?",
+              "raw": "/validator/login?",
               "path": [
                 "validator",
                 "login"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6422,7 +6014,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\n}",
+              "raw": "{\n\t\"name\": \"凯瑞.尹\",\n\t\"birthday\": \"2021-01-15\",\n\t\"age\": 47,\n\t\"subject\": {\n\t\t\"subjectName\": \"凯瑞.尹\"\n\t}\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6430,15 +6022,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/validator/list?",
+              "raw": "/validator/list?",
               "path": [
                 "validator",
                 "list"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
@@ -6472,24 +6060,20 @@
                   "key": "text",
                   "type": "text",
                   "description": "请求文本",
-                  "value": "f9ugu0"
+                  "value": "9gd41x"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/xss/text",
+              "raw": "/xss/text",
               "path": [
                 "xss",
                 "text"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "text",
-                  "value": "tf36w5",
+                  "value": "dypnzd",
                   "description": "请求文本"
                 }
               ],
@@ -6520,24 +6104,20 @@
                   "key": "query",
                   "type": "text",
                   "description": "请求参数",
-                  "value": "1haxl6"
+                  "value": "m046u2"
                 }
               ]
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/xss/query?query\u003d1haxl6",
+              "raw": "/xss/query?query\u003dm046u2",
               "path": [
                 "xss",
                 "query"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [
                 {
                   "key": "query",
-                  "value": "upo4vs",
+                  "value": "rjht5j",
                   "description": "请求参数"
                 }
               ],
@@ -6563,7 +6143,7 @@
             "method": "POST",
             "body": {
               "mode": "raw",
-              "raw": "{\n\t\"age\":21,\n\t\"name\":\"子轩.刘\"\n}",
+              "raw": "{\n\t\"age\": 47,\n\t\"name\": \"凯瑞.尹\"\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -6571,15 +6151,11 @@
               }
             },
             "url": {
-              "raw": "http://127.0.0.1:8080/xss/json?",
+              "raw": "/xss/json?",
               "path": [
                 "xss",
                 "json"
               ],
-              "host": [
-                "127.0.0.1"
-              ],
-              "port": "8080",
               "query": [],
               "variable": []
             },
