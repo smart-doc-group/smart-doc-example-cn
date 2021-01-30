@@ -6,7 +6,7 @@
   "coverOld": true,
   "createDebugPage": true,
   "style":"xt256",
-  "packageFilters": "",
+  "packageFilters": "com.power.doc.controller.app",
   "md5EncryptedHtmlName": true,
   "projectName": "smart-doc",
   "inlineEnum": true,
@@ -32,5 +32,12 @@
       "constantsClassName":"com.power.doc.constants.RequestValueConstant"
     }, {
       "constantsClassName":"com.power.doc.constants.ApiVersion"
+  }],
+  "revisionLogs": [{ //文档变更记录
+    "version": "1.0", //文档版本号
+    "revisionTime": "2020-12-31 10:30", //文档修订时间
+    "status": "update", //变更操作状态，一般为：创建、更新等
+    "author": "author", //文档变更作者
+    "remarks": "desc" //变更描述
   }]
 }

@@ -52,5 +52,14 @@ public class RequestHeaderController {
         return "Get some Foos with Header";
     }
 
+    /**
+     * 测试Mapping header属性
+     * @return
+     */
+    @GetMapping(value = "/ex/foos", headers = "key=val")
+    @ResponseBody
+    public String getFoosWithHeader() {
+        return "Get some Foos with Header";
+    }
 
 }
