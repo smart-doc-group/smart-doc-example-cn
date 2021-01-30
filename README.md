@@ -8,3 +8,7 @@
 官方建议使用插件的方式来集成使用smart-doc。可参考文档插件使用文档。
 
 [maven插件使用](https://gitee.com/smart-doc-team/smart-doc/wikis/smart-doc%20maven插件?sort_id=1791450)
+
+# 意义
+这是smart-doc从2018年开源至今收集起来的各种接口书写用例，正因为经过里面各种用例磨炼，
+才使得smart-doc在国内成为JAVA API文档工具的领导者，才能获得很好的用户口碑。
