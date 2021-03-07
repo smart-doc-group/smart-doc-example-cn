@@ -1,7 +1,7 @@
 buildscript {
     ext {
         springBootVersion = '2.3.4.RELEASE'
-        smartDocVersion = '2.0.7-release'
+        smartDocVersion = '2.0.8'
     }
     repositories {
         maven { url 'http://localhost:8081/nexus/content/groups/public/' }
@@ -68,7 +68,7 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.0'
     compile("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
     testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile 'com.github.shalousun:smart-doc:2.0.7'
+    testCompile 'com.github.shalousun:smart-doc:2.0.8'
 
 }
 
