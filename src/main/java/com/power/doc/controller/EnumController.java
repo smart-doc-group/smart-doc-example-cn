@@ -3,9 +3,7 @@ package com.power.doc.controller;
 import com.power.doc.entity.Order;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.enums.SimpleEnum;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 枚举参数测试
@@ -53,8 +51,8 @@ public class EnumController {
      * @param order 简单枚举
      * @return
      */
-    @GetMapping(value = "/enum/test1")
-    public String testEnum2(@PathVariable Order order){
+    @PostMapping(value = "/enum/test1")
+    public String testEnum2(@RequestBody Order order){
         return "hello apiNote";
     }
 

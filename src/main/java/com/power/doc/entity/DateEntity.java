@@ -7,7 +7,7 @@ import java.time.LocalTime;
 /**
  * @author yu 2018/12/11.
  */
-public class DateEntity {
+public class DateEntity extends SuperDataEntity {
 
     /**
      * 创建日期
