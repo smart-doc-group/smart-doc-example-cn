@@ -1,5 +1,5 @@
 {
-  "serverUrl": "http://{{server}}:8080",
+  "serverUrl": "http://localhost:8080/",
   "isStrict": false,
   "allInOne": true,
   "outPath": "src/main/resources/static/doc",
@@ -14,7 +14,6 @@
   "md5EncryptedHtmlName": true,
   "projectName": "smartdoc",
   "tornaDebug": true,
-  "urlSuffix":".do",
   "inlineEnum": true,
   "skipTransientField": true,
   "requestHeaders": [ //设置请求头，没有需求可以不设置

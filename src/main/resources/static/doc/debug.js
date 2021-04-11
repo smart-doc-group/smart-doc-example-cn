@@ -84,6 +84,11 @@ $("button").on("click", function () {
         body = queryParamData;
         ajaxOptions.processData = false;
         ajaxOptions.contentType = false;
+    } else if ("POST" == method && contentType !== "multipart/form-data"
+        && contentType !== "application/json; charset=utf-8") {
+        finalUrl = castToGetUri(url, pathParamData);
+        queryParamData = getInputData($queryElement)
+        body = queryParamData;
     } else {
         queryParamData = getInputData($queryElement)
         finalUrl = castToGetUri(url, pathParamData, queryParamData)
