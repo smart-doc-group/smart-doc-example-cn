@@ -140,7 +140,7 @@ public class ApiDocTest {
 
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
-        HtmlApiDocBuilder.buildApiDoc(config);
+        TornaBuilder.buildApiDoc(config);
 //        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);

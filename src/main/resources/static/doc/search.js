@@ -8,35 +8,15 @@ api.push({
 })
 api[0].list.push({
     order: '1',
-    desc: '测试formData',
+    desc: '参数对象替换测试',
 });
 api[0].list.push({
     order: '2',
-    desc: '表单 包含复杂对象',
+    desc: 'FastJson注解支持测试',
 });
 api[0].list.push({
     order: '3',
-    desc: '表单 枚举',
-});
-api[0].list.push({
-    order: '4',
-    desc: 'Test Constants',
-});
-api[0].list.push({
-    order: '5',
-    desc: '分页查询订单信息',
-});
-api[0].list.push({
-    order: '6',
-    desc: 'app测试',
-});
-api[0].list.push({
-    order: '7',
-    desc: 'app测试2',
-});
-api[0].list.push({
-    order: '8',
-    desc: 'app测试3',
+    desc: '分页查询',
 });
 api.push({
     alias: 'dict',
