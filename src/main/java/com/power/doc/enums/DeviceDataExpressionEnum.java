@@ -13,9 +13,7 @@ public enum DeviceDataExpressionEnum {
     /**
      * temperature
      */
-    SENSIRION("2101", new ImmutableMap.Builder<>()
-            .put("temperature", "#temperature#")
-            .put("humidity", "#humidity#").build());
+    SENSIRION("2101", new HashMap<>());
 
 
     private String deviceType;

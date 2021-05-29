@@ -21,6 +21,13 @@ public class Subject {
     @NotEmpty(message = "科目名称不能为空")
     private String subjectName;
 
+    /**
+     * 分数
+     */
+    private int core;
+
+
+
 
     public String getSubjectName() {
         return subjectName;
@@ -28,5 +35,13 @@ public class Subject {
 
     public void setSubjectName(String subjectName) {
         this.subjectName = subjectName;
+    }
+
+    public int getCore() {
+        return core;
+    }
+
+    public void setCore(int core) {
+        this.core = core;
     }
 }

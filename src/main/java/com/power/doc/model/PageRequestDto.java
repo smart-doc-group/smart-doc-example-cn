@@ -7,8 +7,12 @@ import lombok.Data;
  * @author yu 2020/5/15.
  */
 @Data
-public class PageRequestDto {
+public class PageRequestDto<T> {
 
+    /**
+     * 返回结果
+     */
+    private ResultData<T> result;
     /**
      * 页码
      */
@@ -19,4 +23,6 @@ public class PageRequestDto {
      */
     @JsonIgnore
     private Integer size;
+
+
 }
