@@ -8,19 +8,38 @@ api.push({
 })
 api[0].list.push({
     order: '1',
-    desc: '参数对象替换测试',
+    desc: '获取枚举参数4',
 });
 api[0].list.push({
     order: '2',
-    desc: 'FastJson注解支持测试',
+    desc: 'Test Constants',
 });
 api[0].list.push({
     order: '3',
-    desc: '分页查询',
+    desc: '分页查询订单信息',
+});
+api[0].list.push({
+    order: '4',
+    desc: 'app测试',
+});
+api[0].list.push({
+    order: '5',
+    desc: 'app测试2',
+});
+api[0].list.push({
+    order: '6',
+    desc: 'app测试3',
 });
 api.push({
-    alias: 'dict',
+    alias: 'error',
     order: '2',
+    link: 'error_code_list',
+    desc: '错误码列表',
+    list: []
+})
+api.push({
+    alias: 'dict',
+    order: '3',
     link: 'dict_list',
     desc: '数据字典',
     list: []
