@@ -6,7 +6,7 @@
   "coverOld": true,
   "createDebugPage": true,
   "style":"xt256",
-  "packageFilters": "",
+  "packageFilters": "com.power.doc.controller.app.*",
   "appKey": "20210318821914523354005504",
   "appToken": "17081fb20b1546a196121e781d3c6d01",
   "secret": "XnYjaDbK^stIJyQ5RZOCJ.VAEYOscB7C",
