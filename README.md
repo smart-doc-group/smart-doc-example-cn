@@ -9,6 +9,13 @@
 
 [maven插件使用](https://gitee.com/smart-doc-team/smart-doc/wikis/smart-doc%20maven插件?sort_id=1791450)
 
+# 用例内容
+代码中涉及到许多代码解析测试，主要包含如下：
+
+- 常见接口返回用例
+- 参数JSR303验证，包含普通验证和分组验证
+- 包含Jpa分页和国内Mybatis-plus的分页处理例子
+- 请求头的各种设置处理
 # 意义
 这是smart-doc从2018年开源至今收集起来的各种接口书写用例，正因为经过里面各种用例磨炼，
 才使得smart-doc在国内成为JAVA API文档工具的领导者，才能获得很好的用户口碑。
