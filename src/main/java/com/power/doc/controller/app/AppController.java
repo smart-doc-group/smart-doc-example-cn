@@ -6,6 +6,8 @@ import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
+import com.power.doc.model.PersonCreateDto;
+import com.power.doc.model.circular.C;
 import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,19 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("app")
 public class AppController {
+
+    /**
+     * 创建人员
+     *
+     * @param createDto
+     * @return
+     * @apiNote 如果创建成功将会发送MQTT消息：person/{id}/create
+     * @ignoreParams loginUserId
+     */
+    @PostMapping("")
+    public CommonResult create(@RequestBody PersonCreateDto createDto) {
+        return CommonResult.ok();
+    }
 
     /**
      * Test Constants
