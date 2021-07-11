@@ -1,4 +1,4 @@
-package com.power.doc.entity;
+package com.power.doc.model.mybatisplus;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.metadata.OrderItem;
@@ -12,6 +12,8 @@ import java.util.List;
  * @author yu 2020/12/25.
  */
 public class PageInfo<T> implements IPage<T> , Serializable {
+
+
 
     /**
      * 总数

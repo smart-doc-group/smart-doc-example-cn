@@ -5,8 +5,8 @@ import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.Order;
-import com.power.doc.entity.PageInfo;
 import com.power.doc.model.FastJson;
+import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
