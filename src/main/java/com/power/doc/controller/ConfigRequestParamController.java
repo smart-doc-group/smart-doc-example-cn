@@ -17,8 +17,6 @@ public class ConfigRequestParamController {
      * get请求测试query参数
      *
      * @author cqmike
-     * @param configQueryParam query参数
-     * @param configQueryParam query参数1
      * @return
      */
     @GetMapping("configQueryParamGet")
@@ -30,7 +28,6 @@ public class ConfigRequestParamController {
      * post请求测试query参数
      *
      * @author cqmike
-     * @param configQueryParam query参数
      * @return
      */
     @PostMapping("configQueryParamPost")
@@ -42,8 +39,6 @@ public class ConfigRequestParamController {
      *  get请求测试query参数和path参数
      *
      * @author cqmike
-     * @param configPathParam path参数
-     * @param configQueryParam query参数
      * @return
      */
     @GetMapping("configParamGet/{configPathParam}")
@@ -55,8 +50,6 @@ public class ConfigRequestParamController {
      *  post请求测试query参数和path参数
      *
      * @author cqmike
-     * @param configPathParam path参数
-     * @param configQueryParam query参数
      * @return
      */
     @PostMapping("configParamPost/{configPathParam}")
