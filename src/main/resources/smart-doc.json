@@ -24,7 +24,29 @@
       "value":"kk",//不设置默认null
       "required": false,//是否必须
       "since": "-",//什么版本添加的改请求头
-      "urlPatterns": "/test/add|/testConstants/1.0"//正则表达式过滤请求头
+      "pathPatterns": "/test/add|/testConstants/1.0"//正则表达式过滤请求头
+    }
+  ],
+  "requestParams": [ //设置请求头，没有需求可以不设置
+    {
+      "name": "configPathParam",//请求头名称
+      "type": "string",//请求头类型
+      "desc": "desc",//请求头描述信息
+      "paramIn": "path",
+      "value":"testPath",//不设置默认null
+      "required": false,//是否必须
+      "since": "-",//什么版本添加的改请求头
+      "pathPatterns": "*"//正则表达式过滤请求头
+    },
+    {
+      "name": "configQueryParam",//请求头名称
+      "type": "string",//请求头类型
+      "desc": "desc",//请求头描述信息
+      "paramIn": "query",
+      "value":"testQuery",//不设置默认null
+      "required": false,//是否必须
+      "since": "-",//什么版本添加的改请求头
+      "pathPatterns": "*"//正则表达式过滤请求头
     }
   ],
   "errorCodeDictionaries": [{ //错误码列表，没有需求可以不设置
