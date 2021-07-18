@@ -6,6 +6,8 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author yu 2018/8/4.
@@ -49,6 +51,20 @@ public class SimpleUser {
      * @since v1.0
      */
     private String mobile;
+    /**
+     * 用户角色信息
+     */
+    private List<UserRole> roles;
+    /**
+     * 用户扩展项
+     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}}
+     */
+    private Map<String,String> extend;
+    /**
+     * ListMap效果展示
+     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}
+     */
+    private List<Map<String,Object>> listMap;
 
 
 
