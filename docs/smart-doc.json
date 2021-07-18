@@ -1,0 +1,61 @@
+{
+  "serverUrl": "http://localhost:8080/",
+  "isStrict": false,
+  "allInOne": true,
+  "outPath": "src/main/resources/static/doc",
+  "coverOld": true,
+  "createDebugPage": true,
+  "style":"xt256",
+  "packageFilters": "com.power.doc.*",
+  "appKey": "20210318821914523354005504",
+  "appToken": "17081fb20b1546a196121e781d3c6d01",
+  "secret": "XnYjaDbK^stIJyQ5RZOCJ.VAEYOscB7C",
+  "openUrl": "http://demo.torna.cn/api",
+  "md5EncryptedHtmlName": true,
+  "projectName": "smartdoc",
+  "tornaDebug": true,
+  "inlineEnum": true,
+  "skipTransientField": true,
+  "requestHeaders": [ //设置请求头，没有需求可以不设置
+    {
+      "name": "token",//请求头名称
+      "type": "string",//请求头类型
+      "desc": "desc",//请求头描述信息
+      "value":"kk",//不设置默认null
+      "required": false,//是否必须
+      "since": "-",//什么版本添加的改请求头
+      "urlPatterns": "/test/add|/testConstants/1.0"//正则表达式过滤请求头
+    }
+  ],
+  "errorCodeDictionaries": [{ //错误码列表，没有需求可以不设置
+    "title": "title",
+    "enumClassName": "com.power.common.enums.HttpCodeEnum", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
+    "codeField": "code",//错误码的code码字段名称
+    "descField": "message"//错误码的描述信息对应的字段名
+  }],
+  "customResponseFields": [{ //自定义添加字段和注释，api-doc后期遇到同名字段则直接给相应字段加注释，非必须
+    "name": "sort",//覆盖响应码字段
+    "desc": "响应代码",//覆盖响应码的字段注释
+    "ownerClassName": "org.springframework.data.domain.Page", //指定你要添加注释的类名
+    "ignore":true, //是否忽略
+    "value": "00000"//设置响应码的值
+  },{ //自定义添加字段和注释，api-doc后期遇到同名字段则直接给相应字段加注释，非必须
+    "name": "pageable",//覆盖响应码字段
+    "desc": "响应代码",//覆盖响应码的字段注释
+    "ownerClassName": "org.springframework.data.domain.Page", //指定你要添加注释的类名
+    "ignore":true, //是否忽略
+    "value": "00000"//设置响应码的值
+  }],
+  "rpcApiDependencies":[{ // 项目开放的dubbo api接口模块依赖，配置后输出到文档方便使用者集成
+    "artifactId":"SpringBoot2-Dubbo-Api",
+    "groupId":"com.demo",
+    "version":"1.0.0"
+  }],
+  "apiConstants":[{
+      "constantsClassName":"com.power.doc.constants.RequestParamConstant"
+    }, {
+      "constantsClassName":"com.power.doc.constants.RequestValueConstant"
+    }, {
+      "constantsClassName":"com.power.doc.constants.ApiVersion"
+  }]
+}
