@@ -25,7 +25,7 @@ public class UserController {
 
     /**
      * 更新用户
-     * @param user
+     * @param user @mock  {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extand""{"version":1.0,"versionList":["1.2.0","1.5.6"]}}
      * @return
      */
     @PutMapping("/update")
