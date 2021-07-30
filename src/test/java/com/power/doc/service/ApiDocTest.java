@@ -16,7 +16,6 @@ import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.*;
 import com.power.doc.model.rpc.RpcApiDependency;
 import com.thoughtworks.qdox.JavaProjectBuilder;
-import org.junit.Test;
 
 import java.io.FileReader;
 import java.lang.reflect.Method;
@@ -31,7 +30,6 @@ import java.nio.file.Paths;
  */
 public class ApiDocTest {
 
-    @Test
     public void test() throws Exception{
         Class clazz = DeviceDataExpressionEnum.class;
         Class<Enum> enumClass = (Class<Enum>) clazz;
@@ -52,7 +50,6 @@ public class ApiDocTest {
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
      */
     @Deprecated
-    @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");

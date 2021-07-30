@@ -21,4 +21,9 @@ public class RoleDTO {
      * 角色名称
      */
     private String roleName;
+
+    /**
+     * 年龄
+     */
+    private Integer age;
 }
