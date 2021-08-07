@@ -1,0 +1,58 @@
+
+# feign测试
+## 解析路径
+**URL:** `http://localhost:8080/APP/www.baidu.com/{id}/{name}`
+
+**Type:** `GET`
+
+**Author:** yu 2020/6/21.
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 解析路径
+
+
+**Path-parameters:**
+
+Parameter|Type|Description|Required|Since
+---|---|---|---|---
+id|string|标识|true|-
+name|string|姓名|true|-
+
+
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/APP/www.baidu.com/67/adam.gibson
+```
+
+**Response-example:**
+```
+string
+```
+
+## 模具
+**URL:** `http://localhost:8080/APP/www.baidu.com/enum`
+
+**Type:** `GET`
+
+**Author:** yu 2020/6/21.
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 模具
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/APP/www.baidu.com/enum
+```
+
+**Response-example:**
+```
+string
+```
+

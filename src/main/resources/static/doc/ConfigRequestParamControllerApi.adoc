@@ -1,0 +1,162 @@
+
+== json文件配置全局参数测试
+=== get请求测试query参数
+*URL:* `http://localhost:8080/configQueryParamGet`
+
+*Type:* `GET`
+
+*Author:* "cqmike"
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* get请求测试query参数
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configQueryParam|string|No comments found.|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/configQueryParamGet?configQueryParam=p4exi3
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== post请求测试query参数
+*URL:* `http://localhost:8080/configQueryParamPost`
+
+*Type:* `POST`
+
+*Author:* "cqmike"
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* post请求测试query参数
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configQueryParam|string|No comments found.|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X POST -i http://localhost:8080/configQueryParamPost --data 'configQueryParam=90esx8'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== get请求测试query参数和path参数
+*URL:* `http://localhost:8080/configParamGet/{configPathParam}`
+
+*Type:* `GET`
+
+*Author:* "cqmike"
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* get请求测试query参数和path参数
+
+
+
+*Path-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configPathParam|string|No comments found.|true|-
+|====================
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configQueryParam|string|No comments found.|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/configParamGet/m04fi7?configQueryParam=n9z1se
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== post请求测试query参数和path参数
+*URL:* `http://localhost:8080/configParamPost/{configPathParam}`
+
+*Type:* `POST`
+
+*Author:* "cqmike"
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* post请求测试query参数和path参数
+
+
+
+*Path-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configPathParam|string|No comments found.|true|-
+|====================
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|configQueryParam|string|No comments found.|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X POST -i http://localhost:8080/configParamPost/etayo2 --data 'configQueryParam=v7pay3'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+

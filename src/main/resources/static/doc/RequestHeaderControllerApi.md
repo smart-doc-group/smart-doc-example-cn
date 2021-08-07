@@ -1,0 +1,262 @@
+
+# RequestHeader注解测试
+## 测试RequestHeader常规使用
+**URL:** `http://localhost:8080/testRequestHeader`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试RequestHeader常规使用
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+name|string|请求头(name)|true|-
+
+
+
+**Query-parameters:**
+
+Parameter|Type|Description|Required|Since
+---|---|---|---|---
+age|int32| 年龄|false|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'name' -i http://localhost:8080/testRequestHeader?age=49
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## 测试RequestHeader绑定参数名
+**URL:** `http://localhost:8080/testRequestHeader/value`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试RequestHeader绑定参数名
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|请求头(name)|false|-
+age|int32| 年龄|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'token' -H 'age' -i http://localhost:8080/testRequestHeader/value
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## 测试RequestHeader绑定默认值
+**URL:** `http://localhost:8080/testRequestHeader/DefaultVal`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试RequestHeader绑定默认值
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|请求头(name)(defaultValue: da)|false|-
+
+
+
+**Query-parameters:**
+
+Parameter|Type|Description|Required|Since
+---|---|---|---|---
+age|int32| 年龄|false|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'token:da' -i http://localhost:8080/testRequestHeader/DefaultVal?age=49
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## 测试Mapping中的headers属性
+**URL:** `http://localhost:8080/testRequestHeader/foos`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试Mapping中的headers属性
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+key1|string|header condition|true|-
+key2|string|header condition|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'key1:val1' -H 'key2:val2' -i http://localhost:8080/testRequestHeader/foos
+```
+
+**Response-example:**
+```
+string
+```
+
+## 测试Mapping header属性
+**URL:** `http://localhost:8080/ex/foos`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试Mapping header属性
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+key|string|header condition|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'key:val' -i http://localhost:8080/ex/foos
+```
+
+**Response-example:**
+```
+string
+```
+
+## 测试常量请求头1
+**URL:** `http://localhost:8080/testRequestHeader/constants1`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试常量请求头1
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+HeaderConstants.TOKEN|string|请求头|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'HeaderConstants.TOKEN' -i http://localhost:8080/testRequestHeader/constants1
+```
+
+**Response-example:**
+```
+string
+```
+
+## 测试常量请求头2
+**URL:** `http://localhost:8080/testRequestHeader/constant2`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试常量请求头2
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+HeaderConstants.TOKEN|string|请求头|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'HeaderConstants.TOKEN' -i http://localhost:8080/testRequestHeader/constant2
+```
+
+**Response-example:**
+```
+string
+```
+
+## 测试常量请求头3
+**URL:** `http://localhost:8080/testRequestHeader/constant3`
+
+**Type:** `GET`
+
+**Author:** xingzi
+
+**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
+
+**Description:** 测试常量请求头3
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|请求头|true|-
+
+
+
+
+
+**Request-example:**
+```
+curl -X GET -H 'token' -i http://localhost:8080/testRequestHeader/constant3
+```
+
+**Response-example:**
+```
+string
+```
+

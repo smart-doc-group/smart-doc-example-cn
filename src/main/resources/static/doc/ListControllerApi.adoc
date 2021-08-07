@@ -1,0 +1,1307 @@
+
+== List返回接口Api文档测试
+=== List&lt;String&gt;结构
+*URL:* `http://localhost:8080/list/listString`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;String&gt;结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listString
+----
+
+
+*Response-example:*
+----
+[
+  "6b9d6i",
+  "ibtl2x"
+]
+----
+
+=== List&lt;Map&lt;String,String&gt;&gt;结构
+*URL:* `http://localhost:8080/list/listMap`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;Map&lt;String,String&gt;&gt;结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listMap
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|-|object|Return object.|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "mapKey1": "86kvyn",
+    "mapKey2": "0dm0vv"
+  }
+]
+----
+
+=== List&lt;自动义对象&gt;
+*URL:* `http://localhost:8080/list/listObject`
+
+*Type:* `POST`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;自动义对象&gt;
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X POST -i http://localhost:8080/list/listObject
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|userDetails|array|用户详情|-
+|└─githubAddress|string|测试|-
+|userList|array|用户列表|-
+|userName|string|用户名|-
+|nickName|string|昵称|-
+|userAddress|string|用户地址|-
+|userAge|int32|用户年龄|-
+|phone|string|手机号|-
+|createTime|int64|创建时间|-
+|small|float|钱少|-
+|money|double|钱太多了|-
+|ipv6|string|ipv6|-
+|telephone|string|固定电话|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "aaron.goyette",
+    "nickName": "dario.goyette",
+    "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+    "userAge": 12,
+    "phone": "352.254.8203",
+    "createTime": 1628321658767,
+    "small": 87.74,
+    "money": 22.01,
+    "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+    "telephone": "352.254.8203"
+  }
+]
+----
+
+=== List&lt;Map&lt;String,T&gt;&gt;结构
+*URL:* `http://localhost:8080/list/listMap2`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;Map&lt;String,T&gt;&gt;结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listMap2
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|stuName|string|姓名|-
+|stuAge|boolean|年龄|-
+|stuAddress|string|地址|-
+|user|object|用户对象|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|userMap|map|map用户信息|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|userTreeSet|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|user1|object|用户对象2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "mapKey": {
+      "stuName": "aaron.goyette",
+      "stuAge": true,
+      "stuAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+      "user": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 89.23,
+        "money": 54.28,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "userMap": {
+        "mapKey": {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "aaron.goyette",
+          "nickName": "dario.goyette",
+          "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+          "userAge": 12,
+          "phone": "352.254.8203",
+          "createTime": 1628321658767,
+          "small": 43.68,
+          "money": 89.53,
+          "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+          "telephone": "352.254.8203"
+        }
+      },
+      "userTreeSet": [
+        {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "aaron.goyette",
+          "nickName": "dario.goyette",
+          "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+          "userAge": 12,
+          "phone": "352.254.8203",
+          "createTime": 1628321658767,
+          "small": 19.77,
+          "money": 41.46,
+          "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+          "telephone": "352.254.8203"
+        }
+      ],
+      "user1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 63.56,
+        "money": 56.59,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      }
+    }
+  }
+]
+----
+
+=== List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
+*URL:* `http://localhost:8080/list/listMap3`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listMap3
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|age|int32|年龄|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "mapKey": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 97.98,
+        "money": 1.41,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 1.95,
+        "money": 33.49,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 18.01,
+        "money": 69.17,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "age": 12
+    }
+  }
+]
+----
+
+=== List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
+*URL:* `http://localhost:8080/list/listTeacher`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listTeacher
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|array|泛型data|-
+|└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|└─userList|array|用户列表|-
+|└─userName|string|用户名|-
+|└─nickName|string|昵称|-
+|└─userAddress|string|用户地址|-
+|└─userAge|int32|用户年龄|-
+|└─phone|string|手机号|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
+|└─ipv6|string|ipv6|-
+|└─telephone|string|固定电话|-
+|data1|array|泛型data1|-
+|└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|└─userList|array|用户列表|-
+|└─userName|string|用户名|-
+|└─nickName|string|昵称|-
+|└─userAddress|string|用户地址|-
+|└─userAge|int32|用户年龄|-
+|└─phone|string|手机号|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
+|└─ipv6|string|ipv6|-
+|└─telephone|string|固定电话|-
+|data2|array|data2|-
+|└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|└─userList|array|用户列表|-
+|└─userName|string|用户名|-
+|└─nickName|string|昵称|-
+|└─userAddress|string|用户地址|-
+|└─userAge|int32|用户年龄|-
+|└─phone|string|手机号|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
+|└─ipv6|string|ipv6|-
+|└─telephone|string|固定电话|-
+|age|int32|年龄|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "data": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 40.96,
+        "money": 24.13,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      }
+    ],
+    "data1": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 54.59,
+        "money": 79.28,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      }
+    ],
+    "data2": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 35.46,
+        "money": 38.87,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      }
+    ],
+    "age": 12
+  }
+]
+----
+
+=== List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
+*URL:* `http://localhost:8080/list/listString1`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listString1
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|泛型data|-
+|└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─age|int32|年龄|-
+|data1|object|泛型data1|-
+|└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|└─userList|array|用户列表|-
+|└─userName|string|用户名|-
+|└─nickName|string|昵称|-
+|└─userAddress|string|用户地址|-
+|└─userAge|int32|用户年龄|-
+|└─phone|string|手机号|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
+|└─ipv6|string|ipv6|-
+|└─telephone|string|固定电话|-
+|data2|object|data2|-
+|└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|└─userList|array|用户列表|-
+|└─userName|string|用户名|-
+|└─nickName|string|昵称|-
+|└─userAddress|string|用户地址|-
+|└─userAge|int32|用户年龄|-
+|└─phone|string|手机号|-
+|└─createTime|int64|创建时间|-
+|└─small|float|钱少|-
+|└─money|double|钱太多了|-
+|└─ipv6|string|ipv6|-
+|└─telephone|string|固定电话|-
+|age|int32|年龄|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "data": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 38.95,
+        "money": 76.24,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 41.39,
+        "money": 8.69,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 41.34,
+        "money": 44.07,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "age": 12
+    },
+    "data1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "aaron.goyette",
+      "nickName": "dario.goyette",
+      "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+      "userAge": 12,
+      "phone": "352.254.8203",
+      "createTime": 1628321658767,
+      "small": 18.56,
+      "money": 44.79,
+      "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+      "telephone": "352.254.8203"
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "aaron.goyette",
+      "nickName": "dario.goyette",
+      "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+      "userAge": 12,
+      "phone": "352.254.8203",
+      "createTime": 1628321658767,
+      "small": 78.00,
+      "money": 16.49,
+      "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+      "telephone": "352.254.8203"
+    },
+    "age": 12
+  }
+]
+----
+
+=== List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
+*URL:* `http://localhost:8080/list/listString2`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listString2
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|data|object|泛型data|-
+|└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─age|int32|年龄|-
+|data1|object|泛型data1|-
+|└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─age|int32|年龄|-
+|data2|object|data2|-
+|└─data|object|泛型data|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data1|object|泛型data1|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─data2|object|data2|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userDetails|array|用户详情|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userList|array|用户列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nickName|string|昵称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAddress|string|用户地址|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userAge|int32|用户年龄|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─phone|string|手机号|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|int64|创建时间|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─small|float|钱少|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─money|double|钱太多了|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ipv6|string|ipv6|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─telephone|string|固定电话|-
+|└─age|int32|年龄|-
+|age|int32|年龄|-
+|====================
+
+
+*Response-example:*
+----
+[
+  {
+    "data": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 36.75,
+        "money": 32.56,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 74.69,
+        "money": 45.96,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 53.43,
+        "money": 20.29,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "age": 12
+    },
+    "data1": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 90.42,
+        "money": 58.84,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 67.51,
+        "money": 3.74,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 29.95,
+        "money": 10.35,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "age": 12
+    },
+    "data2": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 83.72,
+        "money": 5.24,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 91.42,
+        "money": 99.60,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "aaron.goyette",
+        "nickName": "dario.goyette",
+        "userAddress": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+        "userAge": 12,
+        "phone": "352.254.8203",
+        "createTime": 1628321658767,
+        "small": 53.15,
+        "money": 34.19,
+        "ipv6": "ec1e:aa21:ae24:b368:0428:cc90:796b:0639",
+        "telephone": "352.254.8203"
+      },
+      "age": 12
+    },
+    "age": 12
+  }
+]
+----
+
+=== CommonResult&lt;List&lt;UserDto&gt;&gt;
+*URL:* `http://localhost:8080/list/listUserDto`
+
+*Type:* `GET`
+
+*Author:* yu 2018/06/27.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* CommonResult&lt;List&lt;UserDto&gt;&gt;
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/list/listUserDto
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|success|boolean|是否成功|-
+|message|string|错误提示(成功succeed)|-
+|data|array|处理成功返回的业务数据|-
+|└─token|string|token|-
+|└─LoginList|array|UserDto 用户信息列表|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─password|string|密码|-
+|code|string|错误代码|-
+|timestamp|string|响应时间|-
+|====================
+
+
+*Response-example:*
+----
+{
+  "success": true,
+  "message": "success",
+  "data": [
+    {
+      "token": "sz14rs",
+      "LoginList": [
+        {
+          "userName": "aaron.goyette",
+          "password": "xn69g0"
+        }
+      ]
+    }
+  ],
+  "code": "39678",
+  "timestamp": "2021-08-07 15:34:18"
+}
+----
+

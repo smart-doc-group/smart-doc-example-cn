@@ -1,0 +1,45 @@
+
+== Test inner class
+=== Return A object contains Inner class
+*URL:* `http://localhost:8080/inner/class`
+
+*Type:* `GET`
+
+*Author:* yu 2019/10/19.
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* Return A object contains Inner class
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/inner/class
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|name|string|姓名|-
+|innerClass|object|内部类|-
+|└─phone|string|电话|-
+|====================
+
+
+*Response-example:*
+----
+{
+  "name": "aaron.goyette",
+  "innerClass": {
+    "phone": "352.254.8203"
+  }
+}
+----
+

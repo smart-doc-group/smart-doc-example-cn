@@ -1,0 +1,814 @@
+
+== 请求类型测试
+=== 测试GetMapping 无参数
+*URL:* `http://localhost:8080/getMapping1`
+
+*Type:* `GET`
+
+*Author:* zhangsan, wangwu
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试GetMapping 无参数
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/getMapping1
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PostMapping 无参数
+*URL:* `http://localhost:8080/PostMapping1`
+
+*Type:* `POST`
+
+*Author:* "songhaozhi"
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试PostMapping 无参数
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X POST -i http://localhost:8080/PostMapping1
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PutMapping 无参数
+*URL:* `http://localhost:8080/PutMapping1`
+
+*Type:* `PUT`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试PutMapping 无参数
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X PUT -i http://localhost:8080/PutMapping1
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== DeleteMapping 无参数
+*URL:* `http://localhost:8080/DeleteMapping1`
+
+*Type:* `DELETE`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* DeleteMapping 无参数
+
+
+
+
+
+
+
+*Request-example:*
+----
+curl -X DELETE -i http://localhost:8080/DeleteMapping1
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试GetMapping
+*URL:* `http://localhost:8080/getMapping`
+
+*Type:* `GET`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试GetMapping
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userId|int64|userId|true|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X GET -i http://localhost:8080/getMapping?userId=425
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PostMapping json
+*URL:* `http://localhost:8080/postMapping`
+
+*Type:* `POST`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/json; charset=utf-8`
+
+*Description:* 测试PostMapping json
+
+
+
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|自增编号|false|v1.0
+|createBy|string|创建人|false|v1.2
+|createTime|string|创建时间|false|v1.0
+|updateBy|string|修改人|false|v1.1
+|updateTime|string|修改时间|false|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|username|string|用户名|false|-
+|password|string|密码|false|-
+|nickName|string|昵称|false|-
+|mobile|string|电话|false|-
+|email|string|邮箱|false|-
+|address|string|地址|false|-
+|sex|int32|性别(男1 女 2)|false|-
+|avatar|string|No comments found.|false|-
+|type|int32|类型|false|-
+|status|int32|状态|false|-
+|description|string|描述|false|-
+|roles|array|用户拥有角色|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|角色名 以ROLE_开头|false|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|false|v1.0
+|└─permissions|array|拥有权限|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|false|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|false|-
+|permissions|array|用户拥有的权限|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|菜单/权限名称|false|-
+|└─level|int32|层级|false|-
+|└─type|int32|类型 0页面 1具体操作|false|-
+|└─title|string|菜单标题|false|-
+|└─path|string|页面路径/资源链接url|false|-
+|└─component|string|前端组件|false|-
+|└─icon|string|图标|false|-
+|└─buttonType|string|按钮权限类型|false|-
+|└─parentId|string|父id|false|-
+|└─description|string|说明备注|false|-
+|└─sortOrder|number|排序值|false|-
+|└─status|int32|是否启用 0启用 -1禁用|false|-
+|└─children|array|子菜单/权限|false|-
+|└─permTypes|array|页面拥有的权限类型|false|-
+|└─expand|boolean|节点展开 前端所需|false|-
+|└─checked|boolean|是否勾选 前端所需|false|-
+|└─selected|boolean|是否选中 前端所需|false|-
+|====================
+
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/postMapping --data '{
+  "id": "188",
+  "createBy": "fxdk15",
+  "createTime": "2021-08-07 15:34:20",
+  "updateBy": "3l1sl1",
+  "updateTime": "2021-08-07 15:34:20",
+  "delFlag": 8,
+  "username": "aaron.goyette",
+  "password": "1esp7h",
+  "nickName": "dario.goyette",
+  "mobile": "1-515-480-2227",
+  "email": "theron.legros@gmail.com",
+  "address": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+  "sex": 0,
+  "avatar": "vj609f",
+  "type": 640,
+  "status": 635,
+  "description": "838i5z",
+  "roles": [
+    {
+      "id": "188",
+      "createBy": "ij0bpw",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "1mgr5j",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "188",
+          "createBy": "g2nrtr",
+          "createTime": "2021-08-07 15:34:20",
+          "updateBy": "yr4sb7",
+          "updateTime": "2021-08-07 15:34:20",
+          "delFlag": 8,
+          "name": "aaron.goyette",
+          "level": 755,
+          "type": 500,
+          "title": "5wxdxv",
+          "path": "xztkam",
+          "component": "xagg8k",
+          "icon": "tmlxa1",
+          "buttonType": "mx5dyl",
+          "parentId": "188",
+          "description": "vn3aj7",
+          "sortOrder": 937,
+          "status": 487,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "dfcasw"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "188",
+      "createBy": "k3lb6c",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "47z56p",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "level": 703,
+      "type": 673,
+      "title": "udy9ex",
+      "path": "q49oaz",
+      "component": "adt5c6",
+      "icon": "tv58f5",
+      "buttonType": "iwd11t",
+      "parentId": "188",
+      "description": "dh65ib",
+      "sortOrder": 914,
+      "status": 113,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "yqf3nv"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
+}'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PostMapping表单
+*URL:* `http://localhost:8080/postMapping2`
+
+*Type:* `POST`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试PostMapping表单
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|自增编号|false|v1.0
+|createBy|string|创建人|false|v1.2
+|createTime|string|创建时间|false|v1.0
+|updateBy|string|修改人|false|v1.1
+|updateTime|string|修改时间|false|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|username|string|用户名|false|-
+|password|string|密码|false|-
+|nickName|string|昵称|false|-
+|mobile|string|电话|false|-
+|email|string|邮箱|false|-
+|address|string|地址|false|-
+|sex|int32|性别(男1 女 2)|false|-
+|avatar|string|No comments found.|false|-
+|type|int32|类型|false|-
+|status|int32|状态|false|-
+|description|string|描述|false|-
+|roles|array|用户拥有角色|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|角色名 以ROLE_开头|false|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|false|v1.0
+|└─permissions|array|拥有权限|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|false|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|false|-
+|permissions|array|用户拥有的权限|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|菜单/权限名称|false|-
+|└─level|int32|层级|false|-
+|└─type|int32|类型 0页面 1具体操作|false|-
+|└─title|string|菜单标题|false|-
+|└─path|string|页面路径/资源链接url|false|-
+|└─component|string|前端组件|false|-
+|└─icon|string|图标|false|-
+|└─buttonType|string|按钮权限类型|false|-
+|└─parentId|string|父id|false|-
+|└─description|string|说明备注|false|-
+|└─sortOrder|number|排序值|false|-
+|└─status|int32|是否启用 0启用 -1禁用|false|-
+|└─children|array|子菜单/权限|false|-
+|└─permTypes|array|页面拥有的权限类型|false|-
+|└─expand|boolean|节点展开 前端所需|false|-
+|└─checked|boolean|是否勾选 前端所需|false|-
+|└─selected|boolean|是否选中 前端所需|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X POST -i http://localhost:8080/postMapping2 --data 'roles[0].permissions[0].status=12&permissions[0].selected=true&roles[0].permissions[0].icon=jqg1ny&roles[0].createTime=2021-08-07 15:34:20&permissions[0].name=aaron.goyette&roles[0].permissions[0].type=739&permissions[0].buttonType=x8g9k3&status=773&roles[0].createBy=1m2ips&roles[0].permissions[0].path=hpomut&password=b81uy3&roles[0].permissions[0].id=188&roles[0].permissions[0].component=yk2whn&permissions[0].status=978&permissions[0].id=188&permissions[0].updateTime=2021-08-07 15:34:20&roles[0].name=aaron.goyette&permissions[0].expand=true&mobile=1-515-480-2227&permissions[0].title=angdfu&id=188&roles[0].id=188&roles[0].permissions[0].selected=true&permissions[0].level=497&permissions[0].checked=true&roles[0].permissions[0].updateBy=ssg1ea&updateTime=2021-08-07 15:34:20&address=Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631&nickName=dario.goyette&delFlag=8&createBy=7csgzu&roles[0].permissions[0].updateTime=2021-08-07 15:34:20&updateBy=ei1lhm&sex=0&roles[0].permissions[0].buttonType=pk3hxi&permissions[0].createTime=2021-08-07 15:34:20&permissions[0].parentId=188&roles[0].defaultRole=true&roles[0].permissions[0].description=y06bxf&permissions[0].description=bgka97&roles[0].permissions[0].checked=true&roles[0].permissions[0].expand=true&username=aaron.goyette&description=5zgs8l&roles[0].delFlag=8&email=theron.legros@gmail.com&permissions[0].path=wevgui&roles[0].permissions[0].level=349&permissions[0].sortOrder=781&permissions[0].delFlag=8&roles[0].updateBy=av0656&permissions[0].createBy=7ktnh5&permissions[0].component=pqyupk&permissions[0].type=567&roles[0].permissions[0].sortOrder=676&roles[0].permissions[0].createBy=z3kzzh&roles[0].permissions[0].name=aaron.goyette&roles[0].permissions[0].delFlag=8&roles[0].permissions[0].createTime=2021-08-07 15:34:20&permissions[0].icon=rgyd0t&type=47&permissions[0].updateBy=1wr0iq&createTime=2021-08-07 15:34:20&roles[0].permissions[0].title=m7ir5y&roles[0].permissions[0].parentId=188&roles[0].updateTime=2021-08-07 15:34:20&avatar=sv161w'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PutMapping json
+*URL:* `http://localhost:8080/putMapping`
+
+*Type:* `PUT`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/json; charset=utf-8`
+
+*Description:* 测试PutMapping json
+
+
+
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|自增编号|false|v1.0
+|createBy|string|创建人|false|v1.2
+|createTime|string|创建时间|false|v1.0
+|updateBy|string|修改人|false|v1.1
+|updateTime|string|修改时间|false|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|username|string|用户名|false|-
+|password|string|密码|false|-
+|nickName|string|昵称|false|-
+|mobile|string|电话|false|-
+|email|string|邮箱|false|-
+|address|string|地址|false|-
+|sex|int32|性别(男1 女 2)|false|-
+|avatar|string|No comments found.|false|-
+|type|int32|类型|false|-
+|status|int32|状态|false|-
+|description|string|描述|false|-
+|roles|array|用户拥有角色|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|角色名 以ROLE_开头|false|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|false|v1.0
+|└─permissions|array|拥有权限|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|false|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|false|-
+|permissions|array|用户拥有的权限|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|菜单/权限名称|false|-
+|└─level|int32|层级|false|-
+|└─type|int32|类型 0页面 1具体操作|false|-
+|└─title|string|菜单标题|false|-
+|└─path|string|页面路径/资源链接url|false|-
+|└─component|string|前端组件|false|-
+|└─icon|string|图标|false|-
+|└─buttonType|string|按钮权限类型|false|-
+|└─parentId|string|父id|false|-
+|└─description|string|说明备注|false|-
+|└─sortOrder|number|排序值|false|-
+|└─status|int32|是否启用 0启用 -1禁用|false|-
+|└─children|array|子菜单/权限|false|-
+|└─permTypes|array|页面拥有的权限类型|false|-
+|└─expand|boolean|节点展开 前端所需|false|-
+|└─checked|boolean|是否勾选 前端所需|false|-
+|└─selected|boolean|是否选中 前端所需|false|-
+|====================
+
+
+*Request-example:*
+----
+curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/putMapping --data '{
+  "id": "188",
+  "createBy": "p72pd3",
+  "createTime": "2021-08-07 15:34:20",
+  "updateBy": "xl4470",
+  "updateTime": "2021-08-07 15:34:20",
+  "delFlag": 8,
+  "username": "aaron.goyette",
+  "password": "t75u1f",
+  "nickName": "dario.goyette",
+  "mobile": "1-515-480-2227",
+  "email": "theron.legros@gmail.com",
+  "address": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+  "sex": 0,
+  "avatar": "0amzhl",
+  "type": 91,
+  "status": 77,
+  "description": "m0ihas",
+  "roles": [
+    {
+      "id": "188",
+      "createBy": "2fjhz1",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "5g41gv",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "188",
+          "createBy": "voankr",
+          "createTime": "2021-08-07 15:34:20",
+          "updateBy": "fgd6em",
+          "updateTime": "2021-08-07 15:34:20",
+          "delFlag": 8,
+          "name": "aaron.goyette",
+          "level": 626,
+          "type": 292,
+          "title": "dnax2h",
+          "path": "glkakx",
+          "component": "hzzcxv",
+          "icon": "1sp9nf",
+          "buttonType": "bx0m6o",
+          "parentId": "188",
+          "description": "k9qx7n",
+          "sortOrder": 283,
+          "status": 71,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "hjtkv1"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "188",
+      "createBy": "hxpw0l",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "v51vzc",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "level": 803,
+      "type": 395,
+      "title": "hzvf5w",
+      "path": "u46oir",
+      "component": "8q9ytc",
+      "icon": "13q6ix",
+      "buttonType": "5iqq7t",
+      "parentId": "188",
+      "description": "l3a1nw",
+      "sortOrder": 918,
+      "status": 752,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "5ava7j"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
+}'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试PutMapping表单
+*URL:* `http://localhost:8080/putMapping2`
+
+*Type:* `PUT`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试PutMapping表单
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|id|string|自增编号|false|v1.0
+|createBy|string|创建人|false|v1.2
+|createTime|string|创建时间|false|v1.0
+|updateBy|string|修改人|false|v1.1
+|updateTime|string|修改时间|false|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|username|string|用户名|false|-
+|password|string|密码|false|-
+|nickName|string|昵称|false|-
+|mobile|string|电话|false|-
+|email|string|邮箱|false|-
+|address|string|地址|false|-
+|sex|int32|性别(男1 女 2)|false|-
+|avatar|string|No comments found.|false|-
+|type|int32|类型|false|-
+|status|int32|状态|false|-
+|description|string|描述|false|-
+|roles|array|用户拥有角色|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|角色名 以ROLE_开头|false|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|false|v1.0
+|└─permissions|array|拥有权限|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|false|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|false|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|false|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|false|-
+|permissions|array|用户拥有的权限|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─name|string|菜单/权限名称|false|-
+|└─level|int32|层级|false|-
+|└─type|int32|类型 0页面 1具体操作|false|-
+|└─title|string|菜单标题|false|-
+|└─path|string|页面路径/资源链接url|false|-
+|└─component|string|前端组件|false|-
+|└─icon|string|图标|false|-
+|└─buttonType|string|按钮权限类型|false|-
+|└─parentId|string|父id|false|-
+|└─description|string|说明备注|false|-
+|└─sortOrder|number|排序值|false|-
+|└─status|int32|是否启用 0启用 -1禁用|false|-
+|└─children|array|子菜单/权限|false|-
+|└─permTypes|array|页面拥有的权限类型|false|-
+|└─expand|boolean|节点展开 前端所需|false|-
+|└─checked|boolean|是否勾选 前端所需|false|-
+|└─selected|boolean|是否选中 前端所需|false|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X PUT -i http://localhost:8080/putMapping2 --data 'roles[0].id=188&roles[0].permissions[0].level=378&permissions[0].updateBy=4hvvzb&roles[0].permissions[0].createTime=2021-08-07 15:34:20&roles[0].defaultRole=true&description=nm8bsa&address=Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631&roles[0].permissions[0].status=669&roles[0].permissions[0].checked=true&permissions[0].status=13&delFlag=8&roles[0].permissions[0].selected=true&roles[0].delFlag=8&permissions[0].parentId=188&username=aaron.goyette&roles[0].name=aaron.goyette&permissions[0].selected=true&roles[0].createTime=2021-08-07 15:34:20&roles[0].permissions[0].name=aaron.goyette&email=theron.legros@gmail.com&roles[0].permissions[0].updateTime=2021-08-07 15:34:20&roles[0].permissions[0].delFlag=8&roles[0].permissions[0].path=ia1qzp&permissions[0].id=188&updateBy=5olhwf&roles[0].permissions[0].icon=esnn3v&updateTime=2021-08-07 15:34:20&createTime=2021-08-07 15:34:20&permissions[0].updateTime=2021-08-07 15:34:20&id=188&permissions[0].sortOrder=856&type=893&password=ihwrue&roles[0].updateBy=jfk3th&roles[0].permissions[0].sortOrder=104&permissions[0].delFlag=8&permissions[0].description=86c2nl&permissions[0].expand=true&roles[0].permissions[0].expand=true&status=679&permissions[0].icon=hf6j8w&permissions[0].checked=true&permissions[0].component=4n4xiq&roles[0].createBy=i00gxf&createBy=iioink&permissions[0].buttonType=zhw43y&roles[0].permissions[0].parentId=188&permissions[0].name=aaron.goyette&roles[0].updateTime=2021-08-07 15:34:20&avatar=vgfvxm&roles[0].permissions[0].component=713qx6&roles[0].permissions[0].title=bbby35&roles[0].permissions[0].description=75sj6j&roles[0].permissions[0].type=235&permissions[0].createTime=2021-08-07 15:34:20&permissions[0].createBy=xkngyt&sex=0&roles[0].permissions[0].buttonType=yd475z&roles[0].permissions[0].id=188&mobile=1-515-480-2227&roles[0].permissions[0].createBy=thcxs7&nickName=dario.goyette&permissions[0].title=s4c9zj&permissions[0].path=m9xr5f&permissions[0].type=537&permissions[0].level=766&roles[0].permissions[0].updateBy=99szhg'
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+
+=== 测试DeleteMapping
+*URL:* `http://localhost:8080/deleteMapping`
+
+*Type:* `DELETE`
+
+*Author:* songhaozhi,test
+
+*Content-Type:* `application/x-www-form-urlencoded;charset=utf-8`
+
+*Description:* 测试DeleteMapping
+
+
+
+
+*Query-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|userId|int64|userId|true|-
+|====================
+
+
+
+*Request-example:*
+----
+curl -X DELETE -i http://localhost:8080/deleteMapping?userId=468
+----
+
+
+*Response-example:*
+----
+Doesn't return a value.
+----
+

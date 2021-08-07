@@ -1,0 +1,464 @@
+
+== 用户信息操作接口
+=== 添加用户
+*URL:* `http://localhost:8080/user/add`
+
+*Type:* `POST`
+
+*Author:* yu 2018/8/4.
+
+*Content-Type:* `application/json; charset=utf-8`
+
+*Description:* 添加用户
+
+
+
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|MAX_SPEED|int32|No comments found.|false|-
+|gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+|simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
+|username|string|用户名|false|v1.0
+|password|string|密码|false|v1.0
+|nickName|string|昵称|false|v1.0
+|mobile|string|电话|false|v1.0
+|roles|array|用户角色信息|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─userId|string|No comments found.|false|-
+|└─roleId|string|No comments found.|false|-
+|└─roleName|string|No comments found.|false|-
+|extend|map|用户扩展项|false|-
+|listMap|array|ListMap效果展示|false|-
+|====================
+
+
+*Request-example:*
+----
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/user/add --data '{"MAX_SPEED":725,"gender":0,"simpleEnum":"RED","username":"aaron.goyette","password":"xlc2mw","nickName":"dario.goyette","mobile":"1-515-480-2227","roles":[{"id":"188","createBy":"31wn4a","createTime":"2021-08-07 15:34:20","updateBy":"mvzde9","updateTime":"2021-08-07 15:34:20","delFlag":8,"userId":"188","roleId":"188","roleName":"aaron.goyette"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|id|string|自增编号|v1.0
+|createBy|string|创建人|v1.2
+|createTime|string|创建时间|v1.0
+|updateBy|string|修改人|v1.1
+|updateTime|string|修改时间|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|username|string|用户名|-
+|password|string|密码|-
+|nickName|string|昵称|-
+|mobile|string|电话|-
+|email|string|邮箱|-
+|address|string|地址|-
+|sex|int32|性别(男1 女 2)|-
+|avatar|string|No comments found.|-
+|type|int32|类型|-
+|status|int32|状态|-
+|description|string|描述|-
+|roles|array|用户拥有角色|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|角色名 以ROLE_开头|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|v1.0
+|└─permissions|array|拥有权限|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|-
+|permissions|array|用户拥有的权限|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|菜单/权限名称|-
+|└─level|int32|层级|-
+|└─type|int32|类型 0页面 1具体操作|-
+|└─title|string|菜单标题|-
+|└─path|string|页面路径/资源链接url|-
+|└─component|string|前端组件|-
+|└─icon|string|图标|-
+|└─buttonType|string|按钮权限类型|-
+|└─parentId|string|父id|-
+|└─description|string|说明备注|-
+|└─sortOrder|number|排序值|-
+|└─status|int32|是否启用 0启用 -1禁用|-
+|└─children|array|子菜单/权限|-
+|└─permTypes|array|页面拥有的权限类型|-
+|└─expand|boolean|节点展开 前端所需|-
+|└─checked|boolean|是否勾选 前端所需|-
+|└─selected|boolean|是否选中 前端所需|-
+|====================
+
+
+*Response-example:*
+----
+{
+  "id": "188",
+  "createBy": "byycze",
+  "createTime": "2021-08-07 15:34:20",
+  "updateBy": "vhirdg",
+  "updateTime": "2021-08-07 15:34:20",
+  "delFlag": 8,
+  "username": "aaron.goyette",
+  "password": "ahnhx7",
+  "nickName": "dario.goyette",
+  "mobile": "1-515-480-2227",
+  "email": "theron.legros@gmail.com",
+  "address": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+  "sex": 0,
+  "avatar": "f13ot8",
+  "type": 967,
+  "status": 317,
+  "description": "rnm60j",
+  "roles": [
+    {
+      "id": "188",
+      "createBy": "fffd5y",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "9dbsgv",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "188",
+          "createBy": "op65mm",
+          "createTime": "2021-08-07 15:34:20",
+          "updateBy": "5jxfk4",
+          "updateTime": "2021-08-07 15:34:20",
+          "delFlag": 8,
+          "name": "aaron.goyette",
+          "level": 769,
+          "type": 477,
+          "title": "wi8n62",
+          "path": "jfoa3t",
+          "component": "zr0ozz",
+          "icon": "igb4p9",
+          "buttonType": "l30qet",
+          "parentId": "188",
+          "description": "b1j0b1",
+          "sortOrder": 33,
+          "status": 307,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "lrligx"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "188",
+      "createBy": "ynxsw7",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "wm2dwu",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "level": 758,
+      "type": 162,
+      "title": "407x9t",
+      "path": "63lr4u",
+      "component": "it2lkr",
+      "icon": "ylptdf",
+      "buttonType": "viqhkk",
+      "parentId": "188",
+      "description": "k35iah",
+      "sortOrder": 707,
+      "status": 97,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "nxya13"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
+}
+----
+
+=== 更新用户
+*URL:* `http://localhost:8080/user/update`
+
+*Type:* `PUT`
+
+*Author:* yu 2018/8/4.
+
+*Content-Type:* `application/json; charset=utf-8`
+
+*Description:* 更新用户
+
+
+
+
+
+*Request-parameters:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Parameter | Type|Description|Required|Since
+|MAX_SPEED|int32|No comments found.|false|-
+|gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+|simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
+|username|string|用户名|false|v1.0
+|password|string|密码|false|v1.0
+|nickName|string|昵称|false|v1.0
+|mobile|string|电话|false|v1.0
+|roles|array|用户角色信息|false|-
+|└─id|string|自增编号|false|v1.0
+|└─createBy|string|创建人|false|v1.2
+|└─createTime|string|创建时间|false|v1.0
+|└─updateBy|string|修改人|false|v1.1
+|└─updateTime|string|修改时间|false|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+|└─userId|string|No comments found.|false|-
+|└─roleId|string|No comments found.|false|-
+|└─roleName|string|No comments found.|false|-
+|extend|map|用户扩展项|false|-
+|listMap|array|ListMap效果展示|false|-
+|====================
+
+
+*Request-example:*
+----
+curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/user/update --data '{"MAX_SPEED":392,"gender":0,"simpleEnum":"RED","username":"aaron.goyette","password":"zst41h","nickName":"dario.goyette","mobile":"1-515-480-2227","roles":[{"id":"188","createBy":"ku5tll","createTime":"2021-08-07 15:34:20","updateBy":"d2eh9s","updateTime":"2021-08-07 15:34:20","delFlag":8,"userId":"188","roleId":"188","roleName":"aaron.goyette"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
+----
+*Response-fields:*
+
+[width="100%",options="header"]
+[stripes=even]
+|====================
+|Field | Type|Description|Since
+|id|string|自增编号|v1.0
+|createBy|string|创建人|v1.2
+|createTime|string|创建时间|v1.0
+|updateBy|string|修改人|v1.1
+|updateTime|string|修改时间|v1.1
+|delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|username|string|用户名|-
+|password|string|密码|-
+|nickName|string|昵称|-
+|mobile|string|电话|-
+|email|string|邮箱|-
+|address|string|地址|-
+|sex|int32|性别(男1 女 2)|-
+|avatar|string|No comments found.|-
+|type|int32|类型|-
+|status|int32|状态|-
+|description|string|描述|-
+|roles|array|用户拥有角色|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|角色名 以ROLE_开头|v1.0
+|└─defaultRole|boolean|是否为注册默认角色|v1.0
+|└─permissions|array|拥有权限|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─name|string|菜单/权限名称|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─level|int32|层级|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─type|int32|类型 0页面 1具体操作|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─title|string|菜单标题|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─path|string|页面路径/资源链接url|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─component|string|前端组件|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─icon|string|图标|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─buttonType|string|按钮权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─parentId|string|父id|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─description|string|说明备注|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─sortOrder|number|排序值|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─status|int32|是否启用 0启用 -1禁用|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─children|array|子菜单/权限|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─permTypes|array|页面拥有的权限类型|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|-
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|-
+|permissions|array|用户拥有的权限|-
+|└─id|string|自增编号|v1.0
+|└─createBy|string|创建人|v1.2
+|└─createTime|string|创建时间|v1.0
+|└─updateBy|string|修改人|v1.1
+|└─updateTime|string|修改时间|v1.1
+|└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+|└─name|string|菜单/权限名称|-
+|└─level|int32|层级|-
+|└─type|int32|类型 0页面 1具体操作|-
+|└─title|string|菜单标题|-
+|└─path|string|页面路径/资源链接url|-
+|└─component|string|前端组件|-
+|└─icon|string|图标|-
+|└─buttonType|string|按钮权限类型|-
+|└─parentId|string|父id|-
+|└─description|string|说明备注|-
+|└─sortOrder|number|排序值|-
+|└─status|int32|是否启用 0启用 -1禁用|-
+|└─children|array|子菜单/权限|-
+|└─permTypes|array|页面拥有的权限类型|-
+|└─expand|boolean|节点展开 前端所需|-
+|└─checked|boolean|是否勾选 前端所需|-
+|└─selected|boolean|是否选中 前端所需|-
+|====================
+
+
+*Response-example:*
+----
+{
+  "id": "188",
+  "createBy": "cwynn8",
+  "createTime": "2021-08-07 15:34:20",
+  "updateBy": "tzjbny",
+  "updateTime": "2021-08-07 15:34:20",
+  "delFlag": 8,
+  "username": "aaron.goyette",
+  "password": "nxaw63",
+  "nickName": "dario.goyette",
+  "mobile": "1-515-480-2227",
+  "email": "theron.legros@gmail.com",
+  "address": "Suite 714 9045 Amanda Overpass， Lake Gaynell， GA 31631",
+  "sex": 0,
+  "avatar": "vs0v87",
+  "type": 229,
+  "status": 883,
+  "description": "6wnhbb",
+  "roles": [
+    {
+      "id": "188",
+      "createBy": "0ydbvz",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "72d5av",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "188",
+          "createBy": "nqcfzh",
+          "createTime": "2021-08-07 15:34:20",
+          "updateBy": "9x4eu5",
+          "updateTime": "2021-08-07 15:34:20",
+          "delFlag": 8,
+          "name": "aaron.goyette",
+          "level": 443,
+          "type": 427,
+          "title": "jc5ja3",
+          "path": "bmul1j",
+          "component": "rg19ic",
+          "icon": "3n5m4i",
+          "buttonType": "qnhz8f",
+          "parentId": "188",
+          "description": "968z49",
+          "sortOrder": 396,
+          "status": 883,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "g6ss5a"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "188",
+      "createBy": "ovpfxx",
+      "createTime": "2021-08-07 15:34:20",
+      "updateBy": "r6lrpj",
+      "updateTime": "2021-08-07 15:34:20",
+      "delFlag": 8,
+      "name": "aaron.goyette",
+      "level": 860,
+      "type": 253,
+      "title": "2qyi2i",
+      "path": "ml5xmr",
+      "component": "28wa49",
+      "icon": "rxcjfz",
+      "buttonType": "e9bo78",
+      "parentId": "188",
+      "description": "55gak0",
+      "sortOrder": 630,
+      "status": 342,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "8xwgov"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
+}
+----
+
