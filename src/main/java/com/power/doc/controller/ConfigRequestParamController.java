@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  * json文件配置全局参数测试
- *
+ * @tag 哇哇哇哇哇
  * @author chen qi 2021-07-16 14:09
  **/
 @RestController
@@ -15,10 +15,8 @@ public class ConfigRequestParamController {
 
     /**
      * get请求测试query参数
-     *
+     * @tag 顶顶顶到达
      * @author cqmike
-     * @param configQueryParam query参数
-     * @param configQueryParam query参数1
      * @return
      */
     @GetMapping("configQueryParamGet")
@@ -29,8 +27,8 @@ public class ConfigRequestParamController {
     /**
      * post请求测试query参数
      *
+     * @tag 顶顶顶到达
      * @author cqmike
-     * @param configQueryParam query参数
      * @return
      */
     @PostMapping("configQueryParamPost")
@@ -41,9 +39,8 @@ public class ConfigRequestParamController {
     /**
      *  get请求测试query参数和path参数
      *
+     * @tag 顶顶顶到达1
      * @author cqmike
-     * @param configPathParam path参数
-     * @param configQueryParam query参数
      * @return
      */
     @GetMapping("configParamGet/{configPathParam}")
@@ -55,8 +52,6 @@ public class ConfigRequestParamController {
      *  post请求测试query参数和path参数
      *
      * @author cqmike
-     * @param configPathParam path参数
-     * @param configQueryParam query参数
      * @return
      */
     @PostMapping("configParamPost/{configPathParam}")

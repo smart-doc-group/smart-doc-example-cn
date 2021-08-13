@@ -2,7 +2,7 @@
   "serverUrl": "http://localhost:8080/",
   "isStrict": false,
   "allInOne": true,
-  "outPath": "src/main/resources/static/doc",
+  "outPath": "target/doc",
   "coverOld": true,
   "createDebugPage": true,
   "style":"xt256",
@@ -32,7 +32,7 @@
       "name": "configPathParam",//请求头名称
       "type": "string",//请求头类型
       "desc": "desc",//请求头描述信息
-      "paramIn": "path",
+      "paramIn": "path", // 参数所在位置 header-请求头, path-路径参数, query-参数
       "value":"testPath",//不设置默认null
       "required": false,//是否必须
       "since": "-",//什么版本添加的改请求头
@@ -69,5 +69,11 @@
       "constantsClassName":"com.power.doc.constants.ApiVersion"
   },{
     "constantsClassName":"com.power.doc.constants.RequestHeadValue"
-  }]
+  }],
+  "groups": [
+    {
+      "name": "测试分组",
+      "apis": "com.power.doc.controller.app.*"
+    }
+  ]
 }
