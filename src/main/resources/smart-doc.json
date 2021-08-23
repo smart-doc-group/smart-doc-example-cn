@@ -69,11 +69,5 @@
       "constantsClassName":"com.power.doc.constants.ApiVersion"
   },{
     "constantsClassName":"com.power.doc.constants.RequestHeadValue"
-  }],
-  "groups": [
-    {
-      "name": "测试分组",
-      "apis": "com.power.doc.controller.app.*"
-    }
-  ]
+  }]
 }

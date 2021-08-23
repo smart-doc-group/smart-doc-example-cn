@@ -1,9 +1,63 @@
-# smart-doc
+# smartdoc
+Version |  Update Time  | Status | Author |  Description
+---|---|---|---|---
+v2021-08-23 23:02:52|2021-08-23 23:02:52|auto|@chenqi|Created by smart-doc
 
+
+
+## feign测试
+### 解析路径
+**URL:** http://localhost:8080/APP/www.baidu.com/{id}/{name}
+
+**Type:** GET
+
+**Author:** yu 2020/6/21.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 解析路径
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+id|string|标识|true|-
+name|string|姓名|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/APP/www.baidu.com/163/ricky.nitzsche
+```
+
+**Response-example:**
+```
+string
+```
+
+### 模具
+**URL:** http://localhost:8080/APP/www.baidu.com/enum
+
+**Type:** GET
+
+**Author:** yu 2020/6/21.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 模具
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/APP/www.baidu.com/enum
+```
+
+**Response-example:**
+```
+string
+```
 
 ## smart-doc调试入口
 ### Test Constants
-**URL:** http://127.0.0.1:8080/testConstants/1.0
+**URL:** http://localhost:8080/testConstants/1.0
 
 **Type:** GET
 
@@ -13,12 +67,85 @@
 
 **Description:** Test Constants
 
-**Request-headers:**
+**Query-parameters:**
 
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+page|int32|页码|false|-
 
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/testConstants/1.0?page=0
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## app端接口测试
+### 创建人员
+**URL:** http://localhost:8080/app/
+
+**Type:** POST
+
+**Author:** yu 2018/9/4.
+
+**Content-Type:** application/json; charset=utf-8
+
+**Description:** 如果创建成功将会发送MQTT消息：person/{id}/create
+
+**Body-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+name|string|名字|false|-
+sex|enum|性别<br/>MALE<br/>FEMALE<br/>|false|-
+childrenIds|array|子女ID|false|-
+
+**Request-example:**
+```
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/app/ --data '{
+  "name": "张三",
+  "sex": "MALE",
+  "childrenIds": [
+    298
+  ]
+}'
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### Test Constants
+**URL:** http://localhost:8080/app/admin/testConstants/1.0
+
+**Type:** GET
+
+**Author:** yu 2018/9/4.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Test Constants
 
 **Query-parameters:**
 
@@ -28,36 +155,7 @@ page|int32|页码|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testConstants/1.0?page=0
-```
-
-**Response-example:**
-```
-Doesn't return a value.
-```
-
-## app端接口测试
-### RequestParam+json
-**URL:** http://127.0.0.1:8080/app/getUserJson
-
-**Type:** POST
-
-**Author:** yu 2018/9/4.
-
-**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
-
-**Description:** RequestParam+json
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
-**Request-example:**
-```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/app/getUserJson
+curl -X GET -i http://localhost:8080/app/admin/testConstants/1.0?page=0
 ```
 
 **Response-example:**
@@ -66,7 +164,7 @@ Doesn't return a value.
 ```
 
 ### 分页查询订单信息
-**URL:** http://127.0.0.1:8080/app/page/{pageIndex}/{pageSize}
+**URL:** http://localhost:8080/app/page/{pageIndex}/{pageSize}
 
 **Type:** GET
 
@@ -75,13 +173,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 分页查询订单信息
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Path-parameters:**
 
@@ -92,46 +183,38 @@ pageSize|int32|页面大小|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/app/page/114/10
+curl -X GET -i http://localhost:8080/app/page/346/10
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-searchCount|boolean|进行 count 查询 【 默认: true 】|-
-pages|int64|当前分页总页数|-
-hitCount|boolean|是否命中count缓存|3.3.1
-records|array|分页记录列表|-
+records|array|分页数据|-
 └─orderId|int32|订单id|-
 └─orderType|enum|订单类型<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已支付")<br/>EXPIRED -("2","已经失效")<br/>|-
-total|int64|当前满足条件总行数|-
-size|int64|获取每页显示条数|-
-current|int64|当前页|-
+total|int64|获取总记录|-
+size|int64|每页显示条数|-
 count|int64|总数|-
 page|int64|当前页码|-
 
 **Response-example:**
 ```
 {
-	"searchCount":true,
-	"pages":408,
-	"hitCount":true,
-	"records":[
-		{
-			"orderId":16,
-			"orderType":"WAIT_PAY"
-		}
-	],
-	"total":707,
-	"size":46,
-	"current":254,
-	"count":70,
-	"page":237
+  "records": [
+    {
+      "orderId": 404,
+      "orderType": "WAIT_PAY"
+    }
+  ],
+  "total": 980,
+  "size": 465,
+  "count": 905,
+  "page": 881
 }
 ```
 
 ### app测试
-**URL:** http://127.0.0.1:8080/app/test
+**URL:** http://localhost:8080/app/test
 
 **Type:** POST
 
@@ -141,13 +224,6 @@ page|int64|当前页码|-
 
 **Description:** app测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -158,7 +234,7 @@ endTime|string|结束时间|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/app/test --data 'name=zhangsan&endTime=2020-12-27 01:05:23&beginTime=2020-12-27 01:05:23'
+curl -X POST -i http://localhost:8080/app/test --data 'name=zhangsan&endTime=2021-08-23 23:02:54&beginTime=2021-08-23 23:02:54'
 ```
 **Response-fields:**
 
@@ -166,25 +242,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### app测试2
-**URL:** http://127.0.0.1:8080/app/test2
+**URL:** http://localhost:8080/app/test2
 
 **Type:** GET
 
@@ -194,13 +270,6 @@ timestamp|string|响应时间|-
 
 **Description:** app测试2
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -211,7 +280,7 @@ endTime|string|结束时间|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/app/test2?name=明.陈&beginTime=2020-12-27 01:05:23&endTime=2020-12-27 01:05:23
+curl -X GET -i http://localhost:8080/app/test2?beginTime=2021-08-23 23:02:54&endTime=2021-08-23 23:02:54&name=ricky.nitzsche
 ```
 
 **Response-example:**
@@ -220,7 +289,7 @@ string
 ```
 
 ### app测试3
-**URL:** http://127.0.0.1:8080/app/test3
+**URL:** http://localhost:8080/app/test3
 
 **Type:** GET
 
@@ -230,13 +299,6 @@ string
 
 **Description:** app测试3
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -247,7 +309,7 @@ endTime|string|结束时间|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/app/test3?endTime=2020-12-27 01:05:23&name=明.陈&beginTime=2020-12-27 01:05:23
+curl -X GET -i http://localhost:8080/app/test3?beginTime=2021-08-23 23:02:54&name=ricky.nitzsche&endTime=2021-08-23 23:02:54
 ```
 
 **Response-example:**
@@ -255,9 +317,36 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/app/test3?endTime=2020-12-27 
 string
 ```
 
+## * 部门操作 * * @author jdkleo * @since 1.0
+### * 获得部门     * @param deptId 部门ID     * @return
+**URL:** http://localhost:8080/sail/dept/get/{deptId}
+
+**Type:** GET
+
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** * 获得部门     * @param deptId 部门ID     * @return
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+deptId|int64|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/sail/dept/get/{deptId}?deptId=915
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
 ## 异步返回信息测试
 ### 返回Callable&lt;CommonResult&gt;
-**URL:** http://127.0.0.1:8080/testCallable
+**URL:** http://localhost:8080/testCallable
 
 **Type:** GET
 
@@ -267,16 +356,9 @@ string
 
 **Description:** 返回Callable&lt;CommonResult&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testCallable
+curl -X GET -i http://localhost:8080/testCallable
 ```
 **Response-fields:**
 
@@ -284,25 +366,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
-**URL:** http://127.0.0.1:8080/async-deferredresult
+**URL:** http://localhost:8080/async-deferredresult
 
 **Type:** GET
 
@@ -312,16 +394,9 @@ timestamp|string|响应时间|-
 
 **Description:** 返回DeferredResult&lt;CommonResult&lt;String&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/async-deferredresult
+curl -X GET -i http://localhost:8080/async-deferredresult
 ```
 **Response-fields:**
 
@@ -329,23 +404,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"rnilry",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "iaw6ik",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 返回WebAsyncTask&lt;CommonResult&gt;
-**URL:** http://127.0.0.1:8080/WebAsync/timeout
+**URL:** http://localhost:8080/WebAsync/timeout
 
 **Type:** GET
 
@@ -355,16 +430,9 @@ timestamp|string|响应时间|-
 
 **Description:** 返回WebAsyncTask&lt;CommonResult&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/WebAsync/timeout
+curl -X GET -i http://localhost:8080/WebAsync/timeout
 ```
 **Response-fields:**
 
@@ -372,25 +440,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 返回Future&lt;CommonResult&lt;String&gt;&gt;
-**URL:** http://127.0.0.1:8080/future
+**URL:** http://localhost:8080/future
 
 **Type:** GET
 
@@ -400,16 +468,9 @@ timestamp|string|响应时间|-
 
 **Description:** 返回Future&lt;CommonResult&lt;String&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/future
+curl -X GET -i http://localhost:8080/future
 ```
 **Response-fields:**
 
@@ -417,23 +478,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"f787td",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "5hse9e",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
-**URL:** http://127.0.0.1:8080/completableFuture
+**URL:** http://localhost:8080/completableFuture
 
 **Type:** GET
 
@@ -443,16 +504,9 @@ timestamp|string|响应时间|-
 
 **Description:** 返回CompletableFuture&lt;CommonResult&lt;String&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/completableFuture
+curl -X GET -i http://localhost:8080/completableFuture
 ```
 **Response-fields:**
 
@@ -460,39 +514,32 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"gpx83m",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "r5602z",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## 循环引用依赖测试
 ### 循环依赖参数推导
-**URL:** http://127.0.0.1:8080/circularReference
+**URL:** http://localhost:8080/circularReference
 
 **Type:** GET
 
-**Author:** ,yu 2019/10/24.
+**Author:** yu 2019/10/24.
 
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 循环依赖参数推导(不建议使用)
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -509,20 +556,20 @@ b|object|对象b|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/circularReference --data '{
-	"a":"r9fa6c",
-	"b":{
-		"b":"h9voso",
-		"c":{
-			"c":"skkzmq",
-			"a":{
-				"a":"mho1ii",
-				"b":{
-					"$ref":"..."
-				}
-			}
-		}
-	}
+curl -X GET -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/circularReference --data '{
+  "a": "ix9rww",
+  "b": {
+    "b": "tfrfpk",
+    "c": {
+      "c": "dw8jwa",
+      "a": {
+        "a": "ytvw77",
+        "b": {
+          "$ref": "..."
+        }
+      }
+    }
+  }
 }'
 ```
 **Response-fields:**
@@ -541,25 +588,146 @@ b|object|对象b|-
 **Response-example:**
 ```
 {
-	"a":"ljo44n",
-	"b":{
-		"b":"tf6byn",
-		"c":{
-			"c":"29lcxj",
-			"a":{
-				"a":"wybrqx",
-				"b":{
-					"$ref":"..."
-				}
-			}
-		}
-	}
+  "a": "of0azr",
+  "b": {
+    "b": "zu9cgf",
+    "c": {
+      "c": "4y0syi",
+      "a": {
+        "a": "1oaskq",
+        "b": {
+          "$ref": "..."
+        }
+      }
+    }
+  }
 }
+```
+
+## json文件配置全局参数测试
+### get请求测试query参数
+**URL:** http://localhost:8080/configQueryParamGet
+
+**Type:** GET
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** get请求测试query参数
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/configQueryParamGet?configQueryParam=v0ba1d
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+### post请求测试query参数
+**URL:** http://localhost:8080/configQueryParamPost
+
+**Type:** POST
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** post请求测试query参数
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X POST -i http://localhost:8080/configQueryParamPost --data 'configQueryParam=y0vkxr'
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+### get请求测试query参数和path参数
+**URL:** http://localhost:8080/configParamGet/{configPathParam}
+
+**Type:** GET
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** get请求测试query参数和path参数
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configPathParam|string|No comments found.|true|-
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/configParamGet/zscc7o?configQueryParam=252xh4
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+### post请求测试query参数和path参数
+**URL:** http://localhost:8080/configParamPost/{configPathParam}
+
+**Type:** POST
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** post请求测试query参数和path参数
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configPathParam|string|No comments found.|true|-
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X POST -i http://localhost:8080/configParamPost/pmyvkt --data 'configQueryParam=r43cii'
+```
+
+**Response-example:**
+```
+Doesn't return a value.
 ```
 
 ## 枚举参数测试
 ### 获取枚举参数1
-**URL:** http://127.0.0.1:8080/enum
+**URL:** http://localhost:8080/enum
 
 **Type:** GET
 
@@ -569,13 +737,6 @@ b|object|对象b|-
 
 **Description:** 获取枚举参数1
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -584,7 +745,7 @@ simpleEnum|enum|RED<br/>BLUE<br/>|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum?simpleEnum=RED
+curl -X GET -i http://localhost:8080/enum?simpleEnum=RED
 ```
 
 **Response-example:**
@@ -593,7 +754,7 @@ string
 ```
 
 ### 获取枚举参数2
-**URL:** http://127.0.0.1:8080/enum/{orderEnum}
+**URL:** http://localhost:8080/enum/{orderEnum}
 
 **Type:** GET
 
@@ -603,13 +764,6 @@ string
 
 **Description:** 获取枚举参数2
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Path-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -618,7 +772,7 @@ orderEnum|enum|WAIT_PAY -(0,已支付)<br/>PAID -(1,已支付)<br/>EXPIRED -(2,�
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum/WAIT_PAY
+curl -X GET -i http://localhost:8080/enum/WAIT_PAY
 ```
 
 **Response-example:**
@@ -627,7 +781,7 @@ string
 ```
 
 ### 获取枚举参数3
-**URL:** http://127.0.0.1:8080/enum/{simpleEnum}
+**URL:** http://localhost:8080/enum/{simpleEnum}
 
 **Type:** GET
 
@@ -637,13 +791,6 @@ string
 
 **Description:** 获取枚举参数3
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Path-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -652,7 +799,7 @@ simpleEnum|enum|RED<br/>BLUE<br/>|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum/RED
+curl -X GET -i http://localhost:8080/enum/RED
 ```
 
 **Response-example:**
@@ -661,24 +808,17 @@ string
 ```
 
 ### 获取枚举参数4
-**URL:** http://127.0.0.1:8080/enum/test1
+**URL:** http://localhost:8080/enum/test1
 
-**Type:** GET
+**Type:** POST
 
 **Author:** yu 2019/11/28.
 
-**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+**Content-Type:** application/json; charset=utf-8
 
 **Description:** 获取枚举参数4
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
-**Query-parameters:**
+**Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
@@ -687,7 +827,10 @@ orderType|enum|订单类型<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已�
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum/test1?order=
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/enum/test1 --data '{
+  "orderId": 898,
+  "orderType": "WAIT_PAY"
+}'
 ```
 
 **Response-example:**
@@ -696,7 +839,7 @@ string
 ```
 
 ### 枚举响应
-**URL:** http://127.0.0.1:8080/enum/resp
+**URL:** http://localhost:8080/enum/resp
 
 **Type:** GET
 
@@ -706,26 +849,89 @@ string
 
 **Description:** 枚举响应
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum/resp
+curl -X GET -i http://localhost:8080/enum/resp
 ```
 
 **Response-example:**
 ```
-"RED"
+RED
+```
+
+## 文件下载
+### 下载文件
+**URL:** http://localhost:8080/download1/{filename}
+
+**Type:** POST
+
+**Author:** yu 2021/5/29.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** smart-doc自动识别文件流对象，不需要做文件下载标记
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+filename|string|文件名|true|-
+
+**Request-example:**
+```
+curl -X POST -i http://localhost:8080/download1/me
+```
+
+**Response-example:**
+```
+File download.
+```
+
+### 下载普通文件文件
+**URL:** http://localhost:8080/text/
+
+**Type:** POST
+
+**Author:** yu 2021/5/29.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 方法没有返回对象可以识别，需要做download标记
+
+**Request-example:**
+```
+curl -X POST -i http://localhost:8080/text/
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+### 分页查询
+**URL:** http://localhost:8080/list
+
+**Type:** POST
+
+**Author:** yu 2021/5/29.
+
+**Content-Type:** application/json; charset=utf-8
+
+**Description:** 分页查询
+
+**Request-example:**
+```
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/list --data '{}'
+```
+
+**Response-example:**
+```
+{}
 ```
 
 ## 文件上传测试
 ### 上传单个文件
-**URL:** http://127.0.0.1:8080/upload
+**URL:** http://localhost:8080/upload
 
 **Type:** POST
 
@@ -735,23 +941,16 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/enum/resp
 
 **Description:** 上传单个文件
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 userId|string|用户id|false|-
-file|file||true|-
+file|file|文件|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: multipart/form-data' -H 'token:kk' -i http://127.0.0.1:8080/upload --data 'userId=95'
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/upload --data 'userId=163'
 ```
 **Response-fields:**
 
@@ -759,25 +958,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 批量上传文件
-**URL:** http://127.0.0.1:8080/batchUpload
+**URL:** http://localhost:8080/batchUpload
 
 **Type:** POST
 
@@ -787,12 +986,49 @@ timestamp|string|响应时间|-
 
 **Description:** 批量上传文件
 
-**Request-headers:**
+**Query-parameters:**
 
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+file|file|文件(array of file)|true|-
 
+**Request-example:**
+```
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/batchUpload
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### 批量上传文件1
+**URL:** http://localhost:8080/batchUpload1
+
+**Type:** POST
+
+**Author:** yu 2019/10/31.
+
+**Content-Type:** multipart/form-data
+
+**Description:** 批量上传文件1
 
 **Query-parameters:**
 
@@ -802,7 +1038,7 @@ file|file|文件(array of file)|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: multipart/form-data' -H 'token:kk' -i http://127.0.0.1:8080/batchUpload
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/batchUpload1
 ```
 **Response-fields:**
 
@@ -810,66 +1046,114 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
-## 接收表单参数
-### 测试formData
-**URL:** http://127.0.0.1:8080/formData1
+### 批量上传文件2
+**URL:** http://localhost:8080/batchUpload2
 
 **Type:** POST
 
-**Author:** yu 2019/10/29.
+**Author:** yu 2019/10/31.
 
-**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+**Content-Type:** multipart/form-data
 
-**Description:** 测试formData
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
+**Description:** 批量上传文件2
 
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-MAX_SPEED|int32|No comments found.|false|-
-simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
-password|string|密码|false|v1.0
-nickName|string|昵称|false|v1.0
-mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+files|file|批量文件(array of file)|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/formData1 --data 'password=5q99c5&mobile=15525817715&simpleEnum=RED&MAX_SPEED=311&username=明.陈&nickName=dylan.bednar&gender=WOMAN'
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/batchUpload2
 ```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
 
 **Response-example:**
 ```
-Doesn't return a value.
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
 ```
 
+### 批量上传文件3
+**URL:** http://localhost:8080/batchUpload3
+
+**Type:** POST
+
+**Author:** yu 2019/10/31.
+
+**Content-Type:** multipart/form-data
+
+**Description:** 批量上传文件3
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+files|file|批量文件(array of file)|true|-
+
+**Request-example:**
+```
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/batchUpload3
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+## 接收表单参数
 ### Post请求发表单文件
-**URL:** http://127.0.0.1:8080/formData2
+**URL:** http://localhost:8080/formData2
 
 **Type:** POST
 
@@ -879,24 +1163,17 @@ Doesn't return a value.
 
 **Description:** Post请求发表单文件
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 userId|string|No comments found.|false|-
 userData|string|No comments found.|false|-
-file|file||true|-
+file|file|No comments found.|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: multipart/form-data' -H 'token:kk' -i http://127.0.0.1:8080/formData2 --data 'userId=95&userData=qeitxe'
+curl -X POST -H 'Content-Type: multipart/form-data' -i http://localhost:8080/formData2 --data 'userData=ye6818&userId=163'
 ```
 
 **Response-example:**
@@ -905,7 +1182,7 @@ Doesn't return a value.
 ```
 
 ### Get请求发表单文件 暂不支持完全解析
-**URL:** http://127.0.0.1:8080/formData2
+**URL:** http://localhost:8080/formData2
 
 **Type:** GET
 
@@ -915,24 +1192,17 @@ Doesn't return a value.
 
 **Description:** Get请求发表单文件 暂不支持完全解析
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 userId|string|No comments found.|false|-
 userData|string|No comments found.|false|-
-file|file||true|-
+file|file|No comments found.|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'Content-Type: multipart/form-data' -H 'token:kk' -i http://127.0.0.1:8080/formData2?userId=95&userData=yzulzh
+curl -X GET -H 'Content-Type: multipart/form-data' -i http://localhost:8080/formData2?userData=ukgsvm&userId=163
 ```
 
 **Response-example:**
@@ -941,7 +1211,7 @@ Doesn't return a value.
 ```
 
 ### 表单 包含复杂对象的Get 暂不支持完全解析
-**URL:** http://127.0.0.1:8080/formData4
+**URL:** http://localhost:8080/formData4
 
 **Type:** GET
 
@@ -951,13 +1221,6 @@ Doesn't return a value.
 
 **Description:** 表单 包含复杂对象的Get 暂不支持完全解析
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -965,94 +1228,28 @@ Parameter | Type|Description|Required|Since
 userId|string|No comments found.|false|-
 userData|string|No comments found.|false|-
 MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
 simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
+username|string|用户名|false|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/formData4?simpleEnum=RED&userData=7y84we&username=明.陈&MAX_SPEED=548&nickName=dylan.bednar&mobile=15525817715&userId=95&gender=WOMAN&password=ogaz4i
-```
-
-**Response-example:**
-```
-Doesn't return a value.
-```
-
-### 表单 包含复杂对象
-**URL:** http://127.0.0.1:8080/formData5
-
-**Type:** POST
-
-**Author:** yu 2019/10/29.
-
-**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
-
-**Description:** 表单 包含复杂对象
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
-**Query-parameters:**
-
-Parameter | Type|Description|Required|Since
----|---|---|---|---
-userId|string|No comments found.|false|-
-userData|string|No comments found.|false|-
-MAX_SPEED|int32|No comments found.|false|-
-simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
-password|string|密码|false|v1.0
-nickName|string|昵称|false|v1.0
-mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
-
-**Request-example:**
-```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/formData5 --data 'mobile=15525817715&userId=95&gender=WOMAN&userData=swdnrz&MAX_SPEED=662&nickName=dylan.bednar&simpleEnum=RED&password=7zpbcv&username=明.陈'
-```
-
-**Response-example:**
-```
-Doesn't return a value.
-```
-
-### 表单 枚举
-**URL:** http://127.0.0.1:8080/formData6
-
-**Type:** GET
-
-**Author:** yu 2019/10/29.
-
-**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
-
-**Description:** 表单 枚举
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
-**Query-parameters:**
-
-Parameter | Type|Description|Required|Since
----|---|---|---|---
-userId|string|No comments found.|false|-
-userData|string|No comments found.|false|-
-simpleUser|enum|RED<br/>BLUE<br/>|false|-
-
-**Request-example:**
-```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/formData6?userId=95&userData=5feppd&simpleUser=RED
+curl -X GET -i http://localhost:8080/formData4?password=qy4n4h&roles[0].updateTime=2021-08-23 23:02:54&userId=163&username=ricky.nitzsche&userData=ruxvbo&MAX_SPEED=255&roles[0].createTime=2021-08-23 23:02:54&gender=WOMAN&roles[0].roleName=ricky.nitzsche&roles[0].userId=163&simpleEnum=RED&roles[0].delFlag=1&mobile=(806) 262-2209&roles[0].updateBy=jqm9nu&nickName=morgan.wolff&roles[0].createBy=24mkd1&roles[0].roleId=163&roles[0].id=163
 ```
 
 **Response-example:**
@@ -1061,7 +1258,7 @@ Doesn't return a value.
 ```
 
 ### 测试formData带路径参数
-**URL:** http://127.0.0.1:8080/formData1/{id}
+**URL:** http://localhost:8080/formData7/{id}
 
 **Type:** POST
 
@@ -1070,13 +1267,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试formData带路径参数
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Path-parameters:**
 
@@ -1089,16 +1279,28 @@ id|string|No comments found.|true|-
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
 simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
+username|string|用户名|false|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/formData1/95 --data 'mobile=15525817715&MAX_SPEED=471&nickName=dylan.bednar&gender=WOMAN&password=6cqpk0&simpleEnum=RED&username=明.陈'
+curl -X POST -i http://localhost:8080/formData7/163 --data 'roles[0].userId=163&password=bwgbei&roles[0].createTime=2021-08-23 23:02:54&mobile=(806) 262-2209&roles[0].id=163&simpleEnum=RED&gender=WOMAN&nickName=morgan.wolff&roles[0].createBy=bah9ke&roles[0].updateBy=ikgdl3&username=ricky.nitzsche&roles[0].updateTime=2021-08-23 23:02:54&roles[0].delFlag=1&roles[0].roleName=ricky.nitzsche&roles[0].roleId=163&MAX_SPEED=443'
 ```
 
 **Response-example:**
@@ -1107,7 +1309,7 @@ Doesn't return a value.
 ```
 
 ### 测试formData带路多个路径参数
-**URL:** http://127.0.0.1:8080/formData1/{id}/{age}
+**URL:** http://localhost:8080/formData8/{id}/{age}
 
 **Type:** POST
 
@@ -1116,13 +1318,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试formData带路多个路径参数
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Path-parameters:**
 
@@ -1136,16 +1331,28 @@ age|int32|No comments found.|true|-
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
 simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
+username|string|用户名|false|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/formData1/95/24 --data 'simpleEnum=RED&username=明.陈&gender=WOMAN&nickName=dylan.bednar&mobile=15525817715&password=etto6q&MAX_SPEED=209'
+curl -X POST -i http://localhost:8080/formData8/163/32 --data 'simpleEnum=RED&nickName=morgan.wolff&roles[0].updateTime=2021-08-23 23:02:54&roles[0].delFlag=1&roles[0].userId=163&roles[0].id=163&roles[0].updateBy=tpmh9v&roles[0].createTime=2021-08-23 23:02:54&mobile=(806) 262-2209&MAX_SPEED=114&roles[0].roleId=163&roles[0].roleName=ricky.nitzsche&gender=WOMAN&username=ricky.nitzsche&password=92x4p3&roles[0].createBy=jpnkvm'
 ```
 
 **Response-example:**
@@ -1155,7 +1362,7 @@ Doesn't return a value.
 
 ## java泛型解析测试
 ### 测试多泛型1
-**URL:** http://127.0.0.1:8080/generics/test1
+**URL:** http://localhost:8080/generics/test1
 
 **Type:** GET
 
@@ -1165,16 +1372,9 @@ Doesn't return a value.
 
 **Description:** 测试多泛型1
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/generics/test1
+curl -X GET -i http://localhost:8080/generics/test1
 ```
 **Response-fields:**
 
@@ -1183,38 +1383,36 @@ Field | Type|Description|Since
 test|string|托尔斯泰|-
 value|object|value|-
 └─MAX_SPEED|int32|No comments found.|-
+└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
 └─simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|-
 └─username|string|用户名|v1.0
 └─password|string|密码|v1.0
 └─nickName|string|昵称|v1.0
 └─mobile|string|电话|v1.0
-└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
+└─roles|array|用户角色信息|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|No comments found.|-
+└─extend|map|用户扩展项|-
+└─listMap|array|ListMap效果展示|-
 key|object|key|-
 └─roleId|int32|角色id|-
 └─roleName|string|角色名称|-
+└─age|int32|年龄|-
 
 **Response-example:**
 ```
-{
-	"test":"fz8qq1",
-	"value":{
-		"MAX_SPEED":43,
-		"simpleEnum":"RED",
-		"username":"明.陈",
-		"password":"bsszyg",
-		"nickName":"dylan.bednar",
-		"mobile":"15525817715",
-		"gender":0
-	},
-	"key":{
-		"roleId":724,
-		"roleName":"明.陈"
-	}
-}
+{"test":"c5v0wu","value":{"MAX_SPEED":434,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"5xurwv","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"26sxv8","createTime":"2021-08-23 23:02:54","updateBy":"290b4n","updateTime":"2021-08-23 23:02:54","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}},"key":{"roleId":127,"roleName":"ricky.nitzsche","age":32}}
 ```
 
 ### 测试多泛型2
-**URL:** http://127.0.0.1:8080/generics/test2
+**URL:** http://localhost:8080/generics/test2
 
 **Type:** GET
 
@@ -1224,16 +1422,9 @@ key|object|key|-
 
 **Description:** 测试多泛型2
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/generics/test2
+curl -X GET -i http://localhost:8080/generics/test2
 ```
 **Response-fields:**
 
@@ -1242,40 +1433,36 @@ Field | Type|Description|Since
 total|int32|总条数|-
 other|object|其他信息|-
 └─MAX_SPEED|int32|No comments found.|-
+└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
 └─simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|-
 └─username|string|用户名|v1.0
 └─password|string|密码|v1.0
 └─nickName|string|昵称|v1.0
 └─mobile|string|电话|v1.0
-└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
+└─roles|array|用户角色信息|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|No comments found.|-
+└─extend|map|用户扩展项|-
+└─listMap|array|ListMap效果展示|-
 rows|array|数据列表|-
 └─roleId|int32|角色id|-
 └─roleName|string|角色名称|-
+└─age|int32|年龄|-
 
 **Response-example:**
 ```
-{
-	"total":712,
-	"other":{
-		"MAX_SPEED":727,
-		"simpleEnum":"RED",
-		"username":"明.陈",
-		"password":"sykgpo",
-		"nickName":"dylan.bednar",
-		"mobile":"15525817715",
-		"gender":0
-	},
-	"rows":[
-		{
-			"roleId":404,
-			"roleName":"明.陈"
-		}
-	]
-}
+{"total":33,"other":{"MAX_SPEED":762,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"ujrgb4","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"bpe81n","createTime":"2021-08-23 23:02:54","updateBy":"iip44t","updateTime":"2021-08-23 23:02:54","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}},"rows":[{"roleId":461,"roleName":"ricky.nitzsche","age":32}]}
 ```
 
 ### 测试单泛型嵌套
-**URL:** http://127.0.0.1:8080/generics/test3
+**URL:** http://localhost:8080/generics/test3
 
 **Type:** GET
 
@@ -1285,16 +1472,9 @@ rows|array|数据列表|-
 
 **Description:** 测试单泛型嵌套
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/generics/test3
+curl -X GET -i http://localhost:8080/generics/test3
 ```
 **Response-fields:**
 
@@ -1302,29 +1482,31 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 └─roleId|int32|角色id|-
 └─roleName|string|角色名称|-
+└─age|int32|年龄|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"roleId":14,
-		"roleName":"明.陈"
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "roleId": 547,
+    "roleName": "ricky.nitzsche",
+    "age": 32
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## https测试
 ### 测试https
-**URL:** http://127.0.0.1:8080/testHttps
+**URL:** http://localhost:8080/testHttps
 
 **Type:** GET
 
@@ -1334,16 +1516,9 @@ timestamp|string|响应时间|-
 
 **Description:** 测试https
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testHttps
+curl -X GET -i http://localhost:8080/testHttps
 ```
 **Response-fields:**
 
@@ -1351,23 +1526,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"lzw82v",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "2q8ze7",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 测试http
-**URL:** http://127.0.0.1:8080/testHttp
+**URL:** http://localhost:8080/testHttp
 
 **Type:** GET
 
@@ -1377,16 +1552,9 @@ timestamp|string|响应时间|-
 
 **Description:** 测试http
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testHttp
+curl -X GET -i http://localhost:8080/testHttp
 ```
 **Response-fields:**
 
@@ -1394,24 +1562,24 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"743p1b",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "8sidpz",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## Test inner class
 ### Return A object contains Inner class
-**URL:** http://127.0.0.1:8080/inner/class
+**URL:** http://localhost:8080/inner/class
 
 **Type:** GET
 
@@ -1421,16 +1589,9 @@ timestamp|string|响应时间|-
 
 **Description:** Return A object contains Inner class
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/inner/class
+curl -X GET -i http://localhost:8080/inner/class
 ```
 **Response-fields:**
 
@@ -1443,16 +1604,16 @@ innerClass|object|内部类|-
 **Response-example:**
 ```
 {
-	"name":"明.陈",
-	"innerClass":{
-		"phone":"15711804595"
-	}
+  "name": "ricky.nitzsche",
+  "innerClass": {
+    "phone": "260-954-1407"
+  }
 }
 ```
 
 ## JDK8的时间测试
 ### LocalDate和LocalDateTime测试
-**URL:** http://127.0.0.1:8080/dateEntity
+**URL:** http://localhost:8080/dateEntity
 
 **Type:** POST
 
@@ -1462,33 +1623,29 @@ innerClass|object|内部类|-
 
 **Description:** LocalDate和LocalDateTime测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+createDate|string|创建时间|false|v1.0
 localDate|string|创建日期|false|v1.0
 localDateTime|string|创建时间|false|v1.0
 localTime|string|jdk8 LocalTime|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/dateEntity? --data '{
-	"localDate":"2020-12-27",
-	"localDateTime":"2020-12-27 01:05:24",
-	"localTime":"2020-12-27 01:05:23"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/dateEntity --data '{
+  "createDate": "2021-08-23 23:02:54",
+  "localDate": "2021-08-23",
+  "localDateTime": "2021-08-23 23:02:54",
+  "localTime": "2021-08-23 23:02:54"
 }'
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
+createDate|string|创建时间|v1.0
 localDate|string|创建日期|v1.0
 localDateTime|string|创建时间|v1.0
 localTime|string|jdk8 LocalTime|-
@@ -1496,34 +1653,28 @@ localTime|string|jdk8 LocalTime|-
 **Response-example:**
 ```
 {
-	"localDate":"2020-12-27",
-	"localDateTime":"2020-12-27 01:05:24",
-	"localTime":"2020-12-27 01:05:23"
+  "createDate": "2021-08-23 23:02:54",
+  "localDate": "2021-08-23",
+  "localDateTime": "2021-08-23 23:02:54",
+  "localTime": "2021-08-23 23:02:54"
 }
 ```
 
 ## Jpa代码测试
 ### ~~Jpa Page~~
-**URL:** http://127.0.0.1:8080/test
+**URL:** http://localhost:8080/test
 
 **Type:** POST
 
-**Author:** cht
+**Author:** "cht"
 
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 用于测试Jpa的分页查询
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/test
+curl -X POST -i http://localhost:8080/test
 ```
 **Response-fields:**
 
@@ -1537,13 +1688,14 @@ numberOfElements|int32|Returns the number of elements currently on this {@link S
 content|array|Returns the page content as {@link List}.|-
 └─roleId|int32|角色id|-
 └─roleName|string|角色名称|-
+└─age|int32|年龄|-
 sort|object|Returns the sorting parameters for the {@link Slice}.|-
 └─empty|boolean|Returns whether the current {@link Streamable} is empty.|-
 └─orders|array|No comments found.|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─direction|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─direction|enum|null<br/>ASC<br/>DESC<br/>|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─property|string|No comments found.|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ignoreCase|boolean|No comments found.|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nullHandling|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nullHandling|enum|null<br/>NATIVE<br/>NULLS_FIRST<br/>NULLS_LAST<br/>|-
 first|boolean|Returns whether the current {@link Slice} is the first one.|-
 last|boolean|Returns whether the current {@link Slice} is the last one.|-
 pageable|object|Returns the {@link Pageable} that's been used to request the current {@link Slice}.|2.0
@@ -1555,71 +1707,64 @@ pageable|object|Returns the {@link Pageable} that's been used to request the cur
 └─sort|object|Returns the sorting parameters.|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─empty|boolean|Returns whether the current {@link Streamable} is empty.|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─orders|array|No comments found.|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─direction|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─direction|enum|null<br/>ASC<br/>DESC<br/>|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─property|string|No comments found.|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ignoreCase|boolean|No comments found.|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nullHandling|object|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─nullHandling|enum|null<br/>NATIVE<br/>NULLS_FIRST<br/>NULLS_LAST<br/>|-
 empty|boolean|Returns whether the current {@link Streamable} is empty.|-
 
 **Response-example:**
 ```
 {
-	"totalPages":57,
-	"totalElements":390,
-	"number":611,
-	"size":10,
-	"numberOfElements":29,
-	"content":[
-		{
-			"roleId":381,
-			"roleName":"明.陈"
-		}
-	],
-	"sort":{
-		"empty":true,
-		"orders":[
-			{
-				"direction":{
-					
-				},
-				"property":"dldwu8",
-				"ignoreCase":true,
-				"nullHandling":{
-					
-				}
-			}
-		]
-	},
-	"first":true,
-	"last":true,
-	"pageable":{
-		"paged":true,
-		"unpaged":true,
-		"pageNumber":458,
-		"pageSize":10,
-		"offset":1,
-		"sort":{
-			"empty":true,
-			"orders":[
-				{
-					"direction":{
-						
-					},
-					"property":"454ob3",
-					"ignoreCase":true,
-					"nullHandling":{
-						
-					}
-				}
-			]
-		}
-	},
-	"empty":true
+  "totalPages": 727,
+  "totalElements": 305,
+  "number": 309,
+  "size": 10,
+  "numberOfElements": 597,
+  "content": [
+    {
+      "roleId": 859,
+      "roleName": "ricky.nitzsche",
+      "age": 32
+    }
+  ],
+  "sort": {
+    "empty": true,
+    "orders": [
+      {
+        "direction": "ASC",
+        "property": "1wiqck",
+        "ignoreCase": true,
+        "nullHandling": "NATIVE"
+      }
+    ]
+  },
+  "first": true,
+  "last": true,
+  "pageable": {
+    "paged": true,
+    "unpaged": true,
+    "pageNumber": 137,
+    "pageSize": 10,
+    "offset": 1,
+    "sort": {
+      "empty": true,
+      "orders": [
+        {
+          "direction": "ASC",
+          "property": "7ovbqk",
+          "ignoreCase": true,
+          "nullHandling": "NATIVE"
+        }
+      ]
+    }
+  },
+  "empty": true
 }
 ```
 
 ### Jpa Pageable查询参数重渲染
-**URL:** http://127.0.0.1:8080/pageableParam
+**URL:** http://localhost:8080/pageableParam
 
 **Type:** POST
 
@@ -1629,23 +1774,23 @@ empty|boolean|Returns whether the current {@link Streamable} is empty.|-
 
 **Description:** 测试让smart-doc使用自定义对象来渲染生成文档
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
+result|object|返回结果|false|-
+└─data|object|业务数据|false|-
+└─encrypt|string|加密方式 NONE\RSA\AES|false|-
 page|int32|页码|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/pageableParam? --data '{
-	"page":1
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/pageableParam --data '{
+  "result": {
+    "data": {},
+    "encrypt": "rzz5ma"
+  },
+  "page": 1
 }'
 ```
 **Response-fields:**
@@ -1654,26 +1799,26 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## 测试json
 ### RequestParam+json
-**URL:** http://127.0.0.1:8080/getUserJson
+**URL:** http://localhost:8080/getUserJson
 
 **Type:** POST
 
@@ -1682,13 +1827,6 @@ timestamp|string|响应时间|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** RequestParam+json
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Query-parameters:**
 
@@ -1700,7 +1838,7 @@ name|string|No comments found.|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-dataExpressionEnum|enum|枚举<br/>SENSIRION<br/>|false|-
+dataExpressionEnum|enum|枚举<br/>SENSIRION -("2101",null)<br/>|false|-
 menuPermissionCodes|array|菜单/权限编码<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已支付")<br/>EXPIRED -("2","已经失效")<br/>|false|-
 date|string|学好|false|-
 username|string|用户名|false|-
@@ -1710,16 +1848,16 @@ age2|int32|No comments found.|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/getUserJson?name=明.陈 --data '{
-	"dataExpressionEnum":"SENSIRION",
-	"menuPermissionCodes":[
-		"WAIT_PAY"
-	],
-	"date":"2019-01-01",
-	"username":"明.陈",
-	"idCard":"811523197205067912",
-	"age":24,
-	"age2":840
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/getUserJson?name=ricky.nitzsche --data '{
+  "dataExpressionEnum": "SENSIRION",
+  "menuPermissionCodes": [
+    "WAIT_PAY"
+  ],
+  "date": "2019-01-01",
+  "username": "ricky.nitzsche",
+  "idCard": "141227199611258483",
+  "age": 32,
+  "age2": 558
 }'
 ```
 
@@ -1730,7 +1868,7 @@ string
 
 ## FastJson和Jackson注解支持测试
 ### Jackson注解支持测试
-**URL:** http://127.0.0.1:8080/json/jacksonTest
+**URL:** http://localhost:8080/json/jacksonTest
 
 **Type:** GET
 
@@ -1740,13 +1878,6 @@ string
 
 **Description:** Jackson注解支持测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -1755,8 +1886,8 @@ name|string|用户名|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/json/jacksonTest --data '{
-	"name":"明.陈"
+curl -X GET -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/json/jacksonTest --data '{
+  "name": "ricky.nitzsche"
 }'
 ```
 **Response-fields:**
@@ -1768,12 +1899,12 @@ name|string|用户名|-
 **Response-example:**
 ```
 {
-	"name":"明.陈"
+  "name": "ricky.nitzsche"
 }
 ```
 
 ### FastJson注解支持测试
-**URL:** http://127.0.0.1:8080/json/fastJsonTest
+**URL:** http://localhost:8080/json/fastJsonTest
 
 **Type:** GET
 
@@ -1783,18 +1914,11 @@ name|string|用户名|-
 
 **Description:** FastJson注解支持测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-dataExpressionEnum|enum|枚举<br/>SENSIRION<br/>|false|-
+dataExpressionEnum|enum|枚举<br/>SENSIRION -("2101",null)<br/>|false|-
 menuPermissionCodes|array|菜单/权限编码<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已支付")<br/>EXPIRED -("2","已经失效")<br/>|false|-
 date|string|学好|false|-
 username|string|用户名|false|-
@@ -1804,23 +1928,23 @@ age2|int32|No comments found.|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/json/fastJsonTest --data '{
-	"dataExpressionEnum":"SENSIRION",
-	"menuPermissionCodes":[
-		"WAIT_PAY"
-	],
-	"date":"2019-01-01",
-	"username":"明.陈",
-	"idCard":"811523197205067912",
-	"age":24,
-	"age2":440
+curl -X GET -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/json/fastJsonTest --data '{
+  "dataExpressionEnum": "SENSIRION",
+  "menuPermissionCodes": [
+    "WAIT_PAY"
+  ],
+  "date": "2019-01-01",
+  "username": "ricky.nitzsche",
+  "idCard": "141227199611258483",
+  "age": 32,
+  "age2": 443
 }'
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-dataExpressionEnum|enum|枚举<br/>SENSIRION<br/>|-
+dataExpressionEnum|enum|枚举<br/>SENSIRION -("2101",null)<br/>|-
 menuPermissionCodes|array|菜单/权限编码<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已支付")<br/>EXPIRED -("2","已经失效")<br/>|-
 date|string|学好|-
 username|string|用户名|-
@@ -1831,21 +1955,21 @@ age2|int32|No comments found.|-
 **Response-example:**
 ```
 {
-	"dataExpressionEnum":"SENSIRION",
-	"menuPermissionCodes":[
-		"WAIT_PAY"
-	],
-	"date":"2019-01-01",
-	"username":"明.陈",
-	"idCard":"811523197205067912",
-	"age":24,
-	"age2":869
+  "dataExpressionEnum": "SENSIRION",
+  "menuPermissionCodes": [
+    "WAIT_PAY"
+  ],
+  "date": "2019-01-01",
+  "username": "ricky.nitzsche",
+  "idCard": "141227199611258483",
+  "age": 32,
+  "age2": 65
 }
 ```
 
 ## List返回接口Api文档测试
 ### List&lt;String&gt;结构
-**URL:** http://127.0.0.1:8080/list/listString
+**URL:** http://localhost:8080/list/listString
 
 **Type:** GET
 
@@ -1855,28 +1979,21 @@ age2|int32|No comments found.|-
 
 **Description:** List&lt;String&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listString
+curl -X GET -i http://localhost:8080/list/listString
 ```
 
 **Response-example:**
 ```
 [
-	"a51dal",
-	"4ij06p"
+  "vkvda1",
+  "e7ray4"
 ]
 ```
 
 ### List&lt;Map&lt;String,String&gt;&gt;结构
-**URL:** http://127.0.0.1:8080/list/listMap
+**URL:** http://localhost:8080/list/listMap
 
 **Type:** GET
 
@@ -1886,16 +2003,9 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listString
 
 **Description:** List&lt;Map&lt;String,String&gt;&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listMap
+curl -X GET -i http://localhost:8080/list/listMap
 ```
 **Response-fields:**
 
@@ -1906,15 +2016,15 @@ Field | Type|Description|Since
 **Response-example:**
 ```
 [
-	{
-		"mapKey1":"6n638d",
-		"mapKey2":"ep9tnv"
-	}
+  {
+    "mapKey1": "m89mxz",
+    "mapKey2": "ie9v8a"
+  }
 ]
 ```
 
 ### List&lt;自动义对象&gt;
-**URL:** http://127.0.0.1:8080/list/listObject
+**URL:** http://localhost:8080/list/listObject
 
 **Type:** POST
 
@@ -1924,16 +2034,9 @@ Field | Type|Description|Since
 
 **Description:** List&lt;自动义对象&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/list/listObject
+curl -X POST -i http://localhost:8080/list/listObject
 ```
 **Response-fields:**
 
@@ -1956,33 +2059,33 @@ telephone|string|固定电话|-
 **Response-example:**
 ```
 [
-	{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":55.49,
-		"money":33.84,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	}
+  {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 95.24,
+    "money": 28.39,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  }
 ]
 ```
 
 ### List&lt;Map&lt;String,T&gt;&gt;结构
-**URL:** http://127.0.0.1:8080/list/listMap2
+**URL:** http://localhost:8080/list/listMap2
 
 **Type:** GET
 
@@ -1992,16 +2095,9 @@ telephone|string|固定电话|-
 
 **Description:** List&lt;Map&lt;String,T&gt;&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listMap2
+curl -X GET -i http://localhost:8080/list/listMap2
 ```
 **Response-fields:**
 
@@ -2070,110 +2166,110 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 [
-	{
-		"mapKey":{
-			"stuName":"明.陈",
-			"stuAge":true,
-			"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":18.80,
-				"money":35.27,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"userMap":{
-				"mapKey":{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":92.94,
-					"money":1.39,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			},
-			"userTreeSet":[
-				{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":28.79,
-					"money":18.47,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			],
-			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":92.30,
-				"money":11.81,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		}
-	}
+  {
+    "mapKey": {
+      "stuName": "ricky.nitzsche",
+      "stuAge": true,
+      "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "user": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 19.84,
+        "money": 71.37,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "userMap": {
+        "mapKey": {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 77.15,
+          "money": 36.94,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      },
+      "userTreeSet": [
+        {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 32.58,
+          "money": 78.76,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      ],
+      "user1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 14.76,
+        "money": 0.19,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    }
+  }
 ]
 ```
 
 ### List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
-**URL:** http://127.0.0.1:8080/list/listMap3
+**URL:** http://localhost:8080/list/listMap3
 
 **Type:** GET
 
@@ -2183,16 +2279,9 @@ user1|object|用户对象2|-
 
 **Description:** List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listMap3
+curl -X GET -i http://localhost:8080/list/listMap3
 ```
 **Response-fields:**
 
@@ -2245,82 +2334,82 @@ age|int32|年龄|-
 **Response-example:**
 ```
 [
-	{
-		"mapKey":{
-			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":88.46,
-				"money":57.70,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":48.29,
-				"money":48.61,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":71.82,
-				"money":49.58,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"age":24
-		}
-	}
+  {
+    "mapKey": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 79.61,
+        "money": 55.25,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 49.64,
+        "money": 9.01,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 57.41,
+        "money": 55.21,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "age": 32
+    }
+  }
 ]
 ```
 
 ### List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
-**URL:** http://127.0.0.1:8080/list/listTeacher
+**URL:** http://localhost:8080/list/listTeacher
 
 **Type:** GET
 
@@ -2330,22 +2419,15 @@ age|int32|年龄|-
 
 **Description:** List&lt;T&lt;List&lt;M&gt;,List&lt;M&gt;,List&lt;M&gt;&gt;&gt;超复杂结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listTeacher
+curl -X GET -i http://localhost:8080/list/listTeacher
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-data|object|泛型data|-
+data|array|泛型data|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -2359,7 +2441,7 @@ data|object|泛型data|-
 └─money|double|钱太多了|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
-data1|object|泛型data1|-
+data1|array|泛型data1|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -2373,7 +2455,7 @@ data1|object|泛型data1|-
 └─money|double|钱太多了|-
 └─ipv6|string|ipv6|-
 └─telephone|string|固定电话|-
-data2|object|data2|-
+data2|array|data2|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -2392,86 +2474,86 @@ age|int32|年龄|-
 **Response-example:**
 ```
 [
-	{
-		"data":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":71.42,
-				"money":69.96,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"data1":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":34.35,
-				"money":26.84,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"data2":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":31.57,
-				"money":21.31,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"age":24
-	}
+  {
+    "data": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 95.64,
+        "money": 66.83,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "data1": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 89.79,
+        "money": 32.58,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "data2": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 76.74,
+        "money": 47.55,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "age": 32
+  }
 ]
 ```
 
 ### List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
-**URL:** http://127.0.0.1:8080/list/listString1
+**URL:** http://localhost:8080/list/listString1
 
 **Type:** GET
 
@@ -2481,16 +2563,9 @@ age|int32|年龄|-
 
 **Description:** List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,User,User&gt;&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listString1
+curl -X GET -i http://localhost:8080/list/listString1
 ```
 **Response-fields:**
 
@@ -2573,127 +2648,127 @@ age|int32|年龄|-
 **Response-example:**
 ```
 [
-	{
-		"data":{
-			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":38.97,
-				"money":65.85,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":61.50,
-				"money":45.00,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":79.76,
-				"money":49.39,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"age":24
-		},
-		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":29.79,
-			"money":31.67,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":53.10,
-			"money":35.88,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	}
+  {
+    "data": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 12.22,
+        "money": 25.81,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 46.24,
+        "money": 6.42,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 74.54,
+        "money": 36.32,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "age": 32
+    },
+    "data1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 70.10,
+      "money": 89.62,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 36.20,
+      "money": 31.15,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  }
 ]
 ```
 
 ### List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
-**URL:** http://127.0.0.1:8080/list/listString2
+**URL:** http://localhost:8080/list/listString2
 
 **Type:** GET
 
@@ -2703,16 +2778,9 @@ age|int32|年龄|-
 
 **Description:** List&lt;Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listString2
+curl -X GET -i http://localhost:8080/list/listString2
 ```
 **Response-fields:**
 
@@ -2855,221 +2923,221 @@ age|int32|年龄|-
 **Response-example:**
 ```
 [
-	{
-		"data":{
-			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":31.63,
-				"money":2.23,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":51.49,
-				"money":13.81,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":87.80,
-				"money":72.63,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"age":24
-		},
-		"data1":{
-			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":16.70,
-				"money":11.03,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":15.61,
-				"money":67.53,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":68.92,
-				"money":4.07,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"age":24
-		},
-		"data2":{
-			"data":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":35.80,
-				"money":4.49,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":60.99,
-				"money":81.89,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"data2":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":48.67,
-				"money":32.61,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"age":24
-		},
-		"age":24
-	}
+  {
+    "data": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 38.15,
+        "money": 76.69,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 13.80,
+        "money": 7.56,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 40.08,
+        "money": 58.59,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "age": 32
+    },
+    "data1": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 63.46,
+        "money": 19.07,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 16.91,
+        "money": 17.93,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 45.21,
+        "money": 86.65,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "age": 32
+    },
+    "data2": {
+      "data": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 11.47,
+        "money": 2.71,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 52.85,
+        "money": 19.42,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "data2": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 22.21,
+        "money": 29.88,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "age": 32
+    },
+    "age": 32
+  }
 ]
 ```
 
 ### CommonResult&lt;List&lt;UserDto&gt;&gt;
-**URL:** http://127.0.0.1:8080/list/listUserDto
+**URL:** http://localhost:8080/list/listUserDto
 
 **Type:** GET
 
@@ -3079,16 +3147,9 @@ age|int32|年龄|-
 
 **Description:** CommonResult&lt;List&lt;UserDto&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/list/listUserDto
+curl -X GET -i http://localhost:8080/list/listUserDto
 ```
 **Response-fields:**
 
@@ -3096,7 +3157,7 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|array|处理成功返回的业务数据|-
 └─token|string|token|-
 └─LoginList|array|UserDto 用户信息列表|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userName|string|用户名|-
@@ -3107,27 +3168,27 @@ timestamp|string|响应时间|-
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":[
-		{
-			"token":"kh495h",
-			"LoginList":[
-				{
-					"userName":"明.陈",
-					"password":"luafdy"
-				}
-			]
-		}
-	],
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": [
+    {
+      "token": "3qyz1j",
+      "LoginList": [
+        {
+          "userName": "ricky.nitzsche",
+          "password": "jp9pjr"
+        }
+      ]
+    }
+  ],
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## Map返回型接口api文档测试
 ### Map&lt;String,Integer&gt;结构
-**URL:** http://127.0.0.1:8080/map/primitive
+**URL:** http://localhost:8080/map/primitive
 
 **Type:** GET
 
@@ -3137,28 +3198,21 @@ timestamp|string|响应时间|-
 
 **Description:** Map&lt;String,Integer&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/primitive
+curl -X GET -i http://localhost:8080/map/primitive
 ```
 
 **Response-example:**
 ```
 {
-	"mapKey1":641,
-	"mapKey2":728
+  "mapKey1": 921,
+  "mapKey2": 938
 }
 ```
 
 ### Map&lt;String,Object&gt;结构
-**URL:** http://127.0.0.1:8080/map/objectValue
+**URL:** http://localhost:8080/map/objectValue
 
 **Type:** GET
 
@@ -3168,16 +3222,9 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/primitive
 
 **Description:** Map&lt;String,Object&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/objectValue
+curl -X GET -i http://localhost:8080/map/objectValue
 ```
 **Response-fields:**
 
@@ -3188,14 +3235,14 @@ any object|object|any object.|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"waring":"You may use java.util.Object for Map value; smart-doc can't be handle."
-	}
+  "mapKey": {
+    "waring": "You may use java.util.Object for Map value; smart-doc can't be handle."
+  }
 }
 ```
 
 ### Map&lt;String,User&gt;结构
-**URL:** http://127.0.0.1:8080/map/object
+**URL:** http://localhost:8080/map/object
 
 **Type:** GET
 
@@ -3205,16 +3252,9 @@ any object|object|any object.|-
 
 **Description:** Map&lt;String,User&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/object
+curl -X GET -i http://localhost:8080/map/object
 ```
 **Response-fields:**
 
@@ -3237,33 +3277,33 @@ telephone|string|固定电话|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":64.78,
-		"money":88.92,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	}
+  "mapKey": {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 37.44,
+    "money": 53.69,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  }
 }
 ```
 
 ### Map&lt;String,Student&gt;结构
-**URL:** http://127.0.0.1:8080/map/test1
+**URL:** http://localhost:8080/map/test1
 
 **Type:** GET
 
@@ -3273,16 +3313,9 @@ telephone|string|固定电话|-
 
 **Description:** Map&lt;String,Student&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/test1
+curl -X GET -i http://localhost:8080/map/test1
 ```
 **Response-fields:**
 
@@ -3351,108 +3384,108 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"stuName":"明.陈",
-		"stuAge":true,
-		"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-		"user":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":60.64,
-			"money":43.73,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"userMap":{
-			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":64.28,
-				"money":79.82,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"userTreeSet":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":16.29,
-				"money":41.71,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"user1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":44.57,
-			"money":63.18,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		}
-	}
+  "mapKey": {
+    "stuName": "ricky.nitzsche",
+    "stuAge": true,
+    "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "user": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 53.77,
+      "money": 71.44,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "userMap": {
+      "mapKey": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 69.49,
+        "money": 81.61,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "userTreeSet": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 88.56,
+        "money": 17.91,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "user1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 47.48,
+      "money": 79.93,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    }
+  }
 }
 ```
 
 ### Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
-**URL:** http://127.0.0.1:8080/map/test2
+**URL:** http://localhost:8080/map/test2
 
 **Type:** GET
 
@@ -3462,22 +3495,15 @@ user1|object|用户对象2|-
 
 **Description:** Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/test2
+curl -X GET -i http://localhost:8080/map/test2
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-data|object|泛型data|-
+data|array|泛型data|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -3570,157 +3596,157 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"data":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":28.20,
-				"money":27.23,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"data1":{
-			"stuName":"明.陈",
-			"stuAge":true,
-			"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":32.36,
-				"money":67.63,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"userMap":{
-				"mapKey":{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":28.78,
-					"money":41.23,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			},
-			"userTreeSet":[
-				{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":16.37,
-					"money":72.50,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			],
-			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":39.35,
-				"money":37.60,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":65.83,
-			"money":95.57,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	}
+  "mapKey": {
+    "data": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 53.37,
+        "money": 87.52,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "data1": {
+      "stuName": "ricky.nitzsche",
+      "stuAge": true,
+      "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "user": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 31.05,
+        "money": 4.60,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "userMap": {
+        "mapKey": {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 89.16,
+          "money": 33.29,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      },
+      "userTreeSet": [
+        {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 50.13,
+          "money": 51.79,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      ],
+      "user1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 93.07,
+        "money": 76.32,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 59.17,
+      "money": 57.83,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  }
 }
 ```
 
 ### TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
-**URL:** http://127.0.0.1:8080/map/test3
+**URL:** http://localhost:8080/map/test3
 
 **Type:** GET
 
@@ -3730,22 +3756,15 @@ age|int32|年龄|-
 
 **Description:** TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/test3
+curl -X GET -i http://localhost:8080/map/test3
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-data|object|泛型data|-
+data|array|泛型data|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -3838,157 +3857,157 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"data":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":17.25,
-				"money":96.69,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"data1":{
-			"stuName":"明.陈",
-			"stuAge":true,
-			"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-			"user":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":52.87,
-				"money":95.92,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			},
-			"userMap":{
-				"mapKey":{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":17.50,
-					"money":8.90,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			},
-			"userTreeSet":[
-				{
-					"userDetails":[
-						{
-							"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-						}
-					],
-					"userList":[
-						{
-							"$ref":".."
-						}
-					],
-					"userName":"明.陈",
-					"nickName":"dylan.bednar",
-					"userAddress":"韦桥3号， 绵阳， 甘 383932",
-					"userAge":24,
-					"phone":"15711804595",
-					"createTime":1609002323037,
-					"small":0.08,
-					"money":58.47,
-					"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-					"telephone":"15711804595"
-				}
-			],
-			"user1":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":88.64,
-				"money":88.62,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":54.82,
-			"money":80.93,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	}
+  "mapKey": {
+    "data": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 86.36,
+        "money": 93.02,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "data1": {
+      "stuName": "ricky.nitzsche",
+      "stuAge": true,
+      "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "user": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 56.60,
+        "money": 79.88,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      },
+      "userMap": {
+        "mapKey": {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 36.60,
+          "money": 22.99,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      },
+      "userTreeSet": [
+        {
+          "userDetails": [
+            {
+              "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+            }
+          ],
+          "userList": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "userName": "ricky.nitzsche",
+          "nickName": "morgan.wolff",
+          "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "userAge": 32,
+          "phone": "260-954-1407",
+          "createTime": 1629730974133,
+          "small": 47.14,
+          "money": 50.64,
+          "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+          "telephone": "260-954-1407"
+        }
+      ],
+      "user1": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 82.70,
+        "money": 49.81,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 70.84,
+      "money": 4.65,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  }
 }
 ```
 
 ### Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
-**URL:** http://127.0.0.1:8080/map/test4
+**URL:** http://localhost:8080/map/test4
 
 **Type:** GET
 
@@ -3998,16 +4017,9 @@ age|int32|年龄|-
 
 **Description:** Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/map/test4
+curl -X GET -i http://localhost:8080/map/test4
 ```
 **Response-fields:**
 
@@ -4060,87 +4072,87 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"mapKey":{
-		"data":{
-			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":11.10,
-				"money":75.65,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"data1":{
-			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":21.23,
-				"money":84.13,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"data2":{
-			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":73.05,
-				"money":51.69,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"age":24
-	}
+  "mapKey": {
+    "data": {
+      "mapKey": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 72.40,
+        "money": 45.99,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "data1": {
+      "mapKey": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 82.13,
+        "money": 71.91,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "data2": {
+      "mapKey": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 4.14,
+        "money": 43.45,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "age": 32
+  }
 }
 ```
 
 ## 多泛型测试
 ### 数组
-**URL:** http://127.0.0.1:8080/mulGenric/test/
+**URL:** http://localhost:8080/mulGenric/test/
 
 **Type:** POST
 
@@ -4150,13 +4162,6 @@ age|int32|年龄|-
 
 **Description:** 数组
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4164,21 +4169,23 @@ Parameter | Type|Description|Required|Since
 page|object|No comments found.|false|-
 └─roleId|int32|角色id|false|-
 └─roleName|string|角色名称|false|-
+└─age|int32|年龄|false|-
 data1|array|No comments found.|false|-
 └─total|int32|记录总数|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/mulGenric/test/? --data '{
-	"page":{
-		"roleId":501,
-		"roleName":"明.陈"
-	},
-	"data1":[
-		{
-			"total":744
-		}
-	]
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/mulGenric/test/ --data '{
+  "page": {
+    "roleId": 312,
+    "roleName": "ricky.nitzsche",
+    "age": 32
+  },
+  "data1": [
+    {
+      "total": 159
+    }
+  ]
 }'
 ```
 **Response-fields:**
@@ -4188,6 +4195,7 @@ Field | Type|Description|Since
 page|object|No comments found.|-
 └─roleId|int32|角色id|-
 └─roleName|string|角色名称|-
+└─age|int32|年龄|-
 data1|array|No comments found.|-
 └─concurrentPage|int32|当前页|-
 └─pageSize|int32|当前page|-
@@ -4196,22 +4204,23 @@ data1|array|No comments found.|-
 **Response-example:**
 ```
 {
-	"page":{
-		"roleId":705,
-		"roleName":"明.陈"
-	},
-	"data1":[
-		{
-			"concurrentPage":1,
-			"pageSize":10,
-			"total":713
-		}
-	]
+  "page": {
+    "roleId": 721,
+    "roleName": "ricky.nitzsche",
+    "age": 32
+  },
+  "data1": [
+    {
+      "concurrentPage": 1,
+      "pageSize": 10,
+      "total": 974
+    }
+  ]
 }
 ```
 
 ### gitee #I1S8W验证
-**URL:** http://127.0.0.1:8080/mulGenric/test2
+**URL:** http://localhost:8080/mulGenric/test2
 
 **Type:** GET
 
@@ -4221,16 +4230,9 @@ data1|array|No comments found.|-
 
 **Description:** gitee #I1S8W验证
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/mulGenric/test2
+curl -X GET -i http://localhost:8080/mulGenric/test2
 ```
 **Response-fields:**
 
@@ -4238,12 +4240,12 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 └─page|object|No comments found.|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─searchCount|boolean|进行 count 查询 【 默认: true 】|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─searchCount|boolean|是否进行 count 查询|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─pages|int64|当前分页总页数|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─hitCount|boolean|是否命中count缓存|3.3.1
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─records|array|分页记录列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─hitCount|boolean|是否命中count缓存|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─records|array|查询数据列表|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
@@ -4318,14 +4320,13 @@ data|object|成功返回的数据|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─expand|boolean|节点展开 前端所需|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─checked|boolean|是否勾选 前端所需|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─selected|boolean|是否选中 前端所需|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─total|int64|当前满足条件总行数|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─size|int64|获取每页显示条数|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─total|int64|总数|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─size|int64|每页显示条数，默认 10|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─current|int64|当前页|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─orders|array|排序字段信息|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─column|string|需要进行排序的字段|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─asc|boolean|是否正序排列，默认 true|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─optimizeCountSql|boolean|自动优化 COUNT SQL|-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─isSearchCount|boolean|是否进行 count 查询|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─countId|string|countId|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─maxLimit|int64|countId|-
 └─data1|array|No comments found.|-
@@ -4409,253 +4410,245 @@ timestamp|string|响应时间|-
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"page":{
-			"searchCount":true,
-			"pages":972,
-			"hitCount":true,
-			"records":[
-				{
-					"id":"95",
-					"createBy":"0agm23",
-					"createTime":"2020-12-27",
-					"updateBy":"bd6se5",
-					"updateTime":"2020-12-27",
-					"delFlag":0,
-					"username":"明.陈",
-					"password":"abfwxk",
-					"nickName":"dylan.bednar",
-					"mobile":"15525817715",
-					"email":"正豪.李@gmail.com",
-					"address":"韦桥3号， 绵阳， 甘 383932",
-					"sex":0,
-					"avatar":"4efb3b",
-					"type":16,
-					"status":334,
-					"description":"64v2bz",
-					"roles":[
-						{
-							"id":"95",
-							"createBy":"l1djlb",
-							"createTime":"2020-12-27",
-							"updateBy":"mmnb5e",
-							"updateTime":"2020-12-27",
-							"delFlag":0,
-							"name":"明.陈",
-							"defaultRole":true,
-							"permissions":[
-								{
-									"id":"95",
-									"createBy":"4ccz50",
-									"createTime":"2020-12-27",
-									"updateBy":"j0bg3u",
-									"updateTime":"2020-12-27",
-									"delFlag":0,
-									"name":"明.陈",
-									"level":680,
-									"type":115,
-									"title":"mm9x4i",
-									"path":"n0za43",
-									"component":"s95evr",
-									"icon":"za5b9a",
-									"buttonType":"pexbsb",
-									"parentId":"95",
-									"description":"1oye14",
-									"sortOrder":112,
-									"status":470,
-									"children":[
-										{
-											"$ref":".."
-										}
-									],
-									"permTypes":[
-										"16usea"
-									],
-									"expand":true,
-									"checked":true,
-									"selected":true
-								}
-							]
-						}
-					],
-					"permissions":[
-						{
-							"id":"95",
-							"createBy":"946y2z",
-							"createTime":"2020-12-27",
-							"updateBy":"a2ibfe",
-							"updateTime":"2020-12-27",
-							"delFlag":0,
-							"name":"明.陈",
-							"level":563,
-							"type":471,
-							"title":"whm9ct",
-							"path":"ic7ln7",
-							"component":"wkidra",
-							"icon":"qe4ajs",
-							"buttonType":"pawsvn",
-							"parentId":"95",
-							"description":"19c86c",
-							"sortOrder":508,
-							"status":823,
-							"children":[
-								{
-									"$ref":".."
-								}
-							],
-							"permTypes":[
-								"drkpfh"
-							],
-							"expand":true,
-							"checked":true,
-							"selected":true
-						}
-					]
-				}
-			],
-			"total":325,
-			"size":315,
-			"current":296,
-			"orders":[
-				{
-					"column":"hn6inc",
-					"asc":true
-				}
-			],
-			"optimizeCountSql":true,
-			"isSearchCount":true,
-			"countId":"95",
-			"maxLimit":1
-		},
-		"data1":[
-			{
-				"id":"95",
-				"createBy":"u44z65",
-				"createTime":"2020-12-27",
-				"updateBy":"yhgpih",
-				"updateTime":"2020-12-27",
-				"delFlag":0,
-				"username":"明.陈",
-				"password":"kwgwtx",
-				"nickName":"dylan.bednar",
-				"mobile":"15525817715",
-				"email":"正豪.李@gmail.com",
-				"address":"韦桥3号， 绵阳， 甘 383932",
-				"sex":0,
-				"avatar":"f5xany",
-				"type":322,
-				"status":721,
-				"description":"vee0hp",
-				"roles":[
-					{
-						"id":"95",
-						"createBy":"v73apu",
-						"createTime":"2020-12-27",
-						"updateBy":"oxpf01",
-						"updateTime":"2020-12-27",
-						"delFlag":0,
-						"name":"明.陈",
-						"defaultRole":true,
-						"permissions":[
-							{
-								"id":"95",
-								"createBy":"7qulkk",
-								"createTime":"2020-12-27",
-								"updateBy":"wbd0ov",
-								"updateTime":"2020-12-27",
-								"delFlag":0,
-								"name":"明.陈",
-								"level":56,
-								"type":34,
-								"title":"9elz8q",
-								"path":"6f7t4z",
-								"component":"57e1c2",
-								"icon":"3dj9nl",
-								"buttonType":"zlolqv",
-								"parentId":"95",
-								"description":"yc7ezj",
-								"sortOrder":183,
-								"status":763,
-								"children":[
-									{
-										"$ref":".."
-									}
-								],
-								"permTypes":[
-									"bqm2bp"
-								],
-								"expand":true,
-								"checked":true,
-								"selected":true
-							}
-						]
-					}
-				],
-				"permissions":[
-					{
-						"id":"95",
-						"createBy":"caxw41",
-						"createTime":"2020-12-27",
-						"updateBy":"0t4v24",
-						"updateTime":"2020-12-27",
-						"delFlag":0,
-						"name":"明.陈",
-						"level":10,
-						"type":355,
-						"title":"dpga63",
-						"path":"85x9v0",
-						"component":"xpa7zq",
-						"icon":"mvjbmb",
-						"buttonType":"rbt068",
-						"parentId":"95",
-						"description":"ndg2ul",
-						"sortOrder":697,
-						"status":87,
-						"children":[
-							{
-								"$ref":".."
-							}
-						],
-						"permTypes":[
-							"g52z3n"
-						],
-						"expand":true,
-						"checked":true,
-						"selected":true
-					}
-				]
-			}
-		]
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "page": {
+      "searchCount": true,
+      "pages": 71,
+      "hitCount": true,
+      "records": [
+        {
+          "id": "163",
+          "createBy": "3xlzip",
+          "createTime": "2021-08-23 23:02:55",
+          "updateBy": "76m0lg",
+          "updateTime": "2021-08-23 23:02:55",
+          "delFlag": 1,
+          "username": "ricky.nitzsche",
+          "password": "w79u9d",
+          "nickName": "morgan.wolff",
+          "mobile": "(806) 262-2209",
+          "email": "jamal.greenholt@gmail.com",
+          "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+          "sex": 1,
+          "avatar": "sek5uz",
+          "type": 540,
+          "status": 936,
+          "description": "h1mzce",
+          "roles": [
+            {
+              "id": "163",
+              "createBy": "06vb0r",
+              "createTime": "2021-08-23 23:02:55",
+              "updateBy": "8xae8w",
+              "updateTime": "2021-08-23 23:02:55",
+              "delFlag": 1,
+              "name": "ricky.nitzsche",
+              "defaultRole": true,
+              "permissions": [
+                {
+                  "id": "163",
+                  "createBy": "kxkqg9",
+                  "createTime": "2021-08-23 23:02:55",
+                  "updateBy": "3likiq",
+                  "updateTime": "2021-08-23 23:02:55",
+                  "delFlag": 1,
+                  "name": "ricky.nitzsche",
+                  "level": 608,
+                  "type": 613,
+                  "title": "jppq3a",
+                  "path": "a977po",
+                  "component": "282v1x",
+                  "icon": "vz4yl4",
+                  "buttonType": "xl6fbq",
+                  "parentId": "163",
+                  "description": "ttuz1r",
+                  "sortOrder": 791,
+                  "status": 690,
+                  "children": [
+                    {
+                      "$ref": ".."
+                    }
+                  ],
+                  "permTypes": [
+                    "7qxxvi"
+                  ],
+                  "expand": true,
+                  "checked": true,
+                  "selected": true
+                }
+              ]
+            }
+          ],
+          "permissions": [
+            {
+              "id": "163",
+              "createBy": "8fw32t",
+              "createTime": "2021-08-23 23:02:55",
+              "updateBy": "lvazgr",
+              "updateTime": "2021-08-23 23:02:55",
+              "delFlag": 1,
+              "name": "ricky.nitzsche",
+              "level": 166,
+              "type": 328,
+              "title": "5mk8eo",
+              "path": "63vdnh",
+              "component": "185ulb",
+              "icon": "ghep2e",
+              "buttonType": "fzhdsu",
+              "parentId": "163",
+              "description": "zk1evz",
+              "sortOrder": 612,
+              "status": 305,
+              "children": [
+                {
+                  "$ref": ".."
+                }
+              ],
+              "permTypes": [
+                "nx6sxk"
+              ],
+              "expand": true,
+              "checked": true,
+              "selected": true
+            }
+          ]
+        }
+      ],
+      "total": 588,
+      "size": 94,
+      "current": 826,
+      "orders": [
+        {
+          "column": "242rmx",
+          "asc": true
+        }
+      ],
+      "optimizeCountSql": true,
+      "countId": "163",
+      "maxLimit": 388
+    },
+    "data1": [
+      {
+        "id": "163",
+        "createBy": "pilr6j",
+        "createTime": "2021-08-23 23:02:55",
+        "updateBy": "jca41e",
+        "updateTime": "2021-08-23 23:02:55",
+        "delFlag": 1,
+        "username": "ricky.nitzsche",
+        "password": "ocijt9",
+        "nickName": "morgan.wolff",
+        "mobile": "(806) 262-2209",
+        "email": "jamal.greenholt@gmail.com",
+        "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "sex": 1,
+        "avatar": "6oze7y",
+        "type": 554,
+        "status": 107,
+        "description": "i00k2y",
+        "roles": [
+          {
+            "id": "163",
+            "createBy": "gf15h1",
+            "createTime": "2021-08-23 23:02:55",
+            "updateBy": "kyts66",
+            "updateTime": "2021-08-23 23:02:55",
+            "delFlag": 1,
+            "name": "ricky.nitzsche",
+            "defaultRole": true,
+            "permissions": [
+              {
+                "id": "163",
+                "createBy": "560kor",
+                "createTime": "2021-08-23 23:02:55",
+                "updateBy": "kisqs2",
+                "updateTime": "2021-08-23 23:02:55",
+                "delFlag": 1,
+                "name": "ricky.nitzsche",
+                "level": 269,
+                "type": 326,
+                "title": "bnpo3d",
+                "path": "xcuf29",
+                "component": "ixw1fm",
+                "icon": "cqpq1w",
+                "buttonType": "ol5plv",
+                "parentId": "163",
+                "description": "w1ah78",
+                "sortOrder": 123,
+                "status": 853,
+                "children": [
+                  {
+                    "$ref": ".."
+                  }
+                ],
+                "permTypes": [
+                  "mo9c0s"
+                ],
+                "expand": true,
+                "checked": true,
+                "selected": true
+              }
+            ]
+          }
+        ],
+        "permissions": [
+          {
+            "id": "163",
+            "createBy": "nuoz9r",
+            "createTime": "2021-08-23 23:02:55",
+            "updateBy": "lktcqi",
+            "updateTime": "2021-08-23 23:02:55",
+            "delFlag": 1,
+            "name": "ricky.nitzsche",
+            "level": 47,
+            "type": 952,
+            "title": "5jajf9",
+            "path": "j2i4gj",
+            "component": "51w1g9",
+            "icon": "5gsbjz",
+            "buttonType": "ufo3pi",
+            "parentId": "163",
+            "description": "7bdvuw",
+            "sortOrder": 794,
+            "status": 406,
+            "children": [
+              {
+                "$ref": ".."
+              }
+            ],
+            "permTypes": [
+              "bg1r4a"
+            ],
+            "expand": true,
+            "checked": true,
+            "selected": true
+          }
+        ]
+      }
+    ]
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
-## mybatis-plus测试
-### mybatis-plus分页类测试
-**URL:** http://127.0.0.1:8080/mybatis/plus/page
+## mybatis-plus分页测试
+### mybatis-plus原始分页类测试
+**URL:** http://localhost:8080/mybatis/plus/page
 
-**Type:** POST
+**Type:** GET
 
 **Author:** yu 2020/6/30.
 
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
-**Description:** mybatis-plus分页类测试
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
+**Description:** mybatis-plus原始分页类测试
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/mybatis/plus/page
+curl -X GET -i http://localhost:8080/mybatis/plus/page
 ```
 **Response-fields:**
 
@@ -4663,21 +4656,21 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
-└─searchCount|boolean|进行 count 查询 【 默认: true 】|-
+data|object|处理成功返回的业务数据|-
+└─searchCount|boolean|是否进行 count 查询|-
 └─pages|int64|当前分页总页数|-
-└─hitCount|boolean|是否命中count缓存|3.3.1
-└─records|array|分页记录列表|-
+└─hitCount|boolean|是否命中count缓存|-
+└─records|array|查询数据列表|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|int32|角色id|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|角色名称|-
-└─total|int64|当前满足条件总行数|-
-└─size|int64|获取每页显示条数|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─age|int32|年龄|-
+└─total|int64|总数|-
+└─size|int64|每页显示条数，默认 10|-
 └─current|int64|当前页|-
 └─orders|array|排序字段信息|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─column|string|需要进行排序的字段|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─asc|boolean|是否正序排列，默认 true|-
 └─optimizeCountSql|boolean|自动优化 COUNT SQL|-
-└─isSearchCount|boolean|是否进行 count 查询|-
 └─countId|string|countId|-
 └─maxLimit|int64|countId|-
 code|string|错误代码|-
@@ -4686,40 +4679,330 @@ timestamp|string|响应时间|-
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"searchCount":true,
-		"pages":665,
-		"hitCount":true,
-		"records":[
-			{
-				"roleId":622,
-				"roleName":"明.陈"
-			}
-		],
-		"total":25,
-		"size":36,
-		"current":215,
-		"orders":[
-			{
-				"column":"xp5rio",
-				"asc":true
-			}
-		],
-		"optimizeCountSql":true,
-		"isSearchCount":true,
-		"countId":"95",
-		"maxLimit":209
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "searchCount": true,
+    "pages": 232,
+    "hitCount": true,
+    "records": [
+      {
+        "roleId": 512,
+        "roleName": "ricky.nitzsche",
+        "age": 32
+      }
+    ],
+    "total": 755,
+    "size": 223,
+    "current": 117,
+    "orders": [
+      {
+        "column": "cnmwda",
+        "asc": true
+      }
+    ],
+    "optimizeCountSql": true,
+    "countId": "163",
+    "maxLimit": 764
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
-## 数组类型pathVariable
+### mybatis-plus分页自定义处理测试
+**URL:** http://localhost:8080/mybatis/plus/page2
+
+**Type:** GET
+
+**Author:** yu 2020/6/30.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** mybatis-plus分页自定义处理测试
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/mybatis/plus/page2
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+└─records|array|分页数据|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|int32|角色id|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|角色名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─age|int32|年龄|-
+└─total|int64|获取总记录|-
+└─size|int64|每页显示条数|-
+└─count|int64|总数|-
+└─page|int64|当前页码|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "records": [
+      {
+        "roleId": 91,
+        "roleName": "ricky.nitzsche",
+        "age": 32
+      }
+    ],
+    "total": 788,
+    "size": 116,
+    "count": 235,
+    "page": 650
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### mybatis-plus分页自定义处理测试2
+**URL:** http://localhost:8080/mybatis/plus/page3
+
+**Type:** GET
+
+**Author:** yu 2020/6/30.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** mybatis-plus分页自定义处理测试2
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/mybatis/plus/page3
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+└─records|array|查询数据列表|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|int32|角色id|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|角色名称|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─age|int32|年龄|-
+└─total|int64|总数|-
+└─countId|string|countId|-
+└─maxLimit|int64|countId|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "records": [
+      {
+        "roleId": 514,
+        "roleName": "ricky.nitzsche",
+        "age": 32
+      }
+    ],
+    "total": 974,
+    "countId": "163",
+    "maxLimit": 356
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+## 继承接口测试
+### 继承接口测试
+**URL:** http://localhost:8080/parentExtends/update
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/json; charset=utf-8
+
+**Description:** 继承接口测试
+
+**Body-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
+username|string|用户名|false|v1.0
+password|string|密码|false|v1.0
+nickName|string|昵称|false|v1.0
+mobile|string|电话|false|v1.0
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
+
+**Request-example:**
+```
+curl -X GET -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/parentExtends/update --data '{"MAX_SPEED":742,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"ntyss7","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"09g7xh","createTime":"2021-08-23 23:02:55","updateBy":"i99iuy","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+└─MAX_SPEED|int32|No comments found.|-
+└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
+└─simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|-
+└─username|string|用户名|v1.0
+└─password|string|密码|v1.0
+└─nickName|string|昵称|v1.0
+└─mobile|string|电话|v1.0
+└─roles|array|用户角色信息|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|No comments found.|-
+└─extend|map|用户扩展项|-
+└─listMap|array|ListMap效果展示|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{"success":true,"message":"success","data":{"MAX_SPEED":48,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"hsf07h","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"4ea76o","createTime":"2021-08-23 23:02:55","updateBy":"llk3eh","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}},"code":"39323","timestamp":"2021-08-23 23:02:54"}
+```
+
+### 根据Id删除
+**URL:** http://localhost:8080/parentExtends/deleteById/{id}
+
+**Type:** DELETE
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 根据Id删除
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+id|object|id|false|-
+
+**Request-example:**
+```
+curl -X DELETE -i http://localhost:8080/parentExtends/deleteById/{id}?id=geankf
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### 根据Id更新
+**URL:** http://localhost:8080/parentExtends/updateById
+
+**Type:** PUT
+
+**Author:** xingzi
+
+**Content-Type:** application/json; charset=utf-8
+
+**Description:** 根据Id更新
+
+**Body-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
+username|string|用户名|false|v1.0
+password|string|密码|false|v1.0
+nickName|string|昵称|false|v1.0
+mobile|string|电话|false|v1.0
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
+
+**Request-example:**
+```
+curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/parentExtends/updateById --data '{"MAX_SPEED":256,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"upi4rp","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"clu85c","createTime":"2021-08-23 23:02:55","updateBy":"zhykbm","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+## Path参数测试
 ### 接收数组类型pathVariable
-**URL:** http://127.0.0.1:8080/pathVariable/test/{id}
+**URL:** http://localhost:8080/pathVariable/test/{id}
 
 **Type:** GET
 
@@ -4729,13 +5012,6 @@ timestamp|string|响应时间|-
 
 **Description:** 接收数组类型pathVariable
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Path-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4744,7 +5020,7 @@ id|array|No comments found.,[array of string]|true|
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/pathVariable/test/
+curl -X GET -i http://localhost:8080/pathVariable/test/
 ```
 **Response-fields:**
 
@@ -4752,26 +5028,158 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### Path正则测试1
+**URL:** http://localhost:8080/pathVariable/download/{fileId:^[A-Za-z0-9_-]{10,50}$}
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Path正则测试1
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+fileId|string|文件id|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/pathVariable/download/^--Z--1z2H_YO-S_l4_-_ln__j-Y8$
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### Path正则测试2
+**URL:** http://localhost:8080/pathVariable/download/{fileId:^[A-Za-z0-9_-]{10,50}$}/file
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Path正则测试2
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+fileId|string|文件id|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/pathVariable/download/^__q-6Nv-Z8_3$/file
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
+}
+```
+
+### Path正则测试3
+**URL:** http://localhost:8080/pathVariable/download/{fileId:^A-Za-z0-9_-{10,50}$}/file;	http:/localhost:8080/pathVariable/download/file/{fileId:^A-Za-z0-9_-{10,50}$}
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** Path正则测试3
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+fileId|string|文件id|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/pathVariable/download/^A-Za-z0-9_----------$/file
+```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+success|boolean|是否成功|-
+message|string|错误提示(成功succeed)|-
+data|object|处理成功返回的业务数据|-
+code|string|错误代码|-
+timestamp|string|响应时间|-
+
+**Response-example:**
+```
+{
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## RequestHeader注解测试
 ### 测试RequestHeader常规使用
-**URL:** http://127.0.0.1:8080/testRequestHeader
+**URL:** http://localhost:8080/testRequestHeader
 
 **Type:** GET
 
@@ -4785,7 +5193,6 @@ timestamp|string|响应时间|-
 
 Header | Type|Description|Required|Since
 ---|---|---|---|----
-token|string|desc|false|-
 name|string|请求头(name)|true|-
 
 
@@ -4793,11 +5200,11 @@ name|string|请求头(name)|true|-
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-age|int32|  年龄|false|-
+age|int32| 年龄|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -H 'name' -i http://127.0.0.1:8080/testRequestHeader?age=24
+curl -X GET -H 'name' -i http://localhost:8080/testRequestHeader?age=32
 ```
 
 **Response-example:**
@@ -4806,7 +5213,7 @@ Doesn't return a value.
 ```
 
 ### 测试RequestHeader绑定参数名
-**URL:** http://127.0.0.1:8080/testRequestHeader/value
+**URL:** http://localhost:8080/testRequestHeader/value
 
 **Type:** GET
 
@@ -4820,13 +5227,13 @@ Doesn't return a value.
 
 Header | Type|Description|Required|Since
 ---|---|---|---|----
-token|string|desc|false|-
-age|int32|  年龄|true|-
+token|string|请求头(name)|false|-
+age|int32| 年龄|true|-
 
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -H 'age' -i http://127.0.0.1:8080/testRequestHeader/value
+curl -X GET -H 'token' -H 'age' -i http://localhost:8080/testRequestHeader/value
 ```
 
 **Response-example:**
@@ -4835,7 +5242,7 @@ Doesn't return a value.
 ```
 
 ### 测试RequestHeader绑定默认值
-**URL:** http://127.0.0.1:8080/testRequestHeader/DefaultVal
+**URL:** http://localhost:8080/testRequestHeader/DefaultVal
 
 **Type:** GET
 
@@ -4849,18 +5256,18 @@ Doesn't return a value.
 
 Header | Type|Description|Required|Since
 ---|---|---|---|----
-token|string|desc|false|-
+token|string|请求头(name)(defaultValue: da)|false|-
 
 
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-age|int32|  年龄|false|-
+age|int32| 年龄|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testRequestHeader/DefaultVal?age=24
+curl -X GET -H 'token:da' -i http://localhost:8080/testRequestHeader/DefaultVal?age=32
 ```
 
 **Response-example:**
@@ -4868,9 +5275,150 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testRequestHeader/DefaultVal?
 Doesn't return a value.
 ```
 
+### 测试Mapping中的headers属性
+**URL:** http://localhost:8080/testRequestHeader/foos
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试Mapping中的headers属性
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+key1|string|header condition|true|-
+key2|string|header condition|true|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'key1:val1' -H 'key2:val2' -i http://localhost:8080/testRequestHeader/foos
+```
+
+**Response-example:**
+```
+string
+```
+
+### 测试Mapping header属性
+**URL:** http://localhost:8080/ex/foos
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试Mapping header属性
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+key|string|header condition|true|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'key:val' -i http://localhost:8080/ex/foos
+```
+
+**Response-example:**
+```
+string
+```
+
+### 测试常量请求头1
+**URL:** http://localhost:8080/testRequestHeader/constants1
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试常量请求头1
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+HeaderConstants.TOKEN|string|请求头|true|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'HeaderConstants.TOKEN' -i http://localhost:8080/testRequestHeader/constants1
+```
+
+**Response-example:**
+```
+string
+```
+
+### 测试常量请求头2
+**URL:** http://localhost:8080/testRequestHeader/constant2
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试常量请求头2
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+HeaderConstants.TOKEN|string|请求头|true|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'HeaderConstants.TOKEN' -i http://localhost:8080/testRequestHeader/constant2
+```
+
+**Response-example:**
+```
+string
+```
+
+### 测试常量请求头3
+**URL:** http://localhost:8080/testRequestHeader/constant3
+
+**Type:** GET
+
+**Author:** xingzi
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试常量请求头3
+
+**Request-headers:**
+
+Header | Type|Description|Required|Since
+---|---|---|---|----
+token|string|请求头|true|-
+
+
+**Request-example:**
+```
+curl -X GET -H 'token' -i http://localhost:8080/testRequestHeader/constant3
+```
+
+**Response-example:**
+```
+string
+```
+
 ## Spring boot params test
 ### Test Normal param binding
-**URL:** http://127.0.0.1:8080/testNormalParams/binding
+**URL:** http://localhost:8080/testNormalParams/binding
 
 **Type:** GET
 
@@ -4879,13 +5427,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Test Normal param binding
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Query-parameters:**
 
@@ -4896,7 +5437,7 @@ age|int32| age|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testNormalParams/binding?name=明.陈&age=24
+curl -X GET -i http://localhost:8080/testNormalParams/binding?name=ricky.nitzsche&age=32
 ```
 
 **Response-example:**
@@ -4905,7 +5446,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestBody User
-**URL:** http://127.0.0.1:8080/testRequestBody
+**URL:** http://localhost:8080/testRequestBody
 
 **Type:** POST
 
@@ -4915,13 +5456,6 @@ Doesn't return a value.
 
 **Description:** Test @RequestBody User
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -4942,27 +5476,27 @@ telephone|string|固定电话|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/testRequestBody? --data '{
-	"userDetails":[
-		{
-			"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"明.陈",
-	"nickName":"dylan.bednar",
-	"userAddress":"韦桥3号， 绵阳， 甘 383932",
-	"userAge":24,
-	"phone":"15711804595",
-	"createTime":1609002323037,
-	"small":31.68,
-	"money":65.69,
-	"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-	"telephone":"15711804595"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBody --data '{
+  "userDetails": [
+    {
+      "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+    }
+  ],
+  "userList": [
+    {
+      "$ref": ".."
+    }
+  ],
+  "userName": "ricky.nitzsche",
+  "nickName": "morgan.wolff",
+  "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "userAge": 32,
+  "phone": "260-954-1407",
+  "createTime": 1629730974133,
+  "small": 10.60,
+  "money": 33.30,
+  "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+  "telephone": "260-954-1407"
 }'
 ```
 
@@ -4972,7 +5506,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestBody Map
-**URL:** http://127.0.0.1:8080/testRequestBodyMap
+**URL:** http://localhost:8080/testRequestBodyMap
 
 **Type:** POST
 
@@ -4981,13 +5515,6 @@ Doesn't return a value.
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** Test @RequestBody Map
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -5009,29 +5536,29 @@ telephone|string|固定电话|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/testRequestBodyMap? --data '{
-	"mapKey":{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":26.11,
-		"money":46.21,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	}
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBodyMap --data '{
+  "mapKey": {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 98.13,
+    "money": 15.22,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  }
 }'
 ```
 
@@ -5041,7 +5568,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestBody List
-**URL:** http://127.0.0.1:8080/testRequestBodyList
+**URL:** http://localhost:8080/testRequestBodyList
 
 **Type:** POST
 
@@ -5051,13 +5578,6 @@ Doesn't return a value.
 
 **Description:** Test @RequestBody List
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5066,9 +5586,9 @@ ids|array|array of user id,[array of string]|false|
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/testRequestBodyList? --data '[
-	"jga9dq",
-	"yvmc3w"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testRequestBodyList --data '[
+  "du2zmj",
+  "2tilev"
 ]'
 ```
 
@@ -5078,7 +5598,7 @@ Doesn't return a value.
 ```
 
 ### Test Array Params
-**URL:** http://127.0.0.1:8080/testArray
+**URL:** http://localhost:8080/testArray
 
 **Type:** POST
 
@@ -5088,21 +5608,14 @@ Doesn't return a value.
 
 **Description:** Test Array Params
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 success|boolean|是否成功|false|-
 message|string|错误提示(成功succeed)|false|-
-data|object|成功返回的数据|false|-
-└─dataExpressionEnum|enum|枚举<br/>SENSIRION<br/>|false|-
+data|object|处理成功返回的业务数据|false|-
+└─dataExpressionEnum|enum|枚举<br/>SENSIRION -("2101",null)<br/>|false|-
 └─menuPermissionCodes|array|菜单/权限编码<br/>WAIT_PAY -("0","已支付")<br/>PAID -("1","已支付")<br/>EXPIRED -("2","已经失效")<br/>|false|-
 └─date|string|学好|false|-
 └─username|string|用户名|false|-
@@ -5114,24 +5627,24 @@ timestamp|string|响应时间|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/testArray? --data '[
-	{
-		"success":true,
-		"message":"success",
-		"data":{
-			"dataExpressionEnum":"SENSIRION",
-			"menuPermissionCodes":[
-				"WAIT_PAY"
-			],
-			"date":"2019-01-01",
-			"username":"明.陈",
-			"idCard":"811523197205067912",
-			"age":24,
-			"age2":159
-		},
-		"code":"6689",
-		"timestamp":"2020-12-27 01:05:23"
-	}
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/testArray --data '[
+  {
+    "success": true,
+    "message": "success",
+    "data": {
+      "dataExpressionEnum": "SENSIRION",
+      "menuPermissionCodes": [
+        "WAIT_PAY"
+      ],
+      "date": "2019-01-01",
+      "username": "ricky.nitzsche",
+      "idCard": "141227199611258483",
+      "age": 32,
+      "age2": 540
+    },
+    "code": "39323",
+    "timestamp": "2021-08-23 23:02:54"
+  }
 ]'
 ```
 
@@ -5141,7 +5654,7 @@ string
 ```
 
 ### Test @PathVariable
-**URL:** http://127.0.0.1:8080/test/{name}/{no}/info
+**URL:** http://localhost:8080/test/{name}/{no}/info
 
 **Type:** GET
 
@@ -5150,13 +5663,6 @@ string
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Test @PathVariable
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Path-parameters:**
 
@@ -5167,7 +5673,7 @@ no|string|  no|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/test/明.陈/qkpjoe/info
+curl -X GET -i http://localhost:8080/test/ricky.nitzsche/mhwpy5/info
 ```
 
 **Response-example:**
@@ -5176,7 +5682,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestParam
-**URL:** http://127.0.0.1:8080/testRequestParam
+**URL:** http://localhost:8080/testRequestParam
 
 **Type:** GET
 
@@ -5185,13 +5691,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Test @RequestParam
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Query-parameters:**
 
@@ -5202,7 +5701,7 @@ type|string|  type|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testRequestParam?type=bvjp69&author=詹姆斯
+curl -X GET -i http://localhost:8080/testRequestParam?author=詹姆斯&type=f3x3rx
 ```
 
 **Response-example:**
@@ -5211,7 +5710,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestParam with value
-**URL:** http://127.0.0.1:8080/testRequestParamWithValue
+**URL:** http://localhost:8080/testRequestParamWithValue
 
 **Type:** GET
 
@@ -5221,13 +5720,6 @@ Doesn't return a value.
 
 **Description:** Use@RequestParam binding value is name,but method param name is userName
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5236,7 +5728,7 @@ name|string|user name|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testRequestParamWithValue?name=明.陈
+curl -X GET -i http://localhost:8080/testRequestParamWithValue?name=ricky.nitzsche
 ```
 
 **Response-example:**
@@ -5245,7 +5737,7 @@ Doesn't return a value.
 ```
 
 ### Test @RequestParam with default value
-**URL:** http://127.0.0.1:8080/testRequestParamWithDefaultVal
+**URL:** http://localhost:8080/testRequestParamWithDefaultVal
 
 **Type:** GET
 
@@ -5255,13 +5747,6 @@ Doesn't return a value.
 
 **Description:** Use@RequestParam binding default value Jordan
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5270,7 +5755,7 @@ userName|string|user name|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testRequestParamWithDefaultVal?userName=Jordan
+curl -X GET -i http://localhost:8080/testRequestParamWithDefaultVal?userName=Jordan
 ```
 
 **Response-example:**
@@ -5279,7 +5764,7 @@ Doesn't return a value.
 ```
 
 ### Test much path
-**URL:** http://127.0.0.1:8080/testMuchPath/get/{userId};	http://127.0.0.1:8080/testMuchPath/find/{userId}
+**URL:** http://localhost:8080/testMuchPath/get/{userId};	http:/localhost:8080/testMuchPath/find/{userId}
 
 **Type:** GET
 
@@ -5289,13 +5774,6 @@ Doesn't return a value.
 
 **Description:** giteeissues #I1545A
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Path-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5304,7 +5782,7 @@ userId|int64|userId|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testMuchPath/get/767
+curl -X GET -i http://localhost:8080/testMuchPath/get/145
 ```
 
 **Response-example:**
@@ -5313,7 +5791,7 @@ Doesn't return a value.
 ```
 
 ### Test much path much parameter
-**URL:** http://127.0.0.1:8080/get/{deptId}/{userId};	http://127.0.0.1:8080/find/{deptId}/{userId}
+**URL:** http://localhost:8080/get/{deptId}/{userId};	http:/localhost:8080/find/{deptId}/{userId}
 
 **Type:** POST
 
@@ -5322,13 +5800,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** Test much path much parameter
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Path-parameters:**
 
@@ -5339,7 +5810,7 @@ deptId|int64|deptId|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/get/859/862
+curl -X POST -i http://localhost:8080/get/683/230
 ```
 
 **Response-example:**
@@ -5348,7 +5819,7 @@ Doesn't return a value.
 ```
 
 ### Test Constants
-**URL:** http://127.0.0.1:8080/testConstants
+**URL:** http://localhost:8080/testConstants
 
 **Type:** GET
 
@@ -5358,13 +5829,6 @@ Doesn't return a value.
 
 **Description:** Test Constants
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5373,7 +5837,7 @@ page|int32|页码|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testConstants?page=0
+curl -X GET -i http://localhost:8080/testConstants?page=0
 ```
 
 **Response-example:**
@@ -5381,9 +5845,64 @@ curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/testConstants?page=0
 Doesn't return a value.
 ```
 
+### 测试mapping中的
+**URL:** http://localhost:8080/ex/bars
+
+**Type:** GET
+
+**Author:** yu 2019/9/28.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试mapping中的
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+id|int32|parameter condition|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/ex/bars?id=163
+```
+
+**Response-example:**
+```
+string
+```
+
+### 测试mapping中的2
+**URL:** http://localhost:8080/ex/bars
+
+**Type:** GET
+
+**Author:** yu 2019/9/28.
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** 测试mapping中的2
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+id|int32|parameter condition|true|-
+second|string|parameter condition|true|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/ex/bars?id=163&second=ee6g5i
+```
+
+**Response-example:**
+```
+string
+```
+
 ## 请求类型测试
 ### 测试GetMapping 无参数
-**URL:** http://127.0.0.1:8080/getMapping1
+**URL:** http://localhost:8080/getMapping1
 
 **Type:** GET
 
@@ -5393,16 +5912,9 @@ Doesn't return a value.
 
 **Description:** 测试GetMapping 无参数
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/getMapping1
+curl -X GET -i http://localhost:8080/getMapping1
 ```
 
 **Response-example:**
@@ -5411,26 +5923,19 @@ Doesn't return a value.
 ```
 
 ### 测试PostMapping 无参数
-**URL:** http://127.0.0.1:8080/PostMapping1
+**URL:** http://localhost:8080/PostMapping1
 
 **Type:** POST
 
-**Author:** songhaozhi
+**Author:** "songhaozhi"
 
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试PostMapping 无参数
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/PostMapping1
+curl -X POST -i http://localhost:8080/PostMapping1
 ```
 
 **Response-example:**
@@ -5439,7 +5944,7 @@ Doesn't return a value.
 ```
 
 ### 测试PutMapping 无参数
-**URL:** http://127.0.0.1:8080/PutMapping1
+**URL:** http://localhost:8080/PutMapping1
 
 **Type:** PUT
 
@@ -5449,16 +5954,9 @@ Doesn't return a value.
 
 **Description:** 测试PutMapping 无参数
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X PUT -H 'token:kk' -i http://127.0.0.1:8080/PutMapping1
+curl -X PUT -i http://localhost:8080/PutMapping1
 ```
 
 **Response-example:**
@@ -5467,7 +5965,7 @@ Doesn't return a value.
 ```
 
 ### DeleteMapping 无参数
-**URL:** http://127.0.0.1:8080/DeleteMapping1
+**URL:** http://localhost:8080/DeleteMapping1
 
 **Type:** DELETE
 
@@ -5477,16 +5975,9 @@ Doesn't return a value.
 
 **Description:** DeleteMapping 无参数
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X DELETE -H 'token:kk' -i http://127.0.0.1:8080/DeleteMapping1
+curl -X DELETE -i http://localhost:8080/DeleteMapping1
 ```
 
 **Response-example:**
@@ -5495,7 +5986,7 @@ Doesn't return a value.
 ```
 
 ### 测试GetMapping
-**URL:** http://127.0.0.1:8080/getMapping
+**URL:** http://localhost:8080/getMapping
 
 **Type:** GET
 
@@ -5505,13 +5996,6 @@ Doesn't return a value.
 
 **Description:** 测试GetMapping
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5520,7 +6004,7 @@ userId|int64|userId|true|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/getMapping?userId=703
+curl -X GET -i http://localhost:8080/getMapping?userId=409
 ```
 
 **Response-example:**
@@ -5529,7 +6013,7 @@ Doesn't return a value.
 ```
 
 ### 测试PostMapping json
-**URL:** http://127.0.0.1:8080/postMapping
+**URL:** http://localhost:8080/postMapping
 
 **Type:** POST
 
@@ -5539,13 +6023,6 @@ Doesn't return a value.
 
 **Description:** 测试PostMapping json
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -5627,102 +6104,102 @@ permissions|array|用户拥有的权限|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/postMapping? --data '{
-	"id":"95",
-	"createBy":"i6o7o4",
-	"createTime":"2020-12-27",
-	"updateBy":"o9g3hx",
-	"updateTime":"2020-12-27",
-	"delFlag":0,
-	"username":"明.陈",
-	"password":"vrgam3",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"email":"正豪.李@gmail.com",
-	"address":"韦桥3号， 绵阳， 甘 383932",
-	"sex":0,
-	"avatar":"19u4zn",
-	"type":501,
-	"status":494,
-	"description":"u4tva3",
-	"roles":[
-		{
-			"id":"95",
-			"createBy":"jjh2v7",
-			"createTime":"2020-12-27",
-			"updateBy":"1o7ffa",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"defaultRole":true,
-			"permissions":[
-				{
-					"id":"95",
-					"createBy":"eask81",
-					"createTime":"2020-12-27",
-					"updateBy":"mvosog",
-					"updateTime":"2020-12-27",
-					"delFlag":0,
-					"name":"明.陈",
-					"level":726,
-					"type":933,
-					"title":"cmn729",
-					"path":"b3q7ye",
-					"component":"f4vfr3",
-					"icon":"lnqjbn",
-					"buttonType":"2o4qp8",
-					"parentId":"95",
-					"description":"ff2u4y",
-					"sortOrder":233,
-					"status":372,
-					"children":[
-						{
-							"$ref":".."
-						}
-					],
-					"permTypes":[
-						"es4xw1"
-					],
-					"expand":true,
-					"checked":true,
-					"selected":true
-				}
-			]
-		}
-	],
-	"permissions":[
-		{
-			"id":"95",
-			"createBy":"exngna",
-			"createTime":"2020-12-27",
-			"updateBy":"5qi409",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"level":117,
-			"type":235,
-			"title":"278upc",
-			"path":"fyc8bj",
-			"component":"8vzmzc",
-			"icon":"ipvtm8",
-			"buttonType":"ulwmdy",
-			"parentId":"95",
-			"description":"kum2i2",
-			"sortOrder":799,
-			"status":159,
-			"children":[
-				{
-					"$ref":".."
-				}
-			],
-			"permTypes":[
-				"kfjmcr"
-			],
-			"expand":true,
-			"checked":true,
-			"selected":true
-		}
-	]
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/postMapping --data '{
+  "id": "163",
+  "createBy": "lzisps",
+  "createTime": "2021-08-23 23:02:55",
+  "updateBy": "8tu0vt",
+  "updateTime": "2021-08-23 23:02:55",
+  "delFlag": 1,
+  "username": "ricky.nitzsche",
+  "password": "s5fivd",
+  "nickName": "morgan.wolff",
+  "mobile": "(806) 262-2209",
+  "email": "jamal.greenholt@gmail.com",
+  "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "sex": 1,
+  "avatar": "nyvv7c",
+  "type": 479,
+  "status": 230,
+  "description": "846xip",
+  "roles": [
+    {
+      "id": "163",
+      "createBy": "67m9hy",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "3levbc",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "163",
+          "createBy": "ldo33m",
+          "createTime": "2021-08-23 23:02:55",
+          "updateBy": "6rx4tm",
+          "updateTime": "2021-08-23 23:02:55",
+          "delFlag": 1,
+          "name": "ricky.nitzsche",
+          "level": 156,
+          "type": 676,
+          "title": "zz1lie",
+          "path": "vqot6a",
+          "component": "pro1eq",
+          "icon": "gq1ie0",
+          "buttonType": "k4izrc",
+          "parentId": "163",
+          "description": "9269xu",
+          "sortOrder": 422,
+          "status": 678,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "w7vh4a"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "163",
+      "createBy": "wmvngg",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "w6cjyy",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "level": 844,
+      "type": 708,
+      "title": "e1498r",
+      "path": "qhwai2",
+      "component": "pr0nv7",
+      "icon": "9u390i",
+      "buttonType": "3cqfpd",
+      "parentId": "163",
+      "description": "zl03ei",
+      "sortOrder": 212,
+      "status": 353,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "bibi5l"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
 }'
 ```
 
@@ -5732,7 +6209,7 @@ Doesn't return a value.
 ```
 
 ### 测试PostMapping表单
-**URL:** http://127.0.0.1:8080/postMapping2
+**URL:** http://localhost:8080/postMapping2
 
 **Type:** POST
 
@@ -5741,13 +6218,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试PostMapping表单
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Query-parameters:**
 
@@ -5830,7 +6300,7 @@ permissions|array|用户拥有的权限|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/postMapping2 --data 'roles[0].permissions[0].status=717&roles[0].id=95&permissions[0].path=8vs3lz&permissions[0].selected=true&permissions[0].sortOrder=595&roles[0].permissions[0].sortOrder=904&address=韦桥3号， 绵阳， 甘 383932&createBy=30fk5l&permissions[0].status=205&updateBy=cv7cgz&permissions[0].type=281&mobile=15525817715&permissions[0].parentId=95&roles[0].permissions[0].updateTime=2020-12-27&permissions[0].createBy=8yxswi&permissions[0].delFlag=0&roles[0].permissions[0].name=明.陈&permissions[0].description=jen9u0&nickName=dylan.bednar&roles[0].permissions[0].level=508&permissions[0].updateBy=wxljen&roles[0].updateTime=2020-12-27&permissions[0].title=fdpcbe&roles[0].permissions[0].icon=v13rlj&status=303&description=vbb9j3&permissions[0].name=明.陈&roles[0].createBy=h0fr7y&avatar=hqpb8m&roles[0].permissions[0].expand=true&roles[0].permissions[0].description=d1mkd3&roles[0].permissions[0].type=451&username=明.陈&email=正豪.李@gmail.com&roles[0].permissions[0].selected=true&permissions[0].level=498&roles[0].permissions[0].delFlag=0&roles[0].permissions[0].title=sn5ge3&permissions[0].component=2vvtt7&id=95&roles[0].updateBy=ytu5xf&roles[0].permissions[0].createTime=2020-12-27&roles[0].permissions[0].checked=true&updateTime=2020-12-27&permissions[0].buttonType=1q11n2&permissions[0].checked=true&roles[0].permissions[0].component=n9049r&roles[0].createTime=2020-12-27&createTime=2020-12-27&roles[0].permissions[0].parentId=95&permissions[0].expand=true&roles[0].permissions[0].updateBy=pa3i55&roles[0].defaultRole=true&type=6&roles[0].delFlag=0&permissions[0].id=95&delFlag=0&roles[0].permissions[0].createBy=jt8jhj&permissions[0].icon=fg7ig1&permissions[0].createTime=2020-12-27&permissions[0].updateTime=2020-12-27&roles[0].permissions[0].buttonType=h2droe&roles[0].permissions[0].id=95&roles[0].name=明.陈&roles[0].permissions[0].path=29b92k&password=1veike&sex=0'
+curl -X POST -i http://localhost:8080/postMapping2 --data 'permissions[0].createTime=2021-08-23 23:02:55&permissions[0].delFlag=1&permissions[0].id=163&roles[0].permissions[0].updateBy=liezn0&permissions[0].description=x979rw&roles[0].permissions[0].status=181&roles[0].defaultRole=true&id=163&roles[0].permissions[0].createTime=2021-08-23 23:02:55&nickName=morgan.wolff&roles[0].permissions[0].checked=true&description=movcet&roles[0].permissions[0].title=v05rya&roles[0].permissions[0].selected=true&updateBy=kmuzh5&permissions[0].title=98qu9y&permissions[0].buttonType=dlr80j&roles[0].permissions[0].level=714&roles[0].createBy=66vhqj&permissions[0].expand=true&mobile=(806) 262-2209&roles[0].permissions[0].createBy=y3rt8u&username=ricky.nitzsche&createTime=2021-08-23 23:02:55&permissions[0].type=143&permissions[0].sortOrder=501&roles[0].permissions[0].icon=6zcmq4&avatar=3puxe7&roles[0].updateBy=y8g6a1&roles[0].id=163&type=701&email=jamal.greenholt@gmail.com&roles[0].permissions[0].buttonType=p8mj58&sex=1&roles[0].updateTime=2021-08-23 23:02:55&permissions[0].createBy=5mr2bg&permissions[0].component=gr6cy8&delFlag=1&roles[0].permissions[0].type=531&permissions[0].updateBy=hlkvqw&permissions[0].level=456&permissions[0].name=ricky.nitzsche&status=124&roles[0].permissions[0].id=163&roles[0].permissions[0].name=ricky.nitzsche&roles[0].createTime=2021-08-23 23:02:55&permissions[0].checked=true&roles[0].permissions[0].sortOrder=899&permissions[0].parentId=163&updateTime=2021-08-23 23:02:55&roles[0].permissions[0].updateTime=2021-08-23 23:02:55&permissions[0].path=21uc9y&permissions[0].selected=true&permissions[0].status=371&permissions[0].updateTime=2021-08-23 23:02:55&roles[0].permissions[0].path=jdmd3r&roles[0].permissions[0].description=2tfd5i&roles[0].permissions[0].parentId=163&createBy=rtcpb8&roles[0].permissions[0].component=4e1dc1&roles[0].name=ricky.nitzsche&permissions[0].icon=6icugt&address=Suite 447 600 Kennith Corner， South Gail， OR 13527&roles[0].permissions[0].expand=true&roles[0].permissions[0].delFlag=1&password=sw36zd&roles[0].delFlag=1'
 ```
 
 **Response-example:**
@@ -5839,7 +6309,7 @@ Doesn't return a value.
 ```
 
 ### 测试PutMapping json
-**URL:** http://127.0.0.1:8080/putMapping
+**URL:** http://localhost:8080/putMapping
 
 **Type:** PUT
 
@@ -5848,13 +6318,6 @@ Doesn't return a value.
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 测试PutMapping json
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -5937,102 +6400,102 @@ permissions|array|用户拥有的权限|false|-
 
 **Request-example:**
 ```
-curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/putMapping? --data '{
-	"id":"95",
-	"createBy":"uh0vd0",
-	"createTime":"2020-12-27",
-	"updateBy":"ucjyq9",
-	"updateTime":"2020-12-27",
-	"delFlag":0,
-	"username":"明.陈",
-	"password":"h1ha5a",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"email":"正豪.李@gmail.com",
-	"address":"韦桥3号， 绵阳， 甘 383932",
-	"sex":0,
-	"avatar":"jwdaqv",
-	"type":109,
-	"status":888,
-	"description":"89q2tt",
-	"roles":[
-		{
-			"id":"95",
-			"createBy":"6y1eol",
-			"createTime":"2020-12-27",
-			"updateBy":"p3mwuc",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"defaultRole":true,
-			"permissions":[
-				{
-					"id":"95",
-					"createBy":"eosbmc",
-					"createTime":"2020-12-27",
-					"updateBy":"60oxi2",
-					"updateTime":"2020-12-27",
-					"delFlag":0,
-					"name":"明.陈",
-					"level":969,
-					"type":293,
-					"title":"mw25zd",
-					"path":"tu21ro",
-					"component":"1g46ww",
-					"icon":"79hqwb",
-					"buttonType":"bu3hmu",
-					"parentId":"95",
-					"description":"lfwqs6",
-					"sortOrder":485,
-					"status":863,
-					"children":[
-						{
-							"$ref":".."
-						}
-					],
-					"permTypes":[
-						"whgb1p"
-					],
-					"expand":true,
-					"checked":true,
-					"selected":true
-				}
-			]
-		}
-	],
-	"permissions":[
-		{
-			"id":"95",
-			"createBy":"xnfcfs",
-			"createTime":"2020-12-27",
-			"updateBy":"sx71rv",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"level":607,
-			"type":643,
-			"title":"g8cldg",
-			"path":"1hpjbn",
-			"component":"kn5om3",
-			"icon":"ej1ybt",
-			"buttonType":"dcqqzo",
-			"parentId":"95",
-			"description":"uqqygc",
-			"sortOrder":496,
-			"status":610,
-			"children":[
-				{
-					"$ref":".."
-				}
-			],
-			"permTypes":[
-				"h8cgrh"
-			],
-			"expand":true,
-			"checked":true,
-			"selected":true
-		}
-	]
+curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/putMapping --data '{
+  "id": "163",
+  "createBy": "xc7s3f",
+  "createTime": "2021-08-23 23:02:55",
+  "updateBy": "qtn5xm",
+  "updateTime": "2021-08-23 23:02:55",
+  "delFlag": 1,
+  "username": "ricky.nitzsche",
+  "password": "vq74zs",
+  "nickName": "morgan.wolff",
+  "mobile": "(806) 262-2209",
+  "email": "jamal.greenholt@gmail.com",
+  "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "sex": 1,
+  "avatar": "6pveyb",
+  "type": 818,
+  "status": 552,
+  "description": "nnvnyh",
+  "roles": [
+    {
+      "id": "163",
+      "createBy": "l6h5dx",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "74t17l",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "163",
+          "createBy": "114pqb",
+          "createTime": "2021-08-23 23:02:55",
+          "updateBy": "3qx9fx",
+          "updateTime": "2021-08-23 23:02:55",
+          "delFlag": 1,
+          "name": "ricky.nitzsche",
+          "level": 418,
+          "type": 742,
+          "title": "1lan35",
+          "path": "kzm4t0",
+          "component": "wryfhj",
+          "icon": "fq3h1u",
+          "buttonType": "1k0st7",
+          "parentId": "163",
+          "description": "6k5ofy",
+          "sortOrder": 913,
+          "status": 895,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "sqhxr3"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "163",
+      "createBy": "dbllvo",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "bdljf2",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "level": 366,
+      "type": 512,
+      "title": "r9wv0w",
+      "path": "elktq5",
+      "component": "uz8p87",
+      "icon": "c8jteh",
+      "buttonType": "j1xqqh",
+      "parentId": "163",
+      "description": "wdat5e",
+      "sortOrder": 313,
+      "status": 16,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "a7jkr1"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
 }'
 ```
 
@@ -6042,7 +6505,7 @@ Doesn't return a value.
 ```
 
 ### 测试PutMapping表单
-**URL:** http://127.0.0.1:8080/putMapping2
+**URL:** http://localhost:8080/putMapping2
 
 **Type:** PUT
 
@@ -6051,13 +6514,6 @@ Doesn't return a value.
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
 **Description:** 测试PutMapping表单
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Query-parameters:**
 
@@ -6140,7 +6596,7 @@ permissions|array|用户拥有的权限|false|-
 
 **Request-example:**
 ```
-curl -X PUT -H 'token:kk' -i http://127.0.0.1:8080/putMapping2 --data 'roles[0].permissions[0].component=xihu0r&roles[0].permissions[0].type=644&permissions[0].checked=true&permissions[0].type=56&roles[0].createBy=93k2p8&roles[0].createTime=2020-12-27&delFlag=0&updateBy=xn22nz&roles[0].name=明.陈&roles[0].updateTime=2020-12-27&password=ojdtg0&roles[0].permissions[0].createBy=4n2qoa&roles[0].permissions[0].buttonType=zy2h2v&sex=0&permissions[0].icon=a2nlgz&permissions[0].description=mry7ch&roles[0].permissions[0].delFlag=0&roles[0].permissions[0].icon=rbfj3h&permissions[0].name=明.陈&permissions[0].sortOrder=581&address=韦桥3号， 绵阳， 甘 383932&permissions[0].selected=true&roles[0].permissions[0].updateBy=u2yuyj&updateTime=2020-12-27&avatar=i8d6zg&roles[0].permissions[0].updateTime=2020-12-27&email=正豪.李@gmail.com&roles[0].id=95&permissions[0].createBy=lrbrb7&createTime=2020-12-27&roles[0].delFlag=0&description=v8ah54&roles[0].permissions[0].level=13&roles[0].permissions[0].status=848&permissions[0].createTime=2020-12-27&permissions[0].expand=true&permissions[0].title=l7umx8&permissions[0].id=95&permissions[0].updateTime=2020-12-27&permissions[0].updateBy=54fx4t&roles[0].defaultRole=true&roles[0].permissions[0].description=e25i99&permissions[0].status=902&username=明.陈&createBy=sm1ndf&mobile=15525817715&roles[0].permissions[0].createTime=2020-12-27&roles[0].permissions[0].name=明.陈&roles[0].permissions[0].path=gfncry&roles[0].permissions[0].title=txvesm&type=281&permissions[0].level=603&roles[0].permissions[0].checked=true&permissions[0].parentId=95&status=435&roles[0].permissions[0].sortOrder=583&permissions[0].component=eaw0sw&roles[0].permissions[0].parentId=95&roles[0].permissions[0].expand=true&permissions[0].buttonType=ov6psr&roles[0].updateBy=rv6okq&roles[0].permissions[0].id=95&nickName=dylan.bednar&roles[0].permissions[0].selected=true&permissions[0].delFlag=0&permissions[0].path=md43qd&id=95'
+curl -X PUT -i http://localhost:8080/putMapping2 --data 'roles[0].permissions[0].createBy=q3eb8w&nickName=morgan.wolff&roles[0].permissions[0].sortOrder=286&roles[0].permissions[0].component=8xibt0&permissions[0].icon=tz72ve&roles[0].permissions[0].type=493&roles[0].permissions[0].id=163&roles[0].updateBy=o3hy8p&permissions[0].delFlag=1&createBy=7hkkgm&permissions[0].level=968&type=402&delFlag=1&roles[0].permissions[0].name=ricky.nitzsche&permissions[0].type=428&status=20&roles[0].permissions[0].level=613&username=ricky.nitzsche&roles[0].permissions[0].updateBy=1ufd58&roles[0].permissions[0].description=k5igoy&roles[0].createTime=2021-08-23 23:02:55&roles[0].permissions[0].buttonType=jahqnx&roles[0].permissions[0].parentId=163&roles[0].permissions[0].checked=true&permissions[0].title=sfjbix&sex=1&permissions[0].id=163&avatar=mr7ni5&address=Suite 447 600 Kennith Corner， South Gail， OR 13527&permissions[0].buttonType=cmi5c1&password=u508cc&mobile=(806) 262-2209&roles[0].name=ricky.nitzsche&description=mmgb3t&roles[0].permissions[0].updateTime=2021-08-23 23:02:55&permissions[0].updateTime=2021-08-23 23:02:55&permissions[0].parentId=163&permissions[0].name=ricky.nitzsche&roles[0].defaultRole=true&permissions[0].selected=true&roles[0].permissions[0].createTime=2021-08-23 23:02:55&createTime=2021-08-23 23:02:55&updateBy=l6groy&email=jamal.greenholt@gmail.com&permissions[0].createTime=2021-08-23 23:02:55&permissions[0].description=xso3bb&roles[0].permissions[0].delFlag=1&roles[0].delFlag=1&roles[0].permissions[0].selected=true&roles[0].permissions[0].expand=true&permissions[0].updateBy=9rkrch&roles[0].permissions[0].status=730&updateTime=2021-08-23 23:02:55&permissions[0].component=xe2a2j&permissions[0].path=d8cdzn&roles[0].updateTime=2021-08-23 23:02:55&permissions[0].createBy=9amgq1&roles[0].permissions[0].title=2qtl91&roles[0].createBy=x9f81z&roles[0].permissions[0].path=wvqbuc&roles[0].id=163&permissions[0].expand=true&id=163&permissions[0].checked=true&permissions[0].status=442&permissions[0].sortOrder=55&roles[0].permissions[0].icon=cum01g'
 ```
 
 **Response-example:**
@@ -6149,7 +6605,7 @@ Doesn't return a value.
 ```
 
 ### 测试DeleteMapping
-**URL:** http://127.0.0.1:8080/deleteMapping
+**URL:** http://localhost:8080/deleteMapping
 
 **Type:** DELETE
 
@@ -6159,13 +6615,6 @@ Doesn't return a value.
 
 **Description:** 测试DeleteMapping
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -6174,7 +6623,7 @@ userId|int64|userId|true|-
 
 **Request-example:**
 ```
-curl -X DELETE -H 'token:kk' -i http://127.0.0.1:8080/deleteMapping?userId=362
+curl -X DELETE -i http://localhost:8080/deleteMapping?userId=763
 ```
 
 **Response-example:**
@@ -6184,7 +6633,7 @@ Doesn't return a value.
 
 ## Test ResponseEntity
 ### ResponseEntity return List
-**URL:** http://127.0.0.1:8080/responseEntity/list
+**URL:** http://localhost:8080/responseEntity/list
 
 **Type:** GET
 
@@ -6194,16 +6643,9 @@ Doesn't return a value.
 
 **Description:** ResponseEntity return List
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/responseEntity/list
+curl -X GET -i http://localhost:8080/responseEntity/list
 ```
 **Response-fields:**
 
@@ -6226,34 +6668,34 @@ telephone|string|固定电话|-
 **Response-example:**
 ```
 [
-	{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":78.08,
-		"money":20.54,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	}
+  {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 46.42,
+    "money": 82.33,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  }
 ]
 ```
 
 ## 普通java对象api文档测试
 ### 返回普通String测试
-**URL:** http://127.0.0.1:8080/simple/str
+**URL:** http://localhost:8080/simple/str
 
 **Type:** GET
 
@@ -6263,16 +6705,9 @@ telephone|string|固定电话|-
 
 **Description:** 返回普通String测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/simple/str
+curl -X GET -i http://localhost:8080/simple/str
 ```
 
 **Response-example:**
@@ -6281,7 +6716,7 @@ string
 ```
 
 ### 返回普通javabean
-**URL:** http://127.0.0.1:8080/simple/user
+**URL:** http://localhost:8080/simple/user
 
 **Type:** POST
 
@@ -6290,13 +6725,6 @@ string
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 返回普通javabean
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -6318,27 +6746,27 @@ telephone|string|固定电话|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/simple/user? --data '{
-	"userDetails":[
-		{
-			"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"明.陈",
-	"nickName":"dylan.bednar",
-	"userAddress":"韦桥3号， 绵阳， 甘 383932",
-	"userAge":24,
-	"phone":"15711804595",
-	"createTime":1609002323037,
-	"small":13.39,
-	"money":28.39,
-	"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-	"telephone":"15711804595"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/simple/user --data '{
+  "userDetails": [
+    {
+      "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+    }
+  ],
+  "userList": [
+    {
+      "$ref": ".."
+    }
+  ],
+  "userName": "ricky.nitzsche",
+  "nickName": "morgan.wolff",
+  "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "userAge": 32,
+  "phone": "260-954-1407",
+  "createTime": 1629730974133,
+  "small": 68.31,
+  "money": 69.60,
+  "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+  "telephone": "260-954-1407"
 }'
 ```
 **Response-fields:**
@@ -6362,31 +6790,31 @@ telephone|string|固定电话|-
 **Response-example:**
 ```
 {
-	"userDetails":[
-		{
-			"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-		}
-	],
-	"userList":[
-		{
-			"$ref":".."
-		}
-	],
-	"userName":"明.陈",
-	"nickName":"dylan.bednar",
-	"userAddress":"韦桥3号， 绵阳， 甘 383932",
-	"userAge":24,
-	"phone":"15711804595",
-	"createTime":1609002323037,
-	"small":89.63,
-	"money":13.90,
-	"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-	"telephone":"15711804595"
+  "userDetails": [
+    {
+      "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+    }
+  ],
+  "userList": [
+    {
+      "$ref": ".."
+    }
+  ],
+  "userName": "ricky.nitzsche",
+  "nickName": "morgan.wolff",
+  "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "userAge": 32,
+  "phone": "260-954-1407",
+  "createTime": 1629730974133,
+  "small": 11.65,
+  "money": 59.86,
+  "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+  "telephone": "260-954-1407"
 }
 ```
 
 ### 返回复杂实体数据
-**URL:** http://127.0.0.1:8080/simple/stu
+**URL:** http://localhost:8080/simple/stu
 
 **Type:** POST
 
@@ -6396,16 +6824,9 @@ telephone|string|固定电话|-
 
 **Description:** 返回复杂实体数据
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/simple/stu
+curl -X POST -i http://localhost:8080/simple/stu
 ```
 **Response-fields:**
 
@@ -6474,106 +6895,106 @@ user1|object|用户对象2|-
 **Response-example:**
 ```
 {
-	"stuName":"明.陈",
-	"stuAge":true,
-	"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-	"user":{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":90.83,
-		"money":96.38,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	},
-	"userMap":{
-		"mapKey":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":23.84,
-			"money":75.50,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		}
-	},
-	"userTreeSet":[
-		{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":49.56,
-			"money":95.09,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		}
-	],
-	"user1":{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":12.76,
-		"money":2.14,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	}
+  "stuName": "ricky.nitzsche",
+  "stuAge": true,
+  "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "user": {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 21.18,
+    "money": 57.40,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  },
+  "userMap": {
+    "mapKey": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 70.66,
+      "money": 17.29,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    }
+  },
+  "userTreeSet": [
+    {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 27.34,
+      "money": 49.92,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    }
+  ],
+  "user1": {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 91.21,
+    "money": 8.01,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  }
 }
 ```
 
 ### Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
-**URL:** http://127.0.0.1:8080/simple/teacher
+**URL:** http://localhost:8080/simple/teacher
 
 **Type:** POST
 
@@ -6583,16 +7004,9 @@ user1|object|用户对象2|-
 
 **Description:** Teacher&lt;Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;,Teacher&lt;User,User,User&gt;&gt;结构
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/simple/teacher
+curl -X POST -i http://localhost:8080/simple/teacher
 ```
 **Response-fields:**
 
@@ -6735,219 +7149,219 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"data":{
-		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":69.13,
-			"money":6.89,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":82.10,
-			"money":39.81,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":78.32,
-			"money":5.39,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	},
-	"data1":{
-		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":6.26,
-			"money":17.18,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":46.61,
-			"money":77.63,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":3.74,
-			"money":28.59,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	},
-	"data2":{
-		"data":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":6.02,
-			"money":36.24,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":21.15,
-			"money":58.18,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"data2":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":45.96,
-			"money":34.38,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"age":24
-	},
-	"age":24
+  "data": {
+    "data": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 55.13,
+      "money": 27.46,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 58.66,
+      "money": 85.08,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 72.20,
+      "money": 39.29,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  },
+  "data1": {
+    "data": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 59.63,
+      "money": 32.56,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 65.75,
+      "money": 19.15,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 28.42,
+      "money": 62.18,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  },
+  "data2": {
+    "data": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 70.87,
+      "money": 37.15,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 34.05,
+      "money": 5.98,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "data2": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 64.71,
+      "money": 59.51,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "age": 32
+  },
+  "age": 32
 }
 ```
 
 ### Teacher&lt;List&lt;User&gt;, User, Student&gt;
-**URL:** http://127.0.0.1:8080/simple/teacher2
+**URL:** http://localhost:8080/simple/teacher2
 
 **Type:** POST
 
@@ -6957,22 +7371,15 @@ age|int32|年龄|-
 
 **Description:** Teacher&lt;List&lt;User&gt;, User, Student&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/simple/teacher2
+curl -X POST -i http://localhost:8080/simple/teacher2
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-data|object|泛型data|-
+data|array|泛型data|-
 └─userDetails|array|用户详情|-
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─githubAddress|string|测试|-
 └─userList|array|用户列表|-
@@ -7065,155 +7472,155 @@ age|int32|年龄|-
 **Response-example:**
 ```
 {
-	"data":[
-		{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":90.71,
-			"money":29.36,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		}
-	],
-	"data1":{
-		"stuName":"明.陈",
-		"stuAge":true,
-		"stuAddress":"韦桥3号， 绵阳， 甘 383932",
-		"user":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":51.34,
-			"money":10.68,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		},
-		"userMap":{
-			"mapKey":{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":10.91,
-				"money":50.16,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		},
-		"userTreeSet":[
-			{
-				"userDetails":[
-					{
-						"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-					}
-				],
-				"userList":[
-					{
-						"$ref":".."
-					}
-				],
-				"userName":"明.陈",
-				"nickName":"dylan.bednar",
-				"userAddress":"韦桥3号， 绵阳， 甘 383932",
-				"userAge":24,
-				"phone":"15711804595",
-				"createTime":1609002323037,
-				"small":84.28,
-				"money":83.32,
-				"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-				"telephone":"15711804595"
-			}
-		],
-		"user1":{
-			"userDetails":[
-				{
-					"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-				}
-			],
-			"userList":[
-				{
-					"$ref":".."
-				}
-			],
-			"userName":"明.陈",
-			"nickName":"dylan.bednar",
-			"userAddress":"韦桥3号， 绵阳， 甘 383932",
-			"userAge":24,
-			"phone":"15711804595",
-			"createTime":1609002323037,
-			"small":57.95,
-			"money":57.51,
-			"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-			"telephone":"15711804595"
-		}
-	},
-	"data2":{
-		"userDetails":[
-			{
-				"githubAddress":"韦桥3号， 绵阳， 甘 383932"
-			}
-		],
-		"userList":[
-			{
-				"$ref":".."
-			}
-		],
-		"userName":"明.陈",
-		"nickName":"dylan.bednar",
-		"userAddress":"韦桥3号， 绵阳， 甘 383932",
-		"userAge":24,
-		"phone":"15711804595",
-		"createTime":1609002323037,
-		"small":61.23,
-		"money":14.50,
-		"ipv6":"173c:44f1:337b:18c4:8d4e:e865:dff3:34d3",
-		"telephone":"15711804595"
-	},
-	"age":24
+  "data": [
+    {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 27.54,
+      "money": 12.82,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    }
+  ],
+  "data1": {
+    "stuName": "ricky.nitzsche",
+    "stuAge": true,
+    "stuAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "user": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 48.65,
+      "money": 26.69,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    },
+    "userMap": {
+      "mapKey": {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 10.43,
+        "money": 71.07,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    },
+    "userTreeSet": [
+      {
+        "userDetails": [
+          {
+            "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+          }
+        ],
+        "userList": [
+          {
+            "$ref": ".."
+          }
+        ],
+        "userName": "ricky.nitzsche",
+        "nickName": "morgan.wolff",
+        "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+        "userAge": 32,
+        "phone": "260-954-1407",
+        "createTime": 1629730974133,
+        "small": 40.03,
+        "money": 82.23,
+        "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+        "telephone": "260-954-1407"
+      }
+    ],
+    "user1": {
+      "userDetails": [
+        {
+          "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+        }
+      ],
+      "userList": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "userName": "ricky.nitzsche",
+      "nickName": "morgan.wolff",
+      "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+      "userAge": 32,
+      "phone": "260-954-1407",
+      "createTime": 1629730974133,
+      "small": 43.46,
+      "money": 17.48,
+      "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+      "telephone": "260-954-1407"
+    }
+  },
+  "data2": {
+    "userDetails": [
+      {
+        "githubAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527"
+      }
+    ],
+    "userList": [
+      {
+        "$ref": ".."
+      }
+    ],
+    "userName": "ricky.nitzsche",
+    "nickName": "morgan.wolff",
+    "userAddress": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+    "userAge": 32,
+    "phone": "260-954-1407",
+    "createTime": 1629730974133,
+    "small": 19.47,
+    "money": 24.68,
+    "ipv6": "daa2:12e8:3d98:1779:27ea:e52c:61ff:df71",
+    "telephone": "260-954-1407"
+  },
+  "age": 32
 }
 ```
 
 ### 测试SubUser
-**URL:** http://127.0.0.1:8080/simple/subUser
+**URL:** http://localhost:8080/simple/subUser
 
 **Type:** POST
 
@@ -7223,16 +7630,9 @@ age|int32|年龄|-
 
 **Description:** 测试SubUser
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/simple/subUser
+curl -X POST -i http://localhost:8080/simple/subUser
 ```
 **Response-fields:**
 
@@ -7244,13 +7644,13 @@ numbers|number|bigInteger|-
 **Response-example:**
 ```
 {
-	"subUserName":"张三",
-	"numbers":156
+  "subUserName": "张三",
+  "numbers": 849
 }
 ```
 
 ### 返回CommonResult&lt;SubUser&gt;
-**URL:** http://127.0.0.1:8080/simple/subUser/result
+**URL:** http://localhost:8080/simple/subUser/result
 
 **Type:** POST
 
@@ -7260,16 +7660,9 @@ numbers|number|bigInteger|-
 
 **Description:** 返回CommonResult&lt;SubUser&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/simple/subUser/result
+curl -X POST -i http://localhost:8080/simple/subUser/result
 ```
 **Response-fields:**
 
@@ -7277,7 +7670,7 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 └─subUserName|string|用户名称|-
 └─numbers|number|bigInteger|-
 code|string|错误代码|-
@@ -7286,20 +7679,20 @@ timestamp|string|响应时间|-
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"subUserName":"张三",
-		"numbers":773
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "subUserName": "张三",
+    "numbers": 786
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ## 简单对象测试2
 ### CommonResult&lt;String&gt;
-**URL:** http://127.0.0.1:8080/stringCommonResult
+**URL:** http://localhost:8080/stringCommonResult
 
 **Type:** POST
 
@@ -7309,16 +7702,9 @@ timestamp|string|响应时间|-
 
 **Description:** CommonResult&lt;String&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/stringCommonResult
+curl -X POST -i http://localhost:8080/stringCommonResult
 ```
 **Response-fields:**
 
@@ -7326,23 +7712,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"nlcssn",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "n3qkjw",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 返回Staff&lt;Staff&lt;Staff&gt;&gt;
-**URL:** http://127.0.0.1:8080/staff
+**URL:** http://localhost:8080/staff
 
 **Type:** POST
 
@@ -7352,16 +7738,9 @@ timestamp|string|响应时间|-
 
 **Description:** 返回Staff&lt;Staff&lt;Staff&gt;&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/staff
+curl -X POST -i http://localhost:8080/staff
 ```
 **Response-fields:**
 
@@ -7386,36 +7765,36 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"明.陈",
-	"annyObject":{
-		"name":"明.陈",
-		"annyObject":{
-			"$ref":"..."
-		},
-		"data":[
-			{
-				"$ref":".."
-			}
-		]
-	},
-	"data":[
-		{
-			"name":"明.陈",
-			"annyObject":{
-				"$ref":"..."
-			},
-			"data":[
-				{
-					"$ref":".."
-				}
-			]
-		}
-	]
+  "name": "ricky.nitzsche",
+  "annyObject": {
+    "name": "ricky.nitzsche",
+    "annyObject": {
+      "$ref": "..."
+    },
+    "data": [
+      {
+        "$ref": ".."
+      }
+    ]
+  },
+  "data": [
+    {
+      "name": "ricky.nitzsche",
+      "annyObject": {
+        "$ref": "..."
+      },
+      "data": [
+        {
+          "$ref": ".."
+        }
+      ]
+    }
+  ]
 }
 ```
 
 ### 返回Staff&lt;String&gt;
-**URL:** http://127.0.0.1:8080/staffStr
+**URL:** http://localhost:8080/staffStr
 
 **Type:** POST
 
@@ -7425,16 +7804,9 @@ data|array|泛型数据|-
 
 **Description:** 返回Staff&lt;String&gt;
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/staffStr
+curl -X POST -i http://localhost:8080/staffStr
 ```
 **Response-fields:**
 
@@ -7447,16 +7819,16 @@ data|array|泛型数据|-
 **Response-example:**
 ```
 {
-	"name":"明.陈",
-	"annyObject":"rd6s1u",
-	"data":[
-		"krqbyc"
-	]
+  "name": "ricky.nitzsche",
+  "annyObject": "hewsfb",
+  "data": [
+    "yhn79v"
+  ]
 }
 ```
 
 ### JAVA继承测试
-**URL:** http://127.0.0.1:8080/children
+**URL:** http://localhost:8080/children
 
 **Type:** POST
 
@@ -7466,60 +7838,46 @@ data|array|泛型数据|-
 
 **Description:** JAVA继承测试
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-age|int32|No comments found.|false|-
+age|int32|年龄|false|-
 name|string|姓名|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/children? --data '{
-	"age":24,
-	"name":"明.陈"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/children --data '{
+  "age": 32,
+  "name": "ricky.nitzsche"
 }'
 ```
 **Response-fields:**
 
 Field | Type|Description|Since
 ---|---|---|---
-age|int32|No comments found.|-
+age|int32|年龄|-
 name|string|姓名|-
 
 **Response-example:**
 ```
 {
-	"age":24,
-	"name":"明.陈"
+  "age": 32,
+  "name": "ricky.nitzsche"
 }
 ```
 
 ## 注释tag用例
 ### ~~测试apiNote tag~~
-**URL:** http://127.0.0.1:8080/tags/apiNote
+**URL:** http://localhost:8080/tags/apiNote
 
 **Type:** POST
 
-**Author:** cht
+**Author:** "cht"
 
 **Content-Type:** application/x-www-form-urlencoded;charset=utf-8
 
-**Description:** This method returns a List instead of a Collection or Stream,because processing of multiple Wombats usually involves traversing<br>the list in alternating forward and reverse directions.
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
+**Description:** Thismethod returns a List instead of a Collection or Stream,<br>because processing of multiple Wombats usually involves traversing<br>the list in alternating forward and reverse directions.
 
 **Query-parameters:**
 
@@ -7529,7 +7887,7 @@ user|array|No comments found.,[array of string]|false|
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/tags/apiNote --data 'user=l7uwul&user=l7uwul'
+curl -X POST -i http://localhost:8080/tags/apiNote --data 'user=euvf8x&user=euvf8x'
 ```
 
 **Response-example:**
@@ -7538,7 +7896,7 @@ string
 ```
 
 ### 自定义mock tag获取mock值
-**URL:** http://127.0.0.1:8080/tags/mock
+**URL:** http://localhost:8080/tags/mock
 
 **Type:** POST
 
@@ -7547,13 +7905,6 @@ string
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 自定义mock tag获取mock值
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -7564,9 +7915,9 @@ numbers|number|bigInteger|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/tags/mock? --data '{
-	"subUserName":"张三",
-	"numbers":862
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/tags/mock --data '{
+  "subUserName": "张三",
+  "numbers": 118
 }'
 ```
 **Response-fields:**
@@ -7575,38 +7926,36 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 └─MAX_SPEED|int32|No comments found.|-
+└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
 └─simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|-
 └─username|string|用户名|v1.0
 └─password|string|密码|v1.0
 └─nickName|string|昵称|v1.0
 └─mobile|string|电话|v1.0
-└─gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|-
+└─roles|array|用户角色信息|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─id|string|自增编号|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createBy|string|创建人|v1.2
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─createTime|string|创建时间|v1.0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateBy|string|修改人|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─updateTime|string|修改时间|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─delFlag|int32|删除标记[1表示已删除，默认值0]|v1.1
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─userId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleId|string|No comments found.|-
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─roleName|string|No comments found.|-
+└─extend|map|用户扩展项|-
+└─listMap|array|ListMap效果展示|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
-{
-	"success":true,
-	"message":"success",
-	"data":{
-		"MAX_SPEED":667,
-		"simpleEnum":"RED",
-		"username":"明.陈",
-		"password":"1ap3cw",
-		"nickName":"dylan.bednar",
-		"mobile":"15525817715",
-		"gender":0
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
-}
+{"success":true,"message":"success","data":{"MAX_SPEED":36,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"cn5qe9","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"3pqtrz","createTime":"2021-08-23 23:02:55","updateBy":"81nltq","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}},"code":"39323","timestamp":"2021-08-23 23:02:54"}
 ```
 
 ### 测试@ignore tag
-**URL:** http://127.0.0.1:8080/tags/ignore
+**URL:** http://localhost:8080/tags/ignore
 
 **Type:** GET
 
@@ -7616,13 +7965,6 @@ timestamp|string|响应时间|-
 
 **Description:** 测试@ignore tag
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -7631,7 +7973,7 @@ total|int32|记录总数|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/tags/ignore?total=799
+curl -X GET -i http://localhost:8080/tags/ignore?total=601
 ```
 
 **Response-example:**
@@ -7641,7 +7983,7 @@ string
 
 ## 用户信息操作接口
 ### 添加用户
-**URL:** http://127.0.0.1:8080/user/add
+**URL:** http://localhost:8080/user/add
 
 **Type:** POST
 
@@ -7651,36 +7993,33 @@ string
 
 **Description:** 添加用户
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
 simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
+username|string|用户名|false|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/user/add? --data '{
-	"MAX_SPEED":77,
-	"simpleEnum":"RED",
-	"username":"明.陈",
-	"password":"6g5d6i",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"gender":0
-}'
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/user/add --data '{"MAX_SPEED":686,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"6hxuta","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"ywsufn","createTime":"2021-08-23 23:02:55","updateBy":"sji53e","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
 ```
 **Response-fields:**
 
@@ -7764,106 +8103,106 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"95",
-	"createBy":"49hdy8",
-	"createTime":"2020-12-27",
-	"updateBy":"th78rz",
-	"updateTime":"2020-12-27",
-	"delFlag":0,
-	"username":"明.陈",
-	"password":"sps4us",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"email":"正豪.李@gmail.com",
-	"address":"韦桥3号， 绵阳， 甘 383932",
-	"sex":0,
-	"avatar":"iwo66t",
-	"type":933,
-	"status":318,
-	"description":"0qmrjr",
-	"roles":[
-		{
-			"id":"95",
-			"createBy":"izb4cm",
-			"createTime":"2020-12-27",
-			"updateBy":"xib7wy",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"defaultRole":true,
-			"permissions":[
-				{
-					"id":"95",
-					"createBy":"1kvpxx",
-					"createTime":"2020-12-27",
-					"updateBy":"odbedv",
-					"updateTime":"2020-12-27",
-					"delFlag":0,
-					"name":"明.陈",
-					"level":533,
-					"type":39,
-					"title":"ypam1v",
-					"path":"v4ylqe",
-					"component":"3ldelb",
-					"icon":"n5al4g",
-					"buttonType":"um4v4b",
-					"parentId":"95",
-					"description":"59dm3r",
-					"sortOrder":483,
-					"status":688,
-					"children":[
-						{
-							"$ref":".."
-						}
-					],
-					"permTypes":[
-						"eq7bmo"
-					],
-					"expand":true,
-					"checked":true,
-					"selected":true
-				}
-			]
-		}
-	],
-	"permissions":[
-		{
-			"id":"95",
-			"createBy":"4f4zof",
-			"createTime":"2020-12-27",
-			"updateBy":"ta3uod",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"level":665,
-			"type":697,
-			"title":"1kztl7",
-			"path":"anexya",
-			"component":"zb6cqp",
-			"icon":"fva4yr",
-			"buttonType":"jf1p8f",
-			"parentId":"95",
-			"description":"dh4pze",
-			"sortOrder":968,
-			"status":626,
-			"children":[
-				{
-					"$ref":".."
-				}
-			],
-			"permTypes":[
-				"y2w1wl"
-			],
-			"expand":true,
-			"checked":true,
-			"selected":true
-		}
-	]
+  "id": "163",
+  "createBy": "rdumj6",
+  "createTime": "2021-08-23 23:02:55",
+  "updateBy": "2usyfp",
+  "updateTime": "2021-08-23 23:02:55",
+  "delFlag": 1,
+  "username": "ricky.nitzsche",
+  "password": "6uf46n",
+  "nickName": "morgan.wolff",
+  "mobile": "(806) 262-2209",
+  "email": "jamal.greenholt@gmail.com",
+  "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "sex": 1,
+  "avatar": "ozwphw",
+  "type": 301,
+  "status": 561,
+  "description": "s5armh",
+  "roles": [
+    {
+      "id": "163",
+      "createBy": "z6437x",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "hahpdl",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "163",
+          "createBy": "85gv7q",
+          "createTime": "2021-08-23 23:02:55",
+          "updateBy": "ingb3z",
+          "updateTime": "2021-08-23 23:02:55",
+          "delFlag": 1,
+          "name": "ricky.nitzsche",
+          "level": 279,
+          "type": 657,
+          "title": "mnz4zy",
+          "path": "udesr4",
+          "component": "4i5aw6",
+          "icon": "90j7lx",
+          "buttonType": "06cawc",
+          "parentId": "163",
+          "description": "4qr9ee",
+          "sortOrder": 622,
+          "status": 427,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "3knq9t"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "163",
+      "createBy": "vtw4sa",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "v43329",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "level": 379,
+      "type": 174,
+      "title": "hem6t8",
+      "path": "y7rjb3",
+      "component": "3snx6x",
+      "icon": "23n0cn",
+      "buttonType": "ofr34d",
+      "parentId": "163",
+      "description": "jdz8ri",
+      "sortOrder": 356,
+      "status": 253,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "s9qui7"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
 }
 ```
 
 ### 更新用户
-**URL:** http://127.0.0.1:8080/user/update
+**URL:** http://localhost:8080/user/update
 
 **Type:** PUT
 
@@ -7873,36 +8212,33 @@ permissions|array|用户拥有的权限|-
 
 **Description:** 更新用户
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
 MAX_SPEED|int32|No comments found.|false|-
+gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
 simpleEnum|enum|简单枚举<br/>RED<br/>BLUE<br/>|false|-
-username|string|用户名|true|v1.0
+username|string|用户名|false|v1.0
 password|string|密码|false|v1.0
 nickName|string|昵称|false|v1.0
 mobile|string|电话|false|v1.0
-gender|enum|性别<br/>WOMAN -(0,"女人")<br/>MAN -(2,"男人")<br/>|false|-
+roles|array|用户角色信息|false|-
+└─id|string|自增编号|false|v1.0
+└─createBy|string|创建人|false|v1.2
+└─createTime|string|创建时间|false|v1.0
+└─updateBy|string|修改人|false|v1.1
+└─updateTime|string|修改时间|false|v1.1
+└─delFlag|int32|删除标记[1表示已删除，默认值0]|false|v1.1
+└─userId|string|No comments found.|false|-
+└─roleId|string|No comments found.|false|-
+└─roleName|string|No comments found.|false|-
+extend|map|用户扩展项|false|-
+listMap|array|ListMap效果展示|false|-
 
 **Request-example:**
 ```
-curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/user/update? --data '{
-	"MAX_SPEED":607,
-	"simpleEnum":"RED",
-	"username":"明.陈",
-	"password":"l8nvft",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"gender":0
-}'
+curl -X PUT -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/user/update --data '{"MAX_SPEED":148,"gender":0,"simpleEnum":"RED","username":"ricky.nitzsche","password":"agqqa5","nickName":"morgan.wolff","mobile":"(806) 262-2209","roles":[{"id":"163","createBy":"40w3jp","createTime":"2021-08-23 23:02:55","updateBy":"3jtpqg","updateTime":"2021-08-23 23:02:55","delFlag":1,"userId":"163","roleId":"163","roleName":"ricky.nitzsche"}],"extend":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}},"listMap":{"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}}'
 ```
 **Response-fields:**
 
@@ -7986,107 +8322,107 @@ permissions|array|用户拥有的权限|-
 **Response-example:**
 ```
 {
-	"id":"95",
-	"createBy":"50y7h5",
-	"createTime":"2020-12-27",
-	"updateBy":"r01kv5",
-	"updateTime":"2020-12-27",
-	"delFlag":0,
-	"username":"明.陈",
-	"password":"40is4q",
-	"nickName":"dylan.bednar",
-	"mobile":"15525817715",
-	"email":"正豪.李@gmail.com",
-	"address":"韦桥3号， 绵阳， 甘 383932",
-	"sex":0,
-	"avatar":"9uaetu",
-	"type":562,
-	"status":537,
-	"description":"z0x46e",
-	"roles":[
-		{
-			"id":"95",
-			"createBy":"pgzpfd",
-			"createTime":"2020-12-27",
-			"updateBy":"qve5h9",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"defaultRole":true,
-			"permissions":[
-				{
-					"id":"95",
-					"createBy":"cyecg5",
-					"createTime":"2020-12-27",
-					"updateBy":"aacudn",
-					"updateTime":"2020-12-27",
-					"delFlag":0,
-					"name":"明.陈",
-					"level":425,
-					"type":152,
-					"title":"uqgt8i",
-					"path":"eand1y",
-					"component":"wkuy7x",
-					"icon":"gmr2zz",
-					"buttonType":"936oro",
-					"parentId":"95",
-					"description":"a2c8p1",
-					"sortOrder":922,
-					"status":101,
-					"children":[
-						{
-							"$ref":".."
-						}
-					],
-					"permTypes":[
-						"t3en0b"
-					],
-					"expand":true,
-					"checked":true,
-					"selected":true
-				}
-			]
-		}
-	],
-	"permissions":[
-		{
-			"id":"95",
-			"createBy":"2dlehk",
-			"createTime":"2020-12-27",
-			"updateBy":"nw4eru",
-			"updateTime":"2020-12-27",
-			"delFlag":0,
-			"name":"明.陈",
-			"level":615,
-			"type":34,
-			"title":"49efa3",
-			"path":"c56hbr",
-			"component":"6dvwel",
-			"icon":"7gz2b6",
-			"buttonType":"x3aky2",
-			"parentId":"95",
-			"description":"ai6h2a",
-			"sortOrder":56,
-			"status":739,
-			"children":[
-				{
-					"$ref":".."
-				}
-			],
-			"permTypes":[
-				"1qhppn"
-			],
-			"expand":true,
-			"checked":true,
-			"selected":true
-		}
-	]
+  "id": "163",
+  "createBy": "6dajnz",
+  "createTime": "2021-08-23 23:02:55",
+  "updateBy": "2psyib",
+  "updateTime": "2021-08-23 23:02:55",
+  "delFlag": 1,
+  "username": "ricky.nitzsche",
+  "password": "mv41n5",
+  "nickName": "morgan.wolff",
+  "mobile": "(806) 262-2209",
+  "email": "jamal.greenholt@gmail.com",
+  "address": "Suite 447 600 Kennith Corner， South Gail， OR 13527",
+  "sex": 1,
+  "avatar": "173m14",
+  "type": 606,
+  "status": 328,
+  "description": "2gedep",
+  "roles": [
+    {
+      "id": "163",
+      "createBy": "4dm6gi",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "qtuj3f",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "defaultRole": true,
+      "permissions": [
+        {
+          "id": "163",
+          "createBy": "t6n3jk",
+          "createTime": "2021-08-23 23:02:55",
+          "updateBy": "rbzv5b",
+          "updateTime": "2021-08-23 23:02:55",
+          "delFlag": 1,
+          "name": "ricky.nitzsche",
+          "level": 778,
+          "type": 390,
+          "title": "94g5f0",
+          "path": "gse232",
+          "component": "vwnoia",
+          "icon": "30i5f0",
+          "buttonType": "0gazwn",
+          "parentId": "163",
+          "description": "ip4xfe",
+          "sortOrder": 258,
+          "status": 889,
+          "children": [
+            {
+              "$ref": ".."
+            }
+          ],
+          "permTypes": [
+            "pi8bcc"
+          ],
+          "expand": true,
+          "checked": true,
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "permissions": [
+    {
+      "id": "163",
+      "createBy": "6zehii",
+      "createTime": "2021-08-23 23:02:55",
+      "updateBy": "8c6c7l",
+      "updateTime": "2021-08-23 23:02:55",
+      "delFlag": 1,
+      "name": "ricky.nitzsche",
+      "level": 805,
+      "type": 893,
+      "title": "djnqc7",
+      "path": "je3btz",
+      "component": "c7i1vf",
+      "icon": "9ikh4l",
+      "buttonType": "4j9ft2",
+      "parentId": "163",
+      "description": "qtlyxa",
+      "sortOrder": 460,
+      "status": 797,
+      "children": [
+        {
+          "$ref": ".."
+        }
+      ],
+      "permTypes": [
+        "y4886v"
+      ],
+      "expand": true,
+      "checked": true,
+      "selected": true
+    }
+  ]
 }
 ```
 
 ## JSR303参数验证规范测试
 ### 验证validate
-**URL:** http://127.0.0.1:8080/validator/test
+**URL:** http://localhost:8080/validator/test
 
 **Type:** POST
 
@@ -8095,13 +8431,6 @@ permissions|array|用户拥有的权限|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 验证validate
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -8112,16 +8441,18 @@ birthday|string|生日|true|-
 age|int32|年龄|false|-
 subject|object|科目|true|-
 └─subjectName|string|科目名称|true|-
+└─core|int32|分数|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/test? --data '{
-	"name":"明.陈",
-	"birthday":"2020-12-27",
-	"age":24,
-	"subject":{
-		"subjectName":"明.陈"
-	}
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/test --data '{
+  "name": "ricky.nitzsche",
+  "birthday": "2021-08-23",
+  "age": 32,
+  "subject": {
+    "subjectName": "ricky.nitzsche",
+    "core": 559
+  }
 }'
 ```
 **Response-fields:**
@@ -8130,25 +8461,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 验证通用参数
-**URL:** http://127.0.0.1:8080/validator/valid
+**URL:** http://localhost:8080/validator/valid
 
 **Type:** POST
 
@@ -8157,13 +8488,6 @@ timestamp|string|响应时间|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 验证通用参数
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -8177,13 +8501,13 @@ parameter|object|No comments found.|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/valid? --data '{
-	"token":"eyj0bd",
-	"sequenceNo":"ytz9lp",
-	"parameter":{
-		"subUserName":"张三",
-		"numbers":160
-	}
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/valid --data '{
+  "token": "u0kcjx",
+  "sequenceNo": "yttw0c",
+  "parameter": {
+    "subUserName": "张三",
+    "numbers": 340
+  }
 }'
 ```
 **Response-fields:**
@@ -8192,25 +8516,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 分组验证1
-**URL:** http://127.0.0.1:8080/validator/save
+**URL:** http://localhost:8080/validator/save
 
 **Type:** POST
 
@@ -8220,13 +8544,6 @@ timestamp|string|响应时间|-
 
 **Description:** 分组验证1
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -8237,10 +8554,10 @@ mobile|string|电话|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/save? --data '{
-	"id":409,
-	"name":"明.陈",
-	"mobile":"15525817715"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/save --data '{
+  "id": 298,
+  "name": "ricky.nitzsche",
+  "mobile": "(806) 262-2209"
 }'
 ```
 **Response-fields:**
@@ -8249,25 +8566,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 分组验证2
-**URL:** http://127.0.0.1:8080/validator/update
+**URL:** http://localhost:8080/validator/update
 
 **Type:** POST
 
@@ -8277,13 +8594,6 @@ timestamp|string|响应时间|-
 
 **Description:** 分组验证2
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -8294,10 +8604,10 @@ mobile|string|电话|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/update? --data '{
-	"id":202,
-	"name":"明.陈",
-	"mobile":"15525817715"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/update --data '{
+  "id": 854,
+  "name": "ricky.nitzsche",
+  "mobile": "(806) 262-2209"
 }'
 ```
 **Response-fields:**
@@ -8306,25 +8616,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 分组验证3
-**URL:** http://127.0.0.1:8080/validator/login
+**URL:** http://localhost:8080/validator/login
 
 **Type:** POST
 
@@ -8333,13 +8643,6 @@ timestamp|string|响应时间|-
 **Content-Type:** application/json; charset=utf-8
 
 **Description:** 分组验证3
-
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
 
 **Body-parameters:**
 
@@ -8351,10 +8654,10 @@ mobile|string|电话|true|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/login? --data '{
-	"id":85,
-	"name":"明.陈",
-	"mobile":"15525817715"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/login --data '{
+  "id": 198,
+  "name": "ricky.nitzsche",
+  "mobile": "(806) 262-2209"
 }'
 ```
 **Response-fields:**
@@ -8363,25 +8666,25 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"waring":"You may have used non-display generics."
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "waring": "You may have used non-display generics."
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### 分页查询
-**URL:** http://127.0.0.1:8080/validator/list
+**URL:** http://localhost:8080/validator/list
 
 **Type:** POST
 
@@ -8391,30 +8694,56 @@ timestamp|string|响应时间|-
 
 **Description:** 分页查询
 
-**Request-headers:**
+**Body-parameters:**
 
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+name|string|姓名|true|-
+birthday|string|生日|true|-
+age|int32|年龄|false|-
+subject|object|科目|true|-
+└─subjectName|string|科目名称|true|-
+└─core|int32|分数|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/validator/list? --data '{
-	
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/validator/list --data '{
+  "name": "ricky.nitzsche",
+  "birthday": "2021-08-23",
+  "age": 32,
+  "subject": {
+    "subjectName": "ricky.nitzsche",
+    "core": 909
+  }
 }'
 ```
+**Response-fields:**
+
+Field | Type|Description|Since
+---|---|---|---
+name|string|姓名|-
+birthday|string|生日|-
+age|int32|年龄|-
+subject|object|科目|-
+└─subjectName|string|科目名称|-
+└─core|int32|分数|-
 
 **Response-example:**
 ```
 {
-	
+  "name": "ricky.nitzsche",
+  "birthday": "2021-08-23",
+  "age": 32,
+  "subject": {
+    "subjectName": "ricky.nitzsche",
+    "core": 735
+  }
 }
 ```
 
 ## xss拦击测试
 ### xss过滤普通post请求
-**URL:** http://127.0.0.1:8080/xss/text
+**URL:** http://localhost:8080/xss/text
 
 **Type:** POST
 
@@ -8424,13 +8753,6 @@ curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i
 
 **Description:** xss过滤普通post请求
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -8439,7 +8761,7 @@ text|string|请求文本|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'token:kk' -i http://127.0.0.1:8080/xss/text --data 'text=qi77jn'
+curl -X POST -i http://localhost:8080/xss/text --data 'text=2t694g'
 ```
 **Response-fields:**
 
@@ -8447,23 +8769,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"t85t6u",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "g5wqi5",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### xss过滤get请求
-**URL:** http://127.0.0.1:8080/xss/query
+**URL:** http://localhost:8080/xss/query
 
 **Type:** GET
 
@@ -8473,13 +8795,6 @@ timestamp|string|响应时间|-
 
 **Description:** xss过滤get请求
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Query-parameters:**
 
 Parameter | Type|Description|Required|Since
@@ -8488,7 +8803,7 @@ query|string|请求参数|false|-
 
 **Request-example:**
 ```
-curl -X GET -H 'token:kk' -i http://127.0.0.1:8080/xss/query?query=udtuyk
+curl -X GET -i http://localhost:8080/xss/query?query=i4pe5c
 ```
 **Response-fields:**
 
@@ -8496,23 +8811,23 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
+data|object|处理成功返回的业务数据|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
 
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":"wzrm1g",
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": "ox8lls",
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
 ### xss过滤json数据
-**URL:** http://127.0.0.1:8080/xss/json
+**URL:** http://localhost:8080/xss/json
 
 **Type:** POST
 
@@ -8522,25 +8837,18 @@ timestamp|string|响应时间|-
 
 **Description:** xss过滤json数据
 
-**Request-headers:**
-
-Header | Type|Description|Required|Since
----|---|---|---|----
-token|string|desc|false|-
-
-
 **Body-parameters:**
 
 Parameter | Type|Description|Required|Since
 ---|---|---|---|---
-age|int32|No comments found.|false|-
+age|int32|年龄|false|-
 name|string|姓名|false|-
 
 **Request-example:**
 ```
-curl -X POST -H 'Content-Type: application/json; charset=utf-8' -H 'token:kk' -i http://127.0.0.1:8080/xss/json? --data '{
-	"age":24,
-	"name":"明.陈"
+curl -X POST -H 'Content-Type: application/json; charset=utf-8' -i http://localhost:8080/xss/json --data '{
+  "age": 32,
+  "name": "ricky.nitzsche"
 }'
 ```
 **Response-fields:**
@@ -8549,8 +8857,8 @@ Field | Type|Description|Since
 ---|---|---|---
 success|boolean|是否成功|-
 message|string|错误提示(成功succeed)|-
-data|object|成功返回的数据|-
-└─age|int32|No comments found.|-
+data|object|处理成功返回的业务数据|-
+└─age|int32|年龄|-
 └─name|string|姓名|-
 code|string|错误代码|-
 timestamp|string|响应时间|-
@@ -8558,15 +8866,116 @@ timestamp|string|响应时间|-
 **Response-example:**
 ```
 {
-	"success":true,
-	"message":"success",
-	"data":{
-		"age":24,
-		"name":"明.陈"
-	},
-	"code":"6689",
-	"timestamp":"2020-12-27 01:05:23"
+  "success": true,
+  "message": "success",
+  "data": {
+    "age": 32,
+    "name": "ricky.nitzsche"
+  },
+  "code": "39323",
+  "timestamp": "2021-08-23 23:02:54"
 }
 ```
 
+## 顶顶顶到达
+### get请求测试query参数
+**URL:** http://localhost:8080/configQueryParamGet
+
+**Type:** GET
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** get请求测试query参数
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/configQueryParamGet?configQueryParam=v0ba1d
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+### post请求测试query参数
+**URL:** http://localhost:8080/configQueryParamPost
+
+**Type:** POST
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** post请求测试query参数
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X POST -i http://localhost:8080/configQueryParamPost --data 'configQueryParam=y0vkxr'
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## 顶顶顶到达1
+### get请求测试query参数和path参数
+**URL:** http://localhost:8080/configParamGet/{configPathParam}
+
+**Type:** GET
+
+**Author:** "cqmike"
+
+**Content-Type:** application/x-www-form-urlencoded;charset=utf-8
+
+**Description:** get请求测试query参数和path参数
+
+**Path-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configPathParam|string|No comments found.|true|-
+
+**Query-parameters:**
+
+Parameter | Type|Description|Required|Since
+---|---|---|---|---
+configQueryParam|string|No comments found.|false|-
+
+**Request-example:**
+```
+curl -X GET -i http://localhost:8080/configParamGet/zscc7o?configQueryParam=252xh4
+```
+
+**Response-example:**
+```
+Doesn't return a value.
+```
+
+## 错误码列表
+Error code |Description
+---|---
+200|ok
+400|Bad Request
+401|Unauthorized
+403|Forbidden
+404|Not Found
+415|Unsupported Media Type
+500|Internal Server Error
+502|Bad Gateway
+503|Service Unavailable
 
