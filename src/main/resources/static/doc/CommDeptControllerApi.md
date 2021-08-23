@@ -1,31 +1,0 @@
-
-# * 部门操作 * * @author jdkleo * @since 1.0
-## * 获得部门     * @param deptId 部门ID     * @return
-**URL:** `http://localhost:8080/sail/dept/get/{deptId}`
-
-**Type:** `GET`
-
-
-**Content-Type:** `application/x-www-form-urlencoded;charset=utf-8`
-
-**Description:** * 获得部门     * @param deptId 部门ID     * @return
-
-
-
-**Query-parameters:**
-
-Parameter|Type|Description|Required|Since
----|---|---|---|---
-deptId|int64|No comments found.|false|-
-
-
-**Request-example:**
-```
-curl -X GET -i http://localhost:8080/sail/dept/get/{deptId}?deptId=308
-```
-
-**Response-example:**
-```
-Doesn't return a value.
-```
-
