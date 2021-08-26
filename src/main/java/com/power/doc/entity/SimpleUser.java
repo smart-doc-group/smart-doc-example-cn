@@ -57,12 +57,12 @@ public class SimpleUser {
     private List<UserRole> roles;
     /**
      * 用户扩展项
-     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2.0","1.5.6"]}}
+     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends":{"version":1.0,"versionList":["1.2.0","1.5.6"]}}
      */
     private Map<String,String> extend;
     /**
      * ListMap效果展示
-     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends""{"version":1.0,"versionList":["1.2","1.5.6"]}}
+     * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends":{"version":1.0,"versionList":["1.2","1.5.6"]}}
      */
     private List<Map<String,Object>> listMap;
 
