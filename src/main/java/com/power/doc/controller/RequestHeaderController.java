@@ -1,6 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.doc.constants.HeaderConstants;
+import com.power.doc.constants.RequestHeadValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -103,6 +104,17 @@ public class RequestHeaderController {
     @GetMapping("testRequestHeader/constant3")
     public String testConstants3(@RequestHeader(name= HeaderConstants.TOKEN) String token) {
         return "header constants";
+    }
+
+    /**
+     *
+     * 测试RequestHeader注解 'value' 属性为常量 绑定参数名
+     * @param name 请求头(name)
+     * @param age   年龄
+     */
+    @GetMapping("testRequestHeader/constValue")
+    public void testRequestHeaderAnnotationWithConstValue(@RequestHeader(value = RequestHeadValue.TEST_BIND_VALUE, required = false)String name, @RequestHeader Integer age) {
+
     }
 
 }
