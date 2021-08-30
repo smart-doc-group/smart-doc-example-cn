@@ -6,8 +6,9 @@
   "coverOld": true,
   "createDebugPage": true,
   "style":"xt256",
-  "packageFilters": "",
+  "packageFilters": "com.power.doc.controller.parent.ShopItemController",
   "appKey": "20210318821914523354005504",
+  "packageFilter": "",
   "appToken": "17081fb20b1546a196121e781d3c6d01",
   "secret": "XnYjaDbK^stIJyQ5RZOCJ.VAEYOscB7C",
   "openUrl": "http://demo.torna.cn/api",
@@ -69,11 +70,11 @@
       "constantsClassName":"com.power.doc.constants.ApiVersion"
   },{
     "constantsClassName":"com.power.doc.constants.RequestHeadValue"
-  }],
-  "groups": [
-    {
-      "name": "测试分组",
-      "apis": "com.power.doc.controller.app.*"
-    }
-  ]
+  }]
+//  "groups": [
+//    {
+//      "name": "测试分组",
+//      "apis": "com.power.doc.controller.app.*"
+//    }
+//  ]
 }

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  **/
 @Controller
 @RequestMapping("/parentExtends")
-public class TestController extends BaseController<SimpleUser>{
+public class TestController {
 
     /**
      * 继承接口测试

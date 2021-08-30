@@ -3,6 +3,7 @@ package com.power.doc.controller.parent;
 import java.io.Serializable;
 
 import com.power.common.model.CommonResult;
+import com.power.doc.entity.RoleDTO;
 import com.power.doc.entity.SimpleUser;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author xingzi
  * @date 2021/6/27 13:34
  **/
-public abstract class BaseController<T> implements CommonController<T> {
+public abstract class BaseController<T extends SimpleUser,B extends RoleDTO,V,S extends IBaseService<T,B,V>>  {
 
     /**
      * 根据Id删除
@@ -20,7 +21,6 @@ public abstract class BaseController<T> implements CommonController<T> {
      * @return
      */
     @DeleteMapping("/deleteById/{id}")
-    @Override
     public CommonResult deleteById(Serializable id) {
         return null;
     }
@@ -31,7 +31,6 @@ public abstract class BaseController<T> implements CommonController<T> {
      * @return
      */
     @PutMapping("/updateById")
-    @Override
     public CommonResult updateById(@RequestBody T t) {
         return null;
     }
