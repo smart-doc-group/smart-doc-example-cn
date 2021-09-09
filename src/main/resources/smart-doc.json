@@ -1,6 +1,7 @@
 {
   "serverUrl": "http://localhost:8080/",
   "isStrict": false,
+  "outPath": "target/doc",
   "allInOne": true,
   "coverOld": true,
   "createDebugPage": true,
@@ -75,5 +76,9 @@
     "enumClassName": "com.power.common.enums.HttpCodeEnum", //数据字典枚举类名称
     "codeField": "code",//数据字典字典码对应的字段名称
     "descField": "message"//数据字典对象的描述信息字典
-  }]
+  }],
+  "customRequestFields": [
+  {"name":"start", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
+  ,{"name":"limit", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
+  ]
 }
