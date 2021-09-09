@@ -17,6 +17,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.annotation.Resource;
+
 
 /**
  *  异步返回信息测试
@@ -27,7 +29,7 @@ public class AsyncController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AsyncController.class);
 
-    @Autowired
+    @Resource
     private ThreadPoolTaskExecutor executor;
 
     /**

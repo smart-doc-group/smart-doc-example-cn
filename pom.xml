@@ -165,7 +165,7 @@
         <dependency>
             <groupId>net.oschina.durcframework</groupId>
             <artifactId>fastmybatis-core</artifactId>
-            <version>1.10.5</version>
+            <version>1.10.6</version>
         </dependency>
         <!--https://gitee.com/sunyurepository/ApplicationPower-->
         <dependency>
