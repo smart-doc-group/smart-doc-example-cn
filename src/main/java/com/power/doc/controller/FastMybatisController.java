@@ -17,7 +17,7 @@ public class FastMybatisController {
    * @param param
    */
   @PostMapping("/fastmybatis")
-  public void test(@RequestBody PageParam param){
+  public void test(PageParam param){
 
   }
 }
