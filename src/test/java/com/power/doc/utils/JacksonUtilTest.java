@@ -14,12 +14,6 @@ public class JacksonUtilTest {
         mybatisPlusPage.setCurrent(1L);
         mybatisPlusPage.setSize(1L);
         mybatisPlusPage.setTotal(1L);
-
-        RoleDTO roleDTO = new RoleDTO();
-        roleDTO.setRoleId(1);
-        roleDTO.setAge(13);
-        roleDTO.setRoleName("aa");
-        System.out.println(JacksonUtil.bean2Json(roleDTO));
     }
 
 }

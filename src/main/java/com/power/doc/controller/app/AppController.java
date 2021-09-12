@@ -22,6 +22,16 @@ import org.springframework.web.bind.annotation.*;
 public class AppController {
 
     /**
+     * Test Constants
+     *
+     * @param page 页码
+     */
+    @GetMapping(ApiVersion.ADMIN_ROOT+"/testConstants/" + ApiVersion.VERSION)
+    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
+
+    }
+
+    /**
      * 创建人员
      *
      * @param createDto
@@ -34,15 +44,6 @@ public class AppController {
         return CommonResult.ok();
     }
 
-    /**
-     * Test Constants
-     *
-     * @param page 页码
-     */
-    @GetMapping(ApiVersion.ADMIN_ROOT+"/testConstants/" + ApiVersion.VERSION)
-    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
-
-    }
     /**
      * 分页查询订单信息
      * @param pageIndex 当前页码
@@ -90,4 +91,24 @@ public class AppController {
     public String test3(String name,String beginTime, String endTime){
         return "hello app";
     }
+
+    /**
+     * 常量测试
+     * @return
+     */
+    @GetMapping("test4/"+RequestValueConstant.ALL)
+    public String testConstants1(){
+        return null;
+    }
+
+    /**
+     * 常量测试2
+     * @return
+     */
+    @GetMapping("test4/"+RequestValueConstant.ALL_NEARBY)
+    public String testConstants2(){
+        return null;
+    }
+
+
 }

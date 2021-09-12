@@ -16,11 +16,15 @@ import com.power.doc.enums.OrderEnum;
 import com.power.doc.model.*;
 import com.power.doc.model.rpc.RpcApiDependency;
 import com.thoughtworks.qdox.JavaProjectBuilder;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 
 import java.io.FileReader;
 import java.lang.reflect.Method;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description:
@@ -30,16 +34,14 @@ import java.nio.file.Paths;
  */
 public class ApiDocTest {
 
+    @Test
     public void test() throws Exception{
-        Class clazz = DeviceDataExpressionEnum.class;
-        Class<Enum> enumClass = (Class<Enum>) clazz;
-        Enum[] objects = enumClass.getEnumConstants();
-        Method valueMethod = clazz.getMethod("getKeyWords");
-        for (Enum enumType : objects) {
-            Object val = valueMethod.invoke(enumType);
-            String type = ClassUtil.getSimpleTypeName(val);
-            String value = String.valueOf(val);
-            System.out.println(value);
+        String input = "I/have/a Person.Instance.address, but I like    $personInstance.last_name dog better.";
+
+        Pattern p = Pattern.compile("\\w[^\\s\\,\\$]+");
+        Matcher m = p.matcher(input);
+        while (m.find()) {
+            System.out.println("Found a " + m.group());
         }
 //        JavaProjectBuilder builder = new JavaProjectBuilder();
 //        builder.addSource(new FileReader("D:\\workstation\\api-doc-test-maven\\src\\main\\java\\com\\power\\doc\\enums\\DeviceDataExpressionEnum.java"));
@@ -90,8 +92,8 @@ public class ApiDocTest {
         config.setPackageFilters("com.power.doc.controller.app");
 
         config.setRequestHeaders(
-                ApiReqHeader.builder().setName("token").setRequired(true).setType("string").setDesc("token"),
-                ApiReqHeader.builder().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
+//                ApiReqHeader.builder().setName("token").setRequired(true).setType("string").setDesc("token"),
+//                ApiReqHeader.builder().setName("partnerId").setType("string").setRequired(true).setDesc("合作方账号")
         );
         //Configure your own constant class, smart-doc automatically replaces with a specific value when parsing to a constant
         config.setApiConstants(
