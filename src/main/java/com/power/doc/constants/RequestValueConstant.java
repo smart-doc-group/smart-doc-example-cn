@@ -16,4 +16,8 @@ public interface RequestValueConstant {
     String ALL = "all";
 
     String ALL_NEARBY = "all-nearby";
+
+    String URL_LOGIN = "/login";
+
+    String URL_PARAMS = URL_LOGIN +"/getParams/{type}";
 }

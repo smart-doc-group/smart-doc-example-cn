@@ -12,6 +12,8 @@ import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+
+
 /**
  * app端接口测试
  * @author yu 2018/9/4.
@@ -20,6 +22,8 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("app")
 public class AppController {
+
+
 
     /**
      * Test Constants
@@ -110,5 +114,14 @@ public class AppController {
         return null;
     }
 
+
+    /**
+     * 常量测试3
+     * @return
+     */
+    @GetMapping(value=RequestValueConstant.URL_PARAMS)
+    public String testConstants3() {
+        return null;
+    }
 
 }

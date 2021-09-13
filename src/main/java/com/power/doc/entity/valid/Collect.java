@@ -15,7 +15,7 @@ public class Collect {
     /**
      * 主键id
      */
-    @Null(groups = {SignUp.class}, message = "id必须为空")
+    @Null(groups = {SaveAction.class}, message = "id必须为空")
     @NotNull(groups = {Login.class}, message = "id不能为空")
     private Long id;
 
