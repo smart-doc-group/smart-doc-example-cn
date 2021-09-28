@@ -1,5 +1,5 @@
 {
-  "serverUrl": "http://localhost:8080/",
+  "serverUrl": "http://{{host}}:{{port}}",
   "isStrict": false,
   "outPath": "target/doc",
   "allInOne": true,
@@ -24,8 +24,7 @@
       "desc": "desc",//请求头描述信息
       "value":"kk",//不设置默认null
       "required": false,//是否必须
-      "since": "-",//什么版本添加的改请求头
-      "pathPatterns": "/test/add,/testConstants/1.0"//正则表达式过滤请求头
+      "since": "-" //什么版本添加的改请求头
     }
   ],
   "requestParams": [ //设置请求头，没有需求可以不设置
