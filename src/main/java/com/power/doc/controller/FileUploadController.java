@@ -22,7 +22,7 @@ public class FileUploadController {
      * @param file 文件
      * @return
      */
-    @PostMapping("/upload")
+    @PostMapping(value = "/upload",consumes = "multipart/form-data")
     public CommonResult upload(String userId,@RequestParam MultipartFile file) {
         return CommonResult.ok();
     }
@@ -32,8 +32,8 @@ public class FileUploadController {
      * @param file 文件
      * @return
      */
-    @PostMapping("/batchUpload")
-    public CommonResult batchFileUpload(MultipartFile[] file) {
+    @PostMapping(name = "/batchUpload1",consumes = "multipart/form-data")
+    public CommonResult batchFileUpload1(MultipartFile[] file) {
         return CommonResult.ok();
     }
 
@@ -42,7 +42,7 @@ public class FileUploadController {
      * @param file 文件
      * @return
      */
-    @PostMapping("/batchUpload1")
+    @PostMapping(value = "/batchUpload2",consumes = "multipart/form-data")
     public CommonResult batchFileUpload2(List<MultipartFile> file) {
         return CommonResult.ok();
     }
@@ -52,8 +52,8 @@ public class FileUploadController {
      * @param files 批量文件
      * @return
      */
-    @PostMapping("/batchUpload2")
-    public CommonResult batchFileUpload2(CommonsMultipartFile[] files){
+    @PostMapping(value = "/batchUpload3",consumes = "multipart/form-data")
+    public CommonResult batchFileUpload3(CommonsMultipartFile[] files){
         return CommonResult.ok();
     }
 
@@ -63,8 +63,8 @@ public class FileUploadController {
      * @param files 批量文件
      * @return
      */
-    @PostMapping("/batchUpload3")
-    public CommonResult batchFileUpload3(List<CommonsMultipartFile> files){
+    @PostMapping(value = "/batchUpload4",consumes = "multipart/form-data")
+    public CommonResult batchFileUpload4(List<CommonsMultipartFile> files){
         return CommonResult.ok();
     }
 }

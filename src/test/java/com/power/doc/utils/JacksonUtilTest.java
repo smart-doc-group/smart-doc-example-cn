@@ -1,5 +1,6 @@
 package com.power.doc.utils;
 
+import com.power.common.util.StringUtil;
 import com.power.doc.model.mybatisplus.MybatisPlusPage;
 import org.junit.jupiter.api.Test;
 
@@ -19,13 +20,17 @@ public class JacksonUtilTest {
         mybatisPlusPage.setSize(1L);
         mybatisPlusPage.setTotal(1L);
 
-        String url = "http://{{host}}:{{port}}/async-deferredresult";
+        String url = "http://{{host}}/async-deferredresult";
         Pattern pattern = Pattern.compile("(https?://)([^:^/]*)(:[a-zA-Z-z0-9|^{{\\}}$]*)?(.*)?");
         Matcher matcher = pattern.matcher(url);
         if (matcher.find()) {
             String protocol = matcher.group(1);
+            protocol = protocol.substring(0,protocol.indexOf(":"));
             String domain = matcher.group(2);
             String port = matcher.group(3);
+            if(StringUtil.isNotEmpty(port)){
+                port = port.replace(":","");
+            }
             String uri = matcher.group(4);
             System.out.println("protocol:" + protocol);
             System.out.println("domain:" + domain);
