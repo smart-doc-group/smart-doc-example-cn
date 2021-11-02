@@ -131,7 +131,7 @@ public class PageInfo<T> implements IPage<T> , Serializable {
 
     @JsonIgnore
     @Override
-    public boolean isSearchCount() {
+    public boolean searchCount() {
         return count >= 0;
     }
 
@@ -152,11 +152,4 @@ public class PageInfo<T> implements IPage<T> , Serializable {
         }
         return pages;
     }
-
-    @JsonIgnore
-    @Override
-    public boolean isHitCount() {
-        return false;
-    }
-
 }
