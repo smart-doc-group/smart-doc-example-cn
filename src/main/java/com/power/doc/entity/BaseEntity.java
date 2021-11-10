@@ -80,10 +80,6 @@ public class BaseEntity<T extends Model<T>> extends Model<T> {
     @TableLogic
     private Boolean delFlag;
 
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
 
 }
 

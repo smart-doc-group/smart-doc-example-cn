@@ -129,12 +129,6 @@ public class PageInfo<T> implements IPage<T> , Serializable {
         return this;
     }
 
-    @JsonIgnore
-    @Override
-    public boolean isSearchCount() {
-        return count >= 0;
-    }
-
     @Override
     public boolean optimizeCountSql() {
         return true;
@@ -152,11 +146,4 @@ public class PageInfo<T> implements IPage<T> , Serializable {
         }
         return pages;
     }
-
-    @JsonIgnore
-    @Override
-    public boolean isHitCount() {
-        return false;
-    }
-
 }

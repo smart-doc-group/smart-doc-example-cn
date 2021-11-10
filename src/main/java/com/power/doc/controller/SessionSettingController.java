@@ -20,9 +20,10 @@ public class SessionSettingController {
    * session忽略
    *
    * @param userName 忽略用户名
+   * @param appName 应用名称
    */
   @GetMapping("/attribute")
-  public CommonResult testSession(@SessionAttribute String userName) {
+  public CommonResult testSession(@SessionAttribute String userName,String appName) {
     return CommonResult.ok();
   }
 }
