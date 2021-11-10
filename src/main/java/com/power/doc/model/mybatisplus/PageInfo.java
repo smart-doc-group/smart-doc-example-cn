@@ -129,12 +129,6 @@ public class PageInfo<T> implements IPage<T> , Serializable {
         return this;
     }
 
-    @JsonIgnore
-    @Override
-    public boolean searchCount() {
-        return count >= 0;
-    }
-
     @Override
     public boolean optimizeCountSql() {
         return true;

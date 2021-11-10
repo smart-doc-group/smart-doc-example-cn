@@ -22,6 +22,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <util.version>2.0.8</util.version>
+        <smart-doc.version>2.3.0</smart-doc.version>
         <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
         <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
@@ -163,7 +164,7 @@
         <dependency>
             <groupId>com.github.shalousun</groupId>
             <artifactId>smart-doc</artifactId>
-            <version>2.2.9</version>
+            <version>${smart-doc.version}</version>
         </dependency>
     </dependencies>
 
@@ -176,7 +177,7 @@
             <plugin>
                 <groupId>com.github.shalousun</groupId>
                 <artifactId>smart-doc-maven-plugin</artifactId>
-                <version>2.2.9</version>
+                <version>${smart-doc.version}</version>
                 <configuration>
                     <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
