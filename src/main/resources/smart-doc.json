@@ -79,6 +79,8 @@
   {"name":"start", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
   ,{"name":"limit", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
   ],
+  // @since 2.3.2 是否隐藏默认分组  默认false
+  "hideDefaultGroup": true,
   "groups": [ // @since 2.2.5, 对不同的controller进行分组
     {
       "name": "测试分组",
