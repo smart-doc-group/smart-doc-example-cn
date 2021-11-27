@@ -2,6 +2,7 @@ package com.power.doc.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.power.common.model.CommonResult;
+import com.power.doc.entity.valid.BaseValid;
 import com.power.doc.entity.valid.Collect;
 import com.power.doc.entity.valid.SaveAction;
 import com.power.doc.entity.valid.UpdateAction;
@@ -82,6 +83,17 @@ public class ValidatorTestController extends BaseController<Leader> {
      */
     @PostMapping("/login")
     public CommonResult login(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
+        return CommonResult.ok();
+    }
+
+
+    /**
+     * 测试父级内部注解分组校验
+     * @param collect
+     * @return
+     */
+    @PostMapping("/testInnerValid")
+    public CommonResult<Void> testInnerValid(@RequestBody @Validated(Collect.add.class) Collect collect) {
         return CommonResult.ok();
     }
 

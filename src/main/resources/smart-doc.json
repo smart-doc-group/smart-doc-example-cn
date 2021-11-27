@@ -82,11 +82,7 @@
   "groups": [ // @since 2.2.5, 对不同的controller进行分组
     {
       "name": "测试分组",
-      "apis": "com.power.doc.controller.app.*"
-    },
-    {
-      "name": "购物分组",
-      "apis": "com.power.doc.controller.parent.*"
+      "apis": "com.power.doc.controller.*"
     }
   ]
 }

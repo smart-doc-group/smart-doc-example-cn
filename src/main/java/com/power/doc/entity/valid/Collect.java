@@ -1,6 +1,7 @@
 package com.power.doc.entity.valid;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,7 +11,8 @@ import javax.validation.constraints.Null;
  * @author yu 2020/1/27.
  */
 @Data
-public class Collect {
+@EqualsAndHashCode(callSuper = true)
+public class Collect extends BaseValid {
 
     /**
      * 主键id
@@ -29,6 +31,12 @@ public class Collect {
      */
     @NotBlank(groups = {SendCode.class, Login.class, SignUp.class}, message = "电话不能为空")
     private String mobile;
+
+    /**
+     * 地址
+     */
+    @NotBlank(message = "地址不能为空", groups = {Collect.add.class})
+    private String address;
 
     public interface SendCode {
 
