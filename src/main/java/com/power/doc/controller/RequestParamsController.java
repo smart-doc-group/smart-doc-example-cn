@@ -34,7 +34,17 @@ public class RequestParamsController {
 
 
     }
+    /**
+     * Test Normal param binding
+     *
+     * @param name name
+     * @param age  age
+     */
+    @GetMapping("testNormalParams/m")
+    public void testNormalParamm(String name,  Integer age) {
 
+
+    }
     /**
      * Test @RequestBody User
      *
