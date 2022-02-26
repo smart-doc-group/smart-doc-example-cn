@@ -143,7 +143,7 @@ public class ApiDocTest {
 //        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);
-//        PostmanJsonBuilder.buildPostmanApi(config);
+        PostmanJsonBuilder.buildPostmanCollection(config);
 //        ApiDataBuilder.getApiData(config);
        // ApiAllData apiAllData = ApiDataBuilder.getApiData(config);
         //List<ApiDoc> docList = ApiDocBuilder.listOfApiData(config);

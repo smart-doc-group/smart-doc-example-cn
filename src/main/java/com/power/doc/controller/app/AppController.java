@@ -4,6 +4,7 @@ import com.power.common.model.CommonResult;
 import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
+import com.power.doc.entity.GetMainGoodsByItemNosBody;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
 import com.power.doc.model.PersonCreateDto;
@@ -12,6 +13,7 @@ import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 
 
 /**
@@ -31,8 +33,8 @@ public class AppController {
      * @param page 页码
      */
     @GetMapping(ApiVersion.ADMIN_ROOT+"/testConstants/" + ApiVersion.VERSION)
-    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
-
+    public HashMap<String, GetMainGoodsByItemNosBody.GetMainGoodsByItemNosInfo> testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
+        return null;
     }
 
     /**
