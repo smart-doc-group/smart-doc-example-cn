@@ -1,5 +1,7 @@
 package com.power.doc.controller;
 
+import com.power.common.model.CommonResult;
+import com.power.doc.model.Children;
 import com.power.doc.model.Student;
 import com.power.doc.model.Teacher;
 import com.power.doc.model.User;
@@ -23,6 +25,15 @@ import java.util.TreeMap;
 public class MapController {
 
 
+    /**
+     * 测试map解析
+     * @apiNote CommonResult<Map<String,Map<String, Children>>>
+     * @return
+     */
+    @GetMapping(value = "/test5")
+    public CommonResult<Map<String,Map<String, Children>>> testMap0(){
+        return null;
+    }
     /**
      * Map&lt;String,Integer&gt;结构
      *
