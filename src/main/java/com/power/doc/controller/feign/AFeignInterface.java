@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.feign;
 
 import com.power.doc.constants.RequestHeadValue;
 import org.springframework.cloud.openfeign.FeignClient;
