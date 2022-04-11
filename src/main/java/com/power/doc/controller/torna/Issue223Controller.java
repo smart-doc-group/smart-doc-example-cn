@@ -56,15 +56,48 @@ public class Issue223Controller {
 
         return CommonResult.ok();
     }
-
     /**
      * test2
      *
      * @return
      */
     @PostMapping("/test2")
-    public CommonResult<List<Map<String, Map<Long, Integer>>>> test2() {
+    public CommonResult<List<Map<String, Map<String, Integer>>>> test2() {
 
         return CommonResult.ok();
     }
+
+
+    /**
+     * test3
+     *
+     * @return
+     */
+    @PostMapping("/test3")
+    public Map<String, Integer> test3() {
+
+        return null;
+    }
+    /**
+     * test4
+     *
+     * @return
+     */
+    @PostMapping("/test4")
+    public Map<String, TestDto> test4() {
+
+        return null;
+    }
+
+    /**
+     * test5
+     *
+     * @return
+     */
+    @PostMapping("/test5")
+    public Map<String, Object> test5() {
+
+        return null;
+    }
+
 }
