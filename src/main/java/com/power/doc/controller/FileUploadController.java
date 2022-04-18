@@ -1,6 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.common.model.CommonResult;
+import com.power.doc.entity.MultipartFileDTO;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -67,4 +68,17 @@ public class FileUploadController {
     public CommonResult batchFileUpload4(List<CommonsMultipartFile> files){
         return CommonResult.ok();
     }
+
+    /**
+     * 批量上传文件5
+     * @param dto
+     * @return
+     */
+    @PostMapping(value = "/batchUpload5", consumes = "multipart/form-data")
+    public CommonResult<Void> batchUpload5(MultipartFileDTO dto) {
+        return CommonResult.ok();
+    }
+
+
+
 }
