@@ -2,10 +2,7 @@ package com.power.doc.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.power.common.model.CommonResult;
-import com.power.doc.entity.valid.BaseValid;
-import com.power.doc.entity.valid.Collect;
-import com.power.doc.entity.valid.SaveAction;
-import com.power.doc.entity.valid.UpdateAction;
+import com.power.doc.entity.valid.*;
 import com.power.doc.model.BaseReq;
 import com.power.doc.model.Leader;
 import com.power.doc.model.SubUser;
@@ -105,6 +102,27 @@ public class ValidatorTestController extends BaseController<Leader> {
      */
     @PostMapping("/testInnerValid")
     public CommonResult<Void> testInnerValid(@RequestBody @Validated(Collect.add.class) Collect collect) {
+        return CommonResult.ok();
+    }
+
+
+    /**
+     * 测试继承默认分组
+     * @param collect
+     * @return
+     */
+    @PostMapping("/testExtendsDefault")
+    public CommonResult<Void> testExtendsDefault(@RequestBody @Validated(TwoSaveAction.class) Collect collect) {
+        return CommonResult.ok();
+    }
+
+    /**
+     * 测试内部接口继承默认分组
+     * @param collect
+     * @return
+     */
+    @PostMapping("/testExtendsDefault2")
+    public CommonResult<Void> testExtendsDefault2(@RequestBody @Validated(Collect.SignUp.class) Collect collect) {
         return CommonResult.ok();
     }
 
