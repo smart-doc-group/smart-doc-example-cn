@@ -88,6 +88,17 @@ public class ValidatorTestController extends BaseController<Leader> {
 
 
     /**
+     * 分组验证4
+     * @param collect
+     * @return
+     */
+    @PostMapping("/test4")
+    public Object test4(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
+        return CommonResult.ok();
+    }
+
+
+    /**
      * 测试父级内部注解分组校验
      * @param collect
      * @return
