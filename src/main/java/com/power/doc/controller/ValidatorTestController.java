@@ -126,6 +126,27 @@ public class ValidatorTestController extends BaseController<Leader> {
         return CommonResult.ok();
     }
 
+    /**
+     * 测试新增
+     * @param collect
+     * @return
+     */
+    @PostMapping("/testSave")
+    public CommonResult<Void> testSave(@RequestBody @Validated({SaveAction.class}) Collect collect) {
+        return CommonResult.ok();
+    }
+
+    /**
+     * 测试更新
+     * @param collect
+     * @return
+     */
+    @PostMapping("/testUpdate")
+    public CommonResult<Void> testUpdate(@RequestBody @Validated({UpdateAction.class}) Collect collect) {
+        return CommonResult.ok();
+    }
+
+
 
 
 }

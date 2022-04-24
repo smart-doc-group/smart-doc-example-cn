@@ -36,14 +36,14 @@ public class Collect extends BaseValid {
     /**
      * 名称
      */
-    @NotBlank(groups = {SaveAction.class, SendCode.class}, message = "名称不能为空")
+    @NotBlank(groups = {SaveAction.class, SendCode.class, UpdateAction.class}, message = "名称不能为空")
     private String name;
 
     /**
      * 邮箱
      * 测试继承默认分组的group
      */
-    @NotBlank(message = "名邮箱不能为空")
+    @NotBlank(groups = UpdateAction.class, message = "名邮箱不能为空")
     private String email;
 
     /**
