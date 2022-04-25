@@ -62,7 +62,7 @@ public class RequestTypeController {
     /**
      * 测试PostMapping json
      *
-     * @param user user
+     * @param user user|com.power.doc.entity.UserTest
      */
     @PostMapping("postMapping")
     public void testPostMapping(@RequestBody User user) {
