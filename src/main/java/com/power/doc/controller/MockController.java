@@ -32,7 +32,7 @@ public class MockController  {
      * 测试包装类型数组
      *
      * @author cqmike
-     * @param ids id包装数组|1,2,3
+     * @param ids id包装数组
      * @since 1.0.0
      * @return
      */
@@ -45,7 +45,7 @@ public class MockController  {
      * 测试包装类型List
      *
      * @author cqmike
-     * @param ids idList|1,2,3
+     * @param ids idList
      * @since 1.0.0
      * @return
      */
