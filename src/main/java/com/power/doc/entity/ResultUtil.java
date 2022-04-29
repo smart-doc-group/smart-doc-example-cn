@@ -1,6 +1,7 @@
 package com.power.doc.entity;
 
 import lombok.Data;
+import org.slf4j.MDC;
 
 /**
  * Author: hcy
@@ -13,10 +14,28 @@ import lombok.Data;
 public class ResultUtil<T> extends  BaseResult implements IApiResult<T> {
 
     /**
+     * 时间戳
+     */
+    private String timestamp = String.valueOf(System.currentTimeMillis());
+
+    /**
+     * 链路id
+     */
+    private String traceId = MDC.get("traceId");
+
+    /**
      * 返回数据
      */
     private T data;
 
+    public String getTraceId() {
+        return traceId;
+    }
+
+    public ResultUtil<T> setTraceId(String traceId) {
+        this.traceId = traceId;
+        return this;
+    }
 
     @Override
     public String getMessage() {

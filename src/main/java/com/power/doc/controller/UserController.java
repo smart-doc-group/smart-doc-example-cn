@@ -1,5 +1,7 @@
 package com.power.doc.controller;
 
+import com.power.common.model.CommonResult;
+import com.power.doc.entity.ResultUtil;
 import com.power.doc.entity.SimpleUser;
 import com.power.doc.entity.User;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +21,7 @@ public class UserController {
      * @return
      */
     @PostMapping("/add")
-    public User addUser(@RequestBody SimpleUser user){
+    public ResultUtil<User> addUser(@RequestBody SimpleUser user){
         return null;
     }
 
