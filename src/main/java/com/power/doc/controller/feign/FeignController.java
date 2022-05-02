@@ -1,5 +1,6 @@
 package com.power.doc.controller.feign;
 
+import com.power.doc.controller.AFeignInterface;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Joker
  */
 @RestController
-public class FeignController implements AFeignInterface{
+public class FeignController implements AFeignInterface {
 
 
     /**
@@ -24,6 +25,11 @@ public class FeignController implements AFeignInterface{
     @GetMapping(value = "/{id}/{name}")
     @Override
     public String pathResolve(@PathVariable String id,@PathVariable String name) {
+        return null;
+    }
+
+    @Override
+    public String issue216() {
         return null;
     }
 
