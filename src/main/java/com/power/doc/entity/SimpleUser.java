@@ -29,6 +29,10 @@ public class SimpleUser {
     private SimpleEnum simpleEnum;
     /**
      * 用户名
+     *
+     * 测试分隔注释
+     *
+     * @mock aaaa
      * @since v1.0
      */
     @Size(min = 1,max = 3)

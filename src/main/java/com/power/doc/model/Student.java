@@ -1,6 +1,7 @@
 package com.power.doc.model;
 
 
+import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
@@ -38,6 +39,11 @@ public class Student {
     private Map<String, User> userMap;
 
     /**
+     * listMap
+     */
+    private List<Map<String, Integer>> listMap;
+
+    /**
      * 用户列表
      */
     private TreeSet<User> userTreeSet;
@@ -46,6 +52,14 @@ public class Student {
      */
     private User user1;
 
+    public List<Map<String, Integer>> getListMap() {
+        return listMap;
+    }
+
+    public Student setListMap(List<Map<String, Integer>> listMap) {
+        this.listMap = listMap;
+        return this;
+    }
 
     //getters and setters
     public String getStuName() {
