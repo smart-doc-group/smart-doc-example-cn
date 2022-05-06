@@ -5,6 +5,8 @@ import com.power.doc.enums.OrderEnum;
 import com.power.doc.enums.SimpleEnum;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * 枚举参数测试
  * @author yu 2019/11/28.
@@ -64,4 +66,32 @@ public class EnumController {
     public SimpleEnum resp(){
         return null;
     }
+
+    /**
+     * 测试枚举array
+     * https://github.com/smart-doc-group/smart-doc/issues/254
+     * @author chen qi
+     * @param enums
+     * @since 1.0.0
+     * @return
+     */
+    @GetMapping("/enum/testArray")
+    public String testArray(OrderEnum[] enums) {
+        return null;
+    }
+
+    /**
+     * 测试枚举list
+     *
+     * @author chen qi
+     * @param enums
+     * @since 1.0.0
+     * @return
+     */
+    @GetMapping("/enum/testList")
+    public String testList(List<OrderEnum> enums) {
+        return null;
+    }
+
+
 }
