@@ -31,7 +31,7 @@ public class CmdUtil {
   }
 
   public static void main(String[] args) throws IOException {
-    String me = executeCmd("stat","10.177.44.39","16701");
+    String me = executeCmd("stat","localhost","16701");
     System.out.println(me);
   }
 }
