@@ -46,11 +46,12 @@ public class FastJson {
     /**
      * 身份证号
      */
-//    @JSONField(serialize = false)
+    @JSONField(serialize = false)
     private String idCard;
 
     private int age;
 
+    @JSONField(deserialize = false)
     private Integer age2;
 
 
