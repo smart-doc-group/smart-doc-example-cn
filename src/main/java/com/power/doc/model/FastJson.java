@@ -7,7 +7,9 @@ import com.power.doc.enums.DeviceDataExpressionEnum;
 import com.power.doc.enums.OrderEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -38,8 +40,10 @@ public class FastJson {
     private Date date;
     /**
      * 用户名
+     * @mock cccccqqqqq
      */
-//    @JSONField(name = "name")
+    @JSONField(name = "name")
+    @Length(max = 100, min = 10)
     private String username;
 
 
