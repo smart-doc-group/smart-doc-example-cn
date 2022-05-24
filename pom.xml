@@ -170,6 +170,12 @@
             <artifactId>smart-doc</artifactId>
             <version>${smart-doc.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>smart-doc-maven-plugin</artifactId>
+            <version>${smart-doc.version}</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -183,6 +189,12 @@
                 <artifactId>smart-doc-maven-plugin</artifactId>
                 <version>${smart-doc.version}</version>
                 <configuration>
+                    <includes>
+                    <!--格式为：groupId:artifactId;参考如下-->
+                    <!--也可以支持正则式如：com.alibaba:.* -->
+                    <include>com.power.doc:.*</include>
+                    <include>com.github.shalousun:.*</include>
+                </includes>
                     <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
                     <!--指定项目名称-->

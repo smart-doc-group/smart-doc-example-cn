@@ -4,7 +4,7 @@ package com.power.doc.enums;
  * 订单状态
  * @author yu 2019/11/5.
  */
-public enum OrderEnum {
+public enum OrderEnum implements IEnum<String> {
     /**
      *  描述1
      */
