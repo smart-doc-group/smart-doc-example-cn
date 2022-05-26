@@ -19,6 +19,11 @@ public class Page<T> implements IPage<T> {
     protected List<T> records = Collections.emptyList();
 
     /**
+     * 测试
+     */
+    protected List<Object> test = Collections.emptyList();
+
+    /**
      * 排序字段
      */
     protected List<OrderItem> orders = new ArrayList<>();

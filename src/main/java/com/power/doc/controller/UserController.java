@@ -22,15 +22,6 @@ public class UserController {
     public ResultUtil<User> addUser(@RequestBody SimpleUser user){
         return null;
     }
-    /**
-     * 分页查询用户列表
-     * @param user
-     * @return
-     */
-    @GetMapping("/page")
-    public ResultUtil<Page<User>> page(@RequestBody SimpleUser user){
-        return null;
-    }
 
     /**
      * 更新用户
