@@ -1,5 +1,6 @@
 package com.power.doc.entity;
 
+import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -8,8 +9,8 @@ import java.util.Date;
 /**
  * @author Exrickx
  */
-
-public abstract class XbootBaseEntity implements Serializable{
+@Data
+public abstract class XbootBaseEntity<T> implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -49,4 +50,9 @@ public abstract class XbootBaseEntity implements Serializable{
      * @since v1.1
      */
     private Integer delFlag;
+
+    /**
+     * 测试数据
+     */
+    protected T test;
 }

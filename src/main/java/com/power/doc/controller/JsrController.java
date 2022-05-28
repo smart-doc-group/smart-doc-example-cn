@@ -2,6 +2,7 @@ package com.power.doc.controller;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.model.FastJson;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class JsrController {
      * @return
      */
     @PostMapping("/jsr/ignore")
-    public CommonResult<FastJson> ignore(@RequestBody FastJson fastJson) {
+    public CommonResult<FastJson> ignore(@Validated @RequestBody FastJson fastJson) {
         return CommonResult.ok();
     }
 }

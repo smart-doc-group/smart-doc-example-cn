@@ -4,9 +4,11 @@ package com.power.doc.enums;
  * 订单状态
  * @author yu 2019/11/5.
  */
-public enum OrderEnum {
-
-    WAIT_PAY("0", "已支付"),
+public enum OrderEnum implements IEnum<String> {
+    /**
+     *  描述1
+     */
+    WAIT_PAY("0", "等待支付"),
 
     PAID("1", "已支付"),
 

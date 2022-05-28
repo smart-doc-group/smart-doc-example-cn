@@ -1,12 +1,14 @@
 package com.power.doc.entity;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
  * @author Exrickx
  */
-
-public class User extends XbootBaseEntity {
+@Data
+public class User extends XbootBaseEntity<Car> {
 
     private static final long serialVersionUID = 1L;
 

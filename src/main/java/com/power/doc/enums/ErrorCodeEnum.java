@@ -1,11 +1,13 @@
 package com.power.doc.enums;
 
+import com.power.common.interfaces.IMessage;
+
 /**
  * 错误代码枚举类
  *
  * @author yu 2018/06/27
  */
-public enum ErrorCodeEnum {
+public enum ErrorCodeEnum implements IMessage {
 
     SUCCESS("0000", "success"),
 
@@ -17,11 +19,11 @@ public enum ErrorCodeEnum {
 
     private String code;
 
-    private String desc;
+    private String message;
 
-    ErrorCodeEnum(String code, String desc) {
+    ErrorCodeEnum(String code, String message) {
         this.code = code;
-        this.desc = desc;
+        this.message = message;
     }
 
     public String getCode() {
@@ -29,15 +31,15 @@ public enum ErrorCodeEnum {
     }
 
 
-    public String getDesc() {
-        return desc;
+    public String getMessage() {
+        return message;
     }
 
     @Override
     public String toString() {
         return "ErrorCodeEnum{" +
                 "code='" + code + '\'' +
-                ", desc='" + desc + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 }

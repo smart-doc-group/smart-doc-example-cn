@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
  * 性别数据字典
  * @author yu 2019/11/10.
  */
-public enum  GenderEnum {
+public enum  GenderEnum implements IEnum<Integer> {
     WOMAN(0,"女人"),
     MAN(2,"男人");
     private int code;
@@ -19,7 +19,7 @@ public enum  GenderEnum {
     }
 
     @JsonValue
-    public int getCode() {
+    public Integer getCode() {
         return this.code;
     }
 

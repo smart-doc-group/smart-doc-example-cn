@@ -103,7 +103,7 @@ public class RestExceptionHandler {
             case "Future":
                 return CommonResult.fail(ErrorCodeEnum.PARAM_ERROR.getCode(), fieldError.getDefaultMessage());
             default:
-                return CommonResult.fail(ErrorCodeEnum.UNKNOWN_ERROR.getCode(),ErrorCodeEnum.UNKNOWN_ERROR.getDesc());
+                return CommonResult.fail(ErrorCodeEnum.UNKNOWN_ERROR.getCode(),ErrorCodeEnum.UNKNOWN_ERROR.getMessage());
         }
     }
 }
