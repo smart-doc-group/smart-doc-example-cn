@@ -4,11 +4,10 @@ import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * 性别数据字典
- * @ignore
  * @author yu 2019/11/10.
  */
 public enum  GenderEnum implements IEnum<Integer> {
-    WOMAN(0,"女人"),
+    WOMAN(0,"女人\nwewew"),
     MAN(2,"男人");
     private int code;
 

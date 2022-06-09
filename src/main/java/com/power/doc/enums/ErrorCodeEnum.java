@@ -9,7 +9,7 @@ import com.power.common.interfaces.IMessage;
  */
 public enum ErrorCodeEnum implements IMessage {
 
-    SUCCESS("0000", "success"),
+    SUCCESS("0000", "success\n\rsuccess"),
 
     PARAM_EMPTY("1001", "必选参数为空"),
 

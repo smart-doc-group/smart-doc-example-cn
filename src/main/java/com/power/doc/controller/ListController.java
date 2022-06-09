@@ -66,7 +66,7 @@ public class ListController {
 
 
     /**
-     * List&lt;Map&lt;M,N&lt;P,k&gt;&gt;&gt;超复杂结构
+     * List<Map<M,N<P,K,Y>>>超复杂结构
      *
      * @return
      */
