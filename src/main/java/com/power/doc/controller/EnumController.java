@@ -49,13 +49,23 @@ public class EnumController {
     }
 
     /**
-     * 获取枚举参数4
+     * 获取枚举参数4(json)
      * @param order 简单枚举
      * @return
      */
     @PostMapping(value = "/enum/test1")
     public String testEnum2(@RequestBody Order order){
         return "hello apiNote";
+    }
+
+    /**
+     * 获取枚举参数5
+     * @param order 简单枚举
+     * @return
+     */
+    @PostMapping(value = "/enum/test2")
+    public Order testEnum3(Order order){
+        return null;
     }
 
     /**
