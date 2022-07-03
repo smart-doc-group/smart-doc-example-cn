@@ -16,4 +16,9 @@ public class Car {
      * 长度
      */
     private Double length;
+
+    /**
+     * 分页
+     */
+    private Pager pager;
 }

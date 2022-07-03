@@ -1,6 +1,7 @@
 package com.power.doc.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.power.doc.entity.Car;
 import com.power.doc.entity.SimpleUser;
 import com.power.doc.enums.SimpleEnum;
 import org.beetl.ext.fn.Json;
@@ -24,14 +25,14 @@ import java.util.List;
 public class FormDataController {
 
     private Logger log = LoggerFactory.getLogger(FormDataController.class);
-//    /**
-//     * 测试formData
-//     * @param simpleUser
-//     */
-//    @PostMapping("formData1")
-//    public void formData1(SimpleUser simpleUser){
-//       log.info(JSON.toJSONString(simpleUser));
-//    }
+    /**
+     * 测试formData
+     * @param car
+     */
+    @PostMapping("formData1")
+    public void formData1(Car car){
+       log.info(JSON.toJSONString(car));
+    }
 
     /**
      * Post请求发表单文件
