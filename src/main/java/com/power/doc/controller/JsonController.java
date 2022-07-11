@@ -19,7 +19,7 @@ public class JsonController {
      * @return
      */
     @PostMapping(value = "/getUserJson")
-    public String getUserJson(@RequestParam String name, @RequestBody FastJson pramInfo) {
+    public FastJson getUserJson(@RequestParam String name, @RequestBody FastJson pramInfo) {
         return null;
     }
 
