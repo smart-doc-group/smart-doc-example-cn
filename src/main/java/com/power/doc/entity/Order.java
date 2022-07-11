@@ -23,6 +23,13 @@ public class Order {
      */
     private OrderEnum orderType = OrderEnum.EXPIRED;
 
+
+    /**
+     * 测试订单类型
+     * @see OrderEnum
+     */
+    private String testSee;
+
     /**
      * 订单类型数组
      */

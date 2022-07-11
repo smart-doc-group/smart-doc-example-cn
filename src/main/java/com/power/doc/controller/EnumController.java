@@ -103,5 +103,19 @@ public class EnumController {
         return null;
     }
 
+    /**
+     * 测试@see
+     *
+     * @author chen qi
+     * @param enums enum
+     * @see OrderEnum
+     * @since 1.0.0
+     * @return
+     */
+    @GetMapping("/enum/see")
+    public String testSee(String enums) {
+        return null;
+    }
+
 
 }
