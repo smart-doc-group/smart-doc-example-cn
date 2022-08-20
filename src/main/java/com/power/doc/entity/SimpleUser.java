@@ -55,6 +55,8 @@ public class SimpleUser {
      * @since v1.0
      */
     private String mobile;
+
+    private UserRole role;
     /**
      * 用户角色信息
      */
