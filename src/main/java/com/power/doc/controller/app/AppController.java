@@ -14,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 
 
 /**
@@ -24,6 +25,17 @@ import java.util.HashMap;
 @RestController
 @RequestMapping("app")
 public class AppController {
+
+    /**
+     * 批量删除BOM
+     * @param ids 盒型BOM的id集合,英文逗号隔开
+     */
+    @DeleteMapping("/batchDelete")
+    public CommonResult<Void> batchDelete(@RequestBody List<String> ids) {
+        System.out.println("ids = " + ids);
+
+        return CommonResult.ok();
+    }
 
 
 

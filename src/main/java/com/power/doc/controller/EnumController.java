@@ -49,13 +49,23 @@ public class EnumController {
     }
 
     /**
-     * 获取枚举参数4
+     * 获取枚举参数4(json)
      * @param order 简单枚举
      * @return
      */
     @PostMapping(value = "/enum/test1")
     public String testEnum2(@RequestBody Order order){
         return "hello apiNote";
+    }
+
+    /**
+     * 获取枚举参数5
+     * @param order 简单枚举
+     * @return
+     */
+    @PostMapping(value = "/enum/test2")
+    public Order testEnum3(Order order){
+        return null;
     }
 
     /**
@@ -90,6 +100,20 @@ public class EnumController {
      */
     @GetMapping("/enum/testList")
     public String testList(List<OrderEnum> enums) {
+        return null;
+    }
+
+    /**
+     * 测试@see
+     *
+     * @author chen qi
+     * @param enums enum
+     * @see OrderEnum
+     * @since 1.0.0
+     * @return
+     */
+    @GetMapping("/enum/see")
+    public String testSee(String enums) {
         return null;
     }
 

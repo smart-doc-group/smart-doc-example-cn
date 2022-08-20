@@ -7,9 +7,11 @@ import com.power.doc.model.SubUser;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Stream;
 
 /**
- * 注释tag用例
+ * 注释tag
+ * 用例
  * @author yu 2020/7/2.
  */
 @RestController
@@ -20,9 +22,11 @@ public class TagsController {
      * 测试apiNote tag
      * @author cht
      * @apiNote
-     * This method returns a List instead of a Collection or Stream,
-     * because processing of multiple Wombats usually involves traversing
-     * the list in alternating forward and reverse directions.
+     * # This method returns a List instead of a Collection or Stream
+     *
+     * * because processing of multiple Wombats usually involves traversing
+     *
+     * * the list in alternating forward and reverse directions.
      * @return
      */
     @Deprecated

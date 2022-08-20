@@ -13,6 +13,10 @@ public class User extends XbootBaseEntity<Car> {
     private static final long serialVersionUID = 1L;
 
     /**
+     * 测试object
+     */
+    private Object testObject;
+    /**
      * 用户名
      */
     private String username;

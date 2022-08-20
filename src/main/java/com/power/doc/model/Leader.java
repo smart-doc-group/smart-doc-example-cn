@@ -14,18 +14,22 @@ import javax.validation.constraints.*;
 public class Leader {
 
     /**
+     * 生日
+     */
+    @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
+    @Length(max = 5)
+    @Min(value = 4)
+    @NotBlank(message = "生日不能为空")
+    private String birthday;
+
+    /**
      * 姓名
      */
     @NotEmpty
     @Length(max = 5)
     private String name;
 
-    /**
-     * 生日
-     */
-    @NotBlank(message = "生日不能为空")
-    @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
-    private String birthday;
+
 
     /**
      * 年龄
