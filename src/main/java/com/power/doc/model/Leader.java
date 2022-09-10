@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
 
+import com.power.doc.constants.ValidConstants;
+
 /**
  * Description:
  * 领导者
@@ -17,7 +19,7 @@ public class Leader {
      * 生日
      */
     @Pattern(regexp = "^[0-9]{4}-[0-9]{2}-[0-9]{2}$", message = "出生日期格式不正确")
-    @Length(max = 5)
+    @Length(max = ValidConstants.Max)
     @Min(value = 4)
     @NotBlank(message = "生日不能为空")
     private String birthday;
