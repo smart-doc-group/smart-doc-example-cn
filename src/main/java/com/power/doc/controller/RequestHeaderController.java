@@ -3,6 +3,8 @@ package com.power.doc.controller;
 import com.power.doc.constants.HeaderConstants;
 import com.power.doc.constants.RequestHeadValue;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -17,6 +19,22 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class RequestHeaderController {
+
+    /**
+     * 测试常量请求头4
+     *
+     * @param token 请求头
+     * @return
+     */
+    @GetMapping("testRequestHeader/constant4")
+    public String testConstants4(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+        return "header constants";
+    }
+
+
+    interface Headers {
+        String AUTHORIZATION = "Authorization";
+    }
 
     /**
      * 测试RequestHeader常规使用
@@ -105,6 +123,7 @@ public class RequestHeaderController {
     public String testConstants3(@RequestHeader(name= HeaderConstants.TOKEN) String token) {
         return "header constants";
     }
+
 
     /**
      *

@@ -6,4 +6,6 @@ package com.power.doc.constants;
 public interface HeaderConstants {
 
     String TOKEN = "token";
+
+    String AUTHORIZATION = "Authorization";
 }
