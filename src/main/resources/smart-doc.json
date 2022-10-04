@@ -68,6 +68,8 @@
       "constantsClassName":"com.power.doc.constants.ApiVersion"
   },{
     "constantsClassName":"com.power.doc.constants.RequestHeadValue"
+  }, {
+    "constantsClassName": "org.springframework.http.HttpHeaders"
   }],
   "dataDictionaries": [{ //配置数据字典，没有需求可以不设置
     "title": "http状态码字典", //数据字典的名称

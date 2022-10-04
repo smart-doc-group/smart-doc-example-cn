@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +20,16 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 @RestController
 public class RequestHeaderController {
+
+    /**
+     * header常量测试
+     * @apiNote spring框架原生的headers代码已经被插件剔除，
+     * 需要在配置文件中添加常量解析
+     * @param token
+     */
+    @PutMapping("/userInfo")
+    public void userInfo(@RequestHeader(HttpHeaders.AUTHORIZATION) String token) {
+    }
 
     /**
      * 测试常量请求头4
