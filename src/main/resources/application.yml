@@ -14,3 +14,8 @@ springdoc:
     operations-sorter: method
     #custom path for api docs
     url: /doc/openapi.json
+spring:
+  kafka:
+    producer:
+      ssl:
+        key-password:
