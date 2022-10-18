@@ -24,6 +24,16 @@ public class PathVariableController {
     }
 
     /**
+     * 普通path
+     * @param userId 用户id
+     * @return
+     */
+    @PostMapping("/{userId}/department")
+    public CommonResult testPathVariable2(@PathVariable("userId") String userId) {
+        return CommonResult.ok();
+    }
+
+    /**
      * Path正则测试1
      * @param fileId 文件id
      * @return
@@ -52,5 +62,4 @@ public class PathVariableController {
     public CommonResult testPathRegex3(@PathVariable String fileId){
         return CommonResult.ok();
     }
-
 }

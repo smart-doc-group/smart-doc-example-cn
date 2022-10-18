@@ -24,6 +24,18 @@ import java.util.Map;
 public class RequestParamsController {
 
     /**
+     * 测试mapping中的params设置2
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/ex/bars", params = "id=bind")
+    @ResponseBody
+    public String getBarBySimplePathWithExplicitRequestParam2(
+        @RequestParam("id") long id) {
+        return "Narrow Get a specific Bar with id=" + id;
+    }
+
+    /**
      * Test Normal param binding
      *
      * @param name name
@@ -161,7 +173,7 @@ public class RequestParamsController {
     }
 
     /**
-     * 测试mapping中的
+     * 测试mapping中的params设置1
      * @param id
      * @return
      */
@@ -182,5 +194,7 @@ public class RequestParamsController {
             @RequestParam("id") long id) {
         return "Narrow Get a specific Bar with id=" + id;
     }
+
+
 
 }
