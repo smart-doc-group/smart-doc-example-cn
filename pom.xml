@@ -21,8 +21,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>11</java.version>
-    <util.version>2.1.5</util.version>
-    <smart-doc.version>2.5.3</smart-doc.version>
+    <util.version>2.1.7</util.version>
+    <smart-doc.version>2.6.0</smart-doc.version>
     <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
     <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
     <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
@@ -158,20 +158,7 @@
       <artifactId>fastmybatis-core</artifactId>
       <version>2.2.1</version>
     </dependency>
-    <!--https://gitee.com/sunyurepository/ApplicationPower-->
-    <dependency>
-      <groupId>com.github.shalousun</groupId>
-      <artifactId>smart-doc</artifactId>
-      <version>${smart-doc.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.github.shalousun</groupId>
-      <artifactId>smart-doc-maven-plugin</artifactId>
-      <version>${smart-doc.version}</version>
-    </dependency>
   </dependencies>
-
   <build>
     <plugins>
       <plugin>

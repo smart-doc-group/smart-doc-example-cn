@@ -13,6 +13,14 @@ import java.util.List;
  */
 public interface DubboInterface {
 
+
+    /**
+     * 测试order
+     * @param orderList
+     * @return
+     */
+    Order testConstantsRequestParam(Order orderList);
+
     /**
      * 测试
      * @return
