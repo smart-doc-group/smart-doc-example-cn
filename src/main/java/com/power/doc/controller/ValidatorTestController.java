@@ -90,8 +90,8 @@ public class ValidatorTestController extends BaseController<Leader> {
      * @return
      */
     @PostMapping("/test4")
-    public Object test4(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
-        return CommonResult.ok();
+    public String test4(@Validated({Collect.SendCode.class}) @RequestBody Collect collect){
+        return null;
     }
 
 

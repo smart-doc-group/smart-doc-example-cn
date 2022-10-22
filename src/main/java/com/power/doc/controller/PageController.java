@@ -23,7 +23,7 @@ public class PageController {
      * @return
      */
     @GetMapping("/page")
-    public ResultUtil<Page<Car>> page(@RequestBody SimpleUser user){
+    public ResultUtil<Page<Car>> page( SimpleUser user){
 
         return null;
     }
@@ -34,7 +34,7 @@ public class PageController {
      * @return
      */
     @GetMapping("/mybatisPage")
-    public ResultUtil<com.baomidou.mybatisplus.extension.plugins.pagination.Page<Car>> mybatisPage(@RequestBody SimpleUser user){
+    public ResultUtil<com.baomidou.mybatisplus.extension.plugins.pagination.Page<Car>> mybatisPage( SimpleUser user){
         return null;
     }
 }

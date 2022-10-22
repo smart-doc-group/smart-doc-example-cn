@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * @author yu 2018/8/4.
@@ -61,6 +62,15 @@ public class SimpleUser {
      * 用户角色信息
      */
     private List<UserRole> roles;
+
+    /**
+     * 工程列表
+     */
+    private Set<String> projects;
+    /**
+     * 头像列表
+     */
+    private Set<Admin> admins;
     /**
      * 用户扩展项
      * @mock {"address":"成都市","sex":1,"age":16,"name":"smart-doc","extends":{"version":1.0,"versionList":["1.2.0","1.5.6"]}}
