@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author yu 2020/6/20.
@@ -12,6 +13,11 @@ import java.util.List;
 @Getter
 @Setter
 public class Order {
+
+    /**
+     * 订单类型数组
+     */
+    private Set<OrderEnum> orderEnumSet;
 
     /**
      * 订单id

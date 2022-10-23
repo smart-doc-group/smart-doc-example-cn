@@ -1,23 +1,11 @@
 package com.power.doc.entity.valid;
 
-import com.power.common.util.CollectionUtil;
-import com.thoughtworks.qdox.JavaProjectBuilder;
-import com.thoughtworks.qdox.model.JavaClass;
-import com.thoughtworks.qdox.model.JavaType;
-import com.thoughtworks.qdox.model.expression.AnnotationValue;
-import com.thoughtworks.qdox.model.expression.TypeRef;
-import com.thoughtworks.qdox.model.impl.DefaultJavaParameterizedType;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Null;
-import javax.validation.constraints.Size;
-import javax.validation.groups.Default;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author yu 2020/1/27.

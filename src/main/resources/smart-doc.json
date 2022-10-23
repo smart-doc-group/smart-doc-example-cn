@@ -4,7 +4,7 @@
   "outPath": "target/doc",
   "allInOne": true,
   "coverOld": true,
-  "createDebugPage": true,
+  "createDebugPage": false,
   "style":"xt256",
   "packageFilters": "",
   "appKey": "20210318821914523354005504",

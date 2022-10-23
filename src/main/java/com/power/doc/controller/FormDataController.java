@@ -3,19 +3,14 @@ package com.power.doc.controller;
 import com.alibaba.fastjson.JSON;
 import com.power.doc.entity.Car;
 import com.power.doc.entity.SimpleUser;
-import com.power.doc.enums.SimpleEnum;
-import org.beetl.ext.fn.Json;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
-
-import lombok.extern.slf4j.Slf4j;
-
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.List;
 
 /**
  * 接收表单参数
