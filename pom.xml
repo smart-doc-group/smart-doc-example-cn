@@ -154,6 +154,12 @@
             <version>2.1.1</version>
         </dependency>
         <dependency>
+            <groupId>com.github.shalousun</groupId>
+            <artifactId>smart-doc</artifactId>
+            <version>${smart-doc.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>net.oschina.durcframework</groupId>
             <artifactId>fastmybatis-core</artifactId>
             <version>2.2.1</version>
