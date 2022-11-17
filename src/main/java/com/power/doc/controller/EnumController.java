@@ -1,6 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.doc.entity.Order;
+import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
 import com.power.doc.enums.SimpleEnum;
 import org.springframework.web.bind.annotation.*;
@@ -117,5 +118,17 @@ public class EnumController {
         return null;
     }
 
+    /**
+     * 测试query参数枚举
+     *
+     * @author cqmike
+     * @param genderEnum
+     * @since 1.0.0
+     * @return
+     */
+    @PostMapping("/enum/testQueryEnum")
+    public String testQueryEnum(GenderEnum genderEnum) {
+        return null;
+    }
 
 }
