@@ -20,8 +20,8 @@ public class EnumController {
      * @param simpleEnum 简单枚举
      * @return
      */
-    @GetMapping(value = "/enum")
-    public String test(SimpleEnum simpleEnum){
+    @GetMapping(value = "/enum0")
+    public String test2(SimpleEnum simpleEnum){
         System.out.println(simpleEnum.name());
         return "hello apiNote";
     }

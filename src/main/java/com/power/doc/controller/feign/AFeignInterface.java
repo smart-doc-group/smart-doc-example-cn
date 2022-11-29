@@ -35,6 +35,6 @@ public interface AFeignInterface {
      * 模具
      * @return
      */
-    @GetMapping(value = "/enum")
+    @GetMapping(value = "/feign/test")
     String test();
 }
