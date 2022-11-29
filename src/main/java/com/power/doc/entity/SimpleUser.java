@@ -2,10 +2,10 @@ package com.power.doc.entity;
 
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.SimpleEnum;
+
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;

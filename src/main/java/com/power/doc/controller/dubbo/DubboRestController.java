@@ -4,8 +4,8 @@ import com.power.common.model.CommonResult;
 import com.power.doc.model.LoginDto;
 import org.springdoc.core.RequestBodyInfo;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 /**
  * DubboRest 接口测试

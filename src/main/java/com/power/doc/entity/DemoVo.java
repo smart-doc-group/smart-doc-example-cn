@@ -1,6 +1,6 @@
 package com.power.doc.entity;
 
-import javax.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 import java.util.Map;
 

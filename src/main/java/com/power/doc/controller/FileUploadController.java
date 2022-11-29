@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.util.List;
 
@@ -45,27 +44,6 @@ public class FileUploadController {
      */
     @PostMapping(value = "/batchUpload2",consumes = "multipart/form-data")
     public CommonResult batchFileUpload2(List<MultipartFile> file) {
-        return CommonResult.ok();
-    }
-
-    /**
-     * 批量上传文件2
-     * @param files 批量文件
-     * @return
-     */
-    @PostMapping(value = "/batchUpload3",consumes = "multipart/form-data")
-    public CommonResult batchFileUpload3(CommonsMultipartFile[] files){
-        return CommonResult.ok();
-    }
-
-
-    /**
-     * 批量上传文件3
-     * @param files 批量文件
-     * @return
-     */
-    @PostMapping(value = "/batchUpload4",consumes = "multipart/form-data")
-    public CommonResult batchFileUpload4(List<CommonsMultipartFile> files){
         return CommonResult.ok();
     }
 

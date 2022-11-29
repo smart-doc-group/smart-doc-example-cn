@@ -7,6 +7,7 @@ import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.GetMainGoodsByItemNosBody;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
+import com.power.doc.model.LoginDto;
 import com.power.doc.model.PersonCreateDto;
 import com.power.doc.model.circular.C;
 import com.power.doc.model.mybatisplus.PageInfo;
@@ -31,7 +32,7 @@ public class AppController {
      * @param ids 盒型BOM的id集合,英文逗号隔开
      */
     @DeleteMapping("/batchDelete")
-    public CommonResult<Void> batchDelete(@RequestBody List<String> ids) {
+    public CommonResult<Void> batchDelete(@RequestBody LoginDto ids) {
         System.out.println("ids = " + ids);
 
         return CommonResult.ok();

@@ -2,8 +2,8 @@ package com.power.doc.model;
 
 import org.hibernate.validator.constraints.Length;
 
-import javax.validation.Valid;
-import javax.validation.constraints.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.*;
 
 import com.power.doc.constants.ValidConstants;
 

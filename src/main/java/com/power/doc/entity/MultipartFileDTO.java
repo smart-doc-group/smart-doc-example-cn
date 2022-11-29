@@ -2,7 +2,6 @@ package com.power.doc.entity;
 
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import java.util.List;
 
@@ -37,14 +36,4 @@ public class MultipartFileDTO {
      * 文件array
      */
     private MultipartFile[] multipartFiles;
-
-    /**
-     *  文件List
-     */
-    private List<CommonsMultipartFile> commonsMultipartFileList;
-
-    /**
-     * 文件array
-     */
-    private CommonsMultipartFile[] commonsMultipartFiles;
 }

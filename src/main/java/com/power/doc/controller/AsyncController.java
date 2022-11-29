@@ -17,7 +17,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Future;
 import java.util.concurrent.ThreadLocalRandom;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 
 
 /**

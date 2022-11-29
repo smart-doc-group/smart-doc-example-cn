@@ -3,7 +3,7 @@ package com.power.doc.model;
 import com.power.doc.annotation.ErrorCode;
 import com.power.doc.enums.ErrorCodeEnum;
 
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotEmpty;
 
 
 /**
