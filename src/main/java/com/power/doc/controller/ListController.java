@@ -5,13 +5,13 @@ import com.power.doc.model.Student;
 import com.power.doc.model.Teacher;
 import com.power.doc.model.User;
 import com.power.doc.model.UserDto;
+import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -113,5 +113,27 @@ public class ListController {
     @GetMapping(value = "listUserDto")
     public CommonResult<List<UserDto>> testListUserDto(){
         return null;
+    }
+
+
+    /**
+     * issue405
+     * @return
+     */
+    @GetMapping("/test")
+    public TestDTO test() {
+        return new TestDTO();
+    }
+
+    @Data
+    public static class TestDTO {
+
+        public List<DemoDTO> demos;
+
+        @Data
+        public static class DemoDTO {
+            private Long id;
+            private String name;
+        }
     }
 }
