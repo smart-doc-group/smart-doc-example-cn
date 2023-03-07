@@ -1,5 +1,8 @@
 package com.power.doc.controller;
 
+import com.power.common.model.CommonResult;
+import com.power.doc.controller.app.PageResult;
+import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
@@ -44,6 +47,16 @@ public abstract class BaseController<T> {
         return null;
     }
 
+    /**
+     * 分页查询2
+     * @param dto
+     * @return
+     */
+    @PostMapping("page/list")
+    public CommonResult<PageResult> list(@Valid @RequestBody T dto) {
+        return null;
+    }
+
 
 
 
@@ -85,4 +98,6 @@ public abstract class BaseController<T> {
     protected ServletOutputStream downloadText(String fileName,HttpServletResponse response) throws IOException{
         return baseDownload(TEXT_CONTENT_TYPE,fileName,response);
     }
+
+
 }

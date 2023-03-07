@@ -13,6 +13,22 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/pathVariable")
 public class PathVariableController {
 
+
+    /**
+     * 日志查询测试GET路径参数
+     * @param testData 测试路径参数
+     * @apiNote 你好生活，
+     * 这里是中央电视台
+     * @return
+     *
+     * 翻页查询结果对象
+     */
+    @GetMapping("/list/{testData}")
+    public void listTest(@PathVariable String testData) {
+
+    }
+
+
     /**
      * 接收数组类型pathVariable
      * @param id
@@ -61,5 +77,21 @@ public class PathVariableController {
     @GetMapping(value = {"download/{fileId:^[A-Za-z0-9_-]{10,50}$}/file","download/file/{fileId:^[A-Za-z0-9_-]{10,50}$}"})
     public CommonResult testPathRegex3(@PathVariable String fileId){
         return CommonResult.ok();
+    }
+
+
+    /**
+     * 创建部门群
+     *
+     * @param departmentId 部门 ID
+     * @param mobile 用户手机号码
+     * @return 返回结果
+     * @author xxx
+     * @since 1.0.0
+     */
+    @PutMapping("/department/{departmentId}/{mobile}")
+    @ResponseBody
+    public CommonResult putDepartment(@PathVariable Long departmentId, @PathVariable String mobile) {
+        return null;
     }
 }
