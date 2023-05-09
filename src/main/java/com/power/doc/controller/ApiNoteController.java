@@ -3,6 +3,7 @@ package com.power.doc.controller;
 import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
+import com.power.doc.entity.PermissionSet;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class ApiNoteController {
      * @param page 页码
      */
     @GetMapping(value = "testConstants/" + ApiVersion.VERSION)
-    public void testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
-
+    public PermissionSet testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
+        return null;
     }
 }
