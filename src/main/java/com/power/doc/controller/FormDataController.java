@@ -1,9 +1,13 @@
 package com.power.doc.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.power.common.model.CommonResult;
 import com.power.doc.entity.Car;
 import com.power.doc.entity.SimpleUser;
 
+import com.power.doc.enums.SimpleEnum;
+import com.power.doc.model.TestWrapper;
+import com.power.doc.utils.JacksonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -60,27 +64,27 @@ public class FormDataController {
     public void formData4(String userId, String userData, SimpleUser simpleUser){
         log.info("userId: {} userData: {},SimpleUser: {}",userId,userData,JSON.toJSONString(simpleUser));
     }
-//    /**
-//     * 表单 包含复杂对象
-//     * @param userId
-//     * @param userData
-//     * @param simpleUser
-//     */
-//    @PostMapping(path = "formData5")
-//    public void formData5(String userId, String userData,SimpleUser simpleUser){
-//        log.info("userId: {} userData: {},SimpleUser: {}",userId,userData,JSON.toJSONString(simpleUser));
-//    }
+    /**
+     * 表单 包含复杂对象
+     * @param userId
+     * @param userData
+     * @param simpleUser
+     */
+    @PostMapping(path = "formData5")
+    public void formData5(String userId, String userData,SimpleUser simpleUser){
+        log.info("userId: {} userData: {},SimpleUser: {}",userId,userData,JSON.toJSONString(simpleUser));
+    }
 
-//    /**
-//     * 表单 枚举
-//     * @param userId
-//     * @param userData
-//     * @param simpleUser
-//     */
-//    @GetMapping("formData6")
-//    public void formData6(String userId, String userData, SimpleEnum simpleUser){
-//        log.info(JSON.toJSONString(simpleUser));
-//    }
+    /**
+     * 表单 枚举
+     * @param userId
+     * @param userData
+     * @param simpleUser
+     */
+    @GetMapping("formData6")
+    public void formData6(String userId, String userData, SimpleEnum simpleUser){
+        log.info(JSON.toJSONString(simpleUser));
+    }
 
     /**
      * 测试formData带路径参数
@@ -103,5 +107,15 @@ public class FormDataController {
         log.info(JSON.toJSONString(simpleUser));
     }
 
+    /**
+     * formdata内部类嵌套结构入参
+     *
+     * @param test 页码
+     */
+    @GetMapping(value = "formData9")
+    public CommonResult<String> testConstantsRequestParams(TestWrapper test) {
+        log.info("param:"+ JacksonUtil.bean2Json(test));
+        return CommonResult.ok().setResult(JacksonUtil.bean2Json(test));
+    }
 
 }
