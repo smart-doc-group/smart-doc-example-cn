@@ -4,3 +4,7 @@
 # 生成html文档
 html-doc:
 	mvn -X smart-doc:html -Dfile.encoding=UTF-8
+
+# one-api https://oneapi.app/usage
+one-api:
+	oneapi analysis -p ./ -o ./target/doc/
