@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * Issue223
  * @author Joker
  */
 @RestController
@@ -40,8 +41,6 @@ public class Issue223Controller {
      */
     @GetMapping("/test")
     public CommonResult<List<Map<String, TestDto>>> test() {
-
-
         return CommonResult.ok();
     }
 
