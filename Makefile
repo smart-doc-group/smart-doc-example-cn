@@ -5,6 +5,9 @@
 html-doc:
 	mvn -X smart-doc:html -Dfile.encoding=UTF-8
 
+tree:
+	mvn dependency:tree -DoutputFile=tree.txt
+
 # one-api https://oneapi.app/usage
 one-api:
 	oneapi analysis -p ./ -o ./target/doc/

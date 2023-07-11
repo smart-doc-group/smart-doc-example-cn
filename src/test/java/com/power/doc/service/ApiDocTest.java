@@ -47,7 +47,7 @@ public class ApiDocTest {
     /**
      * 包括设置请求头，缺失注释的字段批量在文档生成期使用定义好的注释
      */
-    @Deprecated
+    @Test
     public void testBuilderControllersApi() {
         ApiConfig config = new ApiConfig();
         config.setServerUrl("http://localhost:8080");
@@ -85,7 +85,7 @@ public class ApiDocTest {
 //        config.setOutPath("E:\\chen\\test-smart");
         // @since 1.2,如果不配置该选项，则默认匹配全部的controller,
         // 如果需要配置有多个controller可以使用逗号隔开
-        config.setPackageFilters("com.power.doc.controller.app");
+        config.setPackageFilters("com.power.doc.controller.PageHelperController");
 
         config.setRequestHeaders(
 //                ApiReqHeader.builder().setName("token").setRequired(true).setType("string").setDesc("token"),
@@ -112,7 +112,7 @@ public class ApiDocTest {
         config.setErrorCodeDictionaries(
                 ApiErrorCodeDictionary.builder().setEnumClass(ErrorCodeEnum.class)
                         .setCodeField("code") //错误码值字段名
-                        .setDescField("desc")//错误码描述
+                        .setDescField("message")//错误码描述
         );
         //1.8.5，使用自定义对象替换指定对象做文档渲染，必须使用全类名
         //泛型书写例子com.power.doc.model.LoginDto<com.power.doc.User>
@@ -135,7 +135,7 @@ public class ApiDocTest {
 
         long start = System.currentTimeMillis();
         //获取接口数据后自行处理
-        TornaBuilder.buildApiDoc(config);
+//        TornaBuilder.buildApiDoc(config);
 //        System.out.println(JsonFormatUtil.formatJson(JSON.toJSONString(config)));
 //        AdocDocBuilder.builderControllersApi(config);
 //        ApiDocBuilder.builderControllersApi(config);
