@@ -54,7 +54,7 @@ public abstract class BaseController<T> {
      */
     @PostMapping("page/list")
     public CommonResult<PageResult> list(@Valid @RequestBody T dto) {
-        return null;
+        return CommonResult.ok();
     }
 
 
