@@ -1,21 +1,14 @@
 package com.power.doc.controller.app;
 
 import com.power.common.model.CommonResult;
-import com.power.doc.constants.ApiVersion;
-import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
-import com.power.doc.entity.GetMainGoodsByItemNosBody;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
 import com.power.doc.model.LoginDto;
 import com.power.doc.model.PersonCreateDto;
-import com.power.doc.model.circular.C;
 import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.HashMap;
-import java.util.List;
 
 
 /**
@@ -26,6 +19,9 @@ import java.util.List;
 @RestController
 @RequestMapping("app")
 public class AppController {
+
+
+
 
     /**
      * 批量删除BOM
@@ -40,15 +36,7 @@ public class AppController {
 
 
 
-    /**
-     * Test Constants
-     *
-     * @param page 页码
-     */
-    @GetMapping(ApiVersion.ADMIN_ROOT+"/testConstants/" + ApiVersion.VERSION)
-    public HashMap<String, GetMainGoodsByItemNosBody.GetMainGoodsByItemNosInfo> testConstantsRequestParams(@RequestParam(required = false, defaultValue = RequestValueConstant.PAGE_DEFAULT_NONE, value = RequestParamConstant.PAGE) int page) {
-        return null;
-    }
+
 
     /**
      * 创建人员
