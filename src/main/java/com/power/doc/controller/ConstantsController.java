@@ -7,12 +7,14 @@ import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.GetMainGoodsByItemNosBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
 
 /**
  * 常量测试
  */
+@RestController
 public class ConstantsController {
 
     /**

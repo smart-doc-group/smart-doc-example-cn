@@ -29,6 +29,10 @@ public interface AFeignInterface {
     /*@RequestMapping("/testRequestParam")
     String testRequestParam(@RequestMapping(value = "") String name)*/
 
+    /**
+     * 接口中的注解
+     * @return
+     */
     @RequestMapping(AuthConst.OAuthScope.USERINFO)
     String issue216();
 
