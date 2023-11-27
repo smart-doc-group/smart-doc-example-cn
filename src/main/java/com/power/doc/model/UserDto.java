@@ -1,5 +1,7 @@
 package com.power.doc.model;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -18,5 +20,5 @@ public class UserDto implements Serializable {
     /**
      * UserDto 用户信息列表
      */
-    private List<LoginDto> LoginList;
+    private Page<LoginDto> LoginList;
 }

@@ -1,26 +1,29 @@
 {
-  "serverUrl": "http://{{host}}:{{port}}",
+  "serverUrl": "http://127.0.0.1:9000",
   "isStrict": false,
   "outPath": "target/doc",
   "allInOne": true,
   "coverOld": true,
-  "createDebugPage": true,
+  "createDebugPage": false,
   "style":"xt256",
   "packageFilters": "",
   "appKey": "20210318821914523354005504",
-  "appToken": "61b69195f14344e5b9e6469852b6fc4d",
+  "appToken": "a0333b2aa3a74c5fa91dad8c1958010a",
   "secret": "XnYjaDbK^stIJyQ5RZOCJ.VAEYOscB7C",
-  "openUrl": "http://192.168.240.127:7700/api",
+  "openUrl": "http://192.168.0.112:7700/api",
   "md5EncryptedHtmlName": true,
   "projectName": "smartdoc",
   "tornaDebug": true,
-  "inlineEnum": true,
+  "inlineEnum": false,
   "skipTransientField": true,
+  "responseBodyAdvice": {
+    "className": "com.power.common.model.CommonResult"
+  },
   "requestHeaders": [ //设置请求头，没有需求可以不设置
     {
       "name": "token",//请求头名称
       "type": "string",//请求头类型
-      "desc": "desc",//请求头描述信息
+      "desc": "desc<br>ssssss<br>wwwqqwq",//请求头描述信息
       "value":"kk",//不设置默认null
       "required": false,//是否必须
       "since": "-" //什么版本添加的改请求头
@@ -49,8 +52,7 @@
     }
   ],
   "errorCodeDictionaries": [{ //错误码列表，没有需求可以不设置
-    "title": "title",
-    "enumClassName": "com.power.common.enums.HttpCodeEnum", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
+    "enumClassName": "com.power.common.interfaces.IMessage", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
     "codeField": "code",//错误码的code码字段名称
     "descField": "message"//错误码的描述信息对应的字段名
   }],
@@ -61,30 +63,31 @@
     "version":"1.0.0"
   }],
   "apiConstants":[{
-      "constantsClassName":"com.power.doc.constants.RequestParamConstant"
-    }, {
-      "constantsClassName":"com.power.doc.constants.RequestValueConstant"
-    }, {
-      "constantsClassName":"com.power.doc.constants.ApiVersion"
+    "constantsClassName":"com.power.doc.constants.RequestParamConstant"
+  }, {
+    "constantsClassName":"com.power.doc.constants.RequestValueConstant"
+  }, {
+    "constantsClassName":"com.power.doc.constants.ApiVersion"
   },{
     "constantsClassName":"com.power.doc.constants.RequestHeadValue"
-  }, {
-    "constantsClassName": "org.springframework.http.HttpHeaders"
   }],
   "dataDictionaries": [{ //配置数据字典，没有需求可以不设置
-    "title": "http状态码字典", //数据字典的名称
-    "enumClassName": "com.power.common.enums.HttpCodeEnum", //数据字典枚举类名称
+    "title": "测试配置枚举",
+    "enumClassName": "com.power.doc.enums.OrderEnum", //数据字典枚举类名称
     "codeField": "code",//数据字典字典码对应的字段名称
-    "descField": "message"//数据字典对象的描述信息字典
+    "descField": "desc"//数据字典对象的描述信息字典
   }],
   "customRequestFields": [
-  {"name":"start", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
+    {"name":"start", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
   ,{"name":"limit", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
   ],
   "groups": [ // @since 2.2.5, 对不同的controller进行分组
     {
       "name": "测试分组",
-      "apis": "com.power.doc.controller.*"
+      "apis": "com.power.doc.controller.EnumController"
+    },{
+      "name": "测试分组2",
+      "apis": "com.power.doc.controller.FormDataController"
     }
   ]
 }

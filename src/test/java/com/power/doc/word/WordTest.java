@@ -1,0 +1,229 @@
+package com.power.doc.word;
+
+import com.deepoove.poi.XWPFTemplate;
+import com.deepoove.poi.config.Configure;
+import com.deepoove.poi.plugin.markdown.MarkdownRenderData;
+import com.deepoove.poi.plugin.markdown.MarkdownRenderPolicy;
+import com.deepoove.poi.plugin.markdown.MarkdownStyle;
+import com.ly.doc.builder.DocBuilderTemplate;
+import com.ly.doc.builder.ProjectDocConfigBuilder;
+import com.ly.doc.constants.DocGlobalConstants;
+import com.ly.doc.constants.TemplateVariable;
+import com.ly.doc.constants.TornaConstants;
+import com.ly.doc.factory.BuildTemplateFactory;
+import com.ly.doc.helper.JavaProjectBuilderHelper;
+import com.ly.doc.model.*;
+import com.ly.doc.template.IDocBuildTemplate;
+import com.ly.doc.utils.BeetlTemplateUtil;
+import com.power.common.util.FileUtil;
+import com.power.common.util.StringUtil;
+import com.power.doc.model.circular.A;
+import com.thoughtworks.qdox.JavaProjectBuilder;
+import org.apache.commons.io.IOUtils;
+import org.beetl.core.Configuration;
+import org.beetl.core.GroupTemplate;
+import org.beetl.core.Template;
+import org.beetl.core.resource.ClasspathResourceLoader;
+import org.junit.jupiter.api.Test;
+
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.OpenOption;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
+
+/**
+ * @author <a href="mailto:cqmike0315@gmail.com">chenqi</a>
+ * @version 1.0
+ */
+public class WordTest {
+
+    @Test
+    public void testMarkdown2Word() throws IOException {
+        // D:\code\IdeaProject\smart-doc-example-cn\target\doc\ListCControllerApi.md
+        MarkdownRenderData code = new MarkdownRenderData();
+        code.setMarkdown(new String(Files.readAllBytes(Paths.get("D:\\code\\IdeaProject\\smart-doc-example-cn\\target\\doc\\ListCControllerApi.md"))));
+        code.setStyle(MarkdownStyle.newStyle());
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("md", code);
+
+        Configure config = Configure.builder().bind("md", new MarkdownRenderPolicy()).build();
+        XWPFTemplate.compile("D:\\code\\IdeaProject\\smart-doc-example-cn\\target\\doc\\markdown_template.docx", config).render(data);
+    }
+
+    @Test
+    public void renderWord() throws Exception {
+        ApiConfig config = ApiConfig.getInstance();
+        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
+        config.setBaseDir("D:\\code\\IdeaProject\\smart-doc-example-cn");
+        config.setCodePath("src/main/java");
+        config.setAllInOne(true);
+
+
+        config.setOutPath(DocGlobalConstants.HTML_DOC_OUT_PATH);
+        config.setPackageFilters("com.power.doc.controller.PageHelperController");
+
+        DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
+        builderTemplate.checkAndInit(config, Boolean.TRUE);
+        config.setParamsDataToTree(false);
+        ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
+        IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
+        List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
+        System.out.println(apiDocList);
+
+    }
+
+    private ApiConfig config() {
+        ApiConfig config = ApiConfig.getInstance();
+        config.setBaseDir("D:\\code\\IdeaProject\\smart-doc-example-cn");
+        config.setCodePath("src/main/java");
+        config.setServerUrl("http://127.0.0.1:9000");
+        config.setAllInOne(true);
+
+        ApiReqParam header = new ApiReqParam();
+        header.setValue("kk");
+        header.setType("string");
+        header.setName("token");
+        header.setRequired(true);
+        header.setSince("true");
+        header.setDesc("truetruetruetrue");
+        config.setRequestHeaders(header);
+
+        ApiGroup apiGroup = new ApiGroup();
+        apiGroup.setName("测试分组1");
+        apiGroup.setApis("com.power.doc.controller.EnumController");
+        ApiGroup apiGroup1 = new ApiGroup();
+        apiGroup1.setName("测试分组2");
+        apiGroup1.setApis("com.power.doc.controller.FormDataController");
+        config.setGroups(apiGroup, apiGroup1);
+
+        RevisionLog revisionLog = new RevisionLog();
+        revisionLog.setAuthor("cq");
+        revisionLog.setRevisionTime("2023-11-26 00:00:00");
+        revisionLog.setVersion("1.1.1");
+        revisionLog.setStatus("撒旦");
+        revisionLog.setRemarks("asdsa");
+        config.setRevisionLogs(revisionLog);
+
+        config.setRequestExample(true);
+        config.setResponseExample(true);
+        config.setOutPath(DocGlobalConstants.HTML_DOC_OUT_PATH);
+//        config.setPackageFilters("com.power.doc.controller.app.CommDeptController.*");
+
+        DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
+        builderTemplate.checkAndInit(config, Boolean.TRUE);
+        config.setParamsDataToTree(false);
+        return config;
+    }
+
+    private List<ApiDoc> list(ApiConfig config) {
+        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
+        ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
+        IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
+        List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
+        apiDocList = docBuildTemplate.handleApiGroup(apiDocList, config);
+        return apiDocList;
+    }
+    public static Template getByName(String templateName) {
+        try {
+            ClasspathResourceLoader resourceLoader = new ClasspathResourceLoader("/template/");
+            Configuration cfg = Configuration.defaultConfiguration();
+            cfg.setCharset("UTF-8");
+            cfg.add("/smart-doc-beetl.properties");
+            GroupTemplate gt = new GroupTemplate(resourceLoader, cfg);
+            return gt.getTemplate(templateName);
+        } catch (IOException e) {
+            throw new RuntimeException("Can't get Beetl template.");
+        }
+    }
+    @Test
+    public void createTemplate(String template) {
+        ApiConfig config = config();
+        List<ApiDoc> apiDocList = list(config);
+        Template tpl = getByName(template);
+        tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
+        tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
+        tpl.binding(TemplateVariable.VERSION_LIST.getVariable(), config.getRevisionLogs());
+        tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
+        tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
+
+        boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
+        tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
+        FileUtil.nioWriteFile(tpl.render(), "src/test/resources/templateDocument.xml");
+    }
+
+    @Test
+    public void build() throws Exception {
+        createTemplate("document.xml");
+        replaceDocx();
+    }
+
+    @Test
+    public void buildAll() throws Exception {
+        ApiConfig config = config();
+        List<ApiDoc> apiDocList = list(config);
+        Template tpl = getByName("template.xml");
+        tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
+        tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
+        tpl.binding(TemplateVariable.VERSION_LIST.getVariable(), config.getRevisionLogs());
+        tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
+        tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
+
+        boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
+        tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
+        Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/test/resources/buildAll.doc"), StandardCharsets.UTF_8));
+        tpl.renderTo(w);
+        w.close();
+    }
+
+    @Test
+    public void replaceDocx() throws Exception {
+        String srcPath = "src/test/resources/template.docx";
+        String outPath = "src/test/resources/build.doc";
+
+        String templateXml = "src/test/resources/templateDocument.xml";
+
+        ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(srcPath));
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(outPath));
+        // 遍历压缩包中的文件
+        ZipEntry entry;
+        while ((entry = zipInputStream.getNextEntry()) != null) {
+            String entryName = entry.getName();
+
+            // 判断是否为要修改的文件
+            if (entryName.equals("word/document.xml")) {
+                // 创建新的压缩包文件项
+                zipOutputStream.putNextEntry(new ZipEntry(entryName));
+                System.out.println(entryName);
+
+                FileInputStream fileInputStream = new FileInputStream(templateXml);
+                byte[] buff = new byte[fileInputStream.available()];
+                IOUtils.readFully(fileInputStream, buff);
+                // 写入修改后的内容
+                zipOutputStream.write(buff, 0, buff.length);
+            } else {
+                // 复制其他文件项
+                zipOutputStream.putNextEntry(entry);
+                byte[] buffer = new byte[1024];
+                int len;
+                while ((len = zipInputStream.read(buffer)) > 0) {
+                    zipOutputStream.write(buffer, 0, len);
+                }
+            }
+
+            // 关闭当前文件项
+            zipOutputStream.closeEntry();
+            zipInputStream.closeEntry();
+        }
+
+        // 关闭压缩包
+        zipInputStream.close();
+        zipOutputStream.close();
+    }
+
+}

@@ -3,22 +3,17 @@ package com.power.doc.service;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ly.doc.builder.HtmlApiDocBuilder;
+import com.ly.doc.constants.DocGlobalConstants;
+import com.ly.doc.model.*;
+import com.ly.doc.model.rpc.RpcApiDependency;
 import com.power.common.util.DateTimeUtil;
-import com.power.doc.builder.HtmlApiDocBuilder;
-import com.power.doc.builder.TornaBuilder;
 import com.power.doc.constants.ApiVersion;
-import com.power.doc.constants.DocGlobalConstants;
 import com.power.doc.constants.RequestParamConstant;
 import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
-import com.power.doc.model.ApiConfig;
-import com.power.doc.model.ApiConstant;
-import com.power.doc.model.ApiDataDictionary;
-import com.power.doc.model.ApiErrorCodeDictionary;
-import com.power.doc.model.ApiObjectReplacement;
-import com.power.doc.model.rpc.RpcApiDependency;
 
 import org.junit.jupiter.api.Test;
 
@@ -49,7 +44,7 @@ public class ApiDocTest {
      */
     @Test
     public void testBuilderControllersApi() {
-        ApiConfig config = new ApiConfig();
+        ApiConfig config = ApiConfig.getInstance();
         config.setServerUrl("http://localhost:8080");
         //true会严格要求注释，推荐设置true
         config.setStrict(false);

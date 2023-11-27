@@ -23,7 +23,6 @@ public class InnovateFruitController {
     /**
      * 列表
      *
-     * @return: com.user.util.entity.Result<com.beijiait.vo.BaseListOutPar < com.beijiait.vo.talent.innovate.InnovateFruitList>>
      * @throws:
      * @author: 
      * @date: 2022/9/28 20:34

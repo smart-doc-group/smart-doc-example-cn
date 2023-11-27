@@ -22,13 +22,24 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
         <util.version>2.1.9</util.version>
-        <smart-doc.version>2.7.7</smart-doc.version>
+        <smart-doc.version>3.0.0</smart-doc.version>
+        <smart-doc.group>com.ly.smart-doc</smart-doc.group>
         <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
         <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
         <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl-plugin-markdown</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.deepoove</groupId>
+            <artifactId>poi-tl</artifactId>
+            <version>1.12.1</version>
+        </dependency>
         <!-- spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -160,7 +171,7 @@
             <version>4.11.1</version>
         </dependency>
         <dependency>
-            <groupId>com.github.shalousun</groupId>
+            <groupId>${smart-doc.group}</groupId>
             <artifactId>smart-doc</artifactId>
             <version>${smart-doc.version}</version>
             <exclusions>
@@ -194,7 +205,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <groupId>com.github.shalousun</groupId>
+                <groupId>${smart-doc.group}</groupId>
                 <artifactId>smart-doc-maven-plugin</artifactId>
                 <version>${smart-doc.version}</version>
                 <configuration>

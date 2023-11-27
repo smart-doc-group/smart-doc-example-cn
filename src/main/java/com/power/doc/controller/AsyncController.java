@@ -23,6 +23,7 @@ import jakarta.annotation.Resource;
 /**
  *  异步返回信息测试
  * @author yu 2019/9/22.
+ * @ignore
  */
 @RestController
 public class AsyncController {

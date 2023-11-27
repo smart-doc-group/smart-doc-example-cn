@@ -1,5 +1,6 @@
 package com.power.doc.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.power.common.model.CommonResult;
 import com.power.doc.model.Student;
 import com.power.doc.model.Teacher;
@@ -111,7 +112,7 @@ public class ListController {
      * @return
      */
     @GetMapping(value = "listUserDto")
-    public CommonResult<List<UserDto>> testListUserDto(){
+    public CommonResult<Page<UserDto>> testListUserDto(){
         return null;
     }
 
