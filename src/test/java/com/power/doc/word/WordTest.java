@@ -5,6 +5,7 @@ import com.deepoove.poi.config.Configure;
 import com.deepoove.poi.plugin.markdown.MarkdownRenderData;
 import com.deepoove.poi.plugin.markdown.MarkdownRenderPolicy;
 import com.deepoove.poi.plugin.markdown.MarkdownStyle;
+import com.google.common.collect.Lists;
 import com.ly.doc.builder.DocBuilderTemplate;
 import com.ly.doc.builder.ProjectDocConfigBuilder;
 import com.ly.doc.constants.DocGlobalConstants;
@@ -32,6 +33,7 @@ import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -113,7 +115,32 @@ public class WordTest {
         config.setRequestExample(true);
         config.setResponseExample(true);
         config.setOutPath(DocGlobalConstants.HTML_DOC_OUT_PATH);
-//        config.setPackageFilters("com.power.doc.controller.app.CommDeptController.*");
+        List<String> f = Lists.newArrayList(
+//                "com.power.doc.controller.app.*",
+//                "com.power.doc.controller.dubbo.*",
+//                "com.power.doc.controller.feign.*",
+//                "com.power.doc.controller.A.*",
+//                "com.power.doc.controller.B.*",
+//                "com.power.doc.controller.C.*",
+//                "com.power.doc.controller.D.*",
+//                "com.power.doc.controller.E.*",
+//                "com.power.doc.controller.F.*",
+//                "com.power.doc.controller.G.*",
+//                "com.power.doc.controller.H.*",
+//                "com.power.doc.controller.I.*",
+//                "com.power.doc.controller.J.*",
+//                "com.power.doc.controller.K.*",
+//                "com.power.doc.controller.L.*",
+//                "com.power.doc.controller.M.*",
+//                "com.power.doc.controller.N.*",
+//                "com.power.doc.controller.O.*",
+                "com.power.doc.controller.P.*",
+                "com.power.doc.controller.Q.*",
+                "com.power.doc.controller.parent.*",
+                "com.power.doc.controller.torna.*",
+                ""
+        );
+//        config.setPackageFilters(String.join(",", f));
 
         DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
         builderTemplate.checkAndInit(config, Boolean.TRUE);
@@ -157,6 +184,10 @@ public class WordTest {
         FileUtil.nioWriteFile(tpl.render(), "src/test/resources/templateDocument.xml");
     }
 
+    /**
+     * todo & 需要转义为 &amp;
+     * @throws Exception
+     */
     @Test
     public void build() throws Exception {
         createTemplate("document.xml");
@@ -164,27 +195,9 @@ public class WordTest {
     }
 
     @Test
-    public void buildAll() throws Exception {
-        ApiConfig config = config();
-        List<ApiDoc> apiDocList = list(config);
-        Template tpl = getByName("template.xml");
-        tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
-        tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
-        tpl.binding(TemplateVariable.VERSION_LIST.getVariable(), config.getRevisionLogs());
-        tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
-        tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
-
-        boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
-        tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
-        Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/test/resources/buildAll.doc"), StandardCharsets.UTF_8));
-        tpl.renderTo(w);
-        w.close();
-    }
-
-    @Test
     public void replaceDocx() throws Exception {
         String srcPath = "src/test/resources/template.docx";
-        String outPath = "src/test/resources/build.doc";
+        String outPath = "src/test/resources/build.docx";
 
         String templateXml = "src/test/resources/templateDocument.xml";
 
@@ -226,4 +239,22 @@ public class WordTest {
         zipOutputStream.close();
     }
 
+
+    @Test
+    public void buildAll() throws Exception {
+        ApiConfig config = config();
+        List<ApiDoc> apiDocList = list(config);
+        Template tpl = getByName("template.xml");
+        tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
+        tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
+        tpl.binding(TemplateVariable.VERSION_LIST.getVariable(), config.getRevisionLogs());
+        tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
+        tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
+
+        boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
+        tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
+        Writer w = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("src/test/resources/buildAll.doc"), StandardCharsets.UTF_8));
+        tpl.renderTo(w);
+        w.close();
+    }
 }
