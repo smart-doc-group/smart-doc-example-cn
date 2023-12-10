@@ -80,12 +80,12 @@ public class WordTest {
 
     }
 
-    private ApiConfig config() {
+    private ApiConfig config(boolean isAll) {
         ApiConfig config = ApiConfig.getInstance();
         config.setBaseDir("D:\\code\\IdeaProject\\smart-doc-example-cn");
         config.setCodePath("src/main/java");
         config.setServerUrl("http://127.0.0.1:9000");
-        config.setAllInOne(true);
+        config.setAllInOne(isAll);
 
         ApiReqParam header = new ApiReqParam();
         header.setValue("kk");
@@ -140,8 +140,7 @@ public class WordTest {
                 "com.power.doc.controller.torna.*",
                 ""
         );
-//        config.setPackageFilters(String.join(",", f));
-
+        config.setPackageFilters(String.join(",", f));
         DocBuilderTemplate builderTemplate = new DocBuilderTemplate();
         builderTemplate.checkAndInit(config, Boolean.TRUE);
         config.setParamsDataToTree(false);
@@ -153,7 +152,9 @@ public class WordTest {
         ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
         IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
         List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
-        apiDocList = docBuildTemplate.handleApiGroup(apiDocList, config);
+        if (config.isAllInOne()) {
+            apiDocList = docBuildTemplate.handleApiGroup(apiDocList, config);
+        }
         return apiDocList;
     }
     public static Template getByName(String templateName) {
@@ -168,9 +169,9 @@ public class WordTest {
             throw new RuntimeException("Can't get Beetl template.");
         }
     }
-    @Test
-    public void createTemplate(String template) {
-        ApiConfig config = config();
+
+    public void createTemplate(String template, String outputXml) {
+        ApiConfig config = config(true);
         List<ApiDoc> apiDocList = list(config);
         Template tpl = getByName(template);
         tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
@@ -181,28 +182,45 @@ public class WordTest {
 
         boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
         tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
-        FileUtil.nioWriteFile(tpl.render(), "src/test/resources/templateDocument.xml");
+        FileUtil.nioWriteFile(tpl.render(), "src/test/resources/" + outputXml);
     }
 
     /**
-     * todo & 需要转义为 &amp;
      * @throws Exception
      */
     @Test
     public void build() throws Exception {
-        createTemplate("document.xml");
-        replaceDocx();
+        createTemplate("allDocument.xml", "AllTemplateDocument.xml");
+        replaceDocx("AllTemplateDocument.xml", "AllBuild.docx");
     }
 
-    @Test
-    public void replaceDocx() throws Exception {
-        String srcPath = "src/test/resources/template.docx";
-        String outPath = "src/test/resources/build.docx";
+    public void createSingleTemplate(String outputXml) {
+        ApiConfig config = config(false);
+        List<ApiDoc> apiDocList = list(config);
+        Template tpl = getByName("document.xml");
+        ApiDoc doc = apiDocList.get(0);
+        tpl.binding(TemplateVariable.DESC.getVariable(), doc.getDesc());
+        tpl.binding(TemplateVariable.NAME.getVariable(), doc.getName());
+        tpl.binding(TemplateVariable.LIST.getVariable(), doc.getList());
+        tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
+        tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
+        FileUtil.nioWriteFile(tpl.render(), "src/test/resources/" + outputXml);
+    }
 
-        String templateXml = "src/test/resources/templateDocument.xml";
+    /**
+     * @throws Exception
+     */
+    @Test
+    public void singleBuild() throws Exception {
+        createSingleTemplate("templateDocument.xml");
+        replaceDocx("templateDocument.xml", "build.docx");
+    }
+
+    public void replaceDocx(String templateXml, String buildDocx) throws Exception {
+        String srcPath = "src/test/resources/template.docx";
 
         ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(srcPath));
-        ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(outPath));
+        ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream("src/test/resources/" + buildDocx));
         // 遍历压缩包中的文件
         ZipEntry entry;
         while ((entry = zipInputStream.getNextEntry()) != null) {
@@ -214,7 +232,7 @@ public class WordTest {
                 zipOutputStream.putNextEntry(new ZipEntry(entryName));
                 System.out.println(entryName);
 
-                FileInputStream fileInputStream = new FileInputStream(templateXml);
+                FileInputStream fileInputStream = new FileInputStream("src/test/resources/" + templateXml);
                 byte[] buff = new byte[fileInputStream.available()];
                 IOUtils.readFully(fileInputStream, buff);
                 // 写入修改后的内容
@@ -242,7 +260,7 @@ public class WordTest {
 
     @Test
     public void buildAll() throws Exception {
-        ApiConfig config = config();
+        ApiConfig config = config(true);
         List<ApiDoc> apiDocList = list(config);
         Template tpl = getByName("template.xml");
         tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
