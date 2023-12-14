@@ -37,7 +37,7 @@
                     <w:rFonts w:hint="eastAsia" w:ascii="仿宋" w:hAnsi="仿宋" w:eastAsia="仿宋" w:cs="仿宋"/>
                     <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                 </w:rPr>
-                <w:t>${xmlEscape(desc)}</w:t>
+                <w:t>${wordXmlEscape(desc)}</w:t>
             </w:r>
         </w:p>
 
@@ -69,7 +69,7 @@
                     <w:dstrike w:val="0"/>
                     <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                 </w:rPr>
-                <w:t>${xmlEscape(doc.desc)}</w:t>
+                <w:t>${wordXmlEscape(doc.desc)}</w:t>
             </w:r>
         </w:p>
         <%}else{%>
@@ -92,7 +92,7 @@
                     <w:rFonts w:hint="eastAsia" w:ascii="仿宋" w:hAnsi="仿宋" w:eastAsia="仿宋" w:cs="仿宋"/>
                     <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                 </w:rPr>
-                <w:t>${xmlEscape(doc.desc)}</w:t>
+                <w:t>${wordXmlEscape(doc.desc)}</w:t>
             </w:r>
         </w:p>
         <%}%>
@@ -214,7 +214,7 @@
                     <w:rFonts w:hint="eastAsia" w:ascii="仿宋" w:hAnsi="仿宋" w:eastAsia="仿宋" w:cs="仿宋"/>
                     <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> ${xmlEscape(doc.author)}</w:t>
+                <w:t xml:space="preserve"> ${wordXmlEscape(doc.author)}</w:t>
             </w:r>
         </w:p>
         <%}%>
@@ -275,7 +275,7 @@
                     <w:rFonts w:hint="eastAsia" w:ascii="仿宋" w:hAnsi="仿宋" w:eastAsia="仿宋" w:cs="仿宋"/>
                     <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                 </w:rPr>
-                <w:t xml:space="preserve"> ${xmlEscape(doc.detail)}</w:t>
+                <w:t xml:space="preserve"> ${wordXmlEscape(doc.detail)}</w:t>
             </w:r>
         </w:p>
 
@@ -573,7 +573,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(header.desc)}</w:t>
+                            <w:t>${wordXmlEscape(header.desc)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -877,7 +877,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.field)}</w:t>
+                            <w:t>${wordXmlEscape(param.field)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -929,7 +929,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.desc)}</w:t>
+                            <w:t>${wordXmlEscape(param.desc)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -1233,7 +1233,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.field)}</w:t>
+                            <w:t>${wordXmlEscape(param.field)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -1285,7 +1285,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.desc)}</w:t>
+                            <w:t>${wordXmlEscape(param.desc)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -1589,7 +1589,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.field)}</w:t>
+                            <w:t>${wordXmlEscape(param.field)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -1641,7 +1641,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.desc)}</w:t>
+                            <w:t>${wordXmlEscape(param.desc)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -1762,7 +1762,7 @@
                         <w:shd w:val="clear" w:fill="1E1E1E"/>
                         <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar"/>
                     </w:rPr>
-                    <w:t>${xmlEscape(l)}</w:t>
+                    <w:t>${wordXmlEscape(l)}</w:t>
                 </w:r>
             </w:p>
         <%}%>
@@ -1984,7 +1984,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.field)}</w:t>
+                            <w:t>${wordXmlEscape(param.field)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -2036,7 +2036,7 @@
                                 <w:vertAlign w:val="baseline"/>
                                 <w:lang w:val="en-US" w:eastAsia="zh-CN"/>
                             </w:rPr>
-                            <w:t>${xmlEscape(param.desc)}</w:t>
+                            <w:t>${wordXmlEscape(param.desc)}</w:t>
                         </w:r>
                     </w:p>
                 </w:tc>
@@ -2132,7 +2132,7 @@
                         <w:shd w:val="clear" w:fill="1E1E1E"/>
                         <w:lang w:val="en-US" w:eastAsia="zh-CN" w:bidi="ar"/>
                     </w:rPr>
-                    <w:t>${xmlEscape(l)}</w:t>
+                    <w:t>${wordXmlEscape(l)}</w:t>
                 </w:r>
             </w:p>
             <%}%>
