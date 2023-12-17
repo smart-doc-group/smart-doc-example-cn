@@ -9,9 +9,11 @@ import java.util.List;
 
 /**
  * dubbo接口测试
- * @dubbo
+ *
  * @author yu 2020/7/29.
+ *
  */
+@Deprecated
 public interface DubboInterface {
 
 

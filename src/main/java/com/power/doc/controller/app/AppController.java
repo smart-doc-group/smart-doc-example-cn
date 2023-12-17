@@ -10,6 +10,9 @@ import com.power.doc.model.mybatisplus.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * app端接口测试
@@ -30,8 +33,10 @@ public class AppController {
     @DeleteMapping("/batchDelete")
     public CommonResult<Void> batchDelete(@RequestBody LoginDto ids) {
         System.out.println("ids = " + ids);
+        Map<String,String> record = new HashMap<>();
+        record.put("a","a");
 
-        return CommonResult.ok();
+        return CommonResult.ok().setResult(record);
     }
 
 

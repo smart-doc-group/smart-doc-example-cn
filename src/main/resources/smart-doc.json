@@ -52,7 +52,8 @@
     }
   ],
   "errorCodeDictionaries": [{ //错误码列表，没有需求可以不设置
-    "enumClassName": "com.power.common.interfaces.IMessage", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
+    "title": "title",
+    "enumClassName": "com.power.common.enums.HttpCodeEnum", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
     "codeField": "code",//错误码的code码字段名称
     "descField": "message"//错误码的描述信息对应的字段名
   }],
