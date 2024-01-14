@@ -3,6 +3,7 @@ package com.power.doc.model;
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.power.doc.enums.ComplexEnum;
 import com.power.doc.enums.DeviceDataExpressionEnum;
 import com.power.doc.enums.OrderEnum;
 import lombok.Data;
@@ -22,10 +23,16 @@ import java.util.Set;
 public class FastJson {
 
     /**
+     * 复杂枚举
+     */
+    private ComplexEnum complexEnum;
+
+    /**
      * 枚举
      * @mock ["2015421521","2014545545"]
      */
     private DeviceDataExpressionEnum dataExpressionEnum;
+
 
     /**
      * 菜单/权限编码
