@@ -15,10 +15,10 @@ import com.ly.doc.factory.BuildTemplateFactory;
 import com.ly.doc.helper.JavaProjectBuilderHelper;
 import com.ly.doc.model.*;
 import com.ly.doc.template.IDocBuildTemplate;
-import com.ly.doc.utils.BeetlTemplateUtil;
+import com.ly.doc.utils.DocUtil;
+import com.power.common.interfaces.IMessage;
 import com.power.common.util.FileUtil;
-import com.power.common.util.StringUtil;
-import com.power.doc.model.circular.A;
+import com.power.doc.enums.OrderEnum;
 import com.thoughtworks.qdox.JavaProjectBuilder;
 import org.apache.commons.io.IOUtils;
 import org.beetl.core.Configuration;
@@ -30,10 +30,8 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
 import java.nio.file.Paths;
 import java.util.*;
-import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -81,7 +79,7 @@ public class WordTest {
     }
 
     private ApiConfig config(boolean isAll) {
-        ApiConfig config = ApiConfig.getInstance();
+        ApiConfig config = new ApiConfig();
         config.setBaseDir("D:\\code\\IdeaProject\\smart-doc-example-cn");
         config.setCodePath("src/main/java");
         config.setServerUrl("http://127.0.0.1:9000");
@@ -95,6 +93,21 @@ public class WordTest {
         header.setSince("true");
         header.setDesc("truetruetruetrue");
         config.setRequestHeaders(header);
+
+        ApiErrorCodeDictionary errorCodeDictionary = new ApiErrorCodeDictionary();
+        errorCodeDictionary.setEnumClass(IMessage.class);
+        errorCodeDictionary.setEnumClassName("com.power.common.interfaces.IMessage");
+        errorCodeDictionary.setCodeField("code");
+        errorCodeDictionary.setDescField("message");
+        config.setErrorCodeDictionaries(errorCodeDictionary);
+
+        ApiDataDictionary dictionary = new ApiDataDictionary();
+        dictionary.setEnumClass(OrderEnum.class);
+        dictionary.setEnumClassName("com.power.doc.enums.OrderEnum");
+        dictionary.setTitle("测试配置枚举");
+        dictionary.setCodeField("code");
+        dictionary.setDescField("desc");
+        config.setDataDictionaries(dictionary);
 
         ApiGroup apiGroup = new ApiGroup();
         apiGroup.setName("测试分组1");
@@ -147,8 +160,7 @@ public class WordTest {
         return config;
     }
 
-    private List<ApiDoc> list(ApiConfig config) {
-        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
+    private List<ApiDoc> list(ApiConfig config, JavaProjectBuilder javaProjectBuilder) {
         ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
         IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
         List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
@@ -172,13 +184,20 @@ public class WordTest {
 
     public void createTemplate(String template, String outputXml) {
         ApiConfig config = config(true);
-        List<ApiDoc> apiDocList = list(config);
+        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
+        List<ApiDoc> apiDocList = list(config, javaProjectBuilder);
         Template tpl = getByName(template);
+        List<ApiErrorCode> errorCodeList = DocUtil.errorCodeDictToList(config, javaProjectBuilder);
+        List<ApiDocDict> apiDocDictList = DocUtil.buildDictionary(config, javaProjectBuilder);
+        tpl.binding(TemplateVariable.ERROR_LIST_TITLE.getVariable(), DocGlobalConstants.ERROR_CODE_LIST_CN_TITLE);
+        tpl.binding(TemplateVariable.DICT_LIST_TITLE.getVariable(), DocGlobalConstants.DICT_CN_TITLE);
+        tpl.binding(TemplateVariable.DICT_LIST.getVariable(), apiDocDictList);
         tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
         tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
         tpl.binding(TemplateVariable.VERSION_LIST.getVariable(), config.getRevisionLogs());
         tpl.binding(TemplateVariable.REQUEST_EXAMPLE.getVariable(), config.isRequestExample());
         tpl.binding(TemplateVariable.RESPONSE_EXAMPLE.getVariable(), config.isResponseExample());
+        tpl.binding(TemplateVariable.ERROR_CODE_LIST.getVariable(), errorCodeList);
 
         boolean onlyHasDefaultGroup = apiDocList.stream().allMatch(doc -> Objects.equals(TornaConstants.DEFAULT_GROUP_CODE, doc.getGroup()));
         tpl.binding(TemplateVariable.API_DOC_LIST_ONLY_HAS_DEFAULT_GROUP.getVariable(), onlyHasDefaultGroup);
@@ -191,13 +210,22 @@ public class WordTest {
     @Test
     public void build() throws Exception {
         createTemplate("allDocument.xml", "AllTemplateDocument.xml");
-        replaceDocx("AllTemplateDocument.xml", "AllBuild.docx");
+        replaceDocx("src/test/resources/template.docx", "AllTemplateDocument.xml", "AllBuild.docx");
+    }
+    /**
+     * @throws Exception
+     */
+    @Test
+    public void buildNewTemplate() throws Exception {
+        createTemplate("mdAllDocument.xml", "AllMdTemplateDocument.xml");
+        replaceDocx("src/test/resources/md.docx", "AllMdTemplateDocument.xml", "AllMdBuild.docx");
     }
 
     public void createSingleTemplate(String outputXml) {
+        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
         ApiConfig config = config(false);
-        List<ApiDoc> apiDocList = list(config);
-        Template tpl = getByName("document.xml");
+        List<ApiDoc> apiDocList = list(config, javaProjectBuilder);
+        Template tpl = getByName("template/mdDocument.xml");
         ApiDoc doc = apiDocList.get(0);
         tpl.binding(TemplateVariable.DESC.getVariable(), doc.getDesc());
         tpl.binding(TemplateVariable.NAME.getVariable(), doc.getName());
@@ -213,11 +241,10 @@ public class WordTest {
     @Test
     public void singleBuild() throws Exception {
         createSingleTemplate("templateDocument.xml");
-        replaceDocx("templateDocument.xml", "build.docx");
+        replaceDocx("src/test/resources/template.docx", "templateDocument.xml", "build.docx");
     }
 
-    public void replaceDocx(String templateXml, String buildDocx) throws Exception {
-        String srcPath = "src/test/resources/template.docx";
+    public void replaceDocx(String srcPath, String templateXml, String buildDocx) throws Exception {
 
         ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(srcPath));
         ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream("src/test/resources/" + buildDocx));
@@ -260,8 +287,9 @@ public class WordTest {
 
     @Test
     public void buildAll() throws Exception {
+        JavaProjectBuilder javaProjectBuilder = JavaProjectBuilderHelper.create();
         ApiConfig config = config(true);
-        List<ApiDoc> apiDocList = list(config);
+        List<ApiDoc> apiDocList = list(config, javaProjectBuilder);
         Template tpl = getByName("template.xml");
         tpl.binding(TemplateVariable.PROJECT_NAME.getVariable(), "测试项目名称");
         tpl.binding(TemplateVariable.API_DOC_LIST.getVariable(), apiDocList);
