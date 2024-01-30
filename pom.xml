@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <util.version>2.1.9</util.version>
+        <util.version>2.2.2</util.version>
         <smart-doc.version>3.0.1</smart-doc.version>
         <smart-doc.group>com.ly.smart-doc</smart-doc.group>
         <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
