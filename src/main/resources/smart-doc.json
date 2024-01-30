@@ -5,7 +5,7 @@
   "allInOne": true,
   "coverOld": true,
   "createDebugPage": false,
-  "style":"xt256",
+  "style": "xt256",
   "packageFilters": "",
   "appKey": "20210318821914523354005504",
   "appToken": "a0333b2aa3a74c5fa91dad8c1958010a",
@@ -19,74 +19,130 @@
   "responseBodyAdvice": {
     "className": "com.power.common.model.CommonResult"
   },
-  "requestHeaders": [ //设置请求头，没有需求可以不设置
+  "requestHeaders": [
+    //设置请求头，没有需求可以不设置
     {
-      "name": "token",//请求头名称
-      "type": "string",//请求头类型
-      "desc": "desc<br>ssssss<br>wwwqqwq",//请求头描述信息
-      "value":"kk",//不设置默认null
-      "required": false,//是否必须
-      "since": "-" //什么版本添加的改请求头
+      "name": "token",
+      //请求头名称
+      "type": "string",
+      //请求头类型
+      "desc": "desc<br>ssssss<br>wwwqqwq",
+      //请求头描述信息
+      "value": "kk",
+      //不设置默认null
+      "required": false,
+      //是否必须
+      "since": "-"
+      //什么版本添加的改请求头
     }
   ],
-  "requestParams": [ //设置请求头，没有需求可以不设置
+  "requestParams": [
+    //设置请求头，没有需求可以不设置
     {
-      "name": "configPathParam",//请求头名称
-      "type": "string",//请求头类型
-      "desc": "desc",//请求头描述信息
-      "paramIn": "path", // 参数所在位置 header-请求头, path-路径参数, query-参数
-      "value":"testPath",//不设置默认null
-      "required": false,//是否必须
-      "since": "-",//什么版本添加的改请求头
-      "pathPatterns": "*"//正则表达式过滤请求头
+      "name": "configPathParam",
+      //请求头名称
+      "type": "string",
+      //请求头类型
+      "desc": "desc",
+      //请求头描述信息
+      "paramIn": "path",
+      // 参数所在位置 header-请求头, path-路径参数, query-参数
+      "value": "testPath",
+      //不设置默认null
+      "required": false,
+      //是否必须
+      "since": "-",
+      //什么版本添加的改请求头
+      "pathPatterns": "*"
+      //正则表达式过滤请求头
     },
     {
-      "name": "configQueryParam",//请求头名称
-      "type": "string",//请求头类型
-      "desc": "desc",//请求头描述信息
+      "name": "configQueryParam",
+      //请求头名称
+      "type": "string",
+      //请求头类型
+      "desc": "desc",
+      //请求头描述信息
       "paramIn": "query",
-      "value":"testQuery",//不设置默认null
-      "required": false,//是否必须
-      "since": "-",//什么版本添加的改请求头
-      "pathPatterns": "*"//正则表达式过滤请求头
+      "value": "testQuery",
+      //不设置默认null
+      "required": false,
+      //是否必须
+      "since": "-",
+      //什么版本添加的改请求头
+      "pathPatterns": "*"
+      //正则表达式过滤请求头
     }
   ],
-  "errorCodeDictionaries": [{ //错误码列表，没有需求可以不设置
-    "title": "title",
-    "enumClassName": "com.power.common.enums.HttpCodeEnum", //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
-    "codeField": "code",//错误码的code码字段名称
-    "descField": "message"//错误码的描述信息对应的字段名
-  }],
-
-  "rpcApiDependencies":[{ // 项目开放的dubbo api接口模块依赖，配置后输出到文档方便使用者集成
-    "artifactId":"SpringBoot2-Dubbo-Api",
-    "groupId":"com.demo",
-    "version":"1.0.0"
-  }],
-  "apiConstants":[{
-    "constantsClassName":"com.power.doc.constants.RequestParamConstant"
-  }, {
-    "constantsClassName":"com.power.doc.constants.RequestValueConstant"
-  }, {
-    "constantsClassName":"com.power.doc.constants.ApiVersion"
-  },{
-    "constantsClassName":"com.power.doc.constants.RequestHeadValue"
-  }],
-  "dataDictionaries": [{ //配置数据字典，没有需求可以不设置
-    "title": "测试配置枚举",
-    "enumClassName": "com.power.doc.enums.OrderEnum", //数据字典枚举类名称
-    "codeField": "code",//数据字典字典码对应的字段名称
-    "descField": "desc"//数据字典对象的描述信息字典
-  }],
-  "customRequestFields": [
-    {"name":"start", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
-  ,{"name":"limit", "ownerClassName":"com.gitee.fastmybatis.core.query.param.PageParam", "value":"0", "required":false,"ignore":true}
+  "errorCodeDictionaries": [
+    {
+      //错误码列表，没有需求可以不设置
+      "title": "title",
+      "enumClassName": "com.power.common.enums.HttpCodeEnum",
+      //错误码枚举类,如果是枚举是在一个类中定义则用$链接类BaseErrorCode$Common
+      "codeField": "code",
+      //错误码的code码字段名称
+      "descField": "message"
+      //错误码的描述信息对应的字段名
+    }
   ],
-  "groups": [ // @since 2.2.5, 对不同的controller进行分组
+  "rpcApiDependencies": [
+    {
+      // 项目开放的dubbo api接口模块依赖，配置后输出到文档方便使用者集成
+      "artifactId": "SpringBoot2-Dubbo-Api",
+      "groupId": "com.demo",
+      "version": "1.0.0"
+    }
+  ],
+  "apiConstants": [
+    {
+      "constantsClassName": "com.power.doc.constants.RequestParamConstant"
+    },
+    {
+      "constantsClassName": "com.power.doc.constants.RequestValueConstant"
+    },
+    {
+      "constantsClassName": "com.power.doc.constants.ApiVersion"
+    },
+    {
+      "constantsClassName": "com.power.doc.constants.RequestHeadValue"
+    }
+  ],
+  "dataDictionaries": [
+    {
+      //配置数据字典，没有需求可以不设置
+      "title": "测试配置枚举",
+      "enumClassName": "com.power.doc.enums.OrderEnum",
+      //数据字典枚举类名称
+      "codeField": "code",
+      //数据字典字典码对应的字段名称
+      "descField": "desc"
+      //数据字典对象的描述信息字典
+    }
+  ],
+  "customRequestFields": [
+    {
+      "name": "start",
+      "ownerClassName": "com.gitee.fastmybatis.core.query.param.PageParam",
+      "value": "0",
+      "required": false,
+      "ignore": true
+    },
+    {
+      "name": "limit",
+      "ownerClassName": "com.gitee.fastmybatis.core.query.param.PageParam",
+      "value": "0",
+      "required": false,
+      "ignore": true
+    }
+  ],
+  "groups": [
+    // @since 2.2.5, 对不同的controller进行分组
     {
       "name": "测试分组",
       "apis": "com.power.doc.controller.EnumController"
-    },{
+    },
+    {
       "name": "测试分组2",
       "apis": "com.power.doc.controller.FormDataController"
     }
