@@ -29,7 +29,7 @@ public class ListCController {
      * CommonResult&lt;List&lt;UserDto&gt;&gt;
      * @return
      */
-    @GetMapping(value = "listUserDto")
+    @GetMapping(value = "listUserDto1")
     public CommonResult<List<Map<String, UserDto>>> testListUserDto(){
         return null;
     }

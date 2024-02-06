@@ -1,5 +1,6 @@
 package com.power.doc.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.power.common.enums.HttpCodeEnum;
 import lombok.Builder;
 import lombok.Data;
@@ -16,6 +17,7 @@ public class PermissionSet {
      */
     private HttpCodeEnum codeEnum;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private int id;
 
     /**

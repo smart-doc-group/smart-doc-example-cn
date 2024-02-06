@@ -1,9 +1,6 @@
 package com.power.doc.controller;
 
-import com.power.doc.constants.ApiVersion;
-import com.power.doc.constants.Demo2Constant;
-import com.power.doc.constants.RequestParamConstant;
-import com.power.doc.constants.RequestValueConstant;
+import com.power.doc.constants.*;
 import com.power.doc.entity.GetMainGoodsByItemNosBody;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +13,15 @@ import java.util.HashMap;
  */
 @RestController
 public class ConstantsController {
+
+    /**
+     * 常量使用1
+     * @return
+     */
+    @GetMapping(ApiConstants.API_PREFIX + "/client")
+    public String test1(){
+        return null;
+    }
 
     /**
      * 常量解析
