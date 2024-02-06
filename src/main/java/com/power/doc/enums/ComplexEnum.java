@@ -2,9 +2,7 @@ package com.power.doc.enums;
 
 import java.util.function.BiFunction;
 
-/**
- * 复杂类型的枚举，用于测试qdox
- */
+
 public enum ComplexEnum {
 
     ONE((((((System.currentTimeMillis() < 0))))) ? (BiFunction<String, String, String>) (a, b) -> {

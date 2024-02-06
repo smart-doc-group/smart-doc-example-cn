@@ -1,10 +1,10 @@
 {
-  "serverUrl": "http://127.0.0.1:9000",
+  "serverUrl": "http://127.0.0.1:8080",
   "isStrict": false,
   "outPath": "target/doc",
   "allInOne": true,
   "coverOld": true,
-  "createDebugPage": false,
+  "createDebugPage": true,
   "style": "xt256",
   "packageFilters": "",
   "appKey": "20210318821914523354005504",

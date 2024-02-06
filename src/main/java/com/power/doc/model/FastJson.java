@@ -25,7 +25,7 @@ public class FastJson {
     /**
      * 复杂枚举
      */
-    private ComplexEnum complexEnum;
+    private DeviceDataExpressionEnum expressionEnum;
 
     /**
      * 枚举
