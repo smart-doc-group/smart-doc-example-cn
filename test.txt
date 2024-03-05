@@ -1,8 +1,9 @@
 if (Methods.POST.getValue().equals(methodType) || Methods.PUT.getValue().equals(methodType)) {
             // for post put
             path = DocUtil.formatAndRemove(path, pathParamsMap);
-            body = UrlUtil.urlJoin(DocGlobalConstants.EMPTY, queryParamsMap)
+            body = UrlUtil.urlJoin(DocGlobalConstants.EMPTY, DocUtil.formDataToMap(formDataList))
                     .replace("?", DocGlobalConstants.EMPTY);
+            body = StringUtil.removeQuotes(body);
             url = apiMethodDoc.getServerUrl() + "/" + path;
             url = UrlUtil.simplifyUrl(url);
 
@@ -23,7 +24,6 @@ if (Methods.POST.getValue().equals(methodType) || Methods.PUT.getValue().equals(
                     curlRequest = CurlRequest.builder()
                             .setBody(body)
                             .setContentType(apiMethodDoc.getContentType())
-                            .setFileFormDataList(fileFormDataList)
                             .setType(methodType)
                             .setReqHeaders(reqHeaderList)
                             .setUrl(url);
@@ -31,7 +31,6 @@ if (Methods.POST.getValue().equals(methodType) || Methods.PUT.getValue().equals(
                     curlRequest = CurlRequest.builder()
                             .setBody(requestExample.getJsonBody())
                             .setContentType(apiMethodDoc.getContentType())
-                            .setFileFormDataList(fileFormDataList)
                             .setType(methodType)
                             .setReqHeaders(reqHeaderList)
                             .setUrl(url);
@@ -41,7 +40,7 @@ if (Methods.POST.getValue().equals(methodType) || Methods.PUT.getValue().equals(
             requestExample.setExampleBody(exampleBody).setUrl(url);
         } else {
             // for get delete
-            url = formatRequestUrl(pathParamsMap, queryParamsMap, apiMethodDoc.getServerUrl(), path);
+            url = formatRequestUrl(pathParamsMap, pathParamsMap, apiMethodDoc.getServerUrl(), path);
             CurlRequest curlRequest = CurlRequest.builder()
                     .setBody(requestExample.getJsonBody())
                     .setContentType(apiMethodDoc.getContentType())
@@ -49,8 +48,7 @@ if (Methods.POST.getValue().equals(methodType) || Methods.PUT.getValue().equals(
                     .setReqHeaders(reqHeaderList)
                     .setUrl(url);
             exampleBody = CurlUtil.toCurl(curlRequest);
-
             requestExample.setExampleBody(exampleBody)
-                    .setJsonBody(requestExample.isJson() ? requestExample.getJsonBody() : DocGlobalConstants.EMPTY)
+                    .setJsonBody(DocGlobalConstants.EMPTY)
                     .setUrl(url);
         }

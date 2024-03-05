@@ -1,6 +1,6 @@
 package com.power.doc.controller;
 
-import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson2.JSON;
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.Car;
 import com.power.doc.entity.SimpleUser;

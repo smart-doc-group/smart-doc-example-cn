@@ -1,7 +1,7 @@
 package com.power.doc.controller;
 
+import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.google.gson.Gson;
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.Pager;
 import com.power.doc.entity.Result;
@@ -29,7 +29,7 @@ public class MulGenericController {
      */
     @PostMapping("/test")
     public InteractiveProtocol<UserDto, UserRole> a(@RequestBody InteractiveProtocol<UserDto,UserRole> user){
-        System.out.println(new Gson().toJson(user));
+        System.out.println(JSON.toJSONString(user));
         return null;
     }
     /**
