@@ -2,6 +2,7 @@ package com.power.doc.controller;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.MultipartFileDTO;
+import com.power.doc.entity.Order;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,6 +41,7 @@ public class FileUploadController {
     /**
      * 批量上传文件1
      * @param file 文件
+     * @param orders we
      * @return
      */
     @PostMapping(value = "/batchUpload2",consumes = "multipart/form-data")

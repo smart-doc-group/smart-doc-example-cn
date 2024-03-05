@@ -16,9 +16,6 @@
   "tornaDebug": true,
   "inlineEnum": false,
   "skipTransientField": true,
-  "responseBodyAdvice": {
-    "className": "com.power.common.model.CommonResult"
-  },
   "requestHeaders": [
     //设置请求头，没有需求可以不设置
     {

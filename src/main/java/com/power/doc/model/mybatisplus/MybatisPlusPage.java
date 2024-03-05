@@ -1,7 +1,7 @@
 package com.power.doc.model.mybatisplus;
 
 
-import com.alibaba.fastjson.annotation.JSONType;
+import com.alibaba.fastjson2.annotation.JSONType;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
