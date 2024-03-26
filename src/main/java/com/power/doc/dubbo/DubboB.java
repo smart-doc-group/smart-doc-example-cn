@@ -5,7 +5,11 @@ import com.power.doc.entity.BasePager;
 
 /**
  * dubbo接口A
- * @dubbo
+ *
  */
 public interface DubboB extends DubboA<BasePager>{
+    /**
+     * sayHelloB
+     */
+    void sayHelloB();
 }
