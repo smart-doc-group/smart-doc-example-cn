@@ -3,9 +3,12 @@ package com.power.doc.model;
 import com.alibaba.fastjson2.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.power.common.util.ValidateUtil;
 import com.power.doc.enums.ComplexEnum;
 import com.power.doc.enums.DeviceDataExpressionEnum;
 import com.power.doc.enums.OrderEnum;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Length;
@@ -22,10 +25,16 @@ import java.util.Set;
 @Accessors(chain=true)
 public class FastJson {
 
+
+
+
     /**
      * 复杂枚举
      */
-    private DeviceDataExpressionEnum expressionEnum;
+    @NotNull
+    @Length(min = 5, max = 16, message = "账号最少5位 最多16位")
+    @Pattern(regexp = ValidateUtil.PHONE_PATTERN)
+    private String expressionEnum;
 
     /**
      * 枚举
