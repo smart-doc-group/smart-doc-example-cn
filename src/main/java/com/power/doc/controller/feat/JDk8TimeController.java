@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.feat;
 
 import com.power.doc.entity.DateEntity;
 import org.springframework.web.bind.annotation.PostMapping;

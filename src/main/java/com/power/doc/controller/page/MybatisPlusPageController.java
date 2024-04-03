@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.page;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.power.common.model.CommonResult;

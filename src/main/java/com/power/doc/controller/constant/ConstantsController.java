@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.constant;
 
 import com.power.doc.constants.*;
 import com.power.doc.entity.GetMainGoodsByItemNosBody;

@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.jsr;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.model.FastJson;
@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * jsr验证
  * @author <a href="mailto:cqmike0315@gmail.com" rel="nofollow">chenqi</a>
  * @version 1.0
  */

@@ -1,6 +1,7 @@
 package com.power.doc.controller.app;
 
 import com.power.common.model.CommonResult;
+import com.power.doc.annotation.CustomParam;
 import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -30,8 +32,8 @@ public class AppController {
      * 批量删除BOM
      * @param ids 盒型BOM的id集合,英文逗号隔开
      */
-    @DeleteMapping("/batchDelete")
-    public CommonResult<Void> batchDelete(@RequestBody LoginDto ids) {
+    @PostMapping("/batchDelete")
+    public CommonResult<Void> batchDelete(@RequestBody List<LoginDto> ids) {
         System.out.println("ids = " + ids);
         Map<String,String> record = new HashMap<>();
         record.put("a","a");
