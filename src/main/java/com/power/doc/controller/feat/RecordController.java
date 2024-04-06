@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.feat;
 
 
 import com.power.doc.model.records.Rectangle;
@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Record测试
+ * Record特性测试
  */
 @RestController
 public class RecordController {

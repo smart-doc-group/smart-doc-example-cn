@@ -1,7 +1,8 @@
-package com.power.doc.controller;
+package com.power.doc.controller.jsr;
 
 import com.alibaba.fastjson2.JSON;
 import com.power.common.model.CommonResult;
+import com.power.doc.controller.BaseController;
 import com.power.doc.entity.valid.*;
 import com.power.doc.model.BaseReq;
 import com.power.doc.model.Leader;

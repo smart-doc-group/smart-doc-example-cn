@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.page;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.RoleDTO;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * Jpa代码测试
+ * Jpa分页测试
  * @author yu 2020/5/15.
  */
 @RestController(value = "jpa")

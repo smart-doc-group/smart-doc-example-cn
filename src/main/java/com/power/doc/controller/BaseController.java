@@ -1,7 +1,7 @@
 package com.power.doc.controller;
 
 import com.power.common.model.CommonResult;
-import com.power.doc.controller.app.PageResult;
+import com.power.doc.entity.PageResult;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

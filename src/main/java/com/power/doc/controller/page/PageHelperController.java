@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.page;
 
 
 import com.github.pagehelper.PageInfo;

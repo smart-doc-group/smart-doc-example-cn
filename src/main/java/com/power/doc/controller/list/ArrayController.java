@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.list;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.SimpleUser;

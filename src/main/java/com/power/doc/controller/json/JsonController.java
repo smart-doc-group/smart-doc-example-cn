@@ -1,12 +1,13 @@
-package com.power.doc.controller;
+package com.power.doc.controller.json;
 
 import com.power.doc.model.FastJson;
+import com.power.doc.model.JacksonAnnotation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 测试json
- * @author yu 2020/11/17.
+ *  FastJson和Jackson注解支持测试
+ * @author yu 2018/7/10.
  */
 @Slf4j
 @RestController
@@ -44,5 +45,26 @@ public class JsonController {
     public String getUserJson2(String name,int age){
         log.info("name={},age={}",name,age);
         return "hello";
+    }
+
+
+    /**
+     * Jackson注解支持测试
+     * @param annotation
+     * @return
+     */
+    @RequestMapping(value = "jacksonTest")
+    public JacksonAnnotation testJackson(@RequestBody JacksonAnnotation annotation){
+        return null;
+    }
+
+    /**
+     * FastJson注解支持测试
+     * @param fastJson
+     * @return
+     */
+    @RequestMapping(value = "fastJsonTest")
+    public FastJson testFastJson(@RequestBody FastJson fastJson){
+        return null;
     }
 }

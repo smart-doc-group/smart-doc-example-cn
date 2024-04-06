@@ -14,7 +14,7 @@
   "md5EncryptedHtmlName": true,
   "projectName": "smartdoc",
   "tornaDebug": true,
-  "showValidation":true,
+  "showValidation": true,
   "inlineEnum": false,
   "skipTransientField": true,
   "requestHeaders": [
@@ -135,14 +135,35 @@
     }
   ],
   "groups": [
-    // @since 2.2.5, 对不同的controller进行分组
     {
-      "name": "测试分组",
-      "apis": "com.power.doc.controller.EnumController"
+      "name": "feign支持测试",
+      "apis": "com.power.doc.controller.feign.*"
     },
     {
-      "name": "测试分组2",
-      "apis": "com.power.doc.controller.FormDataController"
+      "name": "JDK新特性",
+      "apis": "com.power.doc.controller.feat.*"
+    },
+    {
+      "name": "JSR认证测试",
+      "apis": "com.power.doc.controller.jsr.*"
+    },
+    {
+      "name": "分页测试",
+      "apis": "com.power.doc.controller.page.*"
+    },
+    {
+      "name": "JSON框架注解支持",
+      "apis": "com.power.doc.controller.json.*"
+    },
+    {
+      "name": "常量使用测试",
+      "apis": "com.power.doc.controller.constant.*"
+    },{
+      "name": "List或数组测试",
+      "apis": "com.power.doc.controller.list.*"
+    },{
+      "name": "Map测试",
+      "apis": "com.power.doc.controller.map.*"
     }
   ]
 }

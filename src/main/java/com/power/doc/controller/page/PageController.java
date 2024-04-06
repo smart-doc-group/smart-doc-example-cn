@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.page;
 
 import com.power.doc.entity.Car;
 import com.power.doc.entity.ResultUtil;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
+ * 分页
  * @author <a href="mailto:cqmike0315@gmail.com" rel="nofollow">chenqi</a>
  * @version 1.0
  */
