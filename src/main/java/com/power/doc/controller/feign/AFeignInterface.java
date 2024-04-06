@@ -1,6 +1,6 @@
 package com.power.doc.controller.feign;
 
-import com.power.doc.controller.AuthConst;
+import com.power.doc.constants.AuthConst;
 import com.power.doc.constants.RequestHeadValue;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

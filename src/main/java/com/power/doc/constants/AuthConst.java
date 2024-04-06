@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.constants;
 
 public class AuthConst {
 

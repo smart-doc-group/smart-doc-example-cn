@@ -1,4 +1,4 @@
-package com.power.doc.controller.app;
+package com.power.doc.entity;
 
 import lombok.Data;
 

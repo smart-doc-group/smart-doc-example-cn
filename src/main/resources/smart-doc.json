@@ -158,6 +158,12 @@
     {
       "name": "常量使用测试",
       "apis": "com.power.doc.controller.constant.*"
+    },{
+      "name": "List或数组测试",
+      "apis": "com.power.doc.controller.list.*"
+    },{
+      "name": "Map测试",
+      "apis": "com.power.doc.controller.map.*"
     }
   ]
 }
