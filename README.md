@@ -1,21 +1,19 @@
 # Smart-doc Samples
-本项目是Smart-doc官方开发时的各种代码场景测试示例，由于smart-doc并不需要在项目运行过程中生成文档，最多只是依赖于编译过程。
-因此本项目可能并不能正常启动运行，也不可作为学习spring boot的参考项目。
-本项目中各种奇怪的代码只是想告诉你，Smart-doc具备应对复杂代码推导生成文档的能力。
-其他工具能在该项目上扫描代码生成文档基本也具备了应对大多数公司接口开发文档生成的能力。
+This project contains various code test scenarios developed by the official team of Smart-doc. Since Smart-doc does not require generating documentation during the project's runtime but may only depend on the compilation process, this project might not be able to start and run normally, nor should it be used as a reference for learning Spring Boot.
+The various peculiar codes in this project are meant to demonstrate that Smart-doc has the capability to handle complex code derivation and generate documentation.
+If other tools can scan the code in this project and generate documentation, they essentially have the ability to address most companies' needs for generating API development documentation.
 
-# 官方建议
-官方建议使用插件的方式来集成使用smart-doc。可参考文档插件使用文档。
+# Official Recommendation
+The official recommendation is to use the plugin approach to integrate with Smart-doc. You can refer to the documentation plugin usage guide.
 
-[maven插件使用](https://gitee.com/smart-doc-team/smart-doc/wikis/smart-doc%20maven插件?sort_id=1791450)
+[Maven Plugin Usage](https://smart-doc-group.github.io/#/plugins/maven)
 
-# 用例内容
-代码中涉及到许多代码解析测试，主要包含如下：
+# Content of Use Cases
+The code involves many tests for code parsing, mainly including:
 
-- 常见接口返回用例
-- 参数JSR303验证，包含普通验证和分组验证
-- 包含Jpa分页和国内Mybatis-plus的分页处理例子
-- 请求头的各种设置处理
-# 意义
-这是smart-doc从2018年开源至今收集起来的各种接口书写用例，正因为经过里面各种用例磨炼，
-才使得smart-doc在国内成为JAVA API文档工具的领导者，才能获得很好的用户口碑。
+- Common interface return cases
+- Parameter JSR303 validation, including standard validation and group validation
+- Examples of pagination handling with Jpa and Mybatis-plus popular in China
+- Various settings for request headers
+# Significance
+These are various interface writing examples collected by Smart-doc since its open-source release in 2018. It is through the refinement of these various examples that Smart-doc has become a leader in Java API documentation tools in China, earning excellent user feedback.
