@@ -27,7 +27,7 @@ public class Leader {
     /**
      * 姓名
      */
-    @NotEmpty
+    @NotEmpty(message = "姓名不能为空")
     @Length(max = 5)
     private String name;
 
@@ -43,7 +43,7 @@ public class Leader {
      * 科目
      */
     @Valid
-    @NotNull(message = "")
+    @NotNull(message = "科目不能为空")
     private Subject subject;
 
     public String getName() {

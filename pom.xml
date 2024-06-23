@@ -166,7 +166,7 @@
         <dependency>
             <groupId>${smart-doc.group}</groupId>
             <artifactId>smart-doc</artifactId>
-            <version>3.0.4</version>
+            <version>${smart-doc.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>com.ibeetl</groupId>
