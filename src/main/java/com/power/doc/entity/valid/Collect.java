@@ -46,6 +46,18 @@ public class Collect extends BaseValid {
     @NotBlank(message = "地址不能为空", groups = {Collect.add.class})
     private String address;
 
+    /**
+     * 城市
+     */
+    @NotBlank(message = "城市不能为空")
+    private String city;
+
+    /**
+     * 国家
+     */
+    @NotBlank(message = "国家不能为空", groups = {BaseValid.edit.class})
+    private String country;
+
     public interface SendCode {
 
     }
