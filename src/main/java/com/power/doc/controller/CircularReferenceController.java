@@ -1,9 +1,11 @@
 package com.power.doc.controller;
 
+import com.power.doc.entity.Pager;
 import com.power.doc.model.MyUser;
 import com.power.doc.model.circular.A;
 import com.power.doc.model.circular.SelfRef;
 
+import com.power.doc.model.circular.Tree;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,6 +35,16 @@ public class CircularReferenceController {
     @PostMapping(value = "/circularReference")
     public A test(@RequestBody A user){
         return null;
+    }
+
+
+    /**
+     * 循环依赖参数推导树结构
+     * @param pagerTree
+     */
+    @PostMapping(value = "/circularReferenceTree")
+    public void testTree(@RequestBody Tree<Pager> pagerTree){
+
     }
 
 
