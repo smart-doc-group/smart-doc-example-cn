@@ -73,7 +73,8 @@ public class WordTest {
         config.setParamsDataToTree(false);
         ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
         IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
-        List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
+        ApiSchema<ApiDoc> apiData = docBuildTemplate.getApiData(configBuilder);
+        List<ApiDoc> apiDocList = apiData.getApiDatas();
         System.out.println(apiDocList);
 
     }
@@ -163,7 +164,8 @@ public class WordTest {
     private List<ApiDoc> list(ApiConfig config, JavaProjectBuilder javaProjectBuilder) {
         ProjectDocConfigBuilder configBuilder = new ProjectDocConfigBuilder(config, javaProjectBuilder);
         IDocBuildTemplate<ApiDoc> docBuildTemplate = BuildTemplateFactory.getDocBuildTemplate(config.getFramework());
-        List<ApiDoc> apiDocList = docBuildTemplate.getApiData(configBuilder);
+        ApiSchema<ApiDoc> apiData = docBuildTemplate.getApiData(configBuilder);
+        List<ApiDoc> apiDocList = apiData.getApiDatas();
         if (config.isAllInOne()) {
             apiDocList = docBuildTemplate.handleApiGroup(apiDocList, config);
         }
