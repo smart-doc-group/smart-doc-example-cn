@@ -1,6 +1,7 @@
 package com.power.doc.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 import java.util.Map;
@@ -53,6 +54,7 @@ public class NestedVO {
     }
 
 
+    @EqualsAndHashCode(callSuper = true)
     @Data
     public static class NestedTwoVO extends NestedOneVO {
         /**

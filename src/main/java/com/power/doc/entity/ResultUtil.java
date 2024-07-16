@@ -1,6 +1,7 @@
 package com.power.doc.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.slf4j.MDC;
 
 /**
@@ -10,6 +11,7 @@ import org.slf4j.MDC;
  * Description: 正常返回工具类
  **/
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class ResultUtil<T> extends  BaseResult implements IApiResult<T> {
 
