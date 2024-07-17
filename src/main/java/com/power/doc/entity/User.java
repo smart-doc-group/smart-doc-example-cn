@@ -1,12 +1,14 @@
 package com.power.doc.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.util.List;
 
 /**
  * @author Exrickx
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class User extends XbootBaseEntity<Car> {
 
