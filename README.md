@@ -6,7 +6,7 @@ If other tools can scan the code in this project and generate documentation, the
 # Official Recommendation
 The official recommendation is to use the plugin approach to integrate with Smart-doc. You can refer to the documentation plugin usage guide.
 
-[Maven Plugin Usage](https://smart-doc-group.github.io/#/plugins/maven)
+[Maven Plugin Usage](https://smart-doc-group.github.io/guide/plugins/maven)
 
 # Content of Use Cases
 The code involves many tests for code parsing, mainly including:

@@ -7,7 +7,7 @@
 # 官方建议
 官方建议使用插件的方式来集成使用smart-doc。可参考文档插件使用文档。
 
-[maven插件使用](https://smart-doc-group.github.io/#/zh-cn/plugins/maven)
+[maven插件使用](https://smart-doc-group.github.io/zh/guide/plugins/maven)
 
 # 用例内容
 代码中涉及到许多代码解析测试，主要包含如下：
