@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
  *
  * @author yangyang
  * @date 2023/4/23
+ * @javadoc
  */
 @Service
 public class CustomHandlerUserService extends BaseCustomHandlerService<User> {
