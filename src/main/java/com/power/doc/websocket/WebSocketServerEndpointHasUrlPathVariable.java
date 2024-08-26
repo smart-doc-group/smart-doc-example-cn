@@ -4,12 +4,14 @@ import jakarta.websocket.OnOpen;
 import jakarta.websocket.Session;
 import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;
+import org.springframework.stereotype.Component;
 
 /**
  * WebSocket ServerEndpoint Have UrlPathVariable
  *
  * @author linwumingshi
  */
+@Component
 @ServerEndpoint(value = "/smart-doc/websocket/path/{id}")
 public class WebSocketServerEndpointHasUrlPathVariable {
 
