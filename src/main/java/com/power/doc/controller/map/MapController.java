@@ -1,20 +1,15 @@
 package com.power.doc.controller.map;
 
 import com.power.common.model.CommonResult;
-import com.power.doc.model.Children;
-import com.power.doc.model.Student;
-import com.power.doc.model.Teacher;
-import com.power.doc.model.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.power.doc.enums.SimpleEnum;
+import com.power.doc.model.*;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
 /**
- *
  * Map返回型接口api文档测试
  *
  * @author yu 2018/06/27.
@@ -24,20 +19,67 @@ import java.util.TreeMap;
 @RequestMapping("map/")
 public class MapController {
 
+    /**
+     * mapEnumOne sexUserMap
+     *
+     * @param sexUserMap sexUserMap
+     * @return sexUserMap
+     */
+    @PostMapping("/sexUserMap")
+    public Map<SimpleEnum, JobReplicaSpec> mapEnumOne(@RequestBody Map<SimpleEnum, JobReplicaSpec> sexUserMap) {
+        return sexUserMap;
+    }
+
+    /**
+     * mapEnumTwo pyTorchJobSpec
+     *
+     * @param pyTorchJobSpec pyTorchJobSpec
+     * @return pyTorchJobSpec
+     */
+    @PostMapping("/pyTorchJobSpec")
+    public PyTorchJobSpec mapEnumTwo(@RequestBody PyTorchJobSpec pyTorchJobSpec) {
+        return pyTorchJobSpec;
+    }
+
+
+    /**
+     * mapEnumThree pyTorchJobSpecInfo
+     *
+     * @param pyTorchJobSpecInfo pyTorchJobSpecInfo
+     * @return pyTorchJobSpecInfo
+     */
+    @PostMapping("/pyTorchJobSpecInfo")
+    public PyTorchJobSpecInfo mapEnumThree(@RequestBody PyTorchJobSpecInfo pyTorchJobSpecInfo) {
+        return pyTorchJobSpecInfo;
+    }
+
+    /**
+     * mapEnumFour nestingEnumMap
+     *
+     * @param nestingEnumMap nestingEnumMap
+     * @return nestingEnumMap
+     */
+    @PostMapping("/nestingEnumMap")
+    public NestingEnumMap mapEnumFour(@RequestBody NestingEnumMap nestingEnumMap) {
+        return nestingEnumMap;
+    }
+
 
     /**
      * 测试map解析
-     * @apiNote CommonResult<Map<String,Map<String, Children>>>
-     * @return
+     *
+     * @return CommonResult
+     * @apiNote CommonResult<Map < String, Map < String, Children>>>
      */
     @GetMapping(value = "/test5")
-    public CommonResult<Map<String,Map<String, Children>>> testMap0(){
+    public CommonResult<Map<String, Map<String, Children>>> testMap0() {
         return null;
     }
+
     /**
-     * Map&lt;String,Integer&gt;结构
+     * {@code Map<String,Integer>}结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/primitive")
     public Map<String, Integer> testMap() {
@@ -45,9 +87,9 @@ public class MapController {
     }
 
     /**
-     * Map&lt;String,Object&gt;结构
+     * {@code Map<String,Object>}结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/objectValue")
     public Map<String, Object> testMapObject() {
@@ -55,9 +97,9 @@ public class MapController {
     }
 
     /**
-     * Map&lt;String,User&gt;结构
+     * {@code Map<String,User>}结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/object")
     public Map<String, User> testMapUser() {
@@ -65,9 +107,9 @@ public class MapController {
     }
 
     /**
-     * Map&lt;String,Student&gt;结构
+     * {@code Map<String,Student>} 结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/test1")
     public Map<String, Student> testMapStudent() {
@@ -75,9 +117,9 @@ public class MapController {
     }
 
     /**
-     * Map&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+     * {@code Map<String,Teacher<List<User>,User,Student>>}超复杂结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/test2")
     public Map<String, Teacher<List<User>, User, Student>> testMap3() {
@@ -85,9 +127,9 @@ public class MapController {
     }
 
     /**
-     * TreeMap&lt;String,Teacher&lt;List&lt;User&gt;,User,Student&gt;&gt;超复杂结构
+     * {@code TreeMap<String,Teacher<List<User>,User,Student>>}超复杂结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/test3")
     public TreeMap<String, Teacher<List<User>, User, Student>> testTreeMap() {
@@ -95,9 +137,9 @@ public class MapController {
     }
 
     /**
-     * Map&lt;String,Teacher&lt;Map&lt;String,User&gt;,Map&lt;String,User&gt;,Map&lt;String,User&gt;&gt;&gt;超复杂结构
+     * {@code Map<String,Teacher<Map<String,User>,Map<String,User>,Map<String,User>>>}超复杂结构
      *
-     * @return
+     * @return map
      */
     @GetMapping(value = "/test4")
     public Map<String, Teacher<Map<String, User>, Map<String, User>, Map<String, User>>> testMap4() {

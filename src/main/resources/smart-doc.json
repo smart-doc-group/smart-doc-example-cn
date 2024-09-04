@@ -17,6 +17,8 @@
   "showValidation": true,
   "inlineEnum": false,
   "skipTransientField": true,
+  "serializeRequestTransients": false,
+  "serializeResponseTransients": false,
   "requestHeaders": [
     //设置请求头，没有需求可以不设置
     {
