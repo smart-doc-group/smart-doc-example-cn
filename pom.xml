@@ -107,7 +107,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.5</version>
+            <version>3.5.7</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
