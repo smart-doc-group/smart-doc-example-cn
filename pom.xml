@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>17</java.version>
-        <util.version>2.2.2</util.version>
+        <util.version>2.2.4</util.version>
         <smart-doc.version>3.0.7</smart-doc.version>
         <smart-doc.group>com.ly.smart-doc</smart-doc.group>
         <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
@@ -90,7 +90,7 @@
             <version>1.10.0</version>
         </dependency>
         <dependency>
-            <groupId>com.github.shalousun</groupId>
+            <groupId>io.github.shalousun</groupId>
             <artifactId>common-util</artifactId>
             <version>${util.version}</version>
         </dependency>
