@@ -1,6 +1,9 @@
 package com.power.doc.model;
 
 import jakarta.validation.constraints.NotBlank;
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigInteger;
 
 /**
@@ -9,6 +12,8 @@ import java.math.BigInteger;
  *
  * @author yu 2018/06/15.
  */
+@Setter
+@Getter
 public class SubUser {
 
     /**
@@ -27,19 +32,4 @@ public class SubUser {
     private BigInteger numbers;
 
 
-    public String getSubUserName() {
-        return subUserName;
-    }
-
-    public void setSubUserName(String subUserName) {
-        this.subUserName = subUserName;
-    }
-
-    public BigInteger getNumbers() {
-        return numbers;
-    }
-
-    public void setNumbers(BigInteger numbers) {
-        this.numbers = numbers;
-    }
 }

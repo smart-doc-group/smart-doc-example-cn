@@ -8,10 +8,11 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.time.*;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
- *  JsonFormat  Annotation Controller
+ * JsonFormat  Annotation Controller
  *
  * @author linwumingshi
  * @see <a href="https://github.com/TongchengOpenSource/smart-doc/issues/828">issues #828</a>
@@ -117,7 +118,7 @@ public class JsonFormatController {
         jsonFormatExample.setSexEnumNumber(Sex.FEMALE);
         jsonFormatExample.setSexEnumNumberAndToString(Sex.FEMALE);
 
-        return CommonResult.<JsonFormatExample>ok().setResult(jsonFormatExample);
+        return CommonResult.ok(jsonFormatExample);
 
     }
 
@@ -130,6 +131,6 @@ public class JsonFormatController {
      */
     @PostMapping("/request/response")
     public CommonResult<JsonFormatExample> test(@RequestBody JsonFormatExample example) throws Exception {
-        return CommonResult.<JsonFormatExample>ok().setResult(example);
+        return CommonResult.ok(example);
     }
 }
