@@ -117,7 +117,7 @@ public class JsonFormatController {
         jsonFormatExample.setSexEnumNumber(Sex.FEMALE);
         jsonFormatExample.setSexEnumNumberAndToString(Sex.FEMALE);
 
-        return CommonResult.ok().setResult(jsonFormatExample);
+        return CommonResult.<JsonFormatExample>ok().setResult(jsonFormatExample);
 
     }
 
@@ -130,6 +130,6 @@ public class JsonFormatController {
      */
     @PostMapping("/request/response")
     public CommonResult<JsonFormatExample> test(@RequestBody JsonFormatExample example) throws Exception {
-        return CommonResult.ok().setResult(example);
+        return CommonResult.<JsonFormatExample>ok().setResult(example);
     }
 }

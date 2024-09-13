@@ -25,7 +25,7 @@ public class HttpsController {
     public CommonResult<String> testHttps(){
         String url = "https://www.baidu.com/";
         String result = restTemplate.getForObject(url, String.class);
-        return CommonResult.ok().setResult(result);
+        return CommonResult.<String>ok().setResult(result);
     }
 
     /**
@@ -36,7 +36,7 @@ public class HttpsController {
     public CommonResult<String> testHttp(){
         String url = "http://localhost:8080/simple/str";
         String result = restTemplate.getForObject(url, String.class);
-        return CommonResult.ok().setResult(result);
+        return CommonResult.<String>ok().setResult(result);
     }
 
 

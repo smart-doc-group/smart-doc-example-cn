@@ -115,7 +115,7 @@ public class FormDataController {
     @GetMapping(value = "formData9")
     public CommonResult<String> testConstantsRequestParams(TestWrapper test) {
         log.info("param:"+ JacksonUtil.bean2Json(test));
-        return CommonResult.ok().setResult(JacksonUtil.bean2Json(test));
+        return CommonResult.<String>ok().setResult(JacksonUtil.bean2Json(test));
     }
 
 }

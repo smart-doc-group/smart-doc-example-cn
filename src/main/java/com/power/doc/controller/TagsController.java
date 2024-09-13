@@ -43,7 +43,7 @@ public class TagsController {
      */
     @PostMapping(value = "/mock")
     public CommonResult<SimpleUser> testMockTag(@RequestBody SubUser user) {
-        return CommonResult.ok().setResult(user);
+        return CommonResult.ok();
     }
 
     /**
