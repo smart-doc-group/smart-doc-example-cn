@@ -19,7 +19,7 @@ public abstract class AbstractParentController<T> {
      */
     @GetMapping("/{id}")
     public CommonResult<T> infoById(@PathVariable("id") String id) {
-        return CommonResult.ok().setResult(info(id));
+        return CommonResult.ok(info(id));
     }
 
     /**

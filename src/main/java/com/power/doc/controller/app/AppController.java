@@ -1,7 +1,6 @@
 package com.power.doc.controller.app;
 
 import com.power.common.model.CommonResult;
-import com.power.doc.annotation.CustomParam;
 import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.entity.Order;
 import com.power.doc.model.FastJson;
@@ -18,6 +17,7 @@ import java.util.Map;
 
 /**
  * app端接口测试
+ *
  * @author yu 2018/9/4.
  */
 @Slf4j
@@ -26,23 +26,19 @@ import java.util.Map;
 public class AppController {
 
 
-
-
     /**
      * 批量删除BOM
+     *
      * @param ids 盒型BOM的id集合,英文逗号隔开
      */
     @PostMapping("/batchDelete")
     public CommonResult<Void> batchDelete(@RequestBody List<LoginDto> ids) {
         System.out.println("ids = " + ids);
-        Map<String,String> record = new HashMap<>();
-        record.put("a","a");
+        Map<String, String> record = new HashMap<>();
+        record.put("a", "a");
 
-        return CommonResult.ok().setResult(record);
+        return CommonResult.ok();
     }
-
-
-
 
 
     /**
@@ -60,76 +56,82 @@ public class AppController {
 
     /**
      * 分页查询订单信息
+     *
      * @param pageIndex 当前页码
-     * @param pageSize 页面大小
+     * @param pageSize  页面大小
      * @return
      */
     @GetMapping(value = "page/{pageIndex}/{pageSize}")
-    public PageInfo<Order> queryPage(@PathVariable int pageIndex , @PathVariable int pageSize) {
+    public PageInfo<Order> queryPage(@PathVariable int pageIndex, @PathVariable int pageSize) {
         return null;
     }
 
     /**
      * app测试
-     * @param name 姓名|zhangsan
+     *
+     * @param name      姓名|zhangsan
      * @param beginTime 开始时间
-     * @param endTime 结束时间
+     * @param endTime   结束时间
      * @return
      */
     @PostMapping(value = "/test")
-    public CommonResult test(String name,String beginTime, String endTime){
+    public CommonResult test(String name, String beginTime, String endTime) {
         return CommonResult.ok().setResult(new FastJson().setUsername("yusun").setIdCard("530"));
     }
 
     /**
      * app测试2
      *
-     * @param name 姓名
+     * @param name      姓名
      * @param beginTime 开始时间
-     * @param endTime 结束时间
+     * @param endTime   结束时间
      * @return
      */
     @GetMapping(value = "/test2")
-    public String test2(String name,String beginTime, String endTime){
+    public String test2(String name, String beginTime, String endTime) {
         return "hello app";
     }
 
     /**
      * app测试3
-     * @param name 姓名
+     *
+     * @param name      姓名
      * @param beginTime 开始时间
-     * @param endTime 结束时间
+     * @param endTime   结束时间
      * @return
      */
     @GetMapping(value = "/test3")
-    public String test3(String name,String beginTime, String endTime){
+    public String test3(String name, String beginTime, String endTime) {
         return "hello app";
     }
 
     /**
      * 常量测试
+     *
      * @return
      */
-    @GetMapping("test4/"+RequestValueConstant.ALL)
-    public String testConstants1(){
+    @GetMapping("test4/" + RequestValueConstant.ALL)
+    public String testConstants1() {
         return null;
     }
 
     /**
      * 常量测试2
+     *
      * @return
      */
-    @GetMapping("test4/"+RequestValueConstant.ALL_NEARBY)
-    public String testConstants2(){
+    @GetMapping("test4/" + RequestValueConstant.ALL_NEARBY)
+    public String testConstants2() {
         return null;
     }
 
 
     /**
      * 常量测试3
+     *
      * @return
      */
-    @GetMapping(value=RequestValueConstant.URL_PARAMS)
+    @GetMapping(value = RequestValueConstant.URL_PARAMS)
     public String testConstants3() {
         return null;
     }
