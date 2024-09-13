@@ -33,7 +33,7 @@ public class AppController {
      * @param ids 盒型BOM的id集合,英文逗号隔开
      */
     @PostMapping("/batchDelete")
-    public CommonResult<Void> batchDelete(@RequestBody List<LoginDto> ids) {
+    public CommonResult batchDelete(@RequestBody List<LoginDto> ids) {
         System.out.println("ids = " + ids);
         Map<String,String> record = new HashMap<>();
         record.put("a","a");

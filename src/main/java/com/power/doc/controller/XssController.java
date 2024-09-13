@@ -25,7 +25,7 @@ public class XssController {
     @PostMapping("/text")
     public CommonResult<String> testTxt(String text){
         LOGGER.info("params:{}",text);
-        return CommonResult.ok().setResult(text);
+        return CommonResult.<String>ok().setResult(text);
     }
 
     /**
@@ -36,7 +36,7 @@ public class XssController {
     @GetMapping("query")
     public CommonResult<String> query(String query){
         LOGGER.info("query: {}",query);
-        return CommonResult.ok().setResult(query);
+        return CommonResult.<String>ok().setResult(query);
     }
 
     /**
@@ -47,7 +47,7 @@ public class XssController {
     @PostMapping("json")
     public CommonResult<Children> json(@RequestBody Children children){
         LOGGER.info("json: {}", JSON.toJSONString(children));
-        return CommonResult.ok().setResult(children);
+        return CommonResult.<Children>ok().setResult(children);
     }
 
 

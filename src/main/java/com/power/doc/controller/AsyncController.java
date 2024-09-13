@@ -65,7 +65,7 @@ public class AsyncController {
             } catch (InterruptedException e) {
                 LOGGER.error("InterruptedException while executing the thread {}", e.fillInStackTrace());
             }
-            output.setResult(CommonResult.ok().setResult("deferred return"));
+            output.setResult(CommonResult.<String>ok().setResult("Hello World !!"));
         });
 
         LOGGER.info("servlet thread freed");

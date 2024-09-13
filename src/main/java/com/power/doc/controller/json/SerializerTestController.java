@@ -23,6 +23,6 @@ public class SerializerTestController {
      */
     @PostMapping
     public CommonResult<SerializerTestModel> testSerializer(@RequestBody SerializerTestModel model) {
-        return CommonResult.ok().setResult(model);
+        return CommonResult.<SerializerTestModel>ok().setResult(model);
     }
 }
