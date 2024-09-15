@@ -5,6 +5,7 @@ import com.ly.doc.builder.rpc.RpcTornaBuilder;
 import com.ly.doc.model.ApiConfig;
 import com.ly.doc.model.torna.TornaApi;
 import com.power.doc.utils.ApiConfigUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,13 +19,14 @@ import java.io.IOException;
  * @author linwumingshi
  */
 @DisplayName("TornaApiTest")
+@Slf4j
 public class TornaApiTest {
 
     private ApiConfig apiConfig;
 
 
     @BeforeEach
-    public void init() throws IOException {
+    public void initEach() throws IOException {
         apiConfig = ApiConfigUtils.getProjectApiConfig();
         Assert.notNull(apiConfig, "ApiConfig is null");
     }
@@ -34,7 +36,7 @@ public class TornaApiTest {
      */
     @DisplayName("Rest Api convert to TornaApi")
     @Test
-    public void pushRestApi() {
+    public void testPushRestApi() {
         TornaApi tornaApi = TornaBuilder.getTornaApi(apiConfig);
         Assert.notNull(tornaApi, "TornaApi is null");
         Assert.notEmpty(tornaApi.getApis(), "TornaApi Apis is empty");
@@ -46,7 +48,7 @@ public class TornaApiTest {
      */
     @DisplayName("Dubbo Api convert to TornaApi")
     @Test
-    public void pushRPCApi() {
+    public void testPushRPCApi() {
         TornaApi tornaApi = RpcTornaBuilder.getTornaApi(apiConfig);
         Assert.notNull(tornaApi, "TornaApi is null");
         Assert.notEmpty(tornaApi.getApis(), "TornaApi Apis is empty");
