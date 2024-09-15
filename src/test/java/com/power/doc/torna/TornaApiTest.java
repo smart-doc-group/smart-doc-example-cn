@@ -5,7 +5,6 @@ import com.ly.doc.builder.rpc.RpcTornaBuilder;
 import com.ly.doc.model.ApiConfig;
 import com.ly.doc.model.torna.TornaApi;
 import com.power.doc.utils.ApiConfigUtils;
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,6 @@ import java.io.IOException;
  * @author linwumingshi
  */
 @DisplayName("TornaApiTest")
-@Slf4j
 public class TornaApiTest {
 
     private ApiConfig apiConfig;
