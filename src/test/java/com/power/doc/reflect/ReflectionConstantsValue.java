@@ -1,18 +1,22 @@
 package com.power.doc.reflect;
 
 import com.power.doc.constants.ApiConstants;
+import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
 
 public class ReflectionConstantsValue {
-    public static void main(String[] args) {
+
+
+    @Test
+    public void test() {
         try {
             // 获取Test类的Class对象
             Class<?> clazz = ApiConstants.class;
 
             Field[] fields = clazz.getDeclaredFields();
-            for(Field f:fields) {
-                System.out.println("修饰："+f.getModifiers());
+            for (Field f : fields) {
+                System.out.println("修饰：" + f.getModifiers());
                 // 获取字段的值
                 Object constantValue = f.get(null);
                 // 输出结果

@@ -1,11 +1,12 @@
 package com.power.doc.utils;
 
-import java.util.StringTokenizer;
+import org.junit.jupiter.api.Test;
 
 public class ConvertString {
 
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         String str = "java.lang.List";
         // 正则表达式匹配包名
         String regex = "\\b\\w+\\.(?=\\w+\\b)";
@@ -14,6 +15,7 @@ public class ConvertString {
         System.out.println(result);
     }
 
+
     public static String convertString(String str) {
         int first = str.indexOf("<");
         int last = str.lastIndexOf(">");
@@ -21,9 +23,9 @@ public class ConvertString {
             return str;
         } else {
             String start = str.substring(0, first);
-            String end = str.substring(last+1);
-            String middle = str.substring(first+1, last);
-            return start+"<"+processMiddle(middle)+">"+end;
+            String end = str.substring(last + 1);
+            String middle = str.substring(first + 1, last);
+            return start + "<" + processMiddle(middle) + ">" + end;
         }
     }
 
@@ -39,8 +41,7 @@ public class ConvertString {
                 sb.append(convertString(part));
             }
             return sb.toString();
-        }
-        else {
+        } else {
             return removePackage(middle);
         }
     }
@@ -48,9 +49,8 @@ public class ConvertString {
     // 去除包名
     private static String removePackage(String str) {
         if (str.contains(".")) {
-            return str.substring(str.lastIndexOf(".")+1);
-        }
-        else {
+            return str.substring(str.lastIndexOf(".") + 1);
+        } else {
             return str;
         }
     }

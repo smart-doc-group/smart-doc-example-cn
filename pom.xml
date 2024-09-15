@@ -22,12 +22,21 @@
         <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
         <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
+        <spring.cloud.version>2023.0.3</spring.cloud.version>
         <spring.boot.version>3.3.3</spring.boot.version>
     </properties>
 
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -72,7 +81,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>4.1.0</version>
         </dependency>
 
         <dependency>
@@ -210,6 +218,15 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <executions>
+                    <execution>
+                        <id>repackage</id>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>${smart-doc.group}</groupId>
@@ -220,9 +237,9 @@
                         <!--格式为：groupId:artifactId;参考如下-->
                         <!--也可以支持正则式如：com.alibaba:.* -->
                         <include>com.power.doc:.*</include>
-<!--                        <include>com.baomidou:mybatis-plus-extension</include>-->
+                        <!--                        <include>com.baomidou:mybatis-plus-extension</include>-->
                         <include>com.github.shalousun:.*</include>
-<!--                        <include>org.springframework:spring-web</include>-->
+                        <!--                        <include>org.springframework:spring-web</include>-->
                     </includes>
                     <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
