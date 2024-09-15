@@ -1,12 +1,14 @@
 package com.power.doc.reflect;
 
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
 import java.lang.reflect.Type;
 
 public class GetMethodGenericType {
 
-    public static void main(String[] args) {
+    @Test
+    public void test() {
         try {
             Class c = Class.forName("org.springframework.data.domain.Slice");
             Method m = c.getDeclaredMethod("getContent");
