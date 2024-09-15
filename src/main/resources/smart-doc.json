@@ -167,5 +167,21 @@
       "name": "Map测试",
       "apis": "com.power.doc.controller.map.*"
     }
+  ],
+  "revisionLogs": [
+    {
+      "version": "0.0.1-SNAPSHOT",
+      "status": "Create",
+      "author": "Smart-Doc",
+      "revisionTime": "2018-06-27",
+      "remarks": "Smart-Doc Example Project"
+    },
+    {
+      "version": "0.0.1-SNAPSHOT",
+      "status": "Active",
+      "author": "Smart-Doc",
+      "revisionTime": "2024-01-01",
+      "remarks": "Smart-Doc Example Project"
+    }
   ]
 }
