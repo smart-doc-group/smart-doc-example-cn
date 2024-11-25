@@ -15,9 +15,9 @@ public enum ErrorIntegerCodeEnum {
 
     UNKNOWN_ERROR(9999, "系统繁忙，请稍后再试....");
 
-    private Integer code;
+    private final Integer code;
 
-    private String desc;
+    private final String desc;
 
     ErrorIntegerCodeEnum(Integer code, String desc) {
         this.code = code;

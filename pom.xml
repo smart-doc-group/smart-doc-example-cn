@@ -238,7 +238,7 @@
                         <!--也可以支持正则式如：com.alibaba:.* -->
                         <include>com.power.doc:.*</include>
                         <!--                        <include>com.baomidou:mybatis-plus-extension</include>-->
-                        <include>com.github.shalousun:.*</include>
+                        <include>io.github.shalousun:.*</include>
                         <!--                        <include>org.springframework:spring-web</include>-->
                     </includes>
                     <!--指定生成文档的使用的配置文件-->

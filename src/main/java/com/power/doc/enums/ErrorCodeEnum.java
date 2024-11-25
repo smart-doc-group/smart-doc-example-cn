@@ -17,20 +17,22 @@ public enum ErrorCodeEnum implements IMessage {
 
     UNKNOWN_ERROR("9999", "系统繁忙，请稍后再试....");
 
-    private String code;
+    private final String code;
 
-    private String message;
+    private final String message;
 
     ErrorCodeEnum(String code, String message) {
         this.code = code;
         this.message = message;
     }
 
+    @Override
     public String getCode() {
         return this.code;
     }
 
 
+    @Override
     public String getMessage() {
         return message;
     }
