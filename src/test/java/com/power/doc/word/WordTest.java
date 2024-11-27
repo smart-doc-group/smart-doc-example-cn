@@ -113,7 +113,7 @@ public class WordTest {
 
         ApiGroup apiGroup = new ApiGroup();
         apiGroup.setName("测试分组1");
-        apiGroup.setApis("com.power.doc.controller.EnumController");
+        apiGroup.setApis("com.power.doc.controller.enums.EnumController");
         ApiGroup apiGroup1 = new ApiGroup();
         apiGroup1.setName("测试分组2");
         apiGroup1.setApis("com.power.doc.controller.FormDataController");

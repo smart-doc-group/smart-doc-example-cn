@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.enums;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.entity.Order;
