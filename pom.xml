@@ -22,7 +22,7 @@
         <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
         <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
-        <spring.cloud.version>2023.0.4</spring.cloud.version>
+        <spring.cloud.version>2024.0.0</spring.cloud.version>
         <spring.boot.version>3.4.0</spring.boot.version>
     </properties>
 
