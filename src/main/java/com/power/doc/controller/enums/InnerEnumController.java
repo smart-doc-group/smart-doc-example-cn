@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import com.power.common.model.CommonResult;
 import com.power.doc.enums.IEnum;
 import java.util.List;
+import java.util.Map;
 import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -73,6 +74,16 @@ public class InnerEnumController {
     @PostMapping("/innerEnum/testBodyEnum")
     public CommonResult<InnerClass> testBodyEnum(@RequestBody InnerClass innerClass) {
         return null;
+    }
+
+    /**
+     * 测试body map参数枚举
+     * @param map 集合
+     * @return 结果
+     */
+    @PostMapping("/innerEnum/testBodyMapEnum")
+    public CommonResult<Map<InnerEnum, InnerClass>> testBodyEnum(@RequestBody Map<InnerEnum, InnerClass> map) {
+        return CommonResult.ok(map);
     }
 
     /**

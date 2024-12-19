@@ -3,6 +3,7 @@ package com.power.doc.controller.enums;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.power.common.model.CommonResult;
 import java.util.List;
+import java.util.Map;
 import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -72,6 +73,16 @@ public class EnumNoDataDictionariesController {
     @PostMapping("/enumNoDataDictionaries/testBodyEnum")
     public CommonResult<InnerClass> testBodyEnum(@RequestBody InnerClass innerClass) {
         return null;
+    }
+
+    /**
+     * 测试body map参数枚举
+     * @param map 集合
+     * @return 结果
+     */
+    @PostMapping("/enumNoDataDictionaries/testBodyMapEnum")
+    public CommonResult<Map<NoDataDictionariesEnum, InnerClass>> testBodyEnum(@RequestBody Map<NoDataDictionariesEnum, InnerClass> map) {
+        return CommonResult.ok(map);
     }
 
     /**
