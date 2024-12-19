@@ -2,6 +2,7 @@ package com.power.doc.controller.enums;
 
 import com.power.common.model.CommonResult;
 import java.util.List;
+import java.util.Map;
 import lombok.Data;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -71,6 +72,16 @@ public class EnumNoArgumentController {
     @PostMapping("/enumNoArgument/testBodyEnum")
     public CommonResult<InnerClass> testBodyEnum(@RequestBody InnerClass innerClass) {
         return null;
+    }
+
+    /**
+     * 测试body map参数枚举
+     * @param map 集合
+     * @return 结果
+     */
+    @PostMapping("/enumNoArgument/testBodyMapEnum")
+    public CommonResult<Map<NoArgumentEnum, InnerClass>> testBodyEnum(@RequestBody Map<NoArgumentEnum, InnerClass> map) {
+        return CommonResult.ok(map);
     }
 
     /**
