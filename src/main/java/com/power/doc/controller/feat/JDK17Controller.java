@@ -3,6 +3,7 @@ package com.power.doc.controller.feat;
 
 import com.power.common.model.CommonResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -28,6 +29,20 @@ public class JDK17Controller {
                   "address": "北京"
                 }
                 """;
+        return CommonResult.ok(jsonText);
+    }
+    /**
+     * @param jsonText jsonText
+     * @return string
+     */
+    @GetMapping("/ste")
+    public CommonResult<String> highVersion2(@RequestParam(defaultValue = """
+    {
+        "name": "二狗子",
+            "age": 18,
+            "address": "北京"
+    }
+""") String jsonText) {
         return CommonResult.ok(jsonText);
     }
 }
