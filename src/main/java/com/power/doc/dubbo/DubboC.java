@@ -8,7 +8,7 @@ package com.power.doc.dubbo;
 public interface DubboC extends DubboB {
 
     /**
-     * 6sayHelloC DubboC的1
+     * sayHelloC DubboC的1
      */
     void sayHelloC();
 }

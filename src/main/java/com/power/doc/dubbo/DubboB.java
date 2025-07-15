@@ -8,7 +8,7 @@ import com.power.doc.entity.BasePager;
  */
 public interface DubboB extends DubboA<BasePager> {
     /**
-     * 5 sayHelloB DubboB的1
+     * sayHelloB DubboB的1
      */
     void sayHelloB();
 }

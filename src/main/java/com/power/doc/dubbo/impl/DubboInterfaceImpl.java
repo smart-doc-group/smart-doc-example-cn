@@ -32,7 +32,7 @@ public class DubboInterfaceImpl implements DubboInterface {
     }
 
     /**
-     * 12测试方法testConstantsRequestParam333
+     * 测试方法testConstantsRequestParam333
      *
      * @param order order
      * @param aa    aa

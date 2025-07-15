@@ -17,7 +17,7 @@ public interface DubboInterface extends DubboC {
 
 
     /**
-     * 7测试order DubboInterfaced的1
+     * 测试order DubboInterfaced的1
      *
      * @param orderList
      * @return
@@ -35,14 +35,14 @@ public interface DubboInterface extends DubboC {
     Order testConstantsRequestParam(Order order, String aa);
 
     /**
-     * 9测试 DubboInterfaced的3
+     * 测试 DubboInterfaced的3
      *
      * @return
      */
     CommonResult<Order> testConstantsRequestParams(ResultUtil<Order>[] orderList);
 
     /**
-     * 10测试接口2 DubboInterfaced的4
+     * 测试接口2 DubboInterfaced的4
      *
      * @param orderList
      * @return
@@ -50,7 +50,7 @@ public interface DubboInterface extends DubboC {
     CommonResult<List<Order>> testConstantsRequestParams2(List<Order> orderList);
 
     /**
-     * 11测试set DubboInterfaced的5
+     * 测试set DubboInterfaced的5
      */
     CommonResult<SimpleUser> testSetParams(SimpleUser simpleUser);
 }

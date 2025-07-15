@@ -16,7 +16,7 @@ import org.apache.dubbo.config.annotation.DubboService;
 public class DubboInterfaceImplExtend extends DubboInterfaceImpl {
 
     /**
-     * 13测试方法testConstantsRequestParam333 重写 order2222 DubboInterfaceImpl2 的
+     * 测试方法testConstantsRequestParam333 重写 order2222 DubboInterfaceImpl2 的
      *
      * @param order2222 order2222
      * @param aa        aa
