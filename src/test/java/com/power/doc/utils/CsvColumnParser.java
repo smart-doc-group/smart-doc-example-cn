@@ -75,14 +75,14 @@ public class CsvColumnParser {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        // 示例用法
-        List<String> data = parseRawCsvColumn(
-                "src/test/resources/log.csv",
-                2,          // 从第二行数据开始
-                "日志消息",    // 目标列标题
-                true        // 包含header
-        );
-        System.out.println("提取结果: " + data);
-    }
+//    public static void main(String[] args) throws IOException {
+//        // 示例用法
+//        List<String> data = parseRawCsvColumn(
+//                "src/test/resources/log.csv",
+//                2,          // 从第二行数据开始
+//                "日志消息",    // 目标列标题
+//                true        // 包含header
+//        );
+//        System.out.println("提取结果: " + data);
+//    }
 }
