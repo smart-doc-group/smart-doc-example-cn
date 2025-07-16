@@ -14,13 +14,10 @@ public interface Something {
     }
 
     default String getBlockOfHtml() {
-        return """
-            <html>
-
-                <body>
-                    <span>example text</span>
-                </body>
-            </html>""";
+        String test = """
+                select * from abc
+                """;
+        return test;
     }
 
 
