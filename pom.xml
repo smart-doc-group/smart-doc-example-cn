@@ -204,7 +204,7 @@
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl-antlr4.11-support</artifactId>
-            <version>3.19.0.RELEASE</version>
+            <version>3.19.2.RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
