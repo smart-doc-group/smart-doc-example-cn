@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package base.enum;
+
+/**
+ * 消息类型枚举。
+ * 定义了系统中可以使用的不同类型的消息。
+ */
+enum MessageType {
+  /** 未指定的消息类型。 */
+  TYPE_UNSPECIFIED = 0;
+
+  /** 普通消息类型。 */
+  TYPE_NORMAL = 1;
+
+  /** 特殊消息类型。 */
+  TYPE_SPECIAL = 2;
+}

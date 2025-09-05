@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package base.common;
+
+/**
+ * 用户信息消息。
+ * 定义了系统中用户的基本信息。
+ */
+message User {
+  /** 用户的姓名。 */
+  string name = 1;
+
+  /** 用户的年龄。 */
+  int32 age = 2;
+}

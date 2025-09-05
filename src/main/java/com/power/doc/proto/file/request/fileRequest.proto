@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+import "base/enum.proto";
+
+package file.request;
+
+/**
+ * 文件上传请求消息。
+ * 包含上传文件所需的所有信息。
+ */
+message FileRequest {
+  /** 要上传的文件名。 */
+  string filename = 1;
+
+  /** 文件的类型，使用 MessageType 枚举。 */
+  base.enum.MessageType type = 2;
+}
+
+/**
+ * 文件上传响应消息。
+ * 包含文件上传操作的结果。
+ */
+message FileResponse {
+  /** 操作是否成功。 */
+  bool success = 1;
+
+  /** 操作结果的描述信息。 */
+  string message = 2;
+}
+
+/**
+ * 文件服务。
+ * 提供文件上传等文件操作的 gRPC 接口。
+ */
+service FileService {
+  /**
+   * 上传文件。
+   * 接收一个 FileRequest 并返回一个 FileResponse。
+   */
+  rpc Upload(FileRequest) returns (FileResponse) {}
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "base/enum.proto";
+
+package mail.mail;
+
+/**
+ * 邮件消息。
+ * 定义了邮件的基本信息。
+ */
+message Email {
+  /** 邮件的收件人地址。 */
+  string to = 1;
+
+  /** 邮件的类型，使用 MessageType 枚举。 */
+  base.enum.MessageType type = 2;
+}

@@ -1,0 +1,104 @@
+syntax = "proto3";
+
+// 导入所有需要的文件
+import "base/enum.proto";
+import "base/common.proto";
+import "mail/mail.proto"; // 导入 Email 消息
+
+package email.service;
+
+/**
+ * 邮件服务。
+ * 提供发送和管理邮件的 gRPC 接口。
+ */
+service EmailService {
+  /**
+   * 发送邮件。
+   * 接收一个 SendEmailRequest 并返回一个 SendEmailResponse。
+   */
+  rpc SendEmail(SendEmailRequest) returns (SendEmailResponse) {}
+
+  /**
+   * 获取邮件列表。
+   * 接收一个 ListEmailsRequest 并返回一个 EmailSummary 流。
+   */
+  rpc ListEmails(ListEmailsRequest) returns (stream EmailSummary) {}
+}
+
+/**
+ * 发送邮件请求消息。
+ * 包含发送一封邮件所需的所有信息。
+ */
+message SendEmailRequest {
+  /** 邮件消息，包含收件人、类型等。 */
+  mail.mail.Email email = 1;
+
+  /** 邮件的正文内容。 */
+  string body = 2;
+
+  /** 邮件的发件人。 */
+  base.common.User sender = 3;
+
+  /** 附件信息。 */
+  repeated Attachment attachments = 4;
+}
+
+/**
+ * 附件消息。
+ * 定义了邮件附件的信息。
+ */
+message Attachment {
+  /** 附件的文件名。 */
+  string filename = 1;
+
+  /** 附件的类型（复用 MessageType）。 */
+  base.enum.MessageType type = 2;
+}
+
+/**
+ * 发送邮件响应消息。
+ * 包含邮件发送操作的结果。
+ */
+message SendEmailResponse {
+  /** 操作是否成功。 */
+  bool success = 1;
+
+  /** 操作结果的描述信息或错误详情。 */
+  string message = 2;
+
+  /** 邮件的唯一标识符。 */
+  string email_id = 3;
+}
+
+/**
+ * 列出邮件请求消息。
+ * 用于请求用户的邮件列表。
+ */
+message ListEmailsRequest {
+  /** 用户信息，用于标识请求者。 */
+  base.common.User user = 1;
+
+  /** 请求的页码。 */
+  int32 page = 2;
+
+  /** 每页的大小。 */
+  int32 page_size = 3;
+}
+
+/**
+ * 邮件摘要消息。
+ * 用于在列表中展示邮件的简要信息。
+ */
+message EmailSummary {
+  /** 邮件的唯一标识符。 */
+  string email_id = 1;
+
+  /** 邮件的收件人。 */
+  string to = 2;
+
+  /** 邮件的类型。 */
+  base.enum.MessageType type = 3;
+
+  /** 邮件的发送时间戳。 */
+  int64 timestamp = 4;
+}
