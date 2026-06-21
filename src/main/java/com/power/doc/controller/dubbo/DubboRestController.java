@@ -2,7 +2,6 @@ package com.power.doc.controller.dubbo;
 
 import com.power.common.model.CommonResult;
 import com.power.doc.model.LoginDto;
-import org.springdoc.core.RequestBodyInfo;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

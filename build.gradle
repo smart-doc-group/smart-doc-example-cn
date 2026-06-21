@@ -1,128 +1,88 @@
 buildscript {
     ext {
-        springBootVersion = '2.3.4.RELEASE'
-        smartDocVersion = '2.1.8'
+        springBootVersion = '4.0.7'
+        smartDocVersion = '3.1.1'
+        springCloudVersion = '2025.1.2'
     }
     repositories {
-        maven { url 'http://localhost:8081/nexus/content/groups/public/' }
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url 'https://maven.aliyun.com/repository/public/' }
         mavenCentral()
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath('se.transmode.gradle:gradle-docker:1.2')
-        classpath("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
     }
 }
+
 group 'com.power.doc'
 version '1.0'
 
 apply plugin: 'java'
 apply plugin: 'maven'
-apply plugin: 'docker'
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
-apply plugin: 'smart-doc'
 
-smartdoc {
-    //
-    configFile = file("src/main/resources/smart-doc.json")
-    // exclude artifact
-    exclude 'org.springframework.boot:xx'
-    exclude 'org.springframework.boot:ddd'
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+    }
 }
+
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
-    maven { url 'http://localhost:8081/nexus/content/groups/public/' }
-    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven { url 'https://maven.aliyun.com/repository/public/' }
     mavenCentral()
 }
 
-configurations.compile {
-    exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
-    exclude group: 'org.springframework.boot', module: 'logback-classic'
+configurations {
+    compile.exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
+    compile.exclude group: 'org.springframework.boot', module: 'logback-classic'
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.13.1'
-    compile('org.springframework.boot:spring-boot-starter') {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    implementation('org.springframework.boot:spring-boot-starter') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile('org.springframework.boot:spring-boot-starter-web') {
+    implementation('org.springframework.boot:spring-boot-starter-web') {
         exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging'
     }
-    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
-    compile 'com.alibaba:druid-spring-boot-starter:1.1.23'
-    compile 'mysql:mysql-connector-java:8.0.15'
-    compile('org.springframework.boot:spring-boot-starter-log4j2')
-    compile 'com.lmax:disruptor:3.4.2'
-    compile('org.springframework.boot:spring-boot-starter-aop')
-    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.74'
-    compile 'org.apache.commons:commons-lang3:3.9'
-    compile("org.springframework.boot:spring-boot-starter-data-jpa:${springBootVersion}")
-    compile 'org.apache.commons:commons-text:1.8'
-    compile 'com.github.shalousun:common-util:2.0.4'
-    compileOnly 'org.projectlombok:lombok:1.18.0'
-    compile("com.github.shalousun:smart-doc-gradle-plugin:${smartDocVersion}")
-    testCompile('org.springframework.boot:spring-boot-starter-test')
-    testCompile 'com.github.shalousun:smart-doc:2.1.8'
-
+    implementation('org.springframework.boot:spring-boot-starter-websocket')
+    implementation('org.springframework.cloud:spring-cloud-starter-openfeign')
+    implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+    implementation 'com.lmax:disruptor:4.0.0'
+    implementation('org.springframework.boot:spring-boot-starter-aop')
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:4.0.1'
+    implementation 'com.baomidou:mybatis-plus-boot-starter:3.5.16'
+    implementation 'com.alibaba.fastjson2:fastjson2:2.0.60'
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:4.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'org.springframework.kafka:spring-kafka'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:3.0.1'
+    implementation 'com.google.guava:guava:33.4.0-jre'
+    implementation 'org.apache.dubbo:dubbo:3.3.4'
+    implementation 'org.quartz-scheduler:quartz:2.5.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'jakarta.ws.rs:jakarta.ws.rs-api:4.0.0'
+    implementation 'org.antlr:antlr4-runtime:4.13.2'
+    implementation 'org.apache.commons:commons-text:1.13.0'
+    implementation 'io.github.shalousun:common-util:2.2.8'
+    implementation 'net.oschina.durcframework:fastmybatis-core:2.11.0'
+    implementation 'com.deepoove:poi-tl-plugin-markdown:1.0.3'
+    implementation 'com.deepoove:poi-tl:1.12.2'
+    implementation 'com.ibeetl:beetl-antlr4.11-support:3.19.0.RELEASE'
+    implementation 'org.apache.commons:commons-csv:1.9.0'
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+    testImplementation 'com.github.shalousun:smart-doc:3.1.1'
 }
 
-task('copyConf', type: Copy) {
-    from "src/main/resources/"
-    into "build/package/${project.name}/config"
-}
-
-task('copyJar', type: Copy) {
-    from 'build/libs'
-    into "build/package/${project.name}/lib"
-    dependsOn('build')
-}
-
-task('copyBin', type: Copy) {
-    from 'src/main/scripts'
-    into "build/package/${project.name}/bin"
-    fileMode 0755
-}
-
-task('package', type: Tar) {
-    compression = Compression.GZIP
-    extension = 'tar.gz'
-    from "build/package"
-    mustRunAfter('clean')
-    dependsOn('clean', 'copyConf', 'copyJar', 'copyBin')
-}
-
-task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = jar.baseName
-    dockerfile = file('src/main/docker/Dockerfile')
-    tagVersion = "1.0"
-    doFirst {
-        copy {
-            from jar
-            into stageDir
-        }
-    }
-}
-//upload jar to nexus
-def nexusUrl = "http://localhost:8081/nexus/content/repositories/releases/"
-if (version.endsWith("-SNAPSHOT")) {
-    nexusUrl = "http://localhost:8081/nexus/content/repositories/snapshots/"
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository(url: nexusUrl) {
-                authentication(userName: "admin", password: "admin123")
-            }
-            pom.version = "$project.version"
-            pom.artifactId = "$project.name"
-            pom.groupId = "$project.group"
-        }
-    }
+test {
+    useJUnitPlatform()
 }

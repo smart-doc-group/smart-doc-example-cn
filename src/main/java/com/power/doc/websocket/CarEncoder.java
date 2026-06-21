@@ -1,7 +1,7 @@
 package com.power.doc.websocket;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 import com.power.doc.entity.Car;
 import jakarta.websocket.EncodeException;
 import jakarta.websocket.Encoder;
@@ -19,7 +19,7 @@ public class CarEncoder implements Encoder.Text<Car> {
     public String encode(Car object) throws EncodeException {
         try {
             return objectMapper.writeValueAsString(object);
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             throw new RuntimeException(e);
         }
     }

@@ -1,10 +1,8 @@
 package com.power.doc.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.module.SimpleModule;
+import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
+import tools.jackson.databind.module.SimpleModule;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
@@ -35,20 +33,15 @@ public class XssFilter implements Filter {
 
     /**
      * 过滤json类型的
-     * @param builder
      * @return
      */
     @Bean
-    @Primary
-    public ObjectMapper xssObjectMapper(Jackson2ObjectMapperBuilder builder) {
-        //解析器
-        ObjectMapper objectMapper = builder.createXmlMapper(false).build();
-        //注册xss解析器
-        SimpleModule xssModule = new SimpleModule("XssStringJsonSerializer");
-        xssModule.addSerializer(new XssStringJsonSerializer());
-        objectMapper.registerModule(xssModule);
-        //返回
-        return objectMapper;
+    public JsonMapperBuilderCustomizer xssJsonMapperCustomizer() {
+        return builder -> {
+            SimpleModule xssModule = new SimpleModule("XssStringJsonSerializer");
+            xssModule.addSerializer(new XssStringJsonSerializer());
+            builder.addModule(xssModule);
+        };
     }
 
 

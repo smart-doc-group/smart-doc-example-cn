@@ -17,13 +17,13 @@
         <java.version>17</java.version>
         <util.version>2.2.8</util.version>
         <smart-doc.version>3.1.1</smart-doc.version>
-        <smart-doc.group>com.github.shalousun</smart-doc.group>
+        <smart-doc.group>com.ly.smart-doc</smart-doc.group>
         <asciidoctor.input.directory>${project.basedir}/src/docs/asciidoc</asciidoctor.input.directory>
         <generated.asciidoc.directory>${project.build.directory}/asciidoc/generated</generated.asciidoc.directory>
         <asciidoctor.html.output.directory>${project.build.directory}/asciidoc/html</asciidoctor.html.output.directory>
         <asciidoctor.pdf.output.directory>${project.build.directory}/asciidoc/pdf</asciidoctor.pdf.output.directory>
-        <spring.cloud.version>2024.0.0</spring.cloud.version>
-        <spring.boot.version>3.4.3</spring.boot.version>
+        <spring.cloud.version>2025.1.2</spring.cloud.version>
+        <spring.boot.version>4.0.7</spring.boot.version>
     </properties>
 
 
@@ -94,7 +94,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-aop</artifactId>
+            <artifactId>spring-boot-starter-aspectj</artifactId>
         </dependency>
         <!--log4j2 Asynchronous Loggers requires disruptor-->
         <dependency>
@@ -119,23 +119,23 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.4</version>
+            <version>4.0.1</version>
         </dependency>
         <!--Mybatis-Plus-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.5.12</version>
+            <version>3.5.16</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba.fastjson2</groupId>
             <artifactId>fastjson2</artifactId>
-            <version>2.0.57</version>
+            <version>2.0.60</version>
         </dependency>
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>2.1.0</version>
+            <version>4.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -147,8 +147,8 @@
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-ui</artifactId>
-            <version>1.8.0</version>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>3.0.1</version>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
@@ -179,6 +179,7 @@
             <artifactId>antlr4-runtime</artifactId>
             <version>4.13.2</version>
         </dependency>
+        <!-- smart-doc not available from reachable repos, uncomment when nexus is available -->
         <dependency>
             <groupId>${smart-doc.group}</groupId>
             <artifactId>smart-doc</artifactId>
@@ -196,11 +197,7 @@
             <artifactId>fastmybatis-core</artifactId>
             <version>2.11.0</version>
         </dependency>
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>6.1.0</version>
-        </dependency>
+
         <dependency>
             <groupId>com.ibeetl</groupId>
             <artifactId>beetl-antlr4.11-support</artifactId>
@@ -238,16 +235,10 @@
                 <version>${smart-doc.version}</version>
                 <configuration>
                     <includes>
-                        <!--格式为：groupId:artifactId;参考如下-->
-                        <!--也可以支持正则式如：com.alibaba:.* -->
                         <include>com.power.doc:.*</include>
-                        <!--                        <include>com.baomidou:mybatis-plus-extension</include>-->
                         <include>io.github.shalousun:.*</include>
-                        <!--                        <include>org.springframework:spring-web</include>-->
                     </includes>
-                    <!--指定生成文档的使用的配置文件-->
                     <configFile>./src/main/resources/smart-doc.json</configFile>
-                    <!--指定项目名称-->
                     <projectName>测试</projectName>
                 </configuration>
                 <executions>

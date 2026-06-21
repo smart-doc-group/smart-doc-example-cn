@@ -1,11 +1,10 @@
 package com.power.doc.websocket;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
 import com.power.doc.entity.Car;
 import jakarta.websocket.DecodeException;
 import jakarta.websocket.Decoder;
-
-import java.io.IOException;
 
 /**
  * car decoder; json string to car
@@ -21,7 +20,7 @@ public class CarDecoder implements Decoder.Text<Car> {
     public Car decode(String s) throws DecodeException {
         try {
             return objectMapper.readValue(s, Car.class);
-        } catch (IOException e) {
+        } catch (JacksonException e) {
             throw new DecodeException(s, "Error decoding Car", e);
         }
     }
