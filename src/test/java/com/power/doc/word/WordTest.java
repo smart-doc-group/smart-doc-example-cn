@@ -116,7 +116,7 @@ public class WordTest {
         apiGroup.setApis("com.power.doc.controller.enums.EnumController");
         ApiGroup apiGroup1 = new ApiGroup();
         apiGroup1.setName("测试分组2");
-        apiGroup1.setApis("com.power.doc.controller.FormDataController");
+        apiGroup1.setApis("com.power.doc.controller.request.FormDataController");
         config.setGroups(apiGroup, apiGroup1);
 
         RevisionLog revisionLog = new RevisionLog();
@@ -151,7 +151,7 @@ public class WordTest {
 //                "com.power.doc.controller.O.*",
                 "com.power.doc.controller.P.*",
                 "com.power.doc.controller.Q.*",
-                "com.power.doc.controller.parent.*",
+                "com.power.doc.controller.inheritance.*",
                 "com.power.doc.controller.torna.*",
                 ""
         );

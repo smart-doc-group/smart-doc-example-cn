@@ -3,7 +3,7 @@ package com.power.doc.controller.file;
 
 import com.power.common.util.RandomUtil;
 import com.power.common.util.StringUtil;
-import com.power.doc.controller.BaseController;
+import com.power.doc.controller.inheritance.BaseController;
 import org.springframework.core.io.ByteArrayResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;

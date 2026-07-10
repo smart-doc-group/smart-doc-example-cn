@@ -1,8 +1,8 @@
-package com.power.doc.controller.parent.temp.impl;
+package com.power.doc.controller.inheritance.temp.impl;
 
 
 import com.power.common.model.CommonResult;
-import com.power.doc.controller.parent.temp.ParentInterface;
+import com.power.doc.controller.inheritance.temp.ParentInterface;
 import com.power.doc.model.Leader;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
