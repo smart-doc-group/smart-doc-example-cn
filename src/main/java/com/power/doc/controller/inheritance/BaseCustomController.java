@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.inheritance;
 
 import com.power.doc.model.UserDetail;
 import com.power.doc.service.BizBaseServiceImpl;

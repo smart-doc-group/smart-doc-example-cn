@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.generics;
 
 import com.alibaba.fastjson2.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

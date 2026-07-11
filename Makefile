@@ -11,3 +11,6 @@ tree:
 # one-api https://oneapi.app/usage
 one-api:
 	oneapi analysis -p ./ -o ./target/doc/
+
+run-torna-mockserver:
+	python3 torna_mock_server.py

@@ -1,6 +1,6 @@
-package com.power.doc.controller;
+package com.power.doc.controller.inheritance;
 
-import com.power.doc.controller.parent.BaseCustomHandlerController;
+import com.power.doc.controller.inheritance.BaseCustomHandlerController;
 import com.power.doc.service.CustomHandlerUserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

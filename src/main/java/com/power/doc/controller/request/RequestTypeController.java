@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.request;
 
 import com.power.doc.entity.User;
 import org.springframework.web.bind.annotation.*;

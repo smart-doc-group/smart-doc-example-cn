@@ -35,7 +35,7 @@ public class JDK17Controller {
      * @param jsonText jsonText
      * @return string
      */
-    @GetMapping("/ste")
+    @GetMapping("/ste2")
     public CommonResult<String> highVersion2(@RequestParam(defaultValue = """
     {
         "name": "二狗子",

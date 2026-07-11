@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.request;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,4 +1,4 @@
-package com.power.doc.controller.parent;
+package com.power.doc.controller.inheritance;
 
 import com.power.doc.entity.RoleDTO;
 import com.power.doc.entity.SimpleUser;
@@ -12,5 +12,5 @@ import org.springframework.web.bind.annotation.RestController;
  **/
 @RestController
 @RequestMapping("/itemShop-item")
-public class ShopItemController extends BaseController<SimpleUser,RoleDTO,String,ShopService> {
+public class ShopItemController extends BaseParentController<SimpleUser, RoleDTO, String, ShopService> {
 }

@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.generics;
 
 import com.power.doc.model.OuterClass;
 import org.springframework.web.bind.annotation.GetMapping;

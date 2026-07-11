@@ -1,4 +1,4 @@
-package com.power.doc.controller.parent;
+package com.power.doc.controller.inheritance;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @author xingzi
  * @date 2021/6/27 13:34
  **/
-public abstract class BaseController<T extends SimpleUser,B extends RoleDTO,V,S extends IBaseService<T,B,V>>  {
+public abstract class BaseParentController<T extends SimpleUser, B extends RoleDTO, V, S extends IBaseService<T, B, V>> {
 
     /**
      * 根据Id删除

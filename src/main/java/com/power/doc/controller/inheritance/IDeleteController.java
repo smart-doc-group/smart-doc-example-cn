@@ -1,4 +1,4 @@
-package com.power.doc.controller.parent;
+package com.power.doc.controller.inheritance;
 
 import java.io.Serializable;
 

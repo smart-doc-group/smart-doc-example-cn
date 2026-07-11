@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.inheritance;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;

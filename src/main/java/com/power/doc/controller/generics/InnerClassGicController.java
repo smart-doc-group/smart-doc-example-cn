@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.generics;
 
 import com.power.doc.entity.InnerClassGicVO;
 import org.springframework.web.bind.annotation.GetMapping;

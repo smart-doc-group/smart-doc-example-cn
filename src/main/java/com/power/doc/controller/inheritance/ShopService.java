@@ -1,4 +1,4 @@
-package com.power.doc.controller.parent;
+package com.power.doc.controller.inheritance;
 
 import com.power.doc.entity.RoleDTO;
 import com.power.doc.entity.SimpleUser;

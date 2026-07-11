@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.request;
 
 import com.alibaba.fastjson2.JSON;
 import com.power.common.model.CommonResult;

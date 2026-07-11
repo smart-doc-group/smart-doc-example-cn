@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.mock;
 
 import com.power.common.model.CommonResult;
 import org.springframework.web.bind.annotation.PostMapping;

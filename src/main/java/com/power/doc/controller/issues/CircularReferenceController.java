@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.issues;
 
 import com.power.doc.entity.Pager;
 import com.power.doc.model.MyUser;

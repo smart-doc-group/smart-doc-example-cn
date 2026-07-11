@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.response;
 
 import com.power.common.model.CommonResult;
 import jakarta.annotation.Resource;

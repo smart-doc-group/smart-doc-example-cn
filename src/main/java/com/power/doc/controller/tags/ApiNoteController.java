@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.tags;
 
 import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.RequestParamConstant;

@@ -26,6 +26,15 @@ import java.util.Map;
 public class AppController {
 
 
+    @GetMapping("/params1")
+    public CommonResult batchDelete(@RequestParam("id") String ids) {
+        System.out.println("ids = " + ids);
+        Map<String, String> record = new HashMap<>();
+        record.put("a", "a");
+
+        return CommonResult.ok();
+    }
+
     /**
      * 批量删除BOM
      *

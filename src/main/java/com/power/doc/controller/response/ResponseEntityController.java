@@ -1,4 +1,4 @@
-package com.power.doc.controller;
+package com.power.doc.controller.response;
 
 import com.power.doc.model.User;
 import org.springframework.http.ResponseEntity;
