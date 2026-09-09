@@ -1,10 +1,10 @@
 package com.power.doc.torna;
 
-import com.ly.doc.builder.TornaBuilder;
-import com.ly.doc.builder.rpc.RpcTornaBuilder;
-import com.ly.doc.model.ApiConfig;
-import com.ly.doc.model.torna.TornaApi;
 import com.power.doc.utils.ApiConfigUtils;
+import io.github.smartdoc.builder.TornaBuilder;
+import io.github.smartdoc.builder.rpc.RpcTornaBuilder;
+import io.github.smartdoc.model.ApiConfig;
+import io.github.smartdoc.model.torna.TornaApi;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

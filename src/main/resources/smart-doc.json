@@ -5,7 +5,7 @@
   "allInOne": true,
   "coverOld": true,
   "createDebugPage": true,
-  "packageFilters": "com.power.doc.controller.html",
+  "packageFilters": "",
   "appKey": "20210318821914523354005504",
   "appToken": "a0333b2aa3a74c5fa91dad8c1958010a",
   "secret": "XnYjaDbK^stIJyQ5RZOCJ.VAEYOscB7C",
