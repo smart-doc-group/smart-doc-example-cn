@@ -1,12 +1,5 @@
 package com.power.doc.service;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.ly.doc.builder.HtmlApiDocBuilder;
-import com.ly.doc.constants.DocGlobalConstants;
-import com.ly.doc.model.*;
-import com.ly.doc.model.rpc.RpcApiDependency;
 import com.power.common.util.DateTimeUtil;
 import com.power.doc.constants.ApiVersion;
 import com.power.doc.constants.RequestParamConstant;
@@ -14,8 +7,14 @@ import com.power.doc.constants.RequestValueConstant;
 import com.power.doc.enums.ErrorCodeEnum;
 import com.power.doc.enums.GenderEnum;
 import com.power.doc.enums.OrderEnum;
-
+import io.github.smartdoc.builder.HtmlApiDocBuilder;
+import io.github.smartdoc.constants.DocGlobalConstants;
+import io.github.smartdoc.model.*;
+import io.github.smartdoc.model.rpc.RpcApiDependency;
 import org.junit.jupiter.api.Test;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Description:

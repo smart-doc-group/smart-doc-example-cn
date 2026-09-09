@@ -1,18 +1,14 @@
 package com.power.doc.utils;
 
 import com.google.gson.Gson;
-import com.ly.doc.model.ApiConfig;
-import com.ly.doc.model.ApiDataDictionary;
-import com.ly.doc.model.ApiErrorCodeDictionary;
-import com.ly.doc.model.SourceCodePath;
 import com.power.common.util.CollectionUtil;
+import io.github.smartdoc.model.ApiConfig;
+import io.github.smartdoc.model.ApiDataDictionary;
+import io.github.smartdoc.model.ApiErrorCodeDictionary;
+import io.github.smartdoc.model.SourceCodePath;
 import lombok.experimental.UtilityClass;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.Reader;
+import java.io.*;
 import java.util.List;
 import java.util.Objects;
 
